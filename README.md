@@ -4,7 +4,7 @@ A production-ready wallet-native authentication gateway that combines Sign-In wi
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](#build--testing)
 [![Test Coverage](https://img.shields.io/badge/coverage-79.5%25-green)](#test-coverage)
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 
 ## Overview
 
@@ -379,7 +379,13 @@ Contributions welcome! Please:
 
 ## License
 
-MIT - See LICENSE file for details
+Apache License 2.0 - See [LICENSE](LICENSE) file for details.
+
+This license includes:
+- ✅ Patent grant for your contributions
+- ✅ Patent retaliation clause (protects you)
+- ✅ Trademark protection
+- ✅ Freedom to use commercially
 
 ## Support
 
