@@ -37,3 +37,6 @@ build/
 # Misc
 vendor/
 *.log
+
+# Product directory
+product/
