@@ -1,0 +1,310 @@
+openapi: 3.0.0
+info:
+  title: Gatekeeper Wallet-Native Authentication API
+  description: A gateway for wallet-native authentication using Sign-In with Ethereum (SIWE) and blockchain-based access control
+  version: 1.0.0
+  contact:
+    name: Gatekeeper Team
+  license:
+    name: MIT
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+  - url: https://api.example.com
+    description: Production server
+
+paths:
+  /auth/siwe/nonce:
+    get:
+      summary: Get a unique nonce for SIWE signature
+      description: |
+        Returns a cryptographically secure nonce that must be included in the SIWE message.
+        Each nonce is single-use and expires after 10 minutes.
+      operationId: getNonce
+      tags:
+        - Authentication
+      responses:
+        '200':
+          description: Successfully generated nonce
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NonceResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /auth/siwe/verify:
+    post:
+      summary: Verify SIWE signature and issue JWT token
+      description: |
+        Verifies a Sign-In with Ethereum message and its signature.
+        On success, returns a JWT token that can be used for authenticated requests.
+        The nonce in the message must match a recently issued nonce and will be invalidated after verification.
+      operationId: verifySIWE
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifySIWERequest'
+      responses:
+        '200':
+          description: Successfully verified signature and issued token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: Invalid request or verification failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized - nonce not found or expired
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/data:
+    get:
+      summary: Access protected data
+      description: |
+        Example protected endpoint that demonstrates policy evaluation.
+        Requires valid JWT token in Authorization header.
+        Policy requirements depend on configuration.
+      operationId: getProtectedData
+      tags:
+        - Protected Resources
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved protected data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: object
+        '401':
+          description: Unauthorized - missing or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden - policy evaluation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/transfer:
+    post:
+      summary: Execute a protected transaction
+      description: |
+        Example protected endpoint for executing transactions.
+        Requires valid JWT token and must satisfy access control policies.
+        Policies may require specific scopes, wallet addresses, or blockchain holdings.
+      operationId: executeTransfer
+      tags:
+        - Protected Resources
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                to:
+                  type: string
+                  example: "0xabcdef1234567890abcdef1234567890abcdef12"
+                  description: Recipient address
+                amount:
+                  type: string
+                  example: "1000000000000000000"
+                  description: Amount in wei
+      responses:
+        '200':
+          description: Transfer successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  txHash:
+                    type: string
+                  status:
+                    type: string
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Unauthorized - missing or invalid token
+        '403':
+          description: Forbidden - policy evaluation failed
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    NonceResponse:
+      type: object
+      required:
+        - nonce
+      properties:
+        nonce:
+          type: string
+          example: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+          description: Cryptographically secure nonce (128-bit entropy)
+        expiresIn:
+          type: integer
+          example: 600
+          description: Time in seconds until nonce expires (typically 10 minutes)
+
+    VerifySIWERequest:
+      type: object
+      required:
+        - message
+        - signature
+      properties:
+        message:
+          type: string
+          description: |
+            The Sign-In with Ethereum message signed by the user.
+            Must be in valid EIP-4361 format and include the nonce from /auth/siwe/nonce.
+            Example format:
+            ```
+            example.com wants you to sign in with your Ethereum account:
+            0x1234567890abcdef1234567890abcdef12345678
+
+            I accept the Terms of Service: https://example.com/tos
+
+            URI: https://example.com
+            Version: 1
+            Chain ID: 1
+            Nonce: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+            Issued At: 2024-01-01T00:00:00Z
+            Expiration Time: 2024-01-01T01:00:00Z
+            ```
+        signature:
+          type: string
+          example: "0x1234567890abcdef...abcdef"
+          description: |
+            EIP-191 signature of the message.
+            Signed by the user's Ethereum private key corresponding to the address in the message.
+
+    TokenResponse:
+      type: object
+      required:
+        - token
+        - expiresIn
+      properties:
+        token:
+          type: string
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          description: |
+            JWT token signed with HS256.
+            Contains user address and scopes.
+            Use in Authorization header: "Bearer {token}"
+        expiresIn:
+          type: integer
+          example: 3600
+          description: Token expiration time in seconds (typically 1 hour)
+        address:
+          type: string
+          example: "0x1234567890abcdef1234567890abcdef12345678"
+          description: Wallet address of authenticated user
+
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: "Invalid nonce"
+          description: Human-readable error message
+        code:
+          type: string
+          example: "INVALID_NONCE"
+          description: Machine-readable error code
+        details:
+          type: object
+          description: Additional error details
+          additionalProperties: true
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        JWT token obtained from /auth/siwe/verify.
+        Include in request header: Authorization: Bearer {token}
+
+tags:
+  - name: Authentication
+    description: Wallet-native authentication endpoints using Sign-In with Ethereum
+  - name: Protected Resources
+    description: Example endpoints protected by access control policies
+
+x-examples:
+  GetNonceExample:
+    description: Get a nonce for signing in
+    value:
+      path: /auth/siwe/nonce
+      method: GET
+      response:
+        nonce: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+        expiresIn: 600
+
+  VerifySIWEExample:
+    description: Verify SIWE signature and get JWT token
+    value:
+      path: /auth/siwe/verify
+      method: POST
+      request:
+        message: "example.com wants you to sign in with your Ethereum account:..."
+        signature: "0x1234567890abcdef..."
+      response:
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        expiresIn: 3600
+        address: "0x1234567890abcdef1234567890abcdef12345678"
+
+  ProtectedResourceExample:
+    description: Access protected resource with JWT token
+    value:
+      path: /api/data
+      method: GET
+      headers:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+      response:
+        message: "Access granted"
+        data:
+          userId: "0x1234567890abcdef1234567890abcdef12345678"
