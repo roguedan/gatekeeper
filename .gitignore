@@ -1,0 +1,39 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+bin/
+
+# Testing
+coverage.txt
+coverage.html
+*.out
+
+# Node
+node_modules/
+dist/
+build/
+
+# Misc
+vendor/
+*.log
