@@ -3,38 +3,38 @@
 ## Phase 1: Project Setup & Core Authentication
 
 ### Project Structure
-- [ ] Initialize Go module
-- [ ] Create standard Go project layout (cmd, internal, api, web)
-- [ ] Set up .gitignore for Go and Node
-- [ ] Create Makefile with common tasks
-- [ ] Set up environment variable management
+- [x] Initialize Go module
+- [x] Create standard Go project layout (cmd, internal, api, web)
+- [x] Set up .gitignore for Go and Node
+- [x] Create Makefile with common tasks
+- [x] Set up environment variable management
 
 ### Database Setup
-- [ ] Create PostgreSQL schema
-- [ ] Set up golang-migrate for migrations
-- [ ] Create migration: 0001_init_schema.sql
+- [x] Create PostgreSQL schema
+- [x] Set up golang-migrate for migrations
+- [x] Create migration: 0001_init_schema.sql
   - Users table (for JWT subjects)
   - API keys table
   - Nonces table (with TTL)
-- [ ] Implement database connection with connection pooling
+- [x] Implement database connection with connection pooling
 - [ ] Add health check for database connectivity
 
 ### Configuration
-- [ ] Create config package with environment loading
-- [ ] Add config validation on startup
+- [x] Create config package with environment loading
+- [x] Add config validation on startup
 - [ ] Support .env file for development
 - [ ] Document all environment variables in README
 
 ### Logging
-- [ ] Set up structured logging with zap
-- [ ] Configure log levels (debug, info, warn, error)
+- [x] Set up structured logging with zap
+- [x] Configure log levels (debug, info, warn, error)
 - [ ] Add request ID middleware for traceability
 - [ ] Implement logging middleware for HTTP requests
 
 ### SIWE Authentication - Backend
 - [ ] Install spruceid/siwe-go dependency
-- [ ] Create auth/siwe.go with SIWEService
-- [ ] Implement GenerateNonce() function
+- [x] Create auth/siwe.go with SIWEService
+- [x] Implement GenerateNonce() function
   - Generate cryptographically secure nonce
   - Store nonce in database/cache with 5min TTL
 - [ ] Implement VerifyMessage(message, signature) function
@@ -44,69 +44,71 @@
   - Verify signature cryptographically
   - Validate expiration time
   - Consume nonce (prevent replay)
-- [ ] Create nonce cleanup background job
+- [x] Create nonce cleanup background job
 
 ### JWT Token Management
-- [ ] Install golang-jwt/jwt dependency
-- [ ] Create auth/jwt.go with JWT functions
-- [ ] Implement GenerateJWT(address, scopes, expiry)
+- [x] Install golang-jwt/jwt dependency
+- [x] Create auth/jwt.go with JWT functions
+- [x] Implement GenerateJWT(address, scopes, expiry)
   - Create claims with wallet address as subject
   - Include scopes array
   - Add standard claims (iat, exp, nbf)
   - Sign with HMAC SHA-256
-- [ ] Implement VerifyJWT(token) function
+- [x] Implement VerifyJWT(token) function
   - Parse and validate token
   - Check expiration
   - Return claims
-- [ ] Create JWT middleware for protected routes
+- [x] Create JWT middleware for protected routes
   - Extract Bearer token from Authorization header
   - Verify and parse JWT
   - Add claims to request context
   - Handle errors with 401 responses
 
 ### HTTP Handlers - Authentication
-- [ ] Create http/handlers/auth.go
-- [ ] Implement GET /auth/siwe/nonce handler
+- [x] Create http/handlers/auth.go
+- [x] Implement GET /auth/siwe/nonce handler
   - Generate nonce
   - Return JSON: {"nonce": "..."}
-- [ ] Implement POST /auth/siwe/verify handler
+- [x] Implement POST /auth/siwe/verify handler
   - Accept: {"message": "...", "signature": "..."}
   - Verify SIWE signature
   - Generate JWT on success
   - Return: {"token": "...", "address": "...", "expiresAt": "..."}
-- [ ] Add request validation
-- [ ] Add error handling with proper status codes
+- [x] Add request validation
+- [x] Add error handling with proper status codes
 
 ### Testing - Phase 1
-- [ ] Write unit tests for SIWE verification
+- [x] Write unit tests for SIWE verification
   - Valid signature passes
   - Invalid signature fails
   - Expired message fails
   - Nonce reuse fails
-- [ ] Write unit tests for JWT generation/verification
+- [x] Write unit tests for JWT generation/verification
 - [ ] Write integration tests for auth endpoints
-- [ ] Add table-driven tests for edge cases
-- [ ] Achieve >80% coverage for auth package
+- [x] Add table-driven tests for edge cases
+- [x] Achieve >80% coverage for auth package
 
 ---
 
 ## Phase 2: Policy Engine & Token-Gating
 
 ### Policy Engine Core
-- [ ] Create policy/engine.go
-- [ ] Define policy structures
+- [x] Create policy/engine.go (types.go + manager.go + loader.go)
+- [x] Define policy structures
   - Rule interface
-  - RoutePolicy struct
+  - Policy struct
   - RuleType enum (has_scope, in_allowlist, erc20_min_balance, erc721_owner)
-- [ ] Implement Evaluate(policy, address, scopes) function
+- [x] Implement Evaluate(policy, address, claims) function
   - Support AND logic
   - Support OR logic
-  - Return boolean result
-- [ ] Create policy/rules.go with rule implementations
-  - hasScope(scopes, required)
-  - inAllowlist(address, addresses)
-- [ ] Load policies from JSON configuration file
-- [ ] Add policy validation on startup
+  - Return boolean result with proper error handling
+- [x] Create policy/rules.go with rule implementations
+  - HasScopeRule (fully implemented)
+  - InAllowlistRule (fully implemented)
+  - ERC20MinBalanceRule (structure defined, RPC TBD)
+  - ERC721OwnerRule (structure defined, RPC TBD)
+- [x] Load policies from JSON configuration file
+- [x] Add policy validation on startup (PolicyLoader)
 
 ### Blockchain Integration
 - [ ] Create chain/ethclient.go
