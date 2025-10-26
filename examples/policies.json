@@ -1,0 +1,225 @@
+{
+  "policies": [
+    {
+      "path": "/api/vip",
+      "method": "GET",
+      "logic": "AND",
+      "description": "VIP endpoint requiring authenticated user with USDC balance",
+      "rules": [
+        {
+          "type": "has_scope",
+          "params": {
+            "scope": "authenticated"
+          }
+        },
+        {
+          "type": "erc20_min_balance",
+          "params": {
+            "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "chainId": 1,
+            "minimum": "1000000000"
+          },
+          "description": "Requires 1000 USDC (6 decimals = 1000 * 1e6)"
+        }
+      ]
+    },
+    {
+      "path": "/api/premium",
+      "method": "GET",
+      "logic": "AND",
+      "description": "Premium endpoint requiring DAI balance",
+      "rules": [
+        {
+          "type": "has_scope",
+          "params": {
+            "scope": "authenticated"
+          }
+        },
+        {
+          "type": "erc20_min_balance",
+          "params": {
+            "token": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "chainId": 1,
+            "minimum": "10000000000000000000"
+          },
+          "description": "Requires 10 DAI (18 decimals = 10 * 1e18)"
+        }
+      ]
+    },
+    {
+      "path": "/api/nft-holders",
+      "method": "GET",
+      "logic": "OR",
+      "description": "NFT holders endpoint - requires owning either BAYC or MAYC",
+      "rules": [
+        {
+          "type": "erc721_owner",
+          "params": {
+            "token": "0xBC4CA0EdA7647A8aB7C2061c2E9cDAFCAc3c7f70",
+            "chainId": 1,
+            "tokenId": "1"
+          },
+          "description": "BAYC (Bored Ape Yacht Club) token #1"
+        },
+        {
+          "type": "erc721_owner",
+          "params": {
+            "token": "0x60E4d786d1ad0075D4f8295a7cC202Aa3d52e6E7",
+            "chainId": 1,
+            "tokenId": "1"
+          },
+          "description": "MAYC (Mutant Ape Yacht Club) token #1"
+        }
+      ]
+    },
+    {
+      "path": "/api/crypto-punks",
+      "method": "GET",
+      "logic": "AND",
+      "description": "CryptoPunks exclusive endpoint",
+      "rules": [
+        {
+          "type": "erc721_owner",
+          "params": {
+            "token": "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB",
+            "chainId": 1,
+            "tokenId": "42"
+          },
+          "description": "CryptoPunk #42"
+        }
+      ]
+    },
+    {
+      "path": "/api/whale",
+      "method": "POST",
+      "logic": "OR",
+      "description": "Whale endpoint - requires large ETH balance via WETH",
+      "rules": [
+        {
+          "type": "erc20_min_balance",
+          "params": {
+            "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+            "chainId": 1,
+            "minimum": "10000000000000000000"
+          },
+          "description": "Requires 10 WETH (18 decimals)"
+        },
+        {
+          "type": "in_allowlist",
+          "params": {
+            "addresses": [
+              "0x1234567890123456789012345678901234567890",
+              "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"
+            ]
+          },
+          "description": "Or be in the whale allowlist"
+        }
+      ]
+    },
+    {
+      "path": "/api/polygon-holders",
+      "method": "GET",
+      "logic": "AND",
+      "description": "Multi-chain example - Polygon USDC holders",
+      "rules": [
+        {
+          "type": "erc20_min_balance",
+          "params": {
+            "token": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "chainId": 137,
+            "minimum": "100000000"
+          },
+          "description": "Requires 100 USDC on Polygon (6 decimals)"
+        }
+      ]
+    },
+    {
+      "path": "/api/arbitrum-nft",
+      "method": "GET",
+      "logic": "AND",
+      "description": "Multi-chain example - Arbitrum NFT ownership",
+      "rules": [
+        {
+          "type": "erc721_owner",
+          "params": {
+            "token": "0x1234567890123456789012345678901234567890",
+            "chainId": 42161,
+            "tokenId": "123"
+          },
+          "description": "Example NFT on Arbitrum"
+        }
+      ]
+    },
+    {
+      "path": "/api/governance",
+      "method": "POST",
+      "logic": "AND",
+      "description": "Governance endpoint requiring UNI tokens and scope",
+      "rules": [
+        {
+          "type": "has_scope",
+          "params": {
+            "scope": "governance"
+          }
+        },
+        {
+          "type": "erc20_min_balance",
+          "params": {
+            "token": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+            "chainId": 1,
+            "minimum": "100000000000000000000"
+          },
+          "description": "Requires 100 UNI tokens (18 decimals)"
+        }
+      ]
+    },
+    {
+      "path": "/api/testnet-demo",
+      "method": "GET",
+      "logic": "AND",
+      "description": "Testnet example for development/testing",
+      "rules": [
+        {
+          "type": "erc20_min_balance",
+          "params": {
+            "token": "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238",
+            "chainId": 11155111,
+            "minimum": "1000000000000000000"
+          },
+          "description": "Sepolia USDC test token (1 token, 18 decimals for testing)"
+        }
+      ]
+    },
+    {
+      "path": "/api/complex-policy",
+      "method": "POST",
+      "logic": "AND",
+      "description": "Complex policy combining multiple rule types",
+      "rules": [
+        {
+          "type": "has_scope",
+          "params": {
+            "scope": "verified"
+          }
+        },
+        {
+          "type": "in_allowlist",
+          "params": {
+            "addresses": [
+              "0x1111111111111111111111111111111111111111"
+            ]
+          }
+        },
+        {
+          "type": "erc20_min_balance",
+          "params": {
+            "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "chainId": 1,
+            "minimum": "500000000"
+          },
+          "description": "500 USDC minimum"
+        }
+      ]
+    }
+  ]
+}

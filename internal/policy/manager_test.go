@@ -9,7 +9,7 @@ import (
 
 // TestManager_NewManager creates a policy manager
 func TestManager_NewManager(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 
 	require.NotNil(t, manager)
 	assert.NotNil(t, manager.policies)
@@ -17,7 +17,7 @@ func TestManager_NewManager(t *testing.T) {
 
 // TestManager_AddPolicy adds a policy to the manager
 func TestManager_AddPolicy(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule := NewHasScopeRule("auth")
 	policy := NewPolicy("GET", "/api/data", "AND", []Rule{rule})
 
@@ -28,7 +28,7 @@ func TestManager_AddPolicy(t *testing.T) {
 
 // TestManager_AddMultiplePolicies adds multiple policies
 func TestManager_AddMultiplePolicies(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule := NewHasScopeRule("auth")
 
 	policy1 := NewPolicy("GET", "/api/data", "AND", []Rule{rule})
@@ -44,7 +44,7 @@ func TestManager_AddMultiplePolicies(t *testing.T) {
 
 // TestManager_GetPoliciesForRoute returns matching policies
 func TestManager_GetPoliciesForRoute(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule := NewHasScopeRule("auth")
 
 	policy := NewPolicy("GET", "/api/data", "AND", []Rule{rule})
@@ -58,7 +58,7 @@ func TestManager_GetPoliciesForRoute(t *testing.T) {
 
 // TestManager_GetPoliciesForRoute_NoMatch returns empty for no match
 func TestManager_GetPoliciesForRoute_NoMatch(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule := NewHasScopeRule("auth")
 
 	policy := NewPolicy("GET", "/api/data", "AND", []Rule{rule})
@@ -71,7 +71,7 @@ func TestManager_GetPoliciesForRoute_NoMatch(t *testing.T) {
 
 // TestManager_GetPoliciesForRoute_DifferentMethod returns empty for different method
 func TestManager_GetPoliciesForRoute_DifferentMethod(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule := NewHasScopeRule("auth")
 
 	policy := NewPolicy("GET", "/api/data", "AND", []Rule{rule})
@@ -84,7 +84,7 @@ func TestManager_GetPoliciesForRoute_DifferentMethod(t *testing.T) {
 
 // TestManager_GetPoliciesForRoute_MultipleMatches returns all matching policies
 func TestManager_GetPoliciesForRoute_MultipleMatches(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule1 := NewHasScopeRule("auth")
 	rule2 := NewHasScopeRule("premium")
 
@@ -103,7 +103,7 @@ func TestManager_GetPoliciesForRoute_MultipleMatches(t *testing.T) {
 
 // TestManager_Clear removes all policies
 func TestManager_Clear(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule := NewHasScopeRule("auth")
 
 	manager.AddPolicy(NewPolicy("GET", "/api/data", "AND", []Rule{rule}))
@@ -118,7 +118,7 @@ func TestManager_Clear(t *testing.T) {
 
 // TestManager_HasPolicy checks if policy exists for route
 func TestManager_HasPolicy(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule := NewHasScopeRule("auth")
 
 	policy := NewPolicy("GET", "/api/data", "AND", []Rule{rule})
@@ -140,7 +140,7 @@ func TestManager_LoadFromJSON(t *testing.T) {
 		}
 	]`
 
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	err := manager.LoadFromJSON([]byte(configJSON))
 
 	require.NoError(t, err)
@@ -152,7 +152,7 @@ func TestManager_LoadFromJSON(t *testing.T) {
 func TestManager_LoadFromJSON_InvalidConfig(t *testing.T) {
 	configJSON := `invalid`
 
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	err := manager.LoadFromJSON([]byte(configJSON))
 
 	assert.Error(t, err)
@@ -162,7 +162,7 @@ func TestManager_LoadFromJSON_InvalidConfig(t *testing.T) {
 func TestManager_LoadFromJSON_InvalidPolicy(t *testing.T) {
 	configJSON := `[{"path": "/api"}]`
 
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	err := manager.LoadFromJSON([]byte(configJSON))
 
 	assert.Error(t, err)
@@ -170,7 +170,7 @@ func TestManager_LoadFromJSON_InvalidPolicy(t *testing.T) {
 
 // TestManager_GetPoliciesCount returns policy count
 func TestManager_GetPoliciesCount(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule := NewHasScopeRule("auth")
 
 	assert.Equal(t, 0, manager.GetPoliciesCount())
@@ -184,7 +184,7 @@ func TestManager_GetPoliciesCount(t *testing.T) {
 
 // TestManager_GetAllPolicies returns all policies
 func TestManager_GetAllPolicies(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule := NewHasScopeRule("auth")
 
 	policy1 := NewPolicy("GET", "/api/data", "AND", []Rule{rule})
@@ -200,7 +200,7 @@ func TestManager_GetAllPolicies(t *testing.T) {
 
 // TestManager_ReloadPolicies replaces all policies
 func TestManager_ReloadPolicies(t *testing.T) {
-	manager := NewPolicyManager()
+	manager := NewPolicyManager(nil, nil)
 	rule1 := NewHasScopeRule("auth")
 
 	manager.AddPolicy(NewPolicy("GET", "/api/data", "AND", []Rule{rule1}))

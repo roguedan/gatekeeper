@@ -2,6 +2,8 @@ package policy
 
 import (
 	"sync"
+
+	"go.uber.org/zap"
 )
 
 // PolicyManager manages a collection of policies and provides route matching
@@ -9,21 +11,58 @@ type PolicyManager struct {
 	policies []*Policy
 	mu       sync.RWMutex
 	loader   *PolicyLoader
+	provider BlockchainProvider // For blockchain rules
+	cache    CacheProvider      // For caching blockchain results
+	logger   *zap.Logger
 }
 
 // NewPolicyManager creates a new policy manager
-func NewPolicyManager() *PolicyManager {
+// provider and cache can be nil if blockchain rules are not used
+func NewPolicyManager(provider BlockchainProvider, cache CacheProvider) *PolicyManager {
+	logger, _ := zap.NewProduction()
 	return &PolicyManager{
 		policies: make([]*Policy, 0),
 		loader:   NewPolicyLoader(),
+		provider: provider,
+		cache:    cache,
+		logger:   logger,
 	}
 }
 
 // AddPolicy adds a policy to the manager
+// Automatically wires up blockchain rules with provider and cache
 func (pm *PolicyManager) AddPolicy(policy *Policy) {
 	pm.mu.Lock()
 	defer pm.mu.Unlock()
+
+	// Wire up blockchain rules with provider and cache
+	pm.wireBlockchainRules(policy)
+
 	pm.policies = append(pm.policies, policy)
+}
+
+// wireBlockchainRules sets provider and cache on blockchain rules
+func (pm *PolicyManager) wireBlockchainRules(policy *Policy) {
+	if policy == nil || policy.Rules == nil {
+		return
+	}
+
+	for _, rule := range policy.Rules {
+		switch r := rule.(type) {
+		case *ERC20MinBalanceRule:
+			r.SetProvider(pm.provider)
+			r.SetCache(pm.cache)
+			if pm.logger != nil {
+				r.SetLogger(pm.logger)
+			}
+		case *ERC721OwnerRule:
+			r.SetProvider(pm.provider)
+			r.SetCache(pm.cache)
+			if pm.logger != nil {
+				r.SetLogger(pm.logger)
+			}
+		}
+	}
 }
 
 // GetPoliciesForRoute returns all policies matching the given route and method
@@ -61,6 +100,12 @@ func (pm *PolicyManager) LoadFromJSON(data []byte) error {
 
 	pm.mu.Lock()
 	defer pm.mu.Unlock()
+
+	// Wire up blockchain rules for all loaded policies
+	for _, policy := range policies {
+		pm.wireBlockchainRules(policy)
+	}
+
 	pm.policies = policies
 	return nil
 }
@@ -87,6 +132,16 @@ func (pm *PolicyManager) ReloadPolicies(policies []*Policy) {
 	pm.mu.Lock()
 	defer pm.mu.Unlock()
 
+	// Wire up blockchain rules for all policies
+	for _, policy := range policies {
+		pm.wireBlockchainRules(policy)
+	}
+
 	pm.policies = make([]*Policy, len(policies))
 	copy(pm.policies, policies)
+}
+
+// SetLogger sets the logger for the policy manager
+func (pm *PolicyManager) SetLogger(logger *zap.Logger) {
+	pm.logger = logger
 }

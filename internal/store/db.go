@@ -39,3 +39,8 @@ func Connect(ctx context.Context, databaseURL string) (*DB, error) {
 func (d *DB) Close() error {
 	return d.DB.Close()
 }
+
+// RunMigrations runs all database migrations
+func (d *DB) RunMigrations() error {
+	return Migrate(context.Background(), d.DB)
+}

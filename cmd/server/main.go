@@ -9,12 +9,14 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/gorilla/mux"
 	"github.com/yourusername/gatekeeper/internal/auth"
 	"github.com/yourusername/gatekeeper/internal/chain"
 	"github.com/yourusername/gatekeeper/internal/config"
 	httpserver "github.com/yourusername/gatekeeper/internal/http"
 	"github.com/yourusername/gatekeeper/internal/log"
 	"github.com/yourusername/gatekeeper/internal/policy"
+	"github.com/yourusername/gatekeeper/internal/store"
 )
 
 func main() {
@@ -34,6 +36,20 @@ func main() {
 	defer logger.Close()
 
 	logger.Info(fmt.Sprintf("Starting Gatekeeper (port %s)", cfg.Port))
+
+	// Initialize database connection
+	db, err := store.Connect(context.Background(), cfg.DatabaseURL)
+	if err != nil {
+		logger.Error(fmt.Sprintf("failed to connect to database: %v", err))
+		os.Exit(1)
+	}
+	defer db.Close()
+
+	logger.Info("Database connected successfully")
+
+	// Initialize repositories
+	apiKeyRepo := store.NewAPIKeyRepository(db)
+	userRepo := store.NewUserRepository(db)
 
 	// Initialize SIWE service
 	siweService := auth.NewSIWEService(cfg.NonceTTL)
@@ -58,13 +74,19 @@ func main() {
 	cache := chain.NewCache(5 * time.Minute)
 
 	// Initialize policy manager
-	policyManager := policy.NewPolicyManager()
+	policyManager := policy.NewPolicyManager(provider, cache)
 
-	// Create HTTP server
-	mux := http.NewServeMux()
+	// Initialize API Key handlers
+	apiKeyHandler := httpserver.NewAPIKeyHandler(apiKeyRepo, userRepo, logger)
+
+	// Initialize API Key middleware
+	apiKeyMiddleware := httpserver.NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+
+	// Create HTTP router
+	router := mux.NewRouter()
 
 	// GET /auth/siwe/nonce - Get a nonce for signing
-	mux.HandleFunc("GET /auth/siwe/nonce", func(w http.ResponseWriter, r *http.Request) {
+	router.HandleFunc("/auth/siwe/nonce", func(w http.ResponseWriter, r *http.Request) {
 		nonce, err := siweService.GenerateNonce(r.Context())
 		if err != nil {
 			logger.Error(fmt.Sprintf("failed to generate nonce: %v", err))
@@ -75,10 +97,10 @@ func main() {
 		expiresIn := int(cfg.NonceTTL.Seconds())
 		w.Header().Set("Content-Type", "application/json")
 		fmt.Fprintf(w, `{"nonce":"%s","expiresIn":%d}`, nonce, expiresIn)
-	})
+	}).Methods("GET")
 
 	// POST /auth/siwe/verify - Verify SIWE signature and issue JWT
-	mux.HandleFunc("POST /auth/siwe/verify", func(w http.ResponseWriter, r *http.Request) {
+	router.HandleFunc("/auth/siwe/verify", func(w http.ResponseWriter, r *http.Request) {
 		var req struct {
 			Message   string `json:"message"`
 			Signature string `json:"signature"`
@@ -114,38 +136,10 @@ func main() {
 		w.Header().Set("Content-Type", "application/json")
 		fmt.Fprintf(w, `{"token":"%s","expiresIn":%d,"address":"%s"}`,
 			token, expiresInSeconds, address)
-	})
+	}).Methods("POST")
 
-	// JWT Middleware for protected routes
-	jwtMiddleware := httpserver.JWTMiddleware(jwtService)
-
-	// Policy Middleware for access control
-	policyMiddleware := httpserver.NewPolicyMiddleware(policyManager, logger)
-	if provider != nil {
-		policyMiddleware.SetProvider(provider)
-		policyMiddleware.SetCache(cache)
-	}
-
-	// GET /api/data - Protected endpoint example
-	// Create the inner handler first
-	dataHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		claims := httpserver.ClaimsFromContext(r)
-		if claims == nil {
-			http.Error(w, "No claims found", http.StatusUnauthorized)
-			return
-		}
-		w.Header().Set("Content-Type", "application/json")
-		fmt.Fprintf(w, `{"message":"Access granted","address":"%s"}`, claims.Address)
-	})
-
-	// Apply middlewares from innermost to outermost: policy first, then JWT
-	protectedHandler := policyMiddleware.Middleware()(dataHandler)
-	protectedHandler = jwtMiddleware(protectedHandler)
-
-	mux.Handle("GET /api/data", protectedHandler)
-
-	// Health check endpoint
-	mux.HandleFunc("GET /health", func(w http.ResponseWriter, r *http.Request) {
+	// Health check endpoint (no authentication required)
+	router.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		status := "ok"
 		statusCode := http.StatusOK
 
@@ -160,13 +154,48 @@ func main() {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(statusCode)
 		fmt.Fprintf(w, `{"status":"%s","port":"%s"}`, status, cfg.Port)
+	}).Methods("GET")
+
+	// JWT Middleware for protected routes
+	jwtMiddleware := httpserver.JWTMiddleware(jwtService)
+
+	// Policy Middleware for access control
+	policyMiddleware := httpserver.NewPolicyMiddleware(policyManager, logger)
+	if provider != nil {
+		policyMiddleware.SetProvider(provider)
+		policyMiddleware.SetCache(cache)
+	}
+
+	// Create a subrouter for protected routes with authentication
+	apiRouter := router.PathPrefix("/api").Subrouter()
+
+	// Apply authentication middleware chain to /api routes
+	// Order: API Key first (optional), then JWT (fallback if no API key)
+	apiRouter.Use(mux.MiddlewareFunc(apiKeyMiddleware.Middleware()))
+	apiRouter.Use(mux.MiddlewareFunc(jwtMiddleware))
+
+	// API Key management endpoints (require authentication)
+	apiRouter.HandleFunc("/keys", apiKeyHandler.CreateAPIKey).Methods("POST")
+	apiRouter.HandleFunc("/keys", apiKeyHandler.ListAPIKeys).Methods("GET")
+	apiRouter.HandleFunc("/keys/{id}", apiKeyHandler.RevokeAPIKey).Methods("DELETE")
+
+	// Protected data endpoint with policy enforcement
+	dataHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		claims := httpserver.ClaimsFromContext(r)
+		if claims == nil {
+			http.Error(w, "No claims found", http.StatusUnauthorized)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		fmt.Fprintf(w, `{"message":"Access granted","address":"%s"}`, claims.Address)
 	})
+	apiRouter.Handle("/data", policyMiddleware.Middleware()(dataHandler)).Methods("GET")
 
 	// Create HTTP server
 	portStr := cfg.Port
 	server := &http.Server{
 		Addr:         fmt.Sprintf(":%s", portStr),
-		Handler:      mux,
+		Handler:      router,
 		ReadTimeout:  15 * time.Second,
 		WriteTimeout: 15 * time.Second,
 		IdleTimeout:  60 * time.Second,
