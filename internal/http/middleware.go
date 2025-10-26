@@ -8,10 +8,10 @@ import (
 	"github.com/yourusername/gatekeeper/internal/auth"
 )
 
-// claimsContextKey is the key used to store JWT claims in the request context
+// ClaimsContextKey is the key used to store JWT claims in the request context
 type contextKey string
 
-const claimsContextKey contextKey = "jwt_claims"
+const ClaimsContextKey contextKey = "jwt_claims"
 
 // Middleware is a function that wraps an HTTP handler
 type Middleware func(http.Handler) http.Handler
@@ -44,7 +44,7 @@ func JWTMiddleware(jwtService *auth.JWTService) Middleware {
 			}
 
 			// Add claims to request context
-			ctx := context.WithValue(r.Context(), claimsContextKey, claims)
+			ctx := context.WithValue(r.Context(), ClaimsContextKey, claims)
 			r = r.WithContext(ctx)
 
 			// Call next handler
@@ -55,7 +55,7 @@ func JWTMiddleware(jwtService *auth.JWTService) Middleware {
 
 // ClaimsFromContext extracts JWT claims from request context
 func ClaimsFromContext(r *http.Request) *auth.Claims {
-	claims, ok := r.Context().Value(claimsContextKey).(*auth.Claims)
+	claims, ok := r.Context().Value(ClaimsContextKey).(*auth.Claims)
 	if !ok {
 		return nil
 	}

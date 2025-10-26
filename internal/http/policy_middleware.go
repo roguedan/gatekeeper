@@ -29,7 +29,7 @@ func (pm *PolicyMiddleware) Middleware() func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			// Get claims from context (set by JWTMiddleware)
-			claims, ok := r.Context().Value("claims").(*auth.Claims)
+			claims, ok := r.Context().Value(ClaimsContextKey).(*auth.Claims)
 			if !ok || claims == nil {
 				// No claims in context, request already failed auth
 				pm.logger.WithFields(
