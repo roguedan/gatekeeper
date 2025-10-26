@@ -3,8 +3,11 @@ package policy
 import (
 	"context"
 	"math/big"
+	"strconv"
+	"strings"
 
 	"github.com/yourusername/gatekeeper/internal/auth"
+	"github.com/yourusername/gatekeeper/internal/chain"
 )
 
 // RuleType represents the type of policy rule
@@ -107,6 +110,9 @@ type ERC20MinBalanceRule struct {
 	ContractAddress string
 	MinimumBalance  *big.Int
 	ChainID         uint64
+	// cache and provider will be set by manager
+	cache    CacheProvider
+	provider BlockchainProvider
 }
 
 // NewERC20MinBalanceRule creates a new ERC20 balance rule
@@ -123,10 +129,68 @@ func (r *ERC20MinBalanceRule) Type() RuleType {
 	return ERC20MinBalanceRuleType
 }
 
-// Evaluate checks ERC20 balance (implemented later with blockchain integration)
+// Evaluate checks ERC20 balance (requires provider and cache to be set)
 func (r *ERC20MinBalanceRule) Evaluate(ctx context.Context, address string, claims *auth.Claims) (bool, error) {
-	// TODO: Implement with blockchain integration
-	return false, nil
+	// If no provider configured, evaluate to false (fail-closed)
+	if r.provider == nil {
+		return false, nil
+	}
+
+	// Generate cache key
+	chainIDStr := strconv.FormatUint(r.ChainID, 10)
+	cacheKey := chain.CacheKey("erc20_balance", chainIDStr, r.ContractAddress, address)
+
+	// Try to get from cache first
+	if r.cache != nil {
+		if cachedResult, ok := r.cache.Get(cacheKey); ok {
+			if hasBalance, ok := cachedResult.(bool); ok {
+				return hasBalance, nil
+			}
+		}
+	}
+
+	// Not in cache, call provider
+	calldata := encodeERC20BalanceOfCall(r.ContractAddress, address)
+	response, err := r.provider.Call(ctx, "eth_call", []interface{}{
+		map[string]interface{}{"to": r.ContractAddress, "data": calldata},
+		"latest",
+	})
+	if err != nil {
+		// Fail closed on RPC error
+		return false, nil
+	}
+
+	// Parse JSON-RPC response
+	resultHex, err := parseJSONRPCResponse(response)
+	if err != nil {
+		return false, nil
+	}
+
+	// Decode the balance from hex
+	balance, err := decodeUint256(resultHex)
+	if err != nil {
+		return false, nil
+	}
+
+	// Compare with minimum balance
+	hasBalance := balance.Cmp(r.MinimumBalance) >= 0
+
+	// Cache the result
+	if r.cache != nil {
+		r.cache.Set(cacheKey, hasBalance)
+	}
+
+	return hasBalance, nil
+}
+
+// SetProvider sets the blockchain provider for RPC calls
+func (r *ERC20MinBalanceRule) SetProvider(provider BlockchainProvider) {
+	r.provider = provider
+}
+
+// SetCache sets the cache for storing results
+func (r *ERC20MinBalanceRule) SetCache(cache CacheProvider) {
+	r.cache = cache
 }
 
 // ERC721OwnerRule checks if user owns a specific NFT
@@ -134,6 +198,9 @@ type ERC721OwnerRule struct {
 	ContractAddress string
 	TokenID         *big.Int
 	ChainID         uint64
+	// cache and provider will be set by manager
+	cache    CacheProvider
+	provider BlockchainProvider
 }
 
 // NewERC721OwnerRule creates a new NFT ownership rule
@@ -150,18 +217,93 @@ func (r *ERC721OwnerRule) Type() RuleType {
 	return ERC721OwnerRuleType
 }
 
-// Evaluate checks NFT ownership (implemented later with blockchain integration)
+// Evaluate checks NFT ownership (requires provider and cache to be set)
 func (r *ERC721OwnerRule) Evaluate(ctx context.Context, address string, claims *auth.Claims) (bool, error) {
-	// TODO: Implement with blockchain integration
-	return false, nil
+	// If no provider configured, evaluate to false (fail-closed)
+	if r.provider == nil {
+		return false, nil
+	}
+
+	// Generate cache key
+	chainIDStr := strconv.FormatUint(r.ChainID, 10)
+	tokenIDStr := r.TokenID.String()
+	cacheKey := chain.CacheKey("erc721_owner", chainIDStr, r.ContractAddress, tokenIDStr)
+
+	// Try to get from cache first
+	if r.cache != nil {
+		if cachedResult, ok := r.cache.Get(cacheKey); ok {
+			if isOwner, ok := cachedResult.(bool); ok {
+				return isOwner, nil
+			}
+		}
+	}
+
+	// Not in cache, call provider
+	calldata := encodeERC721OwnerOfCall(r.ContractAddress, r.TokenID)
+	response, err := r.provider.Call(ctx, "eth_call", []interface{}{
+		map[string]interface{}{"to": r.ContractAddress, "data": calldata},
+		"latest",
+	})
+	if err != nil {
+		// Fail closed on RPC error
+		return false, nil
+	}
+
+	// Parse JSON-RPC response
+	resultHex, err := parseJSONRPCResponse(response)
+	if err != nil {
+		return false, nil
+	}
+
+	// Decode the owner address from hex
+	ownerAddress, err := decodeAddress(resultHex)
+	if err != nil {
+		return false, nil
+	}
+
+	// Compare addresses (case-insensitive)
+	isOwner := normalizeAddress(ownerAddress) == normalizeAddress(address)
+
+	// Cache the result
+	if r.cache != nil {
+		r.cache.Set(cacheKey, isOwner)
+	}
+
+	return isOwner, nil
+}
+
+// SetProvider sets the blockchain provider for RPC calls
+func (r *ERC721OwnerRule) SetProvider(provider BlockchainProvider) {
+	r.provider = provider
+}
+
+// SetCache sets the cache for storing results
+func (r *ERC721OwnerRule) SetCache(cache CacheProvider) {
+	r.cache = cache
+}
+
+// BlockchainProvider interface for RPC calls
+type BlockchainProvider interface {
+	Call(ctx context.Context, method string, params []interface{}) ([]byte, error)
+	HealthCheck(ctx context.Context) bool
+}
+
+// CacheProvider interface for caching
+type CacheProvider interface {
+	Get(key string) (interface{}, bool)
+	Set(key string, value interface{})
+	GetOrSet(key string, fn func() interface{}) interface{}
 }
 
 // normalizeAddress converts address to lowercase for comparison
 // TODO: In production, use Ethereum address checksum validation
 func normalizeAddress(address string) string {
-	// For now, simple lowercase normalization
+	// Simple lowercase normalization for case-insensitive comparison
 	// In production, should validate Ethereum checksum
-	return address
+	lowerAddr := strings.ToLower(address)
+	// Remove 0x prefix if present for consistent comparison
+	lowerAddr = strings.TrimPrefix(lowerAddr, "0x")
+	return lowerAddr
 }
 
 // Evaluate evaluates the policy for the given address and claims
