@@ -17,19 +17,19 @@
   - API keys table
   - Nonces table (with TTL)
 - [x] Implement database connection with connection pooling
-- [ ] Add health check for database connectivity
+- [x] Add health check for database connectivity
 
 ### Configuration
 - [x] Create config package with environment loading
 - [x] Add config validation on startup
-- [ ] Support .env file for development
-- [ ] Document all environment variables in README
+- [x] Support .env file for development
+- [x] Document all environment variables in README
 
 ### Logging
 - [x] Set up structured logging with zap
 - [x] Configure log levels (debug, info, warn, error)
 - [ ] Add request ID middleware for traceability
-- [ ] Implement logging middleware for HTTP requests
+- [x] Implement logging middleware for HTTP requests
 
 ### SIWE Authentication - Backend
 - [ ] Install spruceid/siwe-go dependency
@@ -111,101 +111,101 @@
 - [x] Add policy validation on startup (PolicyLoader)
 
 ### Blockchain Integration
-- [ ] Create chain/ethclient.go
-- [ ] Set up go-ethereum client connection
-- [ ] Implement connection pooling for RPC
-- [ ] Add fallback RPC provider support
-- [ ] Create helper functions for contract calls
-- [ ] Handle network errors gracefully
+- [x] Create chain/ethclient.go (Implemented as chain/provider.go)
+- [x] Set up go-ethereum client connection
+- [x] Implement connection pooling for RPC
+- [x] Add fallback RPC provider support
+- [x] Create helper functions for contract calls
+- [x] Handle network errors gracefully
 
 ### ERC20 Balance Checking
-- [ ] Create chain/erc20.go
-- [ ] Implement CheckERC20Balance(chainID, token, address, minBalance)
+- [x] Create chain/erc20.go
+- [x] Implement CheckERC20Balance(chainID, token, address, minBalance)
   - Load ERC20 ABI
   - Call balanceOf(address)
   - Compare with minimum required
   - Return boolean
-- [ ] Add caching layer (5 min TTL)
-- [ ] Handle decimal conversion properly
-- [ ] Add timeout for RPC calls
+- [x] Add caching layer (5 min TTL)
+- [x] Handle decimal conversion properly
+- [x] Add timeout for RPC calls
 
 ### NFT Ownership Verification
-- [ ] Create chain/erc721.go
-- [ ] Implement CheckERC721Ownership(chainID, contract, tokenID, address)
+- [x] Create chain/erc721.go
+- [x] Implement CheckERC721Ownership(chainID, contract, tokenID, address)
   - Load ERC721 ABI
   - Call ownerOf(tokenID)
   - Compare with address
   - Return boolean
-- [ ] Add caching for ownership checks
-- [ ] Handle non-existent tokens gracefully
+- [x] Add caching for ownership checks
+- [x] Handle non-existent tokens gracefully
 
 ### Caching Layer
-- [ ] Create cache/cache.go
-- [ ] Implement in-memory cache with TTL
+- [x] Create cache/cache.go
+- [x] Implement in-memory cache with TTL
   - Set(key, value, ttl)
   - Get(key) (value, ok)
   - Cleanup expired entries
-- [ ] Add cache metrics (hits/misses)
-- [ ] Make cache size configurable
+- [x] Add cache metrics (hits/misses)
+- [x] Make cache size configurable
 
 ### Policy Middleware
-- [ ] Create http/middleware/policy_gate.go
-- [ ] Implement PolicyGate(policies) middleware
+- [x] Create http/middleware/policy_gate.go
+- [x] Implement PolicyGate(policies) middleware
   - Extract user claims from context
   - Find matching policy for route
   - Evaluate policy rules
   - Return 403 if policy fails
   - Allow through if policy passes
-- [ ] Add logging for policy decisions
-- [ ] Add metrics for policy evaluations
+- [x] Add logging for policy decisions
+- [x] Add metrics for policy evaluations
 
 ### API Key Management
-- [ ] Create auth/apikeys.go
-- [ ] Implement GenerateAPIKey(userID, name, scopes, expiry)
+- [x] Create auth/apikeys.go
+- [x] Implement GenerateAPIKey(userID, name, scopes, expiry)
   - Generate secure random key
   - Hash key for storage (bcrypt)
   - Store in database
   - Return plain key (only time visible)
-- [ ] Implement VerifyAPIKey(key, stored) function
+- [x] Implement VerifyAPIKey(key, stored) function
   - Check expiration
   - Verify hash
   - Return scopes
-- [ ] Create http/handlers/keys.go
+- [x] Create http/handlers/keys.go
   - GET /keys - List user's API keys
   - POST /keys - Create new API key
   - DELETE /keys/{id} - Revoke API key
-- [ ] Add API key authentication middleware
+- [x] Add API key authentication middleware
   - Check X-API-Key header
   - Verify key
   - Add scopes to context
 
 ### Protected Route Example
-- [ ] Create http/handlers/demo.go
-- [ ] Implement GET /alpha/data handler
+- [x] Create http/handlers/demo.go
+- [x] Implement GET /alpha/data handler
   - Protected by JWT or API key middleware
   - Protected by policy gate middleware
   - Returns sample data
   - Demonstrates successful authorization
-- [ ] Create policy configuration example
+- [x] Create policy configuration example
   - Require ERC20 minimum balance OR
   - In allowlist OR
   - Has specific scope
 
 ### Testing - Phase 2
-- [ ] Write unit tests for policy engine
+- [x] Write unit tests for policy engine
   - AND logic works correctly
   - OR logic works correctly
   - Each rule type functions properly
-- [ ] Write unit tests for blockchain checking
+- [x] Write unit tests for blockchain checking
   - Mock RPC responses
   - Test caching behavior
   - Handle errors gracefully
-- [ ] Write integration tests for protected routes
+- [x] Write integration tests for protected routes
   - Access granted with valid token + policy
   - Access denied without token
   - Access denied with token but no policy match
-- [ ] Test API key CRUD operations
-- [ ] Achieve >80% coverage for policy package
+- [x] Test API key CRUD operations
+- [x] Achieve >80% coverage for policy package
 
 ---
 
@@ -237,59 +237,59 @@
 - [ ] Test documentation renders correctly
 
 ### Frontend Setup
-- [ ] Create web/ directory
-- [ ] Initialize Vite + React + TypeScript project
-- [ ] Install dependencies
+- [x] Create web/ directory
+- [x] Initialize Vite + React + TypeScript project
+- [x] Install dependencies
   - wagmi
   - viem
   - @tanstack/react-query
   - siwe
-- [ ] Configure Vite dev proxy to backend
-- [ ] Set up TypeScript strict mode
-- [ ] Configure ESLint and Prettier
+- [x] Configure Vite dev proxy to backend
+- [x] Set up TypeScript strict mode
+- [x] Configure ESLint and Prettier
 
 ### wagmi Configuration
-- [ ] Create src/config/wagmi.ts
-- [ ] Configure chains (mainnet, sepolia)
-- [ ] Set up connectors (MetaMask, WalletConnect)
-- [ ] Configure transports (RPC providers)
-- [ ] Add WagmiProvider to app
+- [x] Create src/config/wagmi.ts
+- [x] Configure chains (mainnet, sepolia)
+- [x] Set up connectors (MetaMask, WalletConnect)
+- [x] Configure transports (RPC providers)
+- [x] Add WagmiProvider to app
 
 ### Wallet Connection
-- [ ] Create src/components/ConnectButton.tsx
-- [ ] Implement wallet connection UI
+- [x] Create src/components/ConnectButton.tsx
+- [x] Implement wallet connection UI
   - Show connect options when disconnected
   - Show address and disconnect when connected
   - Format address (0x1234...5678)
   - Handle connection errors
-- [ ] Add network switching dropdown
-- [ ] Style with minimal CSS
+- [x] Add network switching dropdown
+- [x] Style with minimal CSS
 
 ### SIWE Authentication Flow
-- [ ] Create src/hooks/useAuth.ts
-- [ ] Implement signIn() function
+- [x] Create src/hooks/useAuth.ts
+- [x] Implement signIn() function
   - Get nonce from backend
   - Create SIWE message
   - Sign message with wallet
   - Send to backend for verification
   - Store JWT in localStorage
   - Update auth state
-- [ ] Implement signOut() function
+- [x] Implement signOut() function
   - Clear localStorage
   - Reset auth state
-- [ ] Implement getAuthHeaders() helper
+- [x] Implement getAuthHeaders() helper
   - Return Authorization header with JWT
 
 ### Protected Route Demo
-- [ ] Create src/components/ProtectedRoute.tsx
-- [ ] Implement UI for calling protected endpoint
+- [x] Create src/components/ProtectedRoute.tsx
+- [x] Implement UI for calling protected endpoint
   - Show "Sign In" button if not authenticated
   - Show "Call Protected Route" button if authenticated
   - Display loading state during request
   - Show success response or error message
-- [ ] Handle 401 (not authenticated)
-- [ ] Handle 403 (policy failed)
-- [ ] Show meaningful error messages
+- [x] Handle 401 (not authenticated)
+- [x] Handle 403 (policy failed)
+- [x] Show meaningful error messages
 
 ### Frontend Polish
 - [ ] Add error boundaries
