@@ -47,32 +47,34 @@ test.describe('Wallet Connection Flow', () => {
     const connectButton = page.getByTestId('rk-connect-button').first();
     await connectButton.click();
 
-    // Wait for modal
-    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
+    // Wait for modal to appear
+    const modal = page.locator('[data-rk][role="dialog"]');
+    await expect(modal).toBeVisible({ timeout: 5000 });
 
-    // RainbowKit modal has a close button - look for button with proper aria attributes or role
-    // Try clicking outside the modal (on the overlay) to close it
-    const overlay = page.locator('[data-rk]').first();
-    const modalBox = overlay.locator('xpath=.//*[@role="dialog"]');
+    // RainbowKit modal closes when you press Escape or click outside
+    // The most reliable way is to find the close button or click the overlay
+    // Try to find and click a button that closes the modal (SVG close icon button)
+    const closeButton = modal.locator('button').filter({ has: page.locator('svg') }).first();
 
-    // Get the bounding box of the modal dialog
-    const box = await modalBox.boundingBox();
-
-    // Click outside the modal on the overlay to close
-    if (box) {
-      const outsideX = 10; // Left edge of viewport
-      const outsideY = 10; // Top edge of viewport
-      await page.click('body', { force: true, position: { x: outsideX, y: outsideY } });
-    } else {
-      // Fallback: try keyboard escape
+    // If close button found, click it; otherwise try Escape key
+    try {
+      const isVisible = await closeButton.isVisible();
+      if (isVisible) {
+        await closeButton.click();
+      } else {
+        await page.keyboard.press('Escape');
+      }
+    } catch {
+      // If button not found, use Escape
       await page.keyboard.press('Escape');
     }
 
-    // Wait for modal to close (with longer timeout for visual transitions)
-    await page.waitForTimeout(500);
+    // Wait for modal to close (CSS transition)
+    await page.waitForTimeout(300);
 
-    // Verify modal is closed
-    await expect(page.locator('[data-rk]').first()).not.toBeVisible({ timeout: 3000 });
+    // Verify modal is no longer visible
+    // Use isHidden instead of not.toBeVisible for better reliability
+    await expect(modal).toHaveCount(0);
   });
 
   test('should handle no wallet provider gracefully', async ({ page }) => {
@@ -146,21 +148,25 @@ test.describe('Wallet Connection Flow', () => {
     await connectButton.click();
 
     // Modal should open
-    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
+    const modal = page.locator('[data-rk][role="dialog"]');
+    await expect(modal).toBeVisible({ timeout: 5000 });
 
-    // Close the modal to simulate rejection by clicking outside
-    const overlay = page.locator('[data-rk]').first();
-    const modalBox = overlay.locator('xpath=.//*[@role="dialog"]');
-    const box = await modalBox.boundingBox();
+    // Close the modal to simulate rejection
+    // Try to find close button or use Escape key
+    const closeButton = modal.locator('button').filter({ has: page.locator('svg') }).first();
 
-    // Click outside the modal on the overlay to close
-    if (box) {
-      await page.click('body', { force: true, position: { x: 10, y: 10 } });
-    } else {
+    try {
+      const isVisible = await closeButton.isVisible();
+      if (isVisible) {
+        await closeButton.click();
+      } else {
+        await page.keyboard.press('Escape');
+      }
+    } catch {
       await page.keyboard.press('Escape');
     }
 
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(300);
 
     // Verify user remains on homepage and connect button is still visible
     await expect(page.getByTestId('rk-connect-button').first()).toBeVisible();
