@@ -42,13 +42,20 @@ export async function setupAuthenticatedUser(
   // The init script above will have already set localStorage for this navigation
   await page.goto('/')
 
-  // Wait for auth to initialize
+  // Wait for auth to initialize and React to fully render
   if (waitForLoad) {
     try {
+      // Wait for the root element to be interactive
       await page.waitForLoadState('networkidle')
     } catch {
-      // Some routes may not complete networkidle, just wait
-      await page.waitForTimeout(1000)
+      // Some routes may not complete networkidle, just wait for DOM to settle
+      await page.waitForTimeout(2000)
+    }
+
+    // Additional check: verify auth token is actually in localStorage
+    const tokenInStorage = await page.evaluate(() => localStorage.getItem('gatekeeper_auth_token'))
+    if (!tokenInStorage) {
+      throw new Error('Auth token not found in localStorage after setupAuthenticatedUser')
     }
   }
 
