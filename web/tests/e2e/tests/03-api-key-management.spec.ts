@@ -23,8 +23,8 @@ test.describe('API Key Management - Dashboard', () => {
     await page.goto('/');
     await page.waitForTimeout(1000);
 
-    // Verify API Keys link is visible
-    const apiKeysLink = page.getByRole('link', { name: /api.*keys/i });
+    // Verify API Keys link is visible (use first() for strict mode)
+    const apiKeysLink = page.getByRole('link', { name: /api.*keys/i }).first();
     await expect(apiKeysLink).toBeVisible({ timeout: 5000 });
   });
 

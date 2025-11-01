@@ -32,10 +32,19 @@ test.describe('Complete User Journey - New User Flow', () => {
     await page.waitForTimeout(500);
 
     // Close modal for now
-    const closeButton = page.locator('[data-rk] button').first();
-    if (await closeButton.isVisible()) {
-      await closeButton.click();
+    const modal = page.locator('[data-rk][role="dialog"]');
+    const closeButton = modal.locator('button').filter({ has: page.locator('svg') }).first();
+    try {
+      const isVisible = await closeButton.isVisible();
+      if (isVisible) {
+        await closeButton.click();
+      } else {
+        await page.keyboard.press('Escape');
+      }
+    } catch {
+      await page.keyboard.press('Escape');
     }
+    await page.waitForTimeout(300);
 
     // Simulate authenticated state
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
@@ -49,11 +58,11 @@ test.describe('Complete User Journey - New User Flow', () => {
     await page.waitForTimeout(1000);
 
     // Step 5: Verify authenticated state
-    const dashboardLink = page.getByRole('link', { name: /dashboard/i });
+    const dashboardLink = page.getByRole('link', { name: /dashboard/i }).first();
     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
 
     // Step 6: Navigate to API Keys
-    const apiKeysLink = page.getByRole('link', { name: /api.*keys/i });
+    const apiKeysLink = page.getByRole('link', { name: /api.*keys/i }).first();
     await apiKeysLink.click();
     await page.waitForTimeout(1000);
 
@@ -79,7 +88,7 @@ test.describe('Complete User Journey - New User Flow', () => {
     await page.waitForTimeout(1000);
 
     // Should see dashboard link
-    let dashboardLink = page.getByRole('link', { name: /dashboard/i });
+    let dashboardLink = page.getByRole('link', { name: /dashboard/i }).first();
     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
 
     // Navigate to dashboard
@@ -90,7 +99,7 @@ test.describe('Complete User Journey - New User Flow', () => {
     expect(page.url()).toContain('/dashboard');
 
     // Navigate to API keys
-    const apiKeysLink = page.getByRole('link', { name: /api.*keys/i });
+    const apiKeysLink = page.getByRole('link', { name: /api.*keys/i }).first();
     await apiKeysLink.click();
     await page.waitForTimeout(1000);
 
@@ -105,7 +114,7 @@ test.describe('Complete User Journey - New User Flow', () => {
       await page.waitForTimeout(1000);
 
       // Should still show authenticated state
-      dashboardLink = page.getByRole('link', { name: /dashboard/i });
+      dashboardLink = page.getByRole('link', { name: /dashboard/i }).first();
       await expect(dashboardLink).toBeVisible({ timeout: 5000 });
     }
   });
@@ -123,7 +132,7 @@ test.describe('Complete User Journey - New User Flow', () => {
     await page.waitForTimeout(1000);
 
     // Verify authenticated
-    const dashboardLink = page.getByRole('link', { name: /dashboard/i });
+    const dashboardLink = page.getByRole('link', { name: /dashboard/i }).first();
     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
 
     // Refresh page
@@ -150,7 +159,7 @@ test.describe('Complete User Journey - Returning User Flow', () => {
     await page.waitForTimeout(1000);
 
     // User should see authenticated state immediately
-    const dashboardLink = page.getByRole('link', { name: /dashboard/i });
+    const dashboardLink = page.getByRole('link', { name: /dashboard/i }).first();
     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
 
     // Should NOT see connect wallet button
@@ -171,7 +180,7 @@ test.describe('Complete User Journey - Returning User Flow', () => {
     await page.waitForTimeout(1000);
 
     // Should show sign-in prompt for expired token
-    const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i });
+    const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i }).first();
 
     // Wait to see if sign-in is required
     await page.waitForTimeout(1500);
@@ -192,11 +201,11 @@ test.describe('Complete User Journey - Logout Flow', () => {
     await page.waitForTimeout(1000);
 
     // Verify authenticated
-    const dashboardLink = page.getByRole('link', { name: /dashboard/i });
+    const dashboardLink = page.getByRole('link', { name: /dashboard/i }).first();
     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
 
     // Find disconnect/logout button
-    const disconnectButton = page.getByRole('button', { name: /disconnect|logout|sign.*out/i });
+    const disconnectButton = page.getByRole('button', { name: /disconnect|logout|sign.*out/i }).first();
 
     if (await disconnectButton.isVisible({ timeout: 3000 })) {
       await disconnectButton.click();
@@ -226,7 +235,7 @@ test.describe('Complete User Journey - Logout Flow', () => {
     await page.waitForTimeout(1000);
 
     // Find disconnect button
-    const disconnectButton = page.getByRole('button', { name: /disconnect|logout|sign.*out/i });
+    const disconnectButton = page.getByRole('button', { name: /disconnect|logout|sign.*out/i }).first();
 
     if (await disconnectButton.isVisible({ timeout: 3000 })) {
       await disconnectButton.click();
@@ -253,13 +262,13 @@ test.describe('Complete User Journey - Navigation', () => {
     await page.waitForTimeout(1000);
 
     // Test navigation to Dashboard
-    const dashboardLink = page.getByRole('link', { name: /dashboard/i });
+    const dashboardLink = page.getByRole('link', { name: /dashboard/i }).first();
     await dashboardLink.click();
     await page.waitForTimeout(1000);
     expect(page.url()).toContain('/dashboard');
 
     // Test navigation to API Keys
-    const apiKeysLink = page.getByRole('link', { name: /api.*keys/i });
+    const apiKeysLink = page.getByRole('link', { name: /api.*keys/i }).first();
     await apiKeysLink.click();
     await page.waitForTimeout(1000);
     expect(page.url()).toContain('/api-keys');
@@ -288,7 +297,7 @@ test.describe('Complete User Journey - Navigation', () => {
     await page.waitForTimeout(1000);
 
     // Dashboard link should have active state (aria-current or CSS class)
-    const dashboardLink = page.getByRole('link', { name: /dashboard/i });
+    const dashboardLink = page.getByRole('link', { name: /dashboard/i }).first();
     const ariaCurrentValue = await dashboardLink.getAttribute('aria-current');
 
     // Active link may have aria-current="page" or special CSS class

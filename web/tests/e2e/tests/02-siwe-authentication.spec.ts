@@ -16,7 +16,7 @@ test.describe('SIWE Authentication Flow', () => {
 
   test('should retrieve SIWE nonce from backend', async ({ page, request }) => {
     // Test nonce endpoint directly
-    const response = await request.get('http://localhost:8080/api/v1/auth/nonce');
+    const response = await request.get('http://localhost:8080/auth/siwe/nonce');
 
     expect(response.ok()).toBeTruthy();
     expect(response.status()).toBe(200);
@@ -39,8 +39,8 @@ test.describe('SIWE Authentication Flow', () => {
     await page.reload();
     await page.waitForTimeout(1000);
 
-    // Look for sign-in button or message prompt
-    const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i });
+    // Look for sign-in button or message prompt (use first() to handle multiple matches)
+    const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i }).first();
 
     // Button should be visible for connected but unauthenticated users
     await expect(signInButton).toBeVisible({ timeout: 5000 });
@@ -84,8 +84,8 @@ test.describe('SIWE Authentication Flow', () => {
     await page.reload();
     await page.waitForTimeout(1000);
 
-    // Verify authenticated state - should see dashboard link
-    const dashboardLink = page.getByRole('link', { name: /dashboard/i });
+    // Verify authenticated state - should see dashboard link (use first() for strict mode)
+    const dashboardLink = page.getByRole('link', { name: /dashboard/i }).first();
     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
   });
 
@@ -145,8 +145,8 @@ test.describe('SIWE Authentication Flow', () => {
     await page.goto('/');
     await page.waitForTimeout(1000);
 
-    // Verify authenticated features are visible
-    const dashboardLink = page.getByRole('link', { name: /dashboard/i });
+    // Verify authenticated features are visible (use first() for strict mode)
+    const dashboardLink = page.getByRole('link', { name: /dashboard/i }).first();
     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
 
     // Reload page

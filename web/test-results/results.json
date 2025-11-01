@@ -103,12 +103,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1470,
+                      "duration": 1450,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:53.283Z",
+                      "startTime": "2025-11-01T07:49:58.731Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -137,12 +137,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1530,
+                      "duration": 1490,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:53.249Z",
+                      "startTime": "2025-11-01T07:49:58.766Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -171,12 +171,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1533,
+                      "duration": 1527,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:53.277Z",
+                      "startTime": "2025-11-01T07:49:58.748Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -191,7 +191,7 @@
             },
             {
               "title": "should close modal when cancel/close button is clicked",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -204,58 +204,18 @@
                     {
                       "workerIndex": 3,
                       "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 6659,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-rk]').first()\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-rk]').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <div data-rk=\"\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"visible\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-rk]').first()\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-rk]').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <div data-rk=\"\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"visible\"\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:57:57",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
-                          "column": 57,
-                          "line": 57
-                        },
-                        "snippet": "  55 |\n  56 |     // Verify modal is closed\n> 57 |     await expect(page.locator('[data-rk]').first()).not.toBeVisible();\n     |                                                         ^\n  58 |   });\n  59 |\n  60 |   test('should handle no wallet provider gracefully', async ({ page }) => {"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
-                            "column": 57,
-                            "line": 57
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-rk]').first()\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-rk]').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <div data-rk=\"\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"visible\"\u001b[22m\n\n\n  55 |\n  56 |     // Verify modal is closed\n> 57 |     await expect(page.locator('[data-rk]').first()).not.toBeVisible();\n     |                                                         ^\n  58 |   });\n  59 |\n  60 |   test('should handle no wallet provider gracefully', async ({ page }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:57:57"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 2309,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:53.289Z",
+                      "startTime": "2025-11-01T07:49:58.743Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-01-wallet-connection-a124a-cel-close-button-is-clicked-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-01-wallet-connection-a124a-cel-close-button-is-clicked-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-01-wallet-connection-a124a-cel-close-button-is-clicked-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
-                        "column": 57,
-                        "line": 57
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "26cf986c0ac2c3170dff-bc691ef7776de13993f1",
@@ -279,12 +239,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1049,
+                      "duration": 943,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:55.163Z",
+                      "startTime": "2025-11-01T07:50:00.590Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -294,7 +254,7 @@
               ],
               "id": "26cf986c0ac2c3170dff-c2b5a203f70e103af3b4",
               "file": "tests/01-wallet-connection.spec.ts",
-              "line": 60,
+              "line": 80,
               "column": 3
             },
             {
@@ -313,12 +273,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1929,
+                      "duration": 2051,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:55.211Z",
+                      "startTime": "2025-11-01T07:50:00.608Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -328,7 +288,7 @@
               ],
               "id": "26cf986c0ac2c3170dff-dc142472aa2a9a201aa8",
               "file": "tests/01-wallet-connection.spec.ts",
-              "line": 70,
+              "line": 90,
               "column": 3
             },
             {
@@ -347,12 +307,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1042,
+                      "duration": 954,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:55.231Z",
+                      "startTime": "2025-11-01T07:50:00.627Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -362,7 +322,7 @@
               ],
               "id": "26cf986c0ac2c3170dff-479817abba58b2f05ddf",
               "file": "tests/01-wallet-connection.spec.ts",
-              "line": 87,
+              "line": 107,
               "column": 3
             },
             {
@@ -378,15 +338,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 731,
+                      "duration": 870,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:56.231Z",
+                      "startTime": "2025-11-01T07:50:01.448Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -396,7 +356,7 @@
               ],
               "id": "26cf986c0ac2c3170dff-ed1831d73bc9b97f840d",
               "file": "tests/01-wallet-connection.spec.ts",
-              "line": 97,
+              "line": 117,
               "column": 3
             },
             {
@@ -412,15 +372,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1662,
+                      "duration": 1821,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:56.287Z",
+                      "startTime": "2025-11-01T07:50:01.543Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -430,7 +390,7 @@
               ],
               "id": "26cf986c0ac2c3170dff-af7b6eb9b12b5a510e59",
               "file": "tests/01-wallet-connection.spec.ts",
-              "line": 110,
+              "line": 130,
               "column": 3
             },
             {
@@ -446,15 +406,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 635,
+                      "duration": 1559,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:56.970Z",
+                      "startTime": "2025-11-01T07:50:01.597Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -464,7 +424,7 @@
               ],
               "id": "26cf986c0ac2c3170dff-2516c4112f59961582b1",
               "file": "tests/01-wallet-connection.spec.ts",
-              "line": 125,
+              "line": 145,
               "column": 3
             }
           ]
@@ -472,7 +432,7 @@
         {
           "title": "Wallet Connection - Responsive Design",
           "file": "tests/01-wallet-connection.spec.ts",
-          "line": 141,
+          "line": 176,
           "column": 6,
           "specs": [
             {
@@ -488,34 +448,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 5645,
+                      "duration": 5600,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:149:33",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:184:33",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
                           "column": 33,
-                          "line": 149
+                          "line": 184
                         },
-                        "snippet": "  147 |     // Verify connect button is visible on mobile\n  148 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 149 |     await expect(connectButton).toBeVisible();\n      |                                 ^\n  150 |   });\n  151 |\n  152 |   test('should open mobile-optimized wallet modal', async ({ page }) => {"
+                        "snippet": "  182 |     // Verify connect button is visible on mobile\n  183 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 184 |     await expect(connectButton).toBeVisible();\n      |                                 ^\n  185 |   });\n  186 |\n  187 |   test('should open mobile-optimized wallet modal', async ({ page }) => {"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
                             "column": 33,
-                            "line": 149
+                            "line": 184
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  147 |     // Verify connect button is visible on mobile\n  148 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 149 |     await expect(connectButton).toBeVisible();\n      |                                 ^\n  150 |   });\n  151 |\n  152 |   test('should open mobile-optimized wallet modal', async ({ page }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:149:33"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  182 |     // Verify connect button is visible on mobile\n  183 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 184 |     await expect(connectButton).toBeVisible();\n      |                                 ^\n  185 |   });\n  186 |\n  187 |   test('should open mobile-optimized wallet modal', async ({ page }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:184:33"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:57.151Z",
+                      "startTime": "2025-11-01T07:50:02.344Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -537,7 +497,7 @@
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
                         "column": 33,
-                        "line": 149
+                        "line": 184
                       }
                     }
                   ],
@@ -546,7 +506,7 @@
               ],
               "id": "26cf986c0ac2c3170dff-4bdc12a0d0012a633d9f",
               "file": "tests/01-wallet-connection.spec.ts",
-              "line": 142,
+              "line": 177,
               "column": 3
             },
             {
@@ -562,10 +522,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "timedOut",
-                      "duration": 30701,
+                      "duration": 30655,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -578,15 +538,15 @@
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
                             "column": 25,
-                            "line": 159
+                            "line": 194
                           },
-                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  157 |     // Click connect wallet button\n  158 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 159 |     await connectButton.click();\n      |                         ^\n  160 |\n  161 |     // Verify RainbowKit mobile modal appears\n  162 |     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:159:25"
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  192 |     // Click connect wallet button\n  193 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 194 |     await connectButton.click();\n      |                         ^\n  195 |\n  196 |     // Verify RainbowKit mobile modal appears\n  197 |     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:194:25"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:57.611Z",
+                      "startTime": "2025-11-01T07:50:02.671Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -612,7 +572,7 @@
               ],
               "id": "26cf986c0ac2c3170dff-b7d15c20fc89b177068f",
               "file": "tests/01-wallet-connection.spec.ts",
-              "line": 152,
+              "line": 187,
               "column": 3
             }
           ]
@@ -634,7 +594,7 @@
           "specs": [
             {
               "title": "should retrieve SIWE nonce from backend",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -647,58 +607,18 @@
                     {
                       "workerIndex": 2,
                       "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 490,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:21:27",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                          "column": 27,
-                          "line": 21
-                        },
-                        "snippet": "  19 |     const response = await request.get('http://localhost:8080/api/v1/auth/nonce');\n  20 |\n> 21 |     expect(response.ok()).toBeTruthy();\n     |                           ^\n  22 |     expect(response.status()).toBe(200);\n  23 |\n  24 |     const data = await response.json();"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                            "column": 27,
-                            "line": 21
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n\n  19 |     const response = await request.get('http://localhost:8080/api/v1/auth/nonce');\n  20 |\n> 21 |     expect(response.ok()).toBeTruthy();\n     |                           ^\n  22 |     expect(response.status()).toBe(200);\n  23 |\n  24 |     const data = await response.json();\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:21:27"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 469,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:57.964Z",
+                      "startTime": "2025-11-01T07:50:03.185Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                        "column": 27,
-                        "line": 21
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "426dc87aaa71446859aa-347969d52e78eff82866",
@@ -719,13 +639,13 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 6665,
+                      "duration": 6780,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:46:32",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i }).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i }).first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i }).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i }).first()\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:46:32",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
                           "column": 32,
@@ -740,13 +660,13 @@
                             "column": 32,
                             "line": 46
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n\n\n  44 |\n  45 |     // Button should be visible for connected but unauthenticated users\n> 46 |     await expect(signInButton).toBeVisible({ timeout: 5000 });\n     |                                ^\n  47 |   });\n  48 |\n  49 |   test('should generate valid SIWE message with correct fields', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:46:32"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i }).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i }).first()\u001b[22m\n\n\n  44 |\n  45 |     // Button should be visible for connected but unauthenticated users\n> 46 |     await expect(signInButton).toBeVisible({ timeout: 5000 });\n     |                                ^\n  47 |   });\n  48 |\n  49 |   test('should generate valid SIWE message with correct fields', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:46:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:41:58.802Z",
+                      "startTime": "2025-11-01T07:50:03.390Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -793,15 +713,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 3,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1549,
+                      "duration": 1649,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:00.689Z",
+                      "startTime": "2025-11-01T07:50:03.663Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -816,7 +736,7 @@
             },
             {
               "title": "should handle successful SIWE signature and receive JWT",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -827,60 +747,20 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 1567,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:89:33",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                          "column": 33,
-                          "line": 89
-                        },
-                        "snippet": "  87 |     // Verify authenticated state - should see dashboard link\n  88 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 89 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n     |                                 ^\n  90 |   });\n  91 |\n  92 |   test('should store JWT token in localStorage after authentication', async ({ page, context }) => {"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                            "column": 33,
-                            "line": 89
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n\n  87 |     // Verify authenticated state - should see dashboard link\n  88 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 89 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n     |                                 ^\n  90 |   });\n  91 |\n  92 |   test('should store JWT token in localStorage after authentication', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:89:33"
-                        }
-                      ],
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1537,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:02.346Z",
+                      "startTime": "2025-11-01T07:50:05.318Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-e97e0-E-signature-and-receive-JWT-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-e97e0-E-signature-and-receive-JWT-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-e97e0-E-signature-and-receive-JWT-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                        "column": 33,
-                        "line": 89
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "426dc87aaa71446859aa-bc96c16e41e94647c239",
@@ -901,15 +781,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 607,
+                      "duration": 532,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:03.252Z",
+                      "startTime": "2025-11-01T07:50:06.862Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -935,10 +815,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
-                      "parallelIndex": 3,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "failed",
-                      "duration": 6847,
+                      "duration": 6769,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:120:32",
@@ -962,7 +842,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:04.393Z",
+                      "startTime": "2025-11-01T07:50:07.400Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1009,15 +889,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
-                      "parallelIndex": 1,
+                      "workerIndex": 4,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 563,
+                      "duration": 559,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:03.976Z",
+                      "startTime": "2025-11-01T07:50:08.537Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1032,7 +912,7 @@
             },
             {
               "title": "should persist authentication state across page refreshes",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1043,60 +923,20 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 1701,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:150:33",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                          "column": 33,
-                          "line": 150
-                        },
-                        "snippet": "  148 |     // Verify authenticated features are visible\n  149 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 150 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n      |                                 ^\n  151 |\n  152 |     // Reload page\n  153 |     await page.reload();"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                            "column": 33,
-                            "line": 150
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n\n  148 |     // Verify authenticated features are visible\n  149 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 150 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n      |                                 ^\n  151 |\n  152 |     // Reload page\n  153 |     await page.reload();\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:150:33"
-                        }
-                      ],
+                      "workerIndex": 4,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2689,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:04.549Z",
+                      "startTime": "2025-11-01T07:50:09.202Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-22730-state-across-page-refreshes-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-22730-state-across-page-refreshes-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-22730-state-across-page-refreshes-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                        "column": 33,
-                        "line": 150
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "426dc87aaa71446859aa-1bf391aea4b21bb86b73",
@@ -1117,10 +957,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 8,
-                      "parallelIndex": 2,
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 6836,
+                      "duration": 6766,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:174:32",
@@ -1144,7 +984,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:05.959Z",
+                      "startTime": "2025-11-01T07:50:10.579Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1191,15 +1031,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 9,
-                      "parallelIndex": 1,
+                      "workerIndex": 4,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 571,
+                      "duration": 542,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:06.691Z",
+                      "startTime": "2025-11-01T07:50:11.900Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1225,10 +1065,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 9,
-                      "parallelIndex": 1,
+                      "workerIndex": 4,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 464,
+                      "duration": 475,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m404\u001b[39m\nReceived array: \u001b[31m[200, 400, 401]\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m404\u001b[39m\nReceived array: \u001b[31m[200, 400, 401]\u001b[39m\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:204:29",
@@ -1252,7 +1092,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:07.368Z",
+                      "startTime": "2025-11-01T07:50:12.449Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1307,15 +1147,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 10,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 457,
+                      "duration": 389,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:08.183Z",
+                      "startTime": "2025-11-01T07:50:13.279Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1341,15 +1181,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 10,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1936,
+                      "duration": 1978,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:08.737Z",
+                      "startTime": "2025-11-01T07:50:13.764Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1375,15 +1215,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 10,
-                      "parallelIndex": 1,
+                      "workerIndex": 7,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1495,
+                      "duration": 1405,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:10.680Z",
+                      "startTime": "2025-11-01T07:50:14.565Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1415,7 +1255,7 @@
           "specs": [
             {
               "title": "should display API Keys navigation link when authenticated",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1426,60 +1266,20 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 11,
+                      "workerIndex": 6,
                       "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 1494,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /api.*keys/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /api.*keys/i }) resolved to 2 elements:\n    1) <a href=\"/api-keys\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">API Keys</a> aka getByRole('link', { name: 'API Keys', exact: true })\n    2) <a href=\"/api-keys\">…</a> aka getByRole('link', { name: 'Manage API Keys' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /api.*keys/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /api.*keys/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /api.*keys/i }) resolved to 2 elements:\n    1) <a href=\"/api-keys\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">API Keys</a> aka getByRole('link', { name: 'API Keys', exact: true })\n    2) <a href=\"/api-keys\">…</a> aka getByRole('link', { name: 'Manage API Keys' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /api.*keys/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:28:31",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
-                          "column": 31,
-                          "line": 28
-                        },
-                        "snippet": "  26 |     // Verify API Keys link is visible\n  27 |     const apiKeysLink = page.getByRole('link', { name: /api.*keys/i });\n> 28 |     await expect(apiKeysLink).toBeVisible({ timeout: 5000 });\n     |                               ^\n  29 |   });\n  30 |\n  31 |   test('should navigate to API Keys page', async ({ page, context }) => {"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
-                            "column": 31,
-                            "line": 28
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /api.*keys/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /api.*keys/i }) resolved to 2 elements:\n    1) <a href=\"/api-keys\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">API Keys</a> aka getByRole('link', { name: 'API Keys', exact: true })\n    2) <a href=\"/api-keys\">…</a> aka getByRole('link', { name: 'Manage API Keys' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /api.*keys/i })\u001b[22m\n\n\n  26 |     // Verify API Keys link is visible\n  27 |     const apiKeysLink = page.getByRole('link', { name: /api.*keys/i });\n> 28 |     await expect(apiKeysLink).toBeVisible({ timeout: 5000 });\n     |                               ^\n  29 |   });\n  30 |\n  31 |   test('should navigate to API Keys page', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:28:31"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 1374,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:11.943Z",
+                      "startTime": "2025-11-01T07:50:15.754Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-03-api-key-managemen-b768f-ion-link-when-authenticated-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-03-api-key-managemen-b768f-ion-link-when-authenticated-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-03-api-key-managemen-b768f-ion-link-when-authenticated-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
-                        "column": 31,
-                        "line": 28
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "52ef100ed3b06c794b91-015de1529aafbeef8a34",
@@ -1500,10 +1300,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 10,
-                      "parallelIndex": 1,
+                      "workerIndex": 7,
+                      "parallelIndex": 2,
                       "status": "failed",
-                      "duration": 6353,
+                      "duration": 6283,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /api.*keys/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /api.*keys/i })\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /api.*keys/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /api.*keys/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:47:27",
@@ -1527,7 +1327,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:12.200Z",
+                      "startTime": "2025-11-01T07:50:16.071Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1574,10 +1374,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 12,
-                      "parallelIndex": 2,
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 6263,
+                      "duration": 6262,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }))\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }))\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }))\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }))\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:66:47",
@@ -1601,7 +1401,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:13.248Z",
+                      "startTime": "2025-11-01T07:50:17.133Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1656,10 +1456,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 13,
-                      "parallelIndex": 3,
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30733,
+                      "duration": 30638,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -1680,7 +1480,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:14.023Z",
+                      "startTime": "2025-11-01T07:50:17.854Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1722,10 +1522,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 1,
+                      "workerIndex": 9,
+                      "parallelIndex": 2,
                       "status": "timedOut",
-                      "duration": 30668,
+                      "duration": 31126,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -1746,7 +1546,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:18.896Z",
+                      "startTime": "2025-11-01T07:50:22.821Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1788,10 +1588,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 15,
-                      "parallelIndex": 2,
+                      "workerIndex": 10,
+                      "parallelIndex": 3,
                       "status": "timedOut",
-                      "duration": 30665,
+                      "duration": 30794,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -1812,7 +1612,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:20.059Z",
+                      "startTime": "2025-11-01T07:50:23.764Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1854,10 +1654,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 16,
-                      "parallelIndex": 0,
+                      "workerIndex": 11,
+                      "parallelIndex": 1,
                       "status": "timedOut",
-                      "duration": 30623,
+                      "duration": 30650,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -1878,7 +1678,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:28.674Z",
+                      "startTime": "2025-11-01T07:50:33.681Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1920,10 +1720,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 17,
-                      "parallelIndex": 3,
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30747,
+                      "duration": 30662,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -1944,7 +1744,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:45.322Z",
+                      "startTime": "2025-11-01T07:50:49.045Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1986,10 +1786,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 18,
-                      "parallelIndex": 1,
+                      "workerIndex": 13,
+                      "parallelIndex": 2,
                       "status": "timedOut",
-                      "duration": 30636,
+                      "duration": 30723,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -2010,7 +1810,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:50.029Z",
+                      "startTime": "2025-11-01T07:50:54.447Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2052,15 +1852,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 131,
+                      "duration": 231,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:51.177Z",
+                      "startTime": "2025-11-01T07:50:55.017Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2086,15 +1886,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 108,
+                      "duration": 127,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:51.415Z",
+                      "startTime": "2025-11-01T07:50:55.401Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2128,15 +1928,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2157,
+                      "duration": 2220,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:51.530Z",
+                      "startTime": "2025-11-01T07:50:55.537Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2162,15 +1962,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 118,
+                      "duration": 109,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:53.692Z",
+                      "startTime": "2025-11-01T07:50:57.772Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2196,15 +1996,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1129,
+                      "duration": 1140,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:53.815Z",
+                      "startTime": "2025-11-01T07:50:57.890Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2230,15 +2030,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1131,
+                      "duration": 1141,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:54.950Z",
+                      "startTime": "2025-11-01T07:50:59.038Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2272,15 +2072,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2167,
+                      "duration": 2169,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:56.085Z",
+                      "startTime": "2025-11-01T07:51:00.185Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2306,15 +2106,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1143,
+                      "duration": 1285,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:58.258Z",
+                      "startTime": "2025-11-01T07:51:02.359Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2340,15 +2140,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1157,
+                      "duration": 1144,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:59.406Z",
+                      "startTime": "2025-11-01T07:51:03.650Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2382,15 +2182,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 20,
-                      "parallelIndex": 0,
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2161,
+                      "duration": 2207,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:42:59.762Z",
+                      "startTime": "2025-11-01T07:51:04.884Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2416,15 +2216,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1132,
+                      "duration": 1142,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:00.569Z",
+                      "startTime": "2025-11-01T07:51:04.800Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2467,10 +2267,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 1407,
+                      "duration": 1511,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /gatekeeper/i })\nExpected: visible\nError: strict mode violation: getByRole('heading', { name: /gatekeeper/i }) resolved to 2 elements:\n    1) <h1 class=\"text-4xl md:text-6xl font-bold text-gray-900 dark:text-white\">…</h1> aka getByRole('heading', { name: 'Welcome to Gatekeeper' })\n    2) <h3 class=\"text-sm font-semibold text-gray-900 dark:text-white mb-3\">Gatekeeper</h3> aka getByRole('heading', { name: 'Gatekeeper', exact: true })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /gatekeeper/i })\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /gatekeeper/i })\nExpected: visible\nError: strict mode violation: getByRole('heading', { name: /gatekeeper/i }) resolved to 2 elements:\n    1) <h1 class=\"text-4xl md:text-6xl font-bold text-gray-900 dark:text-white\">…</h1> aka getByRole('heading', { name: 'Welcome to Gatekeeper' })\n    2) <h3 class=\"text-sm font-semibold text-gray-900 dark:text-white mb-3\">Gatekeeper</h3> aka getByRole('heading', { name: 'Gatekeeper', exact: true })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /gatekeeper/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:18:70",
@@ -2494,7 +2294,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:01.716Z",
+                      "startTime": "2025-11-01T07:51:05.954Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2541,34 +2341,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 20,
-                      "parallelIndex": 0,
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 1423,
+                      "duration": 3511,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:83:33",
+                        "message": "Error: locator.isVisible: Error: strict mode violation: getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i })) resolved to 2 elements:\n    1) <a href=\"/\" class=\"flex items-center space-x-2\">…</a> aka getByRole('link', { name: 'G Gatekeeper' })\n    2) <a href=\"/\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Home</a> aka getByRole('link', { name: 'Home' })\n\nCall log:\n\u001b[2m    - checking visibility of getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i }))\u001b[22m\n",
+                        "stack": "Error: locator.isVisible: Error: strict mode violation: getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i })) resolved to 2 elements:\n    1) <a href=\"/\" class=\"flex items-center space-x-2\">…</a> aka getByRole('link', { name: 'G Gatekeeper' })\n    2) <a href=\"/\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Home</a> aka getByRole('link', { name: 'Home' })\n\nCall log:\n\u001b[2m    - checking visibility of getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i }))\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:112:24",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                          "column": 33,
-                          "line": 83
+                          "column": 24,
+                          "line": 112
                         },
-                        "snippet": "  81 |     // Should see dashboard link\n  82 |     let dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 83 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n     |                                 ^\n  84 |\n  85 |     // Navigate to dashboard\n  86 |     await dashboardLink.click();"
+                        "snippet": "  110 |     const homeLink = page.getByRole('link', { name: /^home$/i }).or(page.getByRole('link', { name: /gatekeeper/i }));\n  111 |\n> 112 |     if (await homeLink.isVisible({ timeout: 3000 })) {\n      |                        ^\n  113 |       await homeLink.click();\n  114 |       await page.waitForTimeout(1000);\n  115 |"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                            "column": 33,
-                            "line": 83
+                            "column": 24,
+                            "line": 112
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n\n  81 |     // Should see dashboard link\n  82 |     let dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 83 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n     |                                 ^\n  84 |\n  85 |     // Navigate to dashboard\n  86 |     await dashboardLink.click();\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:83:33"
+                          "message": "Error: locator.isVisible: Error: strict mode violation: getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i })) resolved to 2 elements:\n    1) <a href=\"/\" class=\"flex items-center space-x-2\">…</a> aka getByRole('link', { name: 'G Gatekeeper' })\n    2) <a href=\"/\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Home</a> aka getByRole('link', { name: 'Home' })\n\nCall log:\n\u001b[2m    - checking visibility of getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i }))\u001b[22m\n\n\n  110 |     const homeLink = page.getByRole('link', { name: /^home$/i }).or(page.getByRole('link', { name: /gatekeeper/i }));\n  111 |\n> 112 |     if (await homeLink.isVisible({ timeout: 3000 })) {\n      |                        ^\n  113 |       await homeLink.click();\n  114 |       await page.waitForTimeout(1000);\n  115 |\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:112:24"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:02.041Z",
+                      "startTime": "2025-11-01T07:51:07.244Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2589,8 +2389,8 @@
                       ],
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                        "column": 33,
-                        "line": 83
+                        "column": 24,
+                        "line": 112
                       }
                     }
                   ],
@@ -2599,12 +2399,12 @@
               ],
               "id": "766844f0dd71fd1c9e39-da9a2d9b9664ec15b2c7",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 68,
+              "line": 77,
               "column": 3
             },
             {
               "title": "should handle browser refresh while authenticated",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -2615,65 +2415,25 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 21,
-                      "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 1430,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:127:33",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                          "column": 33,
-                          "line": 127
-                        },
-                        "snippet": "  125 |     // Verify authenticated\n  126 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 127 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n      |                                 ^\n  128 |\n  129 |     // Refresh page\n  130 |     await page.reload();"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                            "column": 33,
-                            "line": 127
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n\n  125 |     // Verify authenticated\n  126 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 127 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n      |                                 ^\n  128 |\n  129 |     // Refresh page\n  130 |     await page.reload();\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:127:33"
-                        }
-                      ],
+                      "workerIndex": 16,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2538,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:03.495Z",
+                      "startTime": "2025-11-01T07:51:07.892Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--5d19f-refresh-while-authenticated-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--5d19f-refresh-while-authenticated-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--5d19f-refresh-while-authenticated-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                        "column": 33,
-                        "line": 127
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "766844f0dd71fd1c9e39-e7e83494d26e6bba0705",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 113,
+              "line": 122,
               "column": 3
             }
           ]
@@ -2681,7 +2441,7 @@
         {
           "title": "Complete User Journey - Returning User Flow",
           "file": "tests/04-complete-journey.spec.ts",
-          "line": 138,
+          "line": 147,
           "column": 6,
           "specs": [
             {
@@ -2697,34 +2457,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 22,
-                      "parallelIndex": 0,
+                      "workerIndex": 16,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 1459,
+                      "duration": 6604,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:154:33",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"visible\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"visible\"\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:167:37",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                          "column": 33,
-                          "line": 154
+                          "column": 37,
+                          "line": 167
                         },
-                        "snippet": "  152 |     // User should see authenticated state immediately\n  153 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 154 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n      |                                 ^\n  155 |\n  156 |     // Should NOT see connect wallet button\n  157 |     const connectButton = page.getByTestId('rk-connect-button').first();"
+                        "snippet": "  165 |     // Should NOT see connect wallet button\n  166 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 167 |     await expect(connectButton).not.toBeVisible();\n      |                                     ^\n  168 |   });\n  169 |\n  170 |   test('should prompt re-authentication if token is expired', async ({ page, context }) => {"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                            "column": 33,
-                            "line": 154
+                            "column": 37,
+                            "line": 167
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n\n  152 |     // User should see authenticated state immediately\n  153 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 154 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n      |                                 ^\n  155 |\n  156 |     // Should NOT see connect wallet button\n  157 |     const connectButton = page.getByTestId('rk-connect-button').first();\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:154:33"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"visible\"\u001b[22m\n\n\n  165 |     // Should NOT see connect wallet button\n  166 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 167 |     await expect(connectButton).not.toBeVisible();\n      |                                     ^\n  168 |   });\n  169 |\n  170 |   test('should prompt re-authentication if token is expired', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:167:37"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:03.915Z",
+                      "startTime": "2025-11-01T07:51:10.531Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2745,8 +2505,8 @@
                       ],
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                        "column": 33,
-                        "line": 154
+                        "column": 37,
+                        "line": 167
                       }
                     }
                   ],
@@ -2755,7 +2515,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-b833120651bea42c05ab",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 139,
+              "line": 148,
               "column": 3
             },
             {
@@ -2771,15 +2531,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 23,
-                      "parallelIndex": 2,
+                      "workerIndex": 17,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2987,
+                      "duration": 3073,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:05.368Z",
+                      "startTime": "2025-11-01T07:51:11.180Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2789,7 +2549,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-8cb745e22ea4487d8203",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 161,
+              "line": 170,
               "column": 3
             }
           ]
@@ -2797,12 +2557,12 @@
         {
           "title": "Complete User Journey - Logout Flow",
           "file": "tests/04-complete-journey.spec.ts",
-          "line": 181,
+          "line": 190,
           "column": 6,
           "specs": [
             {
               "title": "should complete logout and clear all auth state",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -2813,65 +2573,25 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 24,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 1443,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:196:33",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                          "column": 33,
-                          "line": 196
-                        },
-                        "snippet": "  194 |     // Verify authenticated\n  195 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 196 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n      |                                 ^\n  197 |\n  198 |     // Find disconnect/logout button\n  199 |     const disconnectButton = page.getByRole('button', { name: /disconnect|logout|sign.*out/i });"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                            "column": 33,
-                            "line": 196
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /dashboard/i })\nExpected: visible\nError: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n\n  194 |     // Verify authenticated\n  195 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 196 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });\n      |                                 ^\n  197 |\n  198 |     // Find disconnect/logout button\n  199 |     const disconnectButton = page.getByRole('button', { name: /disconnect|logout|sign.*out/i });\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:196:33"
-                        }
-                      ],
+                      "workerIndex": 17,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2566,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:05.960Z",
+                      "startTime": "2025-11-01T07:51:14.361Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--bf1c7-ut-and-clear-all-auth-state-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--bf1c7-ut-and-clear-all-auth-state-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--bf1c7-ut-and-clear-all-auth-state-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                        "column": 33,
-                        "line": 196
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "766844f0dd71fd1c9e39-38fee6c78e1d63a47d99",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 182,
+              "line": 191,
               "column": 3
             },
             {
@@ -2887,15 +2607,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 25,
-                      "parallelIndex": 0,
+                      "workerIndex": 17,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3009,
+                      "duration": 3036,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:07.835Z",
+                      "startTime": "2025-11-01T07:51:16.950Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2905,7 +2625,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-e447e5db35e215f834ce",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 215,
+              "line": 224,
               "column": 3
             }
           ]
@@ -2913,12 +2633,12 @@
         {
           "title": "Complete User Journey - Navigation",
           "file": "tests/04-complete-journey.spec.ts",
-          "line": 242,
+          "line": 251,
           "column": 6,
           "specs": [
             {
               "title": "should navigate between all main sections when authenticated",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -2929,65 +2649,25 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 23,
-                      "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 1385,
-                      "error": {
-                        "message": "Error: locator.click: Error: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n",
-                        "stack": "Error: locator.click: Error: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:257:25",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                          "column": 25,
-                          "line": 257
-                        },
-                        "snippet": "  255 |     // Test navigation to Dashboard\n  256 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 257 |     await dashboardLink.click();\n      |                         ^\n  258 |     await page.waitForTimeout(1000);\n  259 |     expect(page.url()).toContain('/dashboard');\n  260 |"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                            "column": 25,
-                            "line": 257
-                          },
-                          "message": "Error: locator.click: Error: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:\n    1) <a href=\"/dashboard\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })\n    2) <a href=\"/dashboard\">…</a> aka getByRole('link', { name: 'Go to Dashboard' })\n\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: /dashboard/i })\u001b[22m\n\n\n  255 |     // Test navigation to Dashboard\n  256 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });\n> 257 |     await dashboardLink.click();\n      |                         ^\n  258 |     await page.waitForTimeout(1000);\n  259 |     expect(page.url()).toContain('/dashboard');\n  260 |\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:257:25"
-                        }
-                      ],
+                      "workerIndex": 18,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 4649,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:08.462Z",
+                      "startTime": "2025-11-01T07:51:17.615Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--0002e-sections-when-authenticated-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--0002e-sections-when-authenticated-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--0002e-sections-when-authenticated-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                        "column": 25,
-                        "line": 257
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "766844f0dd71fd1c9e39-a8b48e916d2dca2ce19a",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 243,
+              "line": 252,
               "column": 3
             },
             {
@@ -3003,15 +2683,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 26,
-                      "parallelIndex": 2,
+                      "workerIndex": 19,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1908,
+                      "duration": 1942,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:10.194Z",
+                      "startTime": "2025-11-01T07:51:20.295Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3021,7 +2701,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-03b290f59d8dc0f1faec",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 277,
+              "line": 286,
               "column": 3
             }
           ]
@@ -3029,7 +2709,7 @@
         {
           "title": "Complete User Journey - Error Handling",
           "file": "tests/04-complete-journey.spec.ts",
-          "line": 299,
+          "line": 308,
           "column": 6,
           "specs": [
             {
@@ -3045,15 +2725,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 25,
-                      "parallelIndex": 0,
+                      "workerIndex": 17,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1421,
+                      "duration": 1424,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:10.989Z",
+                      "startTime": "2025-11-01T07:51:19.992Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3063,7 +2743,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-f859900f8820a30b021e",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 300,
+              "line": 309,
               "column": 3
             },
             {
@@ -3079,15 +2759,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 26,
-                      "parallelIndex": 2,
+                      "workerIndex": 17,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1393,
+                      "duration": 1548,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:12.201Z",
+                      "startTime": "2025-11-01T07:51:21.422Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3097,7 +2777,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-0c46f1aa0ad288c00e53",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 320,
+              "line": 329,
               "column": 3
             },
             {
@@ -3113,15 +2793,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 25,
-                      "parallelIndex": 0,
+                      "workerIndex": 18,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1412,
+                      "duration": 1469,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:12.421Z",
+                      "startTime": "2025-11-01T07:51:22.369Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3131,7 +2811,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-52a5a2082965e5a7dff9",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 334,
+              "line": 343,
               "column": 3
             }
           ]
@@ -3139,7 +2819,7 @@
         {
           "title": "Complete User Journey - Mobile Experience",
           "file": "tests/04-complete-journey.spec.ts",
-          "line": 344,
+          "line": 353,
           "column": 6,
           "specs": [
             {
@@ -3155,15 +2835,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 26,
-                      "parallelIndex": 2,
+                      "workerIndex": 19,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2382,
+                      "duration": 2524,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:13.600Z",
+                      "startTime": "2025-11-01T07:51:22.370Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3173,7 +2853,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-18c9b3ff69a98c9cd662",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 345,
+              "line": 354,
               "column": 3
             },
             {
@@ -3189,10 +2869,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 25,
-                      "parallelIndex": 0,
+                      "workerIndex": 17,
+                      "parallelIndex": 1,
                       "status": "timedOut",
-                      "duration": 30668,
+                      "duration": 30637,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -3205,15 +2885,15 @@
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
                             "column": 25,
-                            "line": 376
+                            "line": 385
                           },
-                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  374 |     // Click connect wallet\n  375 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 376 |     await connectButton.click();\n      |                         ^\n  377 |\n  378 |     // Mobile modal should appear\n  379 |     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:376:25"
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  383 |     // Click connect wallet\n  384 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 385 |     await connectButton.click();\n      |                         ^\n  386 |\n  387 |     // Mobile modal should appear\n  388 |     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:385:25"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:13.841Z",
+                      "startTime": "2025-11-01T07:51:22.976Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3239,7 +2919,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-ed654b41142c454723a6",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 367,
+              "line": 376,
               "column": 3
             }
           ]
@@ -3247,7 +2927,7 @@
         {
           "title": "Complete User Journey - Performance",
           "file": "tests/04-complete-journey.spec.ts",
-          "line": 383,
+          "line": 392,
           "column": 6,
           "specs": [
             {
@@ -3263,15 +2943,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 26,
-                      "parallelIndex": 2,
+                      "workerIndex": 18,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1316,
+                      "duration": 1323,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:15.988Z",
+                      "startTime": "2025-11-01T07:51:23.844Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3281,7 +2961,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-df203d674cb399fa7a58",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 384,
+              "line": 393,
               "column": 3
             },
             {
@@ -3297,15 +2977,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 27,
-                      "parallelIndex": 3,
+                      "workerIndex": 19,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1757,
+                      "duration": 1754,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:43:16.611Z",
+                      "startTime": "2025-11-01T07:51:24.901Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3315,7 +2995,7 @@
               ],
               "id": "766844f0dd71fd1c9e39-9e93959144d395f11103",
               "file": "tests/04-complete-journey.spec.ts",
-              "line": 396,
+              "line": 405,
               "column": 3
             }
           ]
@@ -3325,11 +3005,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-01T07:41:52.630Z",
-    "duration": 111907.72,
-    "expected": 36,
+    "startTime": "2025-11-01T07:49:58.048Z",
+    "duration": 115618.92700000001,
+    "expected": 44,
     "skipped": 0,
-    "unexpected": 26,
+    "unexpected": 18,
     "flaky": 0
   }
 }

@@ -1,74 +1,28 @@
-<testsuites id="" name="" tests="62" failures="26" skipped="0" errors="0" time="111.90772">
-<testsuite name="tests/01-wallet-connection.spec.ts" timestamp="2025-11-01T07:41:52.685Z" hostname="chromium" tests="12" failures="3" skipped="0" time="54.586" errors="0">
-<testcase name="Wallet Connection Flow › should display wallet connection button on homepage" classname="tests/01-wallet-connection.spec.ts" time="1.47">
+<testsuites id="" name="" tests="62" failures="18" skipped="0" errors="0" time="115.61892700000001">
+<testsuite name="tests/01-wallet-connection.spec.ts" timestamp="2025-11-01T07:49:58.266Z" hostname="chromium" tests="12" failures="2" skipped="0" time="51.229" errors="0">
+<testcase name="Wallet Connection Flow › should display wallet connection button on homepage" classname="tests/01-wallet-connection.spec.ts" time="1.45">
 </testcase>
-<testcase name="Wallet Connection Flow › should show RainbowKit modal when connect button is clicked" classname="tests/01-wallet-connection.spec.ts" time="1.53">
+<testcase name="Wallet Connection Flow › should show RainbowKit modal when connect button is clicked" classname="tests/01-wallet-connection.spec.ts" time="1.49">
 </testcase>
-<testcase name="Wallet Connection Flow › should display wallet provider options in modal" classname="tests/01-wallet-connection.spec.ts" time="1.533">
+<testcase name="Wallet Connection Flow › should display wallet provider options in modal" classname="tests/01-wallet-connection.spec.ts" time="1.527">
 </testcase>
-<testcase name="Wallet Connection Flow › should close modal when cancel/close button is clicked" classname="tests/01-wallet-connection.spec.ts" time="6.659">
-<failure message="01-wallet-connection.spec.ts:45:3 should close modal when cancel/close button is clicked" type="FAILURE">
-<![CDATA[  [chromium] › tests/01-wallet-connection.spec.ts:45:3 › Wallet Connection Flow › should close modal when cancel/close button is clicked 
-
-    Error: expect(locator).not.toBeVisible() failed
-
-    Locator:  locator('[data-rk]').first()
-    Expected: not visible
-    Received: visible
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "not toBeVisible" with timeout 5000ms
-      - waiting for locator('[data-rk]').first()
-        9 × locator resolved to <div data-rk="">…</div>
-          - unexpected value "visible"
-
-
-      55 |
-      56 |     // Verify modal is closed
-    > 57 |     await expect(page.locator('[data-rk]').first()).not.toBeVisible();
-         |                                                         ^
-      58 |   });
-      59 |
-      60 |   test('should handle no wallet provider gracefully', async ({ page }) => {
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:57:57
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../../test-results/tests-01-wallet-connection-a124a-cel-close-button-is-clicked-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../../test-results/tests-01-wallet-connection-a124a-cel-close-button-is-clicked-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-01-wallet-connection-a124a-cel-close-button-is-clicked-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|tests-01-wallet-connection-a124a-cel-close-button-is-clicked-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|tests-01-wallet-connection-a124a-cel-close-button-is-clicked-chromium/video.webm]]
-
-[[ATTACHMENT|tests-01-wallet-connection-a124a-cel-close-button-is-clicked-chromium/error-context.md]]
-]]>
-</system-out>
+<testcase name="Wallet Connection Flow › should close modal when cancel/close button is clicked" classname="tests/01-wallet-connection.spec.ts" time="2.309">
 </testcase>
-<testcase name="Wallet Connection Flow › should handle no wallet provider gracefully" classname="tests/01-wallet-connection.spec.ts" time="1.049">
+<testcase name="Wallet Connection Flow › should handle no wallet provider gracefully" classname="tests/01-wallet-connection.spec.ts" time="0.943">
 </testcase>
-<testcase name="Wallet Connection Flow › should persist wallet connection state in localStorage" classname="tests/01-wallet-connection.spec.ts" time="1.929">
+<testcase name="Wallet Connection Flow › should persist wallet connection state in localStorage" classname="tests/01-wallet-connection.spec.ts" time="2.051">
 </testcase>
-<testcase name="Wallet Connection Flow › should display proper loading state during connection" classname="tests/01-wallet-connection.spec.ts" time="1.042">
+<testcase name="Wallet Connection Flow › should display proper loading state during connection" classname="tests/01-wallet-connection.spec.ts" time="0.954">
 </testcase>
-<testcase name="Wallet Connection Flow › should show network selection in wallet modal" classname="tests/01-wallet-connection.spec.ts" time="0.731">
+<testcase name="Wallet Connection Flow › should show network selection in wallet modal" classname="tests/01-wallet-connection.spec.ts" time="0.87">
 </testcase>
-<testcase name="Wallet Connection Flow › should display wallet address in shortened format when connected" classname="tests/01-wallet-connection.spec.ts" time="1.662">
+<testcase name="Wallet Connection Flow › should display wallet address in shortened format when connected" classname="tests/01-wallet-connection.spec.ts" time="1.821">
 </testcase>
-<testcase name="Wallet Connection Flow › should handle connection rejection by user" classname="tests/01-wallet-connection.spec.ts" time="0.635">
+<testcase name="Wallet Connection Flow › should handle connection rejection by user" classname="tests/01-wallet-connection.spec.ts" time="1.559">
 </testcase>
-<testcase name="Wallet Connection - Responsive Design › should display wallet connection on mobile viewport" classname="tests/01-wallet-connection.spec.ts" time="5.645">
-<failure message="01-wallet-connection.spec.ts:142:3 should display wallet connection on mobile viewport" type="FAILURE">
-<![CDATA[  [chromium] › tests/01-wallet-connection.spec.ts:142:3 › Wallet Connection - Responsive Design › should display wallet connection on mobile viewport 
+<testcase name="Wallet Connection - Responsive Design › should display wallet connection on mobile viewport" classname="tests/01-wallet-connection.spec.ts" time="5.6">
+<failure message="01-wallet-connection.spec.ts:177:3 should display wallet connection on mobile viewport" type="FAILURE">
+<![CDATA[  [chromium] › tests/01-wallet-connection.spec.ts:177:3 › Wallet Connection - Responsive Design › should display wallet connection on mobile viewport 
 
     Error: expect(locator).toBeVisible() failed
 
@@ -84,14 +38,14 @@
           - unexpected value "hidden"
 
 
-      147 |     // Verify connect button is visible on mobile
-      148 |     const connectButton = page.getByTestId('rk-connect-button').first();
-    > 149 |     await expect(connectButton).toBeVisible();
+      182 |     // Verify connect button is visible on mobile
+      183 |     const connectButton = page.getByTestId('rk-connect-button').first();
+    > 184 |     await expect(connectButton).toBeVisible();
           |                                 ^
-      150 |   });
-      151 |
-      152 |   test('should open mobile-optimized wallet modal', async ({ page }) => {
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:149:33
+      185 |   });
+      186 |
+      187 |   test('should open mobile-optimized wallet modal', async ({ page }) => {
+        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:184:33
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ../../test-results/tests-01-wallet-connection-b0507-nnection-on-mobile-viewport-chromium/test-failed-1.png
@@ -114,9 +68,9 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Wallet Connection - Responsive Design › should open mobile-optimized wallet modal" classname="tests/01-wallet-connection.spec.ts" time="30.701">
-<failure message="01-wallet-connection.spec.ts:152:3 should open mobile-optimized wallet modal" type="FAILURE">
-<![CDATA[  [chromium] › tests/01-wallet-connection.spec.ts:152:3 › Wallet Connection - Responsive Design › should open mobile-optimized wallet modal 
+<testcase name="Wallet Connection - Responsive Design › should open mobile-optimized wallet modal" classname="tests/01-wallet-connection.spec.ts" time="30.655">
+<failure message="01-wallet-connection.spec.ts:187:3 should open mobile-optimized wallet modal" type="FAILURE">
+<![CDATA[  [chromium] › tests/01-wallet-connection.spec.ts:187:3 › Wallet Connection - Responsive Design › should open mobile-optimized wallet modal 
 
     Test timeout of 30000ms exceeded.
 
@@ -139,14 +93,14 @@
            - waiting 500ms
 
 
-      157 |     // Click connect wallet button
-      158 |     const connectButton = page.getByTestId('rk-connect-button').first();
-    > 159 |     await connectButton.click();
+      192 |     // Click connect wallet button
+      193 |     const connectButton = page.getByTestId('rk-connect-button').first();
+    > 194 |     await connectButton.click();
           |                         ^
-      160 |
-      161 |     // Verify RainbowKit mobile modal appears
-      162 |     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:159:25
+      195 |
+      196 |     // Verify RainbowKit mobile modal appears
+      197 |     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
+        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:194:25
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ../../test-results/tests-01-wallet-connection-34fbc-bile-optimized-wallet-modal-chromium/test-failed-1.png
@@ -170,59 +124,23 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="tests/02-siwe-authentication.spec.ts" timestamp="2025-11-01T07:41:52.685Z" hostname="chromium" tests="14" failures="7" skipped="0" time="31.748" errors="0">
-<testcase name="SIWE Authentication Flow › should retrieve SIWE nonce from backend" classname="tests/02-siwe-authentication.spec.ts" time="0.49">
-<failure message="02-siwe-authentication.spec.ts:17:3 should retrieve SIWE nonce from backend" type="FAILURE">
-<![CDATA[  [chromium] › tests/02-siwe-authentication.spec.ts:17:3 › SIWE Authentication Flow › should retrieve SIWE nonce from backend 
-
-    Error: expect(received).toBeTruthy()
-
-    Received: false
-
-      19 |     const response = await request.get('http://localhost:8080/api/v1/auth/nonce');
-      20 |
-    > 21 |     expect(response.ok()).toBeTruthy();
-         |                           ^
-      22 |     expect(response.status()).toBe(200);
-      23 |
-      24 |     const data = await response.json();
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:21:27
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../../test-results/tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../../test-results/tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/video.webm]]
-
-[[ATTACHMENT|tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/error-context.md]]
-]]>
-</system-out>
+<testsuite name="tests/02-siwe-authentication.spec.ts" timestamp="2025-11-01T07:49:58.266Z" hostname="chromium" tests="14" failures="4" skipped="0" time="32.539" errors="0">
+<testcase name="SIWE Authentication Flow › should retrieve SIWE nonce from backend" classname="tests/02-siwe-authentication.spec.ts" time="0.469">
 </testcase>
-<testcase name="SIWE Authentication Flow › should display SIWE message after wallet connection" classname="tests/02-siwe-authentication.spec.ts" time="6.665">
+<testcase name="SIWE Authentication Flow › should display SIWE message after wallet connection" classname="tests/02-siwe-authentication.spec.ts" time="6.78">
 <failure message="02-siwe-authentication.spec.ts:31:3 should display SIWE message after wallet connection" type="FAILURE">
 <![CDATA[  [chromium] › tests/02-siwe-authentication.spec.ts:31:3 › SIWE Authentication Flow › should display SIWE message after wallet connection 
 
     Error: expect(locator).toBeVisible() failed
 
-    Locator: getByRole('button', { name: /sign.*message|sign.*in/i })
+    Locator: getByRole('button', { name: /sign.*message|sign.*in/i }).first()
     Expected: visible
     Timeout: 5000ms
     Error: element(s) not found
 
     Call log:
       - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })
+      - waiting for getByRole('button', { name: /sign.*message|sign.*in/i }).first()
 
 
       44 |
@@ -255,58 +173,13 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="SIWE Authentication Flow › should generate valid SIWE message with correct fields" classname="tests/02-siwe-authentication.spec.ts" time="1.549">
+<testcase name="SIWE Authentication Flow › should generate valid SIWE message with correct fields" classname="tests/02-siwe-authentication.spec.ts" time="1.649">
 </testcase>
-<testcase name="SIWE Authentication Flow › should handle successful SIWE signature and receive JWT" classname="tests/02-siwe-authentication.spec.ts" time="1.567">
-<failure message="02-siwe-authentication.spec.ts:73:3 should handle successful SIWE signature and receive JWT" type="FAILURE">
-<![CDATA[  [chromium] › tests/02-siwe-authentication.spec.ts:73:3 › SIWE Authentication Flow › should handle successful SIWE signature and receive JWT 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: getByRole('link', { name: /dashboard/i })
-    Expected: visible
-    Error: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:
-        1) <a href="/dashboard" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })
-        2) <a href="/dashboard">…</a> aka getByRole('link', { name: 'Go to Dashboard' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByRole('link', { name: /dashboard/i })
-
-
-      87 |     // Verify authenticated state - should see dashboard link
-      88 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });
-    > 89 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
-         |                                 ^
-      90 |   });
-      91 |
-      92 |   test('should store JWT token in localStorage after authentication', async ({ page, context }) => {
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:89:33
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../../test-results/tests-02-siwe-authenticati-e97e0-E-signature-and-receive-JWT-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../../test-results/tests-02-siwe-authenticati-e97e0-E-signature-and-receive-JWT-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-02-siwe-authenticati-e97e0-E-signature-and-receive-JWT-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|tests-02-siwe-authenticati-e97e0-E-signature-and-receive-JWT-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|tests-02-siwe-authenticati-e97e0-E-signature-and-receive-JWT-chromium/video.webm]]
-
-[[ATTACHMENT|tests-02-siwe-authenticati-e97e0-E-signature-and-receive-JWT-chromium/error-context.md]]
-]]>
-</system-out>
+<testcase name="SIWE Authentication Flow › should handle successful SIWE signature and receive JWT" classname="tests/02-siwe-authentication.spec.ts" time="1.537">
 </testcase>
-<testcase name="SIWE Authentication Flow › should store JWT token in localStorage after authentication" classname="tests/02-siwe-authentication.spec.ts" time="0.607">
+<testcase name="SIWE Authentication Flow › should store JWT token in localStorage after authentication" classname="tests/02-siwe-authentication.spec.ts" time="0.532">
 </testcase>
-<testcase name="SIWE Authentication Flow › should handle signature rejection gracefully" classname="tests/02-siwe-authentication.spec.ts" time="6.847">
+<testcase name="SIWE Authentication Flow › should handle signature rejection gracefully" classname="tests/02-siwe-authentication.spec.ts" time="6.769">
 <failure message="02-siwe-authentication.spec.ts:107:3 should handle signature rejection gracefully" type="FAILURE">
 <![CDATA[  [chromium] › tests/02-siwe-authentication.spec.ts:107:3 › SIWE Authentication Flow › should handle signature rejection gracefully 
 
@@ -352,56 +225,11 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="SIWE Authentication Flow › should display error message on invalid signature" classname="tests/02-siwe-authentication.spec.ts" time="0.563">
+<testcase name="SIWE Authentication Flow › should display error message on invalid signature" classname="tests/02-siwe-authentication.spec.ts" time="0.559">
 </testcase>
-<testcase name="SIWE Authentication Flow › should persist authentication state across page refreshes" classname="tests/02-siwe-authentication.spec.ts" time="1.701">
-<failure message="02-siwe-authentication.spec.ts:134:3 should persist authentication state across page refreshes" type="FAILURE">
-<![CDATA[  [chromium] › tests/02-siwe-authentication.spec.ts:134:3 › SIWE Authentication Flow › should persist authentication state across page refreshes 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: getByRole('link', { name: /dashboard/i })
-    Expected: visible
-    Error: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:
-        1) <a href="/dashboard" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })
-        2) <a href="/dashboard">…</a> aka getByRole('link', { name: 'Go to Dashboard' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByRole('link', { name: /dashboard/i })
-
-
-      148 |     // Verify authenticated features are visible
-      149 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });
-    > 150 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
-          |                                 ^
-      151 |
-      152 |     // Reload page
-      153 |     await page.reload();
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:150:33
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../../test-results/tests-02-siwe-authenticati-22730-state-across-page-refreshes-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../../test-results/tests-02-siwe-authenticati-22730-state-across-page-refreshes-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-02-siwe-authenticati-22730-state-across-page-refreshes-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|tests-02-siwe-authenticati-22730-state-across-page-refreshes-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|tests-02-siwe-authenticati-22730-state-across-page-refreshes-chromium/video.webm]]
-
-[[ATTACHMENT|tests-02-siwe-authenticati-22730-state-across-page-refreshes-chromium/error-context.md]]
-]]>
-</system-out>
+<testcase name="SIWE Authentication Flow › should persist authentication state across page refreshes" classname="tests/02-siwe-authentication.spec.ts" time="2.689">
 </testcase>
-<testcase name="SIWE Authentication Flow › should handle token expiration" classname="tests/02-siwe-authentication.spec.ts" time="6.836">
+<testcase name="SIWE Authentication Flow › should handle token expiration" classname="tests/02-siwe-authentication.spec.ts" time="6.766">
 <failure message="02-siwe-authentication.spec.ts:160:3 should handle token expiration" type="FAILURE">
 <![CDATA[  [chromium] › tests/02-siwe-authentication.spec.ts:160:3 › SIWE Authentication Flow › should handle token expiration 
 
@@ -447,9 +275,9 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="SIWE Authentication Flow › should include chain ID in SIWE message" classname="tests/02-siwe-authentication.spec.ts" time="0.571">
+<testcase name="SIWE Authentication Flow › should include chain ID in SIWE message" classname="tests/02-siwe-authentication.spec.ts" time="0.542">
 </testcase>
-<testcase name="SIWE Authentication Flow › should verify backend validates SIWE signature correctly" classname="tests/02-siwe-authentication.spec.ts" time="0.464">
+<testcase name="SIWE Authentication Flow › should verify backend validates SIWE signature correctly" classname="tests/02-siwe-authentication.spec.ts" time="0.475">
 <failure message="02-siwe-authentication.spec.ts:191:3 should verify backend validates SIWE signature correctly" type="FAILURE">
 <![CDATA[  [chromium] › tests/02-siwe-authentication.spec.ts:191:3 › SIWE Authentication Flow › should verify backend validates SIWE signature correctly 
 
@@ -488,62 +316,17 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="SIWE Authentication - Security › should not expose JWT token in URL or query parameters" classname="tests/02-siwe-authentication.spec.ts" time="0.457">
+<testcase name="SIWE Authentication - Security › should not expose JWT token in URL or query parameters" classname="tests/02-siwe-authentication.spec.ts" time="0.389">
 </testcase>
-<testcase name="SIWE Authentication - Security › should clear authentication state on logout" classname="tests/02-siwe-authentication.spec.ts" time="1.936">
+<testcase name="SIWE Authentication - Security › should clear authentication state on logout" classname="tests/02-siwe-authentication.spec.ts" time="1.978">
 </testcase>
-<testcase name="SIWE Authentication - Security › should not allow access to protected routes without JWT" classname="tests/02-siwe-authentication.spec.ts" time="1.495">
+<testcase name="SIWE Authentication - Security › should not allow access to protected routes without JWT" classname="tests/02-siwe-authentication.spec.ts" time="1.405">
 </testcase>
 </testsuite>
-<testsuite name="tests/03-api-key-management.spec.ts" timestamp="2025-11-01T07:41:52.685Z" hostname="chromium" tests="20" failures="9" skipped="0" time="210.716" errors="0">
-<testcase name="API Key Management - Dashboard › should display API Keys navigation link when authenticated" classname="tests/03-api-key-management.spec.ts" time="1.494">
-<failure message="03-api-key-management.spec.ts:13:3 should display API Keys navigation link when authenticated" type="FAILURE">
-<![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:13:3 › API Key Management - Dashboard › should display API Keys navigation link when authenticated 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: getByRole('link', { name: /api.*keys/i })
-    Expected: visible
-    Error: strict mode violation: getByRole('link', { name: /api.*keys/i }) resolved to 2 elements:
-        1) <a href="/api-keys" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">API Keys</a> aka getByRole('link', { name: 'API Keys', exact: true })
-        2) <a href="/api-keys">…</a> aka getByRole('link', { name: 'Manage API Keys' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByRole('link', { name: /api.*keys/i })
-
-
-      26 |     // Verify API Keys link is visible
-      27 |     const apiKeysLink = page.getByRole('link', { name: /api.*keys/i });
-    > 28 |     await expect(apiKeysLink).toBeVisible({ timeout: 5000 });
-         |                               ^
-      29 |   });
-      30 |
-      31 |   test('should navigate to API Keys page', async ({ page, context }) => {
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:28:31
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../../test-results/tests-03-api-key-managemen-b768f-ion-link-when-authenticated-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../../test-results/tests-03-api-key-managemen-b768f-ion-link-when-authenticated-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-03-api-key-managemen-b768f-ion-link-when-authenticated-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|tests-03-api-key-managemen-b768f-ion-link-when-authenticated-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|tests-03-api-key-managemen-b768f-ion-link-when-authenticated-chromium/video.webm]]
-
-[[ATTACHMENT|tests-03-api-key-managemen-b768f-ion-link-when-authenticated-chromium/error-context.md]]
-]]>
-</system-out>
+<testsuite name="tests/03-api-key-management.spec.ts" timestamp="2025-11-01T07:49:58.266Z" hostname="chromium" tests="20" failures="8" skipped="0" time="211.427" errors="0">
+<testcase name="API Key Management - Dashboard › should display API Keys navigation link when authenticated" classname="tests/03-api-key-management.spec.ts" time="1.374">
 </testcase>
-<testcase name="API Key Management - Dashboard › should navigate to API Keys page" classname="tests/03-api-key-management.spec.ts" time="6.353">
+<testcase name="API Key Management - Dashboard › should navigate to API Keys page" classname="tests/03-api-key-management.spec.ts" time="6.283">
 <failure message="03-api-key-management.spec.ts:31:3 should navigate to API Keys page" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:31:3 › API Key Management - Dashboard › should navigate to API Keys page 
 
@@ -589,7 +372,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Dashboard › should display empty state when no API keys exist" classname="tests/03-api-key-management.spec.ts" time="6.263">
+<testcase name="API Key Management - Dashboard › should display empty state when no API keys exist" classname="tests/03-api-key-management.spec.ts" time="6.262">
 <failure message="03-api-key-management.spec.ts:50:3 should display empty state when no API keys exist" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:50:3 › API Key Management - Dashboard › should display empty state when no API keys exist 
 
@@ -635,7 +418,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should open create API key modal/form" classname="tests/03-api-key-management.spec.ts" time="30.733">
+<testcase name="API Key Management - Creation Flow › should open create API key modal/form" classname="tests/03-api-key-management.spec.ts" time="30.638">
 <failure message="03-api-key-management.spec.ts:71:3 should open create API key modal/form" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:71:3 › API Key Management - Creation Flow › should open create API key modal/form 
 
@@ -676,7 +459,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should require API key name" classname="tests/03-api-key-management.spec.ts" time="30.668">
+<testcase name="API Key Management - Creation Flow › should require API key name" classname="tests/03-api-key-management.spec.ts" time="31.126">
 <failure message="03-api-key-management.spec.ts:90:3 should require API key name" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:90:3 › API Key Management - Creation Flow › should require API key name 
 
@@ -717,7 +500,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should allow setting API key name" classname="tests/03-api-key-management.spec.ts" time="30.665">
+<testcase name="API Key Management - Creation Flow › should allow setting API key name" classname="tests/03-api-key-management.spec.ts" time="30.794">
 <failure message="03-api-key-management.spec.ts:114:3 should allow setting API key name" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:114:3 › API Key Management - Creation Flow › should allow setting API key name 
 
@@ -758,7 +541,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should display scope/permission options" classname="tests/03-api-key-management.spec.ts" time="30.623">
+<testcase name="API Key Management - Creation Flow › should display scope/permission options" classname="tests/03-api-key-management.spec.ts" time="30.65">
 <failure message="03-api-key-management.spec.ts:138:3 should display scope/permission options" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:138:3 › API Key Management - Creation Flow › should display scope/permission options 
 
@@ -799,7 +582,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should allow selecting multiple scopes" classname="tests/03-api-key-management.spec.ts" time="30.747">
+<testcase name="API Key Management - Creation Flow › should allow selecting multiple scopes" classname="tests/03-api-key-management.spec.ts" time="30.662">
 <failure message="03-api-key-management.spec.ts:158:3 should allow selecting multiple scopes" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:158:3 › API Key Management - Creation Flow › should allow selecting multiple scopes 
 
@@ -840,7 +623,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should validate API key name length" classname="tests/03-api-key-management.spec.ts" time="30.636">
+<testcase name="API Key Management - Creation Flow › should validate API key name length" classname="tests/03-api-key-management.spec.ts" time="30.723">
 <failure message="03-api-key-management.spec.ts:182:3 should validate API key name length" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:182:3 › API Key Management - Creation Flow › should validate API key name length 
 
@@ -881,31 +664,31 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should display generated API key after creation" classname="tests/03-api-key-management.spec.ts" time="0.131">
+<testcase name="API Key Management - Creation Flow › should display generated API key after creation" classname="tests/03-api-key-management.spec.ts" time="0.231">
 </testcase>
-<testcase name="API Key Management - Creation Flow › should provide copy-to-clipboard for new API key" classname="tests/03-api-key-management.spec.ts" time="0.108">
+<testcase name="API Key Management - Creation Flow › should provide copy-to-clipboard for new API key" classname="tests/03-api-key-management.spec.ts" time="0.127">
 </testcase>
-<testcase name="API Key Management - Listing &amp; Display › should display existing API keys in a table/list" classname="tests/03-api-key-management.spec.ts" time="2.157">
+<testcase name="API Key Management - Listing &amp; Display › should display existing API keys in a table/list" classname="tests/03-api-key-management.spec.ts" time="2.22">
 </testcase>
-<testcase name="API Key Management - Listing &amp; Display › should show API key metadata (name, created date, scopes)" classname="tests/03-api-key-management.spec.ts" time="0.118">
+<testcase name="API Key Management - Listing &amp; Display › should show API key metadata (name, created date, scopes)" classname="tests/03-api-key-management.spec.ts" time="0.109">
 </testcase>
-<testcase name="API Key Management - Listing &amp; Display › should mask API key values in listing" classname="tests/03-api-key-management.spec.ts" time="1.129">
+<testcase name="API Key Management - Listing &amp; Display › should mask API key values in listing" classname="tests/03-api-key-management.spec.ts" time="1.14">
 </testcase>
-<testcase name="API Key Management - Listing &amp; Display › should display scopes as badges/tags" classname="tests/03-api-key-management.spec.ts" time="1.131">
+<testcase name="API Key Management - Listing &amp; Display › should display scopes as badges/tags" classname="tests/03-api-key-management.spec.ts" time="1.141">
 </testcase>
-<testcase name="API Key Management - Revocation › should show revoke/delete button for each API key" classname="tests/03-api-key-management.spec.ts" time="2.167">
+<testcase name="API Key Management - Revocation › should show revoke/delete button for each API key" classname="tests/03-api-key-management.spec.ts" time="2.169">
 </testcase>
-<testcase name="API Key Management - Revocation › should show confirmation dialog before revoking key" classname="tests/03-api-key-management.spec.ts" time="1.143">
+<testcase name="API Key Management - Revocation › should show confirmation dialog before revoking key" classname="tests/03-api-key-management.spec.ts" time="1.285">
 </testcase>
-<testcase name="API Key Management - Revocation › should allow canceling revocation" classname="tests/03-api-key-management.spec.ts" time="1.157">
+<testcase name="API Key Management - Revocation › should allow canceling revocation" classname="tests/03-api-key-management.spec.ts" time="1.144">
 </testcase>
-<testcase name="API Key Management - Permissions › should not allow non-authenticated users to access API keys page" classname="tests/03-api-key-management.spec.ts" time="2.161">
+<testcase name="API Key Management - Permissions › should not allow non-authenticated users to access API keys page" classname="tests/03-api-key-management.spec.ts" time="2.207">
 </testcase>
-<testcase name="API Key Management - Permissions › should display API key count/usage statistics" classname="tests/03-api-key-management.spec.ts" time="1.132">
+<testcase name="API Key Management - Permissions › should display API key count/usage statistics" classname="tests/03-api-key-management.spec.ts" time="1.142">
 </testcase>
 </testsuite>
-<testsuite name="tests/04-complete-journey.spec.ts" timestamp="2025-11-01T07:41:52.685Z" hostname="chromium" tests="16" failures="7" skipped="0" time="56.8" errors="0">
-<testcase name="Complete User Journey - New User Flow › should complete full journey: Connect → Sign → Create API Key" classname="tests/04-complete-journey.spec.ts" time="1.407">
+<testsuite name="tests/04-complete-journey.spec.ts" timestamp="2025-11-01T07:49:58.266Z" hostname="chromium" tests="16" failures="4" skipped="0" time="70.109" errors="0">
+<testcase name="Complete User Journey - New User Flow › should complete full journey: Connect → Sign → Create API Key" classname="tests/04-complete-journey.spec.ts" time="1.511">
 <failure message="04-complete-journey.spec.ts:12:3 should complete full journey: Connect → Sign → Create API Key" type="FAILURE">
 <![CDATA[  [chromium] › tests/04-complete-journey.spec.ts:12:3 › Complete User Journey - New User Flow › should complete full journey: Connect → Sign → Create API Key 
 
@@ -952,31 +735,26 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Complete User Journey - New User Flow › should persist authentication across multiple page navigations" classname="tests/04-complete-journey.spec.ts" time="1.423">
-<failure message="04-complete-journey.spec.ts:68:3 should persist authentication across multiple page navigations" type="FAILURE">
-<![CDATA[  [chromium] › tests/04-complete-journey.spec.ts:68:3 › Complete User Journey - New User Flow › should persist authentication across multiple page navigations 
+<testcase name="Complete User Journey - New User Flow › should persist authentication across multiple page navigations" classname="tests/04-complete-journey.spec.ts" time="3.511">
+<failure message="04-complete-journey.spec.ts:77:3 should persist authentication across multiple page navigations" type="FAILURE">
+<![CDATA[  [chromium] › tests/04-complete-journey.spec.ts:77:3 › Complete User Journey - New User Flow › should persist authentication across multiple page navigations 
 
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: getByRole('link', { name: /dashboard/i })
-    Expected: visible
-    Error: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:
-        1) <a href="/dashboard" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })
-        2) <a href="/dashboard">…</a> aka getByRole('link', { name: 'Go to Dashboard' })
+    Error: locator.isVisible: Error: strict mode violation: getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i })) resolved to 2 elements:
+        1) <a href="/" class="flex items-center space-x-2">…</a> aka getByRole('link', { name: 'G Gatekeeper' })
+        2) <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Home</a> aka getByRole('link', { name: 'Home' })
 
     Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByRole('link', { name: /dashboard/i })
+        - checking visibility of getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i }))
 
 
-      81 |     // Should see dashboard link
-      82 |     let dashboardLink = page.getByRole('link', { name: /dashboard/i });
-    > 83 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
-         |                                 ^
-      84 |
-      85 |     // Navigate to dashboard
-      86 |     await dashboardLink.click();
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:83:33
+      110 |     const homeLink = page.getByRole('link', { name: /^home$/i }).or(page.getByRole('link', { name: /gatekeeper/i }));
+      111 |
+    > 112 |     if (await homeLink.isVisible({ timeout: 3000 })) {
+          |                        ^
+      113 |       await homeLink.click();
+      114 |       await page.waitForTimeout(1000);
+      115 |
+        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:112:24
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ../../test-results/tests-04-complete-journey--8d6f3-s-multiple-page-navigations-chromium/test-failed-1.png
@@ -999,78 +777,34 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Complete User Journey - New User Flow › should handle browser refresh while authenticated" classname="tests/04-complete-journey.spec.ts" time="1.43">
-<failure message="04-complete-journey.spec.ts:113:3 should handle browser refresh while authenticated" type="FAILURE">
-<![CDATA[  [chromium] › tests/04-complete-journey.spec.ts:113:3 › Complete User Journey - New User Flow › should handle browser refresh while authenticated 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: getByRole('link', { name: /dashboard/i })
-    Expected: visible
-    Error: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:
-        1) <a href="/dashboard" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })
-        2) <a href="/dashboard">…</a> aka getByRole('link', { name: 'Go to Dashboard' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByRole('link', { name: /dashboard/i })
-
-
-      125 |     // Verify authenticated
-      126 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });
-    > 127 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
-          |                                 ^
-      128 |
-      129 |     // Refresh page
-      130 |     await page.reload();
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:127:33
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../../test-results/tests-04-complete-journey--5d19f-refresh-while-authenticated-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../../test-results/tests-04-complete-journey--5d19f-refresh-while-authenticated-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-04-complete-journey--5d19f-refresh-while-authenticated-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|tests-04-complete-journey--5d19f-refresh-while-authenticated-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|tests-04-complete-journey--5d19f-refresh-while-authenticated-chromium/video.webm]]
-
-[[ATTACHMENT|tests-04-complete-journey--5d19f-refresh-while-authenticated-chromium/error-context.md]]
-]]>
-</system-out>
+<testcase name="Complete User Journey - New User Flow › should handle browser refresh while authenticated" classname="tests/04-complete-journey.spec.ts" time="2.538">
 </testcase>
-<testcase name="Complete User Journey - Returning User Flow › should auto-authenticate returning user with valid token" classname="tests/04-complete-journey.spec.ts" time="1.459">
-<failure message="04-complete-journey.spec.ts:139:3 should auto-authenticate returning user with valid token" type="FAILURE">
-<![CDATA[  [chromium] › tests/04-complete-journey.spec.ts:139:3 › Complete User Journey - Returning User Flow › should auto-authenticate returning user with valid token 
+<testcase name="Complete User Journey - Returning User Flow › should auto-authenticate returning user with valid token" classname="tests/04-complete-journey.spec.ts" time="6.604">
+<failure message="04-complete-journey.spec.ts:148:3 should auto-authenticate returning user with valid token" type="FAILURE">
+<![CDATA[  [chromium] › tests/04-complete-journey.spec.ts:148:3 › Complete User Journey - Returning User Flow › should auto-authenticate returning user with valid token 
 
-    Error: expect(locator).toBeVisible() failed
+    Error: expect(locator).not.toBeVisible() failed
 
-    Locator: getByRole('link', { name: /dashboard/i })
-    Expected: visible
-    Error: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:
-        1) <a href="/dashboard" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })
-        2) <a href="/dashboard">…</a> aka getByRole('link', { name: 'Go to Dashboard' })
+    Locator:  getByTestId('rk-connect-button').first()
+    Expected: not visible
+    Received: visible
+    Timeout:  5000ms
 
     Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByRole('link', { name: /dashboard/i })
+      - Expect "not toBeVisible" with timeout 5000ms
+      - waiting for getByTestId('rk-connect-button').first()
+        9 × locator resolved to <button type="button" data-testid="rk-connect-button" class="iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6">Connect Wallet</button>
+          - unexpected value "visible"
 
 
-      152 |     // User should see authenticated state immediately
-      153 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });
-    > 154 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
-          |                                 ^
-      155 |
-      156 |     // Should NOT see connect wallet button
-      157 |     const connectButton = page.getByTestId('rk-connect-button').first();
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:154:33
+      165 |     // Should NOT see connect wallet button
+      166 |     const connectButton = page.getByTestId('rk-connect-button').first();
+    > 167 |     await expect(connectButton).not.toBeVisible();
+          |                                     ^
+      168 |   });
+      169 |
+      170 |   test('should prompt re-authentication if token is expired', async ({ page, context }) => {
+        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:167:37
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ../../test-results/tests-04-complete-journey--ab233-rning-user-with-valid-token-chromium/test-failed-1.png
@@ -1093,112 +827,27 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Complete User Journey - Returning User Flow › should prompt re-authentication if token is expired" classname="tests/04-complete-journey.spec.ts" time="2.987">
+<testcase name="Complete User Journey - Returning User Flow › should prompt re-authentication if token is expired" classname="tests/04-complete-journey.spec.ts" time="3.073">
 </testcase>
-<testcase name="Complete User Journey - Logout Flow › should complete logout and clear all auth state" classname="tests/04-complete-journey.spec.ts" time="1.443">
-<failure message="04-complete-journey.spec.ts:182:3 should complete logout and clear all auth state" type="FAILURE">
-<![CDATA[  [chromium] › tests/04-complete-journey.spec.ts:182:3 › Complete User Journey - Logout Flow › should complete logout and clear all auth state 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: getByRole('link', { name: /dashboard/i })
-    Expected: visible
-    Error: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:
-        1) <a href="/dashboard" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })
-        2) <a href="/dashboard">…</a> aka getByRole('link', { name: 'Go to Dashboard' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByRole('link', { name: /dashboard/i })
-
-
-      194 |     // Verify authenticated
-      195 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });
-    > 196 |     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
-          |                                 ^
-      197 |
-      198 |     // Find disconnect/logout button
-      199 |     const disconnectButton = page.getByRole('button', { name: /disconnect|logout|sign.*out/i });
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:196:33
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../../test-results/tests-04-complete-journey--bf1c7-ut-and-clear-all-auth-state-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../../test-results/tests-04-complete-journey--bf1c7-ut-and-clear-all-auth-state-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-04-complete-journey--bf1c7-ut-and-clear-all-auth-state-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|tests-04-complete-journey--bf1c7-ut-and-clear-all-auth-state-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|tests-04-complete-journey--bf1c7-ut-and-clear-all-auth-state-chromium/video.webm]]
-
-[[ATTACHMENT|tests-04-complete-journey--bf1c7-ut-and-clear-all-auth-state-chromium/error-context.md]]
-]]>
-</system-out>
+<testcase name="Complete User Journey - Logout Flow › should complete logout and clear all auth state" classname="tests/04-complete-journey.spec.ts" time="2.566">
 </testcase>
-<testcase name="Complete User Journey - Logout Flow › should redirect to home after logout from protected page" classname="tests/04-complete-journey.spec.ts" time="3.009">
+<testcase name="Complete User Journey - Logout Flow › should redirect to home after logout from protected page" classname="tests/04-complete-journey.spec.ts" time="3.036">
 </testcase>
-<testcase name="Complete User Journey - Navigation › should navigate between all main sections when authenticated" classname="tests/04-complete-journey.spec.ts" time="1.385">
-<failure message="04-complete-journey.spec.ts:243:3 should navigate between all main sections when authenticated" type="FAILURE">
-<![CDATA[  [chromium] › tests/04-complete-journey.spec.ts:243:3 › Complete User Journey - Navigation › should navigate between all main sections when authenticated 
-
-    Error: locator.click: Error: strict mode violation: getByRole('link', { name: /dashboard/i }) resolved to 2 elements:
-        1) <a href="/dashboard" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Dashboard</a> aka getByRole('link', { name: 'Dashboard', exact: true })
-        2) <a href="/dashboard">…</a> aka getByRole('link', { name: 'Go to Dashboard' })
-
-    Call log:
-      - waiting for getByRole('link', { name: /dashboard/i })
-
-
-      255 |     // Test navigation to Dashboard
-      256 |     const dashboardLink = page.getByRole('link', { name: /dashboard/i });
-    > 257 |     await dashboardLink.click();
-          |                         ^
-      258 |     await page.waitForTimeout(1000);
-      259 |     expect(page.url()).toContain('/dashboard');
-      260 |
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:257:25
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../../test-results/tests-04-complete-journey--0002e-sections-when-authenticated-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../../test-results/tests-04-complete-journey--0002e-sections-when-authenticated-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-04-complete-journey--0002e-sections-when-authenticated-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|tests-04-complete-journey--0002e-sections-when-authenticated-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|tests-04-complete-journey--0002e-sections-when-authenticated-chromium/video.webm]]
-
-[[ATTACHMENT|tests-04-complete-journey--0002e-sections-when-authenticated-chromium/error-context.md]]
-]]>
-</system-out>
+<testcase name="Complete User Journey - Navigation › should navigate between all main sections when authenticated" classname="tests/04-complete-journey.spec.ts" time="4.649">
 </testcase>
-<testcase name="Complete User Journey - Navigation › should show active navigation state for current page" classname="tests/04-complete-journey.spec.ts" time="1.908">
+<testcase name="Complete User Journey - Navigation › should show active navigation state for current page" classname="tests/04-complete-journey.spec.ts" time="1.942">
 </testcase>
-<testcase name="Complete User Journey - Error Handling › should handle network errors gracefully" classname="tests/04-complete-journey.spec.ts" time="1.421">
+<testcase name="Complete User Journey - Error Handling › should handle network errors gracefully" classname="tests/04-complete-journey.spec.ts" time="1.424">
 </testcase>
-<testcase name="Complete User Journey - Error Handling › should handle invalid JWT token gracefully" classname="tests/04-complete-journey.spec.ts" time="1.393">
+<testcase name="Complete User Journey - Error Handling › should handle invalid JWT token gracefully" classname="tests/04-complete-journey.spec.ts" time="1.548">
 </testcase>
-<testcase name="Complete User Journey - Error Handling › should handle missing localStorage gracefully" classname="tests/04-complete-journey.spec.ts" time="1.412">
+<testcase name="Complete User Journey - Error Handling › should handle missing localStorage gracefully" classname="tests/04-complete-journey.spec.ts" time="1.469">
 </testcase>
-<testcase name="Complete User Journey - Mobile Experience › should complete full journey on mobile viewport" classname="tests/04-complete-journey.spec.ts" time="2.382">
+<testcase name="Complete User Journey - Mobile Experience › should complete full journey on mobile viewport" classname="tests/04-complete-journey.spec.ts" time="2.524">
 </testcase>
-<testcase name="Complete User Journey - Mobile Experience › should handle mobile wallet connection" classname="tests/04-complete-journey.spec.ts" time="30.668">
-<failure message="04-complete-journey.spec.ts:367:3 should handle mobile wallet connection" type="FAILURE">
-<![CDATA[  [chromium] › tests/04-complete-journey.spec.ts:367:3 › Complete User Journey - Mobile Experience › should handle mobile wallet connection 
+<testcase name="Complete User Journey - Mobile Experience › should handle mobile wallet connection" classname="tests/04-complete-journey.spec.ts" time="30.637">
+<failure message="04-complete-journey.spec.ts:376:3 should handle mobile wallet connection" type="FAILURE">
+<![CDATA[  [chromium] › tests/04-complete-journey.spec.ts:376:3 › Complete User Journey - Mobile Experience › should handle mobile wallet connection 
 
     Test timeout of 30000ms exceeded.
 
@@ -1221,14 +870,14 @@
            - waiting 500ms
 
 
-      374 |     // Click connect wallet
-      375 |     const connectButton = page.getByTestId('rk-connect-button').first();
-    > 376 |     await connectButton.click();
+      383 |     // Click connect wallet
+      384 |     const connectButton = page.getByTestId('rk-connect-button').first();
+    > 385 |     await connectButton.click();
           |                         ^
-      377 |
-      378 |     // Mobile modal should appear
-      379 |     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:376:25
+      386 |
+      387 |     // Mobile modal should appear
+      388 |     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
+        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:385:25
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ../../test-results/tests-04-complete-journey--72444-le-mobile-wallet-connection-chromium/test-failed-1.png
@@ -1251,9 +900,9 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Complete User Journey - Performance › should load homepage within acceptable time" classname="tests/04-complete-journey.spec.ts" time="1.316">
+<testcase name="Complete User Journey - Performance › should load homepage within acceptable time" classname="tests/04-complete-journey.spec.ts" time="1.323">
 </testcase>
-<testcase name="Complete User Journey - Performance › should handle rapid navigation without errors" classname="tests/04-complete-journey.spec.ts" time="1.757">
+<testcase name="Complete User Journey - Performance › should handle rapid navigation without errors" classname="tests/04-complete-journey.spec.ts" time="1.754">
 </testcase>
 </testsuite>
 </testsuites>
