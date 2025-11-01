@@ -61,11 +61,11 @@ test.describe('Wallet Connection Flow', () => {
   test('should handle no wallet provider gracefully', async ({ page }) => {
     // This test verifies the app doesn't crash when no wallet is installed
     // In a real browser without MetaMask, the modal should still open
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await connectButton.click();
 
     // Modal should still open even without wallet
-    await expect(page.locator('[data-rk]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
   });
 
   test('should persist wallet connection state in localStorage', async ({ page, context }) => {
@@ -87,24 +87,24 @@ test.describe('Wallet Connection Flow', () => {
 
   test('should display proper loading state during connection', async ({ page }) => {
     // Click connect wallet button
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await connectButton.click();
 
     // Verify loading indicators appear
     // RainbowKit shows connecting state
-    await expect(page.locator('[data-rk]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
   });
 
   test('should show network selection in wallet modal', async ({ page }) => {
     // Open wallet connect modal
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await connectButton.click();
 
     // Wait for modal
-    await expect(page.locator('[data-rk]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
 
     // RainbowKit modal may show network info or selection
-    const modalContent = page.locator('[data-rk]');
+    const modalContent = page.locator('[data-rk]').first();
     await expect(modalContent).toBeVisible();
   });
 
@@ -125,18 +125,18 @@ test.describe('Wallet Connection Flow', () => {
 
   test('should handle connection rejection by user', async ({ page }) => {
     // Click connect wallet button
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await connectButton.click();
 
     // Modal should open
-    await expect(page.locator('[data-rk]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
 
     // Close the modal to simulate rejection
     const closeButton = page.locator('[data-rk] button').first();
     await closeButton.click();
 
     // Verify user remains on homepage and connect button is still visible
-    await expect(page.getByRole('button', { name: /connect wallet/i })).toBeVisible();
+    await expect(page.getByTestId('rk-connect-button').first()).toBeVisible();
   });
 });
 
@@ -147,7 +147,7 @@ test.describe('Wallet Connection - Responsive Design', () => {
     await page.goto('/');
 
     // Verify connect button is visible on mobile
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await expect(connectButton).toBeVisible();
   });
 
@@ -157,10 +157,10 @@ test.describe('Wallet Connection - Responsive Design', () => {
     await page.goto('/');
 
     // Click connect wallet button
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await connectButton.click();
 
     // Verify RainbowKit mobile modal appears
-    await expect(page.locator('[data-rk]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
   });
 });

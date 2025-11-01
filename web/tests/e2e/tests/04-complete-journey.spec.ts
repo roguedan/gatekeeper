@@ -18,14 +18,14 @@ test.describe('Complete User Journey - New User Flow', () => {
     await expect(page.getByRole('heading', { name: /gatekeeper/i })).toBeVisible({ timeout: 5000 });
 
     // Step 2: Verify connect wallet button is visible
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await expect(connectButton).toBeVisible();
 
     // Step 3: Click connect wallet
     await connectButton.click();
 
     // Step 4: Verify modal opens
-    await expect(page.locator('[data-rk]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
 
     // For E2E testing, we'll simulate authenticated state
     // In a real test with MetaMask, we'd interact with the extension
@@ -154,7 +154,7 @@ test.describe('Complete User Journey - Returning User Flow', () => {
     await expect(dashboardLink).toBeVisible({ timeout: 5000 });
 
     // Should NOT see connect wallet button
-    const connectButton = page.getByRole('button', { name: /^connect wallet$/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await expect(connectButton).not.toBeVisible();
   });
 
@@ -207,7 +207,7 @@ test.describe('Complete User Journey - Logout Flow', () => {
       expect(storedToken).toBeNull();
 
       // Should see connect wallet button again
-      const connectButton = page.getByRole('button', { name: /connect wallet/i });
+      const connectButton = page.getByTestId('rk-connect-button').first();
       await expect(connectButton).toBeVisible({ timeout: 5000 });
     }
   });
@@ -336,7 +336,7 @@ test.describe('Complete User Journey - Error Handling', () => {
     await page.waitForTimeout(1000);
 
     // App should work without localStorage
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await expect(connectButton).toBeVisible({ timeout: 5000 });
   });
 });
@@ -372,11 +372,11 @@ test.describe('Complete User Journey - Mobile Experience', () => {
     await page.waitForTimeout(1000);
 
     // Click connect wallet
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await connectButton.click();
 
     // Mobile modal should appear
-    await expect(page.locator('[data-rk]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
   });
 });
 
