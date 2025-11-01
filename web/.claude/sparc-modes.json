@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "modes": {
+    "spec-pseudocode": {
+      "name": "Specification & Pseudocode",
+      "description": "Define requirements and algorithm design",
+      "phases": ["specification", "pseudocode"],
+      "tools": ["analysis", "planning"],
+      "timeout": 300000
+    },
+    "architect": {
+      "name": "Architecture Design",
+      "description": "Design system architecture and patterns",
+      "phases": ["architecture"],
+      "tools": ["analysis", "design"],
+      "timeout": 300000
+    },
+    "refinement": {
+      "name": "TDD Refinement",
+      "description": "Test-driven development with refinement",
+      "phases": ["refinement"],
+      "tools": ["testing", "implementation"],
+      "timeout": 600000
+    },
+    "integration": {
+      "name": "Integration",
+      "description": "Integrate and complete implementation",
+      "phases": ["completion"],
+      "tools": ["testing", "integration"],
+      "timeout": 300000
+    },
+    "tdd": {
+      "name": "Full TDD Workflow",
+      "description": "Complete specification to completion",
+      "phases": ["specification", "pseudocode", "architecture", "refinement", "completion"],
+      "tools": ["analysis", "planning", "testing", "implementation", "integration"],
+      "timeout": 1800000
+    }
+  },
+  "defaults": {
+    "mode": "tdd",
+    "workers": 4,
+    "retries": 2,
+    "timeout": 300000
+  }
+}
