@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { setupAuthenticatedUser } from '../fixtures/auth';
 
 /**
  * E2E Tests: API Key Management
@@ -29,13 +30,10 @@ test.describe('API Key Management - Dashboard', () => {
   });
 
   test('should navigate to API Keys page', async ({ page, context }) => {
-    const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
+    // Setup authenticated user - MUST be called BEFORE navigating
+    await setupAuthenticatedUser(page, context);
 
-    await context.addInitScript(({ token }) => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('gatekeeper_auth_token', token);
-    }, { token: mockJWT });
-
+    // Now navigate to API Keys page
     await page.goto('/api-keys');
     await page.waitForTimeout(1500);
 
@@ -48,13 +46,10 @@ test.describe('API Key Management - Dashboard', () => {
   });
 
   test('should display empty state when no API keys exist', async ({ page, context }) => {
-    const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
+    // Setup authenticated user
+    await setupAuthenticatedUser(page, context);
 
-    await context.addInitScript(({ token }) => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('gatekeeper_auth_token', token);
-    }, { token: mockJWT });
-
+    // Navigate to API Keys
     await page.goto('/api-keys');
     await page.waitForTimeout(1500);
 
@@ -69,13 +64,7 @@ test.describe('API Key Management - Dashboard', () => {
 
 test.describe('API Key Management - Creation Flow', () => {
   test('should open create API key modal/form', async ({ page, context }) => {
-    const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
-
-    await context.addInitScript(({ token }) => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('gatekeeper_auth_token', token);
-    }, { token: mockJWT });
-
+    await setupAuthenticatedUser(page, context);
     await page.goto('/api-keys');
     await page.waitForTimeout(1500);
 
@@ -89,13 +78,7 @@ test.describe('API Key Management - Creation Flow', () => {
   });
 
   test('should require API key name', async ({ page, context }) => {
-    const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
-
-    await context.addInitScript(({ token }) => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('gatekeeper_auth_token', token);
-    }, { token: mockJWT });
-
+    await setupAuthenticatedUser(page, context);
     await page.goto('/api-keys');
     await page.waitForTimeout(1500);
 
@@ -114,13 +97,7 @@ test.describe('API Key Management - Creation Flow', () => {
   });
 
   test('should allow setting API key name', async ({ page, context }) => {
-    const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
-
-    await context.addInitScript(({ token }) => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('gatekeeper_auth_token', token);
-    }, { token: mockJWT });
-
+    await setupAuthenticatedUser(page, context);
     await page.goto('/api-keys');
     await page.waitForTimeout(1500);
 
@@ -139,13 +116,7 @@ test.describe('API Key Management - Creation Flow', () => {
   });
 
   test('should display scope/permission options', async ({ page, context }) => {
-    const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
-
-    await context.addInitScript(({ token }) => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('gatekeeper_auth_token', token);
-    }, { token: mockJWT });
-
+    await setupAuthenticatedUser(page, context);
     await page.goto('/api-keys');
     await page.waitForTimeout(1500);
 
@@ -160,13 +131,7 @@ test.describe('API Key Management - Creation Flow', () => {
   });
 
   test('should allow selecting multiple scopes', async ({ page, context }) => {
-    const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
-
-    await context.addInitScript(({ token }) => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('gatekeeper_auth_token', token);
-    }, { token: mockJWT });
-
+    await setupAuthenticatedUser(page, context);
     await page.goto('/api-keys');
     await page.waitForTimeout(1500);
 
@@ -185,13 +150,7 @@ test.describe('API Key Management - Creation Flow', () => {
   });
 
   test('should validate API key name length', async ({ page, context }) => {
-    const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
-
-    await context.addInitScript(({ token }) => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('gatekeeper_auth_token', token);
-    }, { token: mockJWT });
-
+    await setupAuthenticatedUser(page, context);
     await page.goto('/api-keys');
     await page.waitForTimeout(1500);
 

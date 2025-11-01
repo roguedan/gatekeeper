@@ -1,162 +1,81 @@
-import { test as base } from '@playwright/test';
+import { Page, BrowserContext } from '@playwright/test'
+
+export interface AuthSetupOptions {
+  address?: string
+  token?: string
+  waitForLoad?: boolean
+}
 
 /**
- * Authentication Fixtures for Playwright E2E Tests
- *
- * Purpose: Provide reusable authenticated page fixtures
- * Framework: Agentic QE with Playwright
+ * Setup authenticated state by setting JWT token in localStorage
+ * IMPORTANT: Must be called with context.addInitScript BEFORE first page navigation
+ * This function MUST be called BEFORE any page.goto() calls
  */
-
-/**
- * Mock JWT token for testing
- * This is a sample token structure - in real tests, you'd use actual tokens
- */
-export const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZGRyZXNzIjoiMHg3NDJkMzVDYzY2MzRDMDUzMjkyNWEzYjg0NEJjOWU3NTk1ZjBiRWIiLCJpYXQiOjE3MDAwMDAwMDAsImV4cCI6MTcwMDg2NDAwMH0.test_signature';
-
-/**
- * Mock Ethereum address for testing
- */
-export const mockAddress = '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb';
-
-/**
- * Extended test fixture with authentication helpers
- */
-type AuthFixtures = {
-  authenticatedPage: any;
-};
-
-/**
- * Authenticated page fixture
- * Sets up a page with pre-authenticated state
- */
-export const authenticatedPage = base.extend<AuthFixtures>({
-  authenticatedPage: async ({ page, context }, use) => {
-    // Set up authenticated state before each test
-    await context.addInitScript(({ token, address }) => {
-      // Set wallet connection state
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('wagmi.wallet', 'metaMask');
-      localStorage.setItem('wagmi.account', address);
-
-      // Set authentication token
-      localStorage.setItem('gatekeeper_auth_token', token);
-    }, { token: mockJWT, address: mockAddress });
-
-    // Navigate to the application
-    await page.goto('/');
-    await page.waitForTimeout(1000);
-
-    // Use the authenticated page in tests
-    await use(page);
-  },
-});
-
-/**
- * Helper to set authenticated state in any test
- */
-export async function setAuthenticatedState(
-  context: any,
-  token: string = mockJWT,
-  address: string = mockAddress
+export async function setupAuthenticatedUser(
+  page: Page,
+  context: BrowserContext,
+  options: AuthSetupOptions = {}
 ) {
+  const {
+    address = '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb',
+    token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature',
+    waitForLoad = true,
+  } = options
+
+  // CRITICAL: Setup auth in context BEFORE any navigation
+  // This ensures localStorage is initialized when page loads and app initializes
   await context.addInitScript(
     ({ token, address }) => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('wagmi.wallet', 'metaMask');
-      localStorage.setItem('wagmi.account', address);
-      localStorage.setItem('gatekeeper_auth_token', token);
+      // Set auth token (checked by authService.isAuthenticated())
+      localStorage.setItem('gatekeeper_auth_token', token)
+      // Set wallet address
+      localStorage.setItem('gatekeeper_wallet_address', address)
+      // Mark for E2E test environment
+      ;(window as any).__E2E_TEST__ = true
+      ;(window as any).__AUTH_ADDRESS__ = address
     },
     { token, address }
-  );
+  )
+
+  // Return without navigating - let the test handle navigation
+  // This way the init script is applied to ALL subsequent page loads
+  return { address, token }
 }
 
 /**
- * Helper to clear authentication state
+ * Verify user is authenticated by checking localStorage
  */
-export async function clearAuthState(page: any) {
+export async function verifyAuthenticated(page: Page) {
+  const token = await page.evaluate(() => localStorage.getItem('gatekeeper_auth_token'))
+  const address = await page.evaluate(() => localStorage.getItem('gatekeeper_wallet_address'))
+
+  return {
+    authenticated: !!token,
+    token,
+    address,
+  }
+}
+
+/**
+ * Verify user is NOT authenticated
+ */
+export async function verifyUnauthenticated(page: Page) {
+  const token = await page.evaluate(() => localStorage.getItem('gatekeeper_auth_token'))
+  const address = await page.evaluate(() => localStorage.getItem('gatekeeper_wallet_address'))
+
+  return {
+    authenticated: !token && !address,
+    token: null,
+    address: null,
+  }
+}
+
+/**
+ * Clear all auth state
+ */
+export async function clearAuth(page: Page) {
   await page.evaluate(() => {
-    localStorage.removeItem('wagmi.connected');
-    localStorage.removeItem('wagmi.wallet');
-    localStorage.removeItem('wagmi.account');
-    localStorage.removeItem('gatekeeper_auth_token');
-    sessionStorage.clear();
-  });
-}
-
-/**
- * Helper to check if page is authenticated
- */
-export async function isAuthenticated(page: any): Promise<boolean> {
-  const token = await page.evaluate(() => localStorage.getItem('gatekeeper_auth_token'));
-  const connected = await page.evaluate(() => localStorage.getItem('wagmi.connected'));
-
-  return !!(token && connected === 'true');
-}
-
-/**
- * Helper to get stored auth token
- */
-export async function getStoredToken(page: any): Promise<string | null> {
-  return await page.evaluate(() => localStorage.getItem('gatekeeper_auth_token'));
-}
-
-/**
- * Helper to get stored wallet address
- */
-export async function getStoredAddress(page: any): Promise<string | null> {
-  return await page.evaluate(() => localStorage.getItem('wagmi.account'));
-}
-
-/**
- * Mock expired JWT token
- */
-export const expiredJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZGRyZXNzIjoiMHg3NDJkMzVDYzY2MzRDMDUzMjkyNWEzYjg0NEJjOWU3NTk1ZjBiRWIiLCJpYXQiOjE2MDAwMDAwMDAsImV4cCI6MTYwMDAwMDAwMX0.expired';
-
-/**
- * Helper to set expired token state
- */
-export async function setExpiredTokenState(context: any) {
-  await context.addInitScript(({ token, address }) => {
-    localStorage.setItem('wagmi.connected', 'true');
-    localStorage.setItem('wagmi.wallet', 'metaMask');
-    localStorage.setItem('wagmi.account', address);
-    localStorage.setItem('gatekeeper_auth_token', token);
-  }, { token: expiredJWT, address: mockAddress });
-}
-
-/**
- * Helper to wait for authentication to complete
- */
-export async function waitForAuthentication(page: any, timeout: number = 5000): Promise<boolean> {
-  try {
-    await page.waitForFunction(
-      () => {
-        const token = localStorage.getItem('gatekeeper_auth_token');
-        const connected = localStorage.getItem('wagmi.connected');
-        return !!(token && connected === 'true');
-      },
-      { timeout }
-    );
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-/**
- * Helper to wait for logout to complete
- */
-export async function waitForLogout(page: any, timeout: number = 5000): Promise<boolean> {
-  try {
-    await page.waitForFunction(
-      () => {
-        const token = localStorage.getItem('gatekeeper_auth_token');
-        return !token;
-      },
-      { timeout }
-    );
-    return true;
-  } catch {
-    return false;
-  }
+    localStorage.removeItem('gatekeeper_auth_token')
+    localStorage.removeItem('gatekeeper_wallet_address')
+  })
 }
