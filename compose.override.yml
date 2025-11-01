@@ -1,0 +1,81 @@
+# Docker Compose Override for Development
+# This file is automatically merged with docker-compose.yml when running docker-compose
+# Use this for development-specific configurations like volume mounts and debug settings
+
+version: '3.9'
+
+services:
+  backend:
+    # Override build to enable hot reload
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder  # Use builder stage for development
+
+    # Mount source code for hot reload (requires air or similar tool)
+    volumes:
+      - ./cmd:/app/cmd:ro
+      - ./internal:/app/internal:ro
+      - ./go.mod:/app/go.mod:ro
+      - ./go.sum:/app/go.sum:ro
+
+    # Override command for development mode
+    # Note: This requires installing 'air' for hot reload
+    # command: air -c .air.toml
+
+    # Enable debug logging
+    environment:
+      LOG_LEVEL: debug
+      # Enable development mode features
+      ENV: development
+
+    # Expose additional ports for debugging (e.g., delve debugger)
+    ports:
+      - "8080:8080"
+      - "2345:2345"  # Delve debugger port
+
+  frontend:
+    # Override build to use development mode
+    build:
+      context: ./web
+      dockerfile: Dockerfile.dev
+
+    # Mount source code for hot module replacement
+    volumes:
+      - ./web/src:/app/src:ro
+      - ./web/public:/app/public:ro
+      - ./web/index.html:/app/index.html:ro
+      - ./web/vite.config.ts:/app/vite.config.ts:ro
+      - ./web/tsconfig.json:/app/tsconfig.json:ro
+
+    # Override command to run Vite dev server
+    command: npm run dev -- --host 0.0.0.0 --port 3000
+
+    # Enable debug logging
+    environment:
+      NODE_ENV: development
+      VITE_API_URL: http://localhost:8080
+      # Enable source maps
+      VITE_ENABLE_SOURCE_MAPS: "true"
+
+  postgres:
+    # Expose PostgreSQL port to host for direct access
+    ports:
+      - "5432:5432"
+
+    # Enable additional logging
+    command: postgres -c log_statement=all -c log_duration=on
+
+    # Mount init scripts for development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./deployments/migrations:/docker-entrypoint-initdb.d:ro
+      - ./scripts/dev-init.sql:/docker-entrypoint-initdb.d/99-dev-init.sql:ro
+
+  redis:
+    # Expose Redis port to host
+    ports:
+      - "6379:6379"
+
+    # Enable Redis logging
+    command: redis-server --appendonly yes --loglevel debug

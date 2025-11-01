@@ -312,12 +312,17 @@ See [API.md](API.md) for more examples and detailed documentation.
 
 ## Documentation
 
-- **[API.md](API.md)** (250+ lines) - Complete API reference with examples
-- **[DEPLOYMENT.md](DEPLOYMENT.md)** (300+ lines) - Production deployment guide
-- **[LOCAL_TESTING.md](LOCAL_TESTING.md)** - Local development and testing
-- **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - Project overview and metrics
-- **[VALIDATION_SUMMARY.md](VALIDATION_SUMMARY.md)** - Validation results
-- **[openapi.yaml](openapi.yaml)** - OpenAPI 3.0 specification
+📚 **All documentation has been consolidated under [docs/](docs/)** for better organization.
+
+**Quick Links:**
+- **[docs/api/API.md](docs/api/API.md)** - Complete API reference with examples
+- **[docs/guides/LOCAL_TESTING.md](docs/guides/LOCAL_TESTING.md)** - Local development and testing
+- **[docs/deployment/DOCKER_DEPLOYMENT.md](docs/deployment/DOCKER_DEPLOYMENT.md)** - Production deployment guide
+- **[docs/guides/INTEGRATION_GUIDE.md](docs/guides/INTEGRATION_GUIDE.md)** - Frontend-backend integration
+- **[docs/README.md](docs/README.md)** - Complete documentation index and navigation
+- **[openapi.yaml](openapi.yaml)** - OpenAPI 3.0 specification (in project root)
+
+**See [docs/README.md](docs/README.md) for complete documentation structure and guide.**
 
 ## Performance
 

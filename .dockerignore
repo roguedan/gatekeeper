@@ -1,0 +1,109 @@
+# Git
+.git
+.gitignore
+.gitmodules
+.github
+
+# Documentation
+*.md
+README.md
+LICENSE
+docs/
+PHASE_*.md
+STATUS.md
+DEPLOYMENT.md
+API.md
+BLOCKCHAIN_RULES_README.md
+CODE_REVIEW_REPORT.md
+IMPLEMENTATION_SUMMARY.md
+LOCAL_TESTING.md
+RATE_LIMITING.md
+REPOSITORY_QUICK_REFERENCE.md
+SKILLS_MAPPING.md
+TASK_COMPLETION_VALIDATION.md
+VALIDATION_SUMMARY.md
+DOCKER_DEPLOYMENT.md
+FRONTEND_SETUP.md
+INTEGRATION_GUIDE.md
+CI_CD_GUIDE.md
+
+# Build artifacts
+gatekeeper
+server
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.out
+coverage.txt
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Test files
+*_test.go
+testdata/
+test/
+examples/
+
+# Development files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+*.local
+
+# Node.js (for frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+.pnpm-store/
+
+# Frontend build (already built in multi-stage)
+web/dist/
+web/build/
+web/.vite/
+web/coverage/
+
+# Docker files (avoid recursion)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Deployment
+deployments/kubernetes/
+deployments/terraform/
+scripts/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.log
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
