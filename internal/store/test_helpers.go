@@ -18,7 +18,7 @@ func setupTestDB(t *testing.T) *DB {
 	// Get database URL from environment or use default
 	dbURL := os.Getenv("TEST_DATABASE_URL")
 	if dbURL == "" {
-		dbURL = "postgres://postgres:postgres@localhost:5432/gatekeeper_test?sslmode=disable"
+		dbURL = "postgres://gatekeeper:change-this-secure-password@localhost:5432/gatekeeper_test?sslmode=disable"
 	}
 
 	// Connect to database

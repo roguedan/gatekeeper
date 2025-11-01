@@ -154,6 +154,6 @@ func TestConnect_ContextTimeout(t *testing.T) {
 
 // getTestDatabaseURL returns the test database URL from environment or default
 func getTestDatabaseURL() string {
-	dbURL := "postgres://postgres:postgres@localhost:5432/gatekeeper_test?sslmode=disable"
+	dbURL := "postgres://gatekeeper:change-this-secure-password@localhost:5432/gatekeeper_test?sslmode=disable"
 	return dbURL
 }

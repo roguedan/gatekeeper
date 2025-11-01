@@ -18,14 +18,14 @@ import (
 
 // APIKeyMiddleware creates a middleware that validates API keys
 type APIKeyMiddleware struct {
-	apiKeyRepo  *store.APIKeyRepository
-	userRepo    *store.UserRepository
+	apiKeyRepo  store.APIKeyRepositoryInterface
+	userRepo    store.UserRepositoryInterface
 	logger      *log.Logger
 	auditLogger audit.AuditLogger
 }
 
 // NewAPIKeyMiddleware creates a new API key middleware
-func NewAPIKeyMiddleware(apiKeyRepo *store.APIKeyRepository, userRepo *store.UserRepository, logger *log.Logger, auditLogger audit.AuditLogger) *APIKeyMiddleware {
+func NewAPIKeyMiddleware(apiKeyRepo store.APIKeyRepositoryInterface, userRepo store.UserRepositoryInterface, logger *log.Logger, auditLogger audit.AuditLogger) *APIKeyMiddleware {
 	return &APIKeyMiddleware{
 		apiKeyRepo:  apiKeyRepo,
 		userRepo:    userRepo,

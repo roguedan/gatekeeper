@@ -10,6 +10,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
+	"github.com/yourusername/gatekeeper/internal/auth"
 	"github.com/yourusername/gatekeeper/internal/log"
 	"github.com/yourusername/gatekeeper/internal/store"
 )
@@ -38,7 +39,7 @@ func TestAPIKeyMiddleware_ValidAPIKey_XAPIKeyHeader(t *testing.T) {
 	// Setup expectations
 	apiKeyRepo.On("ValidateAPIKey", mock.Anything, rawKey).Return(testAPIKey, nil)
 	userRepo.On("GetUserByID", mock.Anything, testUser.ID).Return(testUser, nil)
-	apiKeyRepo.On("UpdateLastUsed", mock.Anything, testAPIKey.ID).Return(nil)
+	apiKeyRepo.On("UpdateLastUsed", mock.Anything, mock.AnythingOfType("string")).Return(nil)
 
 	// Create test handler
 	nextCalled := false
@@ -98,7 +99,7 @@ func TestAPIKeyMiddleware_ValidAPIKey_BearerHeader(t *testing.T) {
 	// Setup expectations
 	apiKeyRepo.On("ValidateAPIKey", mock.Anything, rawKey).Return(testAPIKey, nil)
 	userRepo.On("GetUserByID", mock.Anything, testUser.ID).Return(testUser, nil)
-	apiKeyRepo.On("UpdateLastUsed", mock.Anything, testAPIKey.ID).Return(nil)
+	apiKeyRepo.On("UpdateLastUsed", mock.Anything, mock.AnythingOfType("string")).Return(nil)
 
 	// Create test handler
 	nextCalled := false

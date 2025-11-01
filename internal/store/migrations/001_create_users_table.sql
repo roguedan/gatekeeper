@@ -7,4 +7,4 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Create index on address for fast lookups
-CREATE INDEX idx_users_address ON users(address);
+CREATE INDEX IF NOT EXISTS idx_users_address ON users(address);

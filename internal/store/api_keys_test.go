@@ -18,7 +18,7 @@ func TestAPIKeyRepository_CreateAPIKey(t *testing.T) {
 	ctx := context.Background()
 
 	// Create test user
-	user, err := userRepo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0")
+	user, err := userRepo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb0")
 	require.NoError(t, err)
 
 	t.Run("creates API key with valid request", func(t *testing.T) {
@@ -140,7 +140,7 @@ func TestAPIKeyRepository_ValidateAPIKey(t *testing.T) {
 	ctx := context.Background()
 
 	// Create test user
-	user, err := userRepo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb1")
+	user, err := userRepo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb1")
 	require.NoError(t, err)
 
 	t.Run("validates valid API key", func(t *testing.T) {
@@ -227,7 +227,7 @@ func TestAPIKeyRepository_GetAPIKey(t *testing.T) {
 	repo := NewAPIKeyRepository(db)
 	ctx := context.Background()
 
-	user, err := userRepo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb2")
+	user, err := userRepo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb2")
 	require.NoError(t, err)
 
 	t.Run("retrieves existing API key", func(t *testing.T) {
@@ -265,10 +265,10 @@ func TestAPIKeyRepository_ListAPIKeys(t *testing.T) {
 	repo := NewAPIKeyRepository(db)
 	ctx := context.Background()
 
-	user1, err := userRepo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb3")
+	user1, err := userRepo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb3")
 	require.NoError(t, err)
 
-	user2, err := userRepo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb4")
+	user2, err := userRepo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb4")
 	require.NoError(t, err)
 
 	t.Run("lists all keys for user", func(t *testing.T) {
@@ -305,7 +305,7 @@ func TestAPIKeyRepository_ListAPIKeys(t *testing.T) {
 	})
 
 	t.Run("returns empty list for user with no keys", func(t *testing.T) {
-		user3, err := userRepo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb5")
+		user3, err := userRepo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb5")
 		require.NoError(t, err)
 
 		keys, err := repo.ListAPIKeys(ctx, user3.ID)
@@ -323,7 +323,7 @@ func TestAPIKeyRepository_UpdateLastUsed(t *testing.T) {
 	repo := NewAPIKeyRepository(db)
 	ctx := context.Background()
 
-	user, err := userRepo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb6")
+	user, err := userRepo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb6")
 	require.NoError(t, err)
 
 	t.Run("updates last_used_at timestamp", func(t *testing.T) {
@@ -369,7 +369,7 @@ func TestAPIKeyRepository_DeleteAPIKey(t *testing.T) {
 	repo := NewAPIKeyRepository(db)
 	ctx := context.Background()
 
-	user, err := userRepo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb7")
+	user, err := userRepo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb7")
 	require.NoError(t, err)
 
 	t.Run("deletes existing API key", func(t *testing.T) {
@@ -409,7 +409,7 @@ func TestAPIKeyRepository_RevokeExpiredKeys(t *testing.T) {
 	repo := NewAPIKeyRepository(db)
 	ctx := context.Background()
 
-	user, err := userRepo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb8")
+	user, err := userRepo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb8")
 	require.NoError(t, err)
 
 	t.Run("revokes expired keys", func(t *testing.T) {

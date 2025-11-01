@@ -1,0 +1,2741 @@
+{
+  "config": {
+    "configFile": "/Users/danwilliams/Documents/web3/gatekeeper/web/playwright.config.ts",
+    "rootDir": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 1800000,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results/junit.xml"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 4,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "tests/01-wallet-connection.spec.ts",
+      "file": "tests/01-wallet-connection.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Wallet Connection Flow",
+          "file": "tests/01-wallet-connection.spec.ts",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display wallet connection button on homepage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-a00c049c7c6cdda3fa05",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "should show RainbowKit modal when connect button is clicked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-b3d22d79ca2171edf31d",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 22,
+              "column": 3
+            },
+            {
+              "title": "should display wallet provider options in modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-461e00ae2b7897765f38",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "should close modal when cancel/close button is clicked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-bc691ef7776de13993f1",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "should handle no wallet provider gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-c2b5a203f70e103af3b4",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 61,
+              "column": 3
+            },
+            {
+              "title": "should persist wallet connection state in localStorage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-dc142472aa2a9a201aa8",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 71,
+              "column": 3
+            },
+            {
+              "title": "should display proper loading state during connection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-479817abba58b2f05ddf",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 88,
+              "column": 3
+            },
+            {
+              "title": "should show network selection in wallet modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-ed1831d73bc9b97f840d",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 98,
+              "column": 3
+            },
+            {
+              "title": "should display wallet address in shortened format when connected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-af7b6eb9b12b5a510e59",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 111,
+              "column": 3
+            },
+            {
+              "title": "should handle connection rejection by user",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-2516c4112f59961582b1",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 126,
+              "column": 3
+            },
+            {
+              "title": "should display wallet connection button on homepage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-d1ca018bc9e0cc48dc50",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "should show RainbowKit modal when connect button is clicked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-fe5b30bc2ef30a00558e",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 22,
+              "column": 3
+            },
+            {
+              "title": "should display wallet provider options in modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-4e4f2cae42199c475696",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "should close modal when cancel/close button is clicked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-9007a14f517cf2e2ff53",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "should handle no wallet provider gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-4544d1e64861c17f1170",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 61,
+              "column": 3
+            },
+            {
+              "title": "should persist wallet connection state in localStorage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-a8b75548cd4efd7b614c",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 71,
+              "column": 3
+            },
+            {
+              "title": "should display proper loading state during connection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-cc7ba36e43fb4859c927",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 88,
+              "column": 3
+            },
+            {
+              "title": "should show network selection in wallet modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-6adb5ccb4d02bb34d7bb",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 98,
+              "column": 3
+            },
+            {
+              "title": "should display wallet address in shortened format when connected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-d20f2489316b2c2c8f5d",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 111,
+              "column": 3
+            },
+            {
+              "title": "should handle connection rejection by user",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-a7e0468248fe406e551a",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 126,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Wallet Connection - Responsive Design",
+          "file": "tests/01-wallet-connection.spec.ts",
+          "line": 143,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display wallet connection on mobile viewport",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-4bdc12a0d0012a633d9f",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 144,
+              "column": 3
+            },
+            {
+              "title": "should open mobile-optimized wallet modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-b7d15c20fc89b177068f",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 154,
+              "column": 3
+            },
+            {
+              "title": "should display wallet connection on mobile viewport",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-437034c154a8207133a3",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 144,
+              "column": 3
+            },
+            {
+              "title": "should open mobile-optimized wallet modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "26cf986c0ac2c3170dff-01551931a7bbd99b818b",
+              "file": "tests/01-wallet-connection.spec.ts",
+              "line": 154,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/02-siwe-authentication.spec.ts",
+      "file": "tests/02-siwe-authentication.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SIWE Authentication Flow",
+          "file": "tests/02-siwe-authentication.spec.ts",
+          "line": 12,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should retrieve SIWE nonce from backend",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-347969d52e78eff82866",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 17,
+              "column": 3
+            },
+            {
+              "title": "should display SIWE message after wallet connection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-dc2fd222533344f6de8f",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "should generate valid SIWE message with correct fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-103827fb27c2fd2b2dd4",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 49,
+              "column": 3
+            },
+            {
+              "title": "should handle successful SIWE signature and receive JWT",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-bc96c16e41e94647c239",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 73,
+              "column": 3
+            },
+            {
+              "title": "should store JWT token in localStorage after authentication",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-062399ceceb56450ccd9",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 92,
+              "column": 3
+            },
+            {
+              "title": "should handle signature rejection gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-c8c8815a65d29365aee8",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 107,
+              "column": 3
+            },
+            {
+              "title": "should display error message on invalid signature",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-5d2f2c841bff1be24b00",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 123,
+              "column": 3
+            },
+            {
+              "title": "should persist authentication state across page refreshes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-1bf391aea4b21bb86b73",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 134,
+              "column": 3
+            },
+            {
+              "title": "should handle token expiration",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-1181f86a6b708866e74d",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 160,
+              "column": 3
+            },
+            {
+              "title": "should include chain ID in SIWE message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-2acaba5d23a63a50dc81",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 177,
+              "column": 3
+            },
+            {
+              "title": "should verify backend validates SIWE signature correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-112cc8e564fe2570e4f3",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 191,
+              "column": 3
+            },
+            {
+              "title": "should retrieve SIWE nonce from backend",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-69a71014e433266a3042",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 17,
+              "column": 3
+            },
+            {
+              "title": "should display SIWE message after wallet connection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-79a76fbaae6842843352",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "should generate valid SIWE message with correct fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-24b440928f8a8433d82d",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 49,
+              "column": 3
+            },
+            {
+              "title": "should handle successful SIWE signature and receive JWT",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-1214f499afdeab442578",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 73,
+              "column": 3
+            },
+            {
+              "title": "should store JWT token in localStorage after authentication",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-10284f789b17d6a2e5f0",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 92,
+              "column": 3
+            },
+            {
+              "title": "should handle signature rejection gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-f05587a66cd710885ebb",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 107,
+              "column": 3
+            },
+            {
+              "title": "should display error message on invalid signature",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-984d6e42069b916b10e0",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 123,
+              "column": 3
+            },
+            {
+              "title": "should persist authentication state across page refreshes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-8e33bbdba09342705243",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 134,
+              "column": 3
+            },
+            {
+              "title": "should handle token expiration",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-ee7ea289f96f1d2a541e",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 160,
+              "column": 3
+            },
+            {
+              "title": "should include chain ID in SIWE message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-160c38dbbb963aa5649a",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 177,
+              "column": 3
+            },
+            {
+              "title": "should verify backend validates SIWE signature correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-e2fcb2782c4aa1c3a56f",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 191,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "SIWE Authentication - Security",
+          "file": "tests/02-siwe-authentication.spec.ts",
+          "line": 208,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should not expose JWT token in URL or query parameters",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-5988a9c9021b11ed39e1",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 209,
+              "column": 3
+            },
+            {
+              "title": "should clear authentication state on logout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-f20ca4f66575ee41d771",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 225,
+              "column": 3
+            },
+            {
+              "title": "should not allow access to protected routes without JWT",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-df80051335871e4977ab",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 250,
+              "column": 3
+            },
+            {
+              "title": "should not expose JWT token in URL or query parameters",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-07a7ff1ac2b6184444f7",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 209,
+              "column": 3
+            },
+            {
+              "title": "should clear authentication state on logout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-fb91e162edd9395f9d90",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 225,
+              "column": 3
+            },
+            {
+              "title": "should not allow access to protected routes without JWT",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "426dc87aaa71446859aa-4dc65d598f939cde484d",
+              "file": "tests/02-siwe-authentication.spec.ts",
+              "line": 250,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/03-api-key-management.spec.ts",
+      "file": "tests/03-api-key-management.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API Key Management - Dashboard",
+          "file": "tests/03-api-key-management.spec.ts",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display API Keys navigation link when authenticated",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-015de1529aafbeef8a34",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "should navigate to API Keys page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-af0204342892e278080c",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "should display empty state when no API keys exist",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-6838fa100e20d75cbb93",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 50,
+              "column": 3
+            },
+            {
+              "title": "should display API Keys navigation link when authenticated",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-8e066032f8c3f40b7ab8",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "should navigate to API Keys page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-86c093c428b13630eb5d",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "should display empty state when no API keys exist",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-c8e0a44e6500a47f0fc2",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 50,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "API Key Management - Creation Flow",
+          "file": "tests/03-api-key-management.spec.ts",
+          "line": 70,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should open create API key modal/form",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-480a1a2fb7f999e41e23",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 71,
+              "column": 3
+            },
+            {
+              "title": "should require API key name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-c4c06d32b59322140970",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 90,
+              "column": 3
+            },
+            {
+              "title": "should allow setting API key name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-b26dc538cef5e73ae066",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 115,
+              "column": 3
+            },
+            {
+              "title": "should display scope/permission options",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-8f49ee1b31e6a60f722d",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 141,
+              "column": 3
+            },
+            {
+              "title": "should allow selecting multiple scopes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-fe67326e841bcc8dbc0e",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 163,
+              "column": 3
+            },
+            {
+              "title": "should validate API key name length",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-1050e0738ae48ff43996",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 194,
+              "column": 3
+            },
+            {
+              "title": "should display generated API key after creation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-0755bf952e447fff0d29",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 221,
+              "column": 3
+            },
+            {
+              "title": "should provide copy-to-clipboard for new API key",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-a6a0b580959edc9574a5",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 235,
+              "column": 3
+            },
+            {
+              "title": "should open create API key modal/form",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-b7fc30e00b248e2f44f5",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 71,
+              "column": 3
+            },
+            {
+              "title": "should require API key name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-f730f3fea019d372aa93",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 90,
+              "column": 3
+            },
+            {
+              "title": "should allow setting API key name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-618408f99f04e6b281ea",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 115,
+              "column": 3
+            },
+            {
+              "title": "should display scope/permission options",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-ed9c7a717bfaf67aa6a1",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 141,
+              "column": 3
+            },
+            {
+              "title": "should allow selecting multiple scopes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-1183a62481f280cd7d7b",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 163,
+              "column": 3
+            },
+            {
+              "title": "should validate API key name length",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-e97d27c6493c1f9794b0",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 194,
+              "column": 3
+            },
+            {
+              "title": "should display generated API key after creation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-48803527af9b53317b31",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 221,
+              "column": 3
+            },
+            {
+              "title": "should provide copy-to-clipboard for new API key",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-a1360ad2b7f51402d756",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 235,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "API Key Management - Listing & Display",
+          "file": "tests/03-api-key-management.spec.ts",
+          "line": 250,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display existing API keys in a table/list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-0c794cf570c7ef68445e",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 251,
+              "column": 3
+            },
+            {
+              "title": "should show API key metadata (name, created date, scopes)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-56cf44a372cdf6879c0f",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 270,
+              "column": 3
+            },
+            {
+              "title": "should mask API key values in listing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-3307e8607c52c44909cb",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 284,
+              "column": 3
+            },
+            {
+              "title": "should display scopes as badges/tags",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-06b9390617ec3a62b73c",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 300,
+              "column": 3
+            },
+            {
+              "title": "should display existing API keys in a table/list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-3c84b77c358714a4c206",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 251,
+              "column": 3
+            },
+            {
+              "title": "should show API key metadata (name, created date, scopes)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-eab7a1de11407e0578ce",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 270,
+              "column": 3
+            },
+            {
+              "title": "should mask API key values in listing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-2d33d5ae0e8cde1dbb03",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 284,
+              "column": 3
+            },
+            {
+              "title": "should display scopes as badges/tags",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-77ac979f8954dc59549d",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 300,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "API Key Management - Revocation",
+          "file": "tests/03-api-key-management.spec.ts",
+          "line": 315,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should show revoke/delete button for each API key",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-8477ea54c219f783a9ad",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 316,
+              "column": 3
+            },
+            {
+              "title": "should show confirmation dialog before revoking key",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-d9b926a3478481ed21a1",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 332,
+              "column": 3
+            },
+            {
+              "title": "should allow canceling revocation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-6cb5ecb2f5cf800525df",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 355,
+              "column": 3
+            },
+            {
+              "title": "should show revoke/delete button for each API key",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-e64b6322a96ca686b026",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 316,
+              "column": 3
+            },
+            {
+              "title": "should show confirmation dialog before revoking key",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-6354a5586c91a8617053",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 332,
+              "column": 3
+            },
+            {
+              "title": "should allow canceling revocation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-9effa323452603988294",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 355,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "API Key Management - Permissions",
+          "file": "tests/03-api-key-management.spec.ts",
+          "line": 385,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should not allow non-authenticated users to access API keys page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-2dcfcf61418eb477ad8c",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 386,
+              "column": 3
+            },
+            {
+              "title": "should display API key count/usage statistics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-b500fc4ae2639e6d4b80",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 397,
+              "column": 3
+            },
+            {
+              "title": "should not allow non-authenticated users to access API keys page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-b6200188ff96ef24b880",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 386,
+              "column": 3
+            },
+            {
+              "title": "should display API key count/usage statistics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "52ef100ed3b06c794b91-c610dbdb4ef8cfe75796",
+              "file": "tests/03-api-key-management.spec.ts",
+              "line": 397,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/04-complete-journey.spec.ts",
+      "file": "tests/04-complete-journey.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Complete User Journey - New User Flow",
+          "file": "tests/04-complete-journey.spec.ts",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should complete full journey: Connect → Sign → Create API Key",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-543944324b0ec86ee48a",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 12,
+              "column": 3
+            },
+            {
+              "title": "should persist authentication across multiple page navigations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-da9a2d9b9664ec15b2c7",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 68,
+              "column": 3
+            },
+            {
+              "title": "should handle browser refresh while authenticated",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-e7e83494d26e6bba0705",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 113,
+              "column": 3
+            },
+            {
+              "title": "should complete full journey: Connect → Sign → Create API Key",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-6db1a6ca9dd54b919795",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 12,
+              "column": 3
+            },
+            {
+              "title": "should persist authentication across multiple page navigations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-bf721fc9d50e81a53400",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 68,
+              "column": 3
+            },
+            {
+              "title": "should handle browser refresh while authenticated",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-5235a1624f7fdca75c17",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 113,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Complete User Journey - Returning User Flow",
+          "file": "tests/04-complete-journey.spec.ts",
+          "line": 138,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should auto-authenticate returning user with valid token",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-b833120651bea42c05ab",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 139,
+              "column": 3
+            },
+            {
+              "title": "should prompt re-authentication if token is expired",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-8cb745e22ea4487d8203",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 161,
+              "column": 3
+            },
+            {
+              "title": "should auto-authenticate returning user with valid token",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-bde79b49e44bda5c62b6",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 139,
+              "column": 3
+            },
+            {
+              "title": "should prompt re-authentication if token is expired",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-300b69427fa558a88bad",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 161,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Complete User Journey - Logout Flow",
+          "file": "tests/04-complete-journey.spec.ts",
+          "line": 181,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should complete logout and clear all auth state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-38fee6c78e1d63a47d99",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 182,
+              "column": 3
+            },
+            {
+              "title": "should redirect to home after logout from protected page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-e447e5db35e215f834ce",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 215,
+              "column": 3
+            },
+            {
+              "title": "should complete logout and clear all auth state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-d7a74dff8459c22e5f18",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 182,
+              "column": 3
+            },
+            {
+              "title": "should redirect to home after logout from protected page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-96ed4a046c2f5a0805cb",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 215,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Complete User Journey - Navigation",
+          "file": "tests/04-complete-journey.spec.ts",
+          "line": 242,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should navigate between all main sections when authenticated",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-a8b48e916d2dca2ce19a",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 243,
+              "column": 3
+            },
+            {
+              "title": "should show active navigation state for current page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-03b290f59d8dc0f1faec",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 277,
+              "column": 3
+            },
+            {
+              "title": "should navigate between all main sections when authenticated",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-3f532cfc6fd76bf392eb",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 243,
+              "column": 3
+            },
+            {
+              "title": "should show active navigation state for current page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-2e44fc051da6ced3091e",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 277,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Complete User Journey - Error Handling",
+          "file": "tests/04-complete-journey.spec.ts",
+          "line": 299,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should handle network errors gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-f859900f8820a30b021e",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 300,
+              "column": 3
+            },
+            {
+              "title": "should handle invalid JWT token gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-0c46f1aa0ad288c00e53",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 320,
+              "column": 3
+            },
+            {
+              "title": "should handle missing localStorage gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-52a5a2082965e5a7dff9",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 334,
+              "column": 3
+            },
+            {
+              "title": "should handle network errors gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-198bd19609baecd146fe",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 300,
+              "column": 3
+            },
+            {
+              "title": "should handle invalid JWT token gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-d0ccb816c93a9d3a2c1e",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 320,
+              "column": 3
+            },
+            {
+              "title": "should handle missing localStorage gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-11c73427dd498afe033f",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 334,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Complete User Journey - Mobile Experience",
+          "file": "tests/04-complete-journey.spec.ts",
+          "line": 344,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should complete full journey on mobile viewport",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-18c9b3ff69a98c9cd662",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 345,
+              "column": 3
+            },
+            {
+              "title": "should handle mobile wallet connection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-ed654b41142c454723a6",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 367,
+              "column": 3
+            },
+            {
+              "title": "should complete full journey on mobile viewport",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-ab5247b5840ab894253f",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 345,
+              "column": 3
+            },
+            {
+              "title": "should handle mobile wallet connection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-69a2d66b016ab59d1cbd",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 367,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Complete User Journey - Performance",
+          "file": "tests/04-complete-journey.spec.ts",
+          "line": 383,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should load homepage within acceptable time",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-df203d674cb399fa7a58",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 384,
+              "column": 3
+            },
+            {
+              "title": "should handle rapid navigation without errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-9e93959144d395f11103",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 396,
+              "column": 3
+            },
+            {
+              "title": "should load homepage within acceptable time",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-752bb22ac24050d93375",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 384,
+              "column": 3
+            },
+            {
+              "title": "should handle rapid navigation without errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "766844f0dd71fd1c9e39-a12ce1a670d0b98ff80f",
+              "file": "tests/04-complete-journey.spec.ts",
+              "line": 396,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-11-01T06:16:16.403Z",
+    "duration": 30.413999999999987,
+    "expected": 0,
+    "skipped": 124,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

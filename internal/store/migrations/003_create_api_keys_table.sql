@@ -12,6 +12,6 @@ CREATE TABLE IF NOT EXISTS api_keys (
 );
 
 -- Create indexes for efficient queries
-CREATE INDEX idx_api_keys_user_id ON api_keys(user_id);
-CREATE INDEX idx_api_keys_key_hash ON api_keys(key_hash);
-CREATE INDEX idx_api_keys_expires_at ON api_keys(expires_at);
+CREATE INDEX IF NOT EXISTS idx_api_keys_user_id ON api_keys(user_id);
+CREATE INDEX IF NOT EXISTS idx_api_keys_key_hash ON api_keys(key_hash);
+CREATE INDEX IF NOT EXISTS idx_api_keys_expires_at ON api_keys(expires_at);

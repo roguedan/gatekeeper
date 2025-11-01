@@ -29,6 +29,9 @@ func NewUserRepository(db *DB) *UserRepository {
 	return &UserRepository{db: db}
 }
 
+// Ensure UserRepository implements UserRepositoryInterface
+var _ UserRepositoryInterface = (*UserRepository)(nil)
+
 // validateAddress validates and normalizes an Ethereum address
 // This is a wrapper around common.NormalizeAddress that converts
 // common.AddressError to InvalidAddressError for backward compatibility

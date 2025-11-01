@@ -16,7 +16,7 @@ import (
 
 // TestPolicyMiddleware_NoClaims rejects requests without authentication
 func TestPolicyMiddleware_NoClaims(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
@@ -38,7 +38,7 @@ func TestPolicyMiddleware_NoClaims(t *testing.T) {
 
 // TestPolicyMiddleware_NoPolicies allows requests when no policies exist
 func TestPolicyMiddleware_NoPolicies(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
@@ -66,7 +66,7 @@ func TestPolicyMiddleware_NoPolicies(t *testing.T) {
 
 // TestPolicyMiddleware_PassingPolicy allows requests that pass policy
 func TestPolicyMiddleware_PassingPolicy(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
@@ -105,7 +105,7 @@ func TestPolicyMiddleware_PassingPolicy(t *testing.T) {
 
 // TestPolicyMiddleware_FailingPolicy denies requests that fail policy
 func TestPolicyMiddleware_FailingPolicy(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
@@ -144,7 +144,7 @@ func TestPolicyMiddleware_FailingPolicy(t *testing.T) {
 
 // TestPolicyMiddleware_AllowlistPolicy checks address in allowlist
 func TestPolicyMiddleware_AllowlistPolicy(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
@@ -198,7 +198,7 @@ func TestPolicyMiddleware_AllowlistPolicy(t *testing.T) {
 
 // TestPolicyMiddleware_MultipleRulesAND requires all rules to pass
 func TestPolicyMiddleware_MultipleRulesAND(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
@@ -265,7 +265,7 @@ func TestPolicyMiddleware_MultipleRulesAND(t *testing.T) {
 
 // TestPolicyMiddleware_DifferentMethods distinguishes between HTTP methods
 func TestPolicyMiddleware_DifferentMethods(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
@@ -313,7 +313,7 @@ func TestPolicyMiddleware_DifferentMethods(t *testing.T) {
 
 // TestPolicyMiddleware_URLPath extracts path without query parameters
 func TestPolicyMiddleware_URLPath(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
@@ -351,7 +351,7 @@ func TestPolicyMiddleware_URLPath(t *testing.T) {
 
 // TestPolicyMiddleware_CaseInsensitiveAddresses handles address case variations
 func TestPolicyMiddleware_CaseInsensitiveAddresses(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
@@ -392,7 +392,7 @@ func TestPolicyMiddleware_CaseInsensitiveAddresses(t *testing.T) {
 
 // TestPolicyMiddleware_ContextChaining preserves claims in context
 func TestPolicyMiddleware_ContextChaining(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
@@ -428,7 +428,7 @@ func TestPolicyMiddleware_ContextChaining(t *testing.T) {
 
 // TestPolicyMiddleware_MultipleRoutes handles different routes independently
 func TestPolicyMiddleware_MultipleRoutes(t *testing.T) {
-	pm := policy.NewPolicyManager()
+	pm := policy.NewPolicyManager(&mockBlockchainProvider{}, &mockCache{})
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()

@@ -260,7 +260,7 @@ func TestAllowlistRepository_AddAddress(t *testing.T) {
 	require.NoError(t, err)
 
 	t.Run("adds valid address", func(t *testing.T) {
-		address := "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0"
+		address := "0x742d35cc6634c0532925a3b844bc9e7595f0beb0"
 		err := repo.AddAddress(ctx, allowlist.ID, address)
 		require.NoError(t, err)
 

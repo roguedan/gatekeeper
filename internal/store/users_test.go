@@ -17,7 +17,7 @@ func TestUserRepository_CreateUser(t *testing.T) {
 	ctx := context.Background()
 
 	t.Run("creates user with valid address", func(t *testing.T) {
-		address := "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0"
+		address := "0x742d35cc6634c0532925a3b844bc9e7595f0beb0"
 		user, err := repo.CreateUser(ctx, address)
 
 		require.NoError(t, err)
@@ -67,7 +67,7 @@ func TestUserRepository_CreateUser(t *testing.T) {
 	})
 
 	t.Run("rejects invalid address - invalid characters", func(t *testing.T) {
-		address := "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEbZ"
+		address := "0x742d35cc6634c0532925a3b844bc9e7595f0bebz"
 		_, err := repo.CreateUser(ctx, address)
 
 		require.Error(t, err)
@@ -91,7 +91,7 @@ func TestUserRepository_GetUserByAddress(t *testing.T) {
 	ctx := context.Background()
 
 	t.Run("retrieves existing user", func(t *testing.T) {
-		address := "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb1"
+		address := "0x742d35cc6634c0532925a3b844bc9e7595f0beb1"
 		created, err := repo.CreateUser(ctx, address)
 		require.NoError(t, err)
 
@@ -129,7 +129,7 @@ func TestUserRepository_GetUserByID(t *testing.T) {
 	ctx := context.Background()
 
 	t.Run("retrieves existing user", func(t *testing.T) {
-		address := "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb2"
+		address := "0x742d35cc6634c0532925a3b844bc9e7595f0beb2"
 		created, err := repo.CreateUser(ctx, address)
 		require.NoError(t, err)
 
@@ -159,7 +159,7 @@ func TestUserRepository_UpdateUser(t *testing.T) {
 
 	t.Run("updates user address", func(t *testing.T) {
 		// Create initial user
-		user, err := repo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb3")
+		user, err := repo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb3")
 		require.NoError(t, err)
 		originalUpdatedAt := user.UpdatedAt
 
@@ -187,7 +187,7 @@ func TestUserRepository_UpdateUser(t *testing.T) {
 	})
 
 	t.Run("rejects invalid address", func(t *testing.T) {
-		user, err := repo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb4")
+		user, err := repo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb4")
 		require.NoError(t, err)
 
 		user.Address = "invalid"
@@ -234,7 +234,7 @@ func TestUserRepository_DeleteUser(t *testing.T) {
 	ctx := context.Background()
 
 	t.Run("deletes existing user", func(t *testing.T) {
-		user, err := repo.CreateUser(ctx, "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb5")
+		user, err := repo.CreateUser(ctx, "0x742d35cc6634c0532925a3b844bc9e7595f0beb5")
 		require.NoError(t, err)
 
 		err = repo.DeleteUser(ctx, user.ID)
@@ -266,7 +266,7 @@ func TestValidateAddress(t *testing.T) {
 	}{
 		{
 			name:      "valid address with mixed case",
-			address:   "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0",
+			address:   "0x742D35CC6634c0532925A3b844BC9E7595F0BEb0",
 			wantValid: true,
 			wantAddr:  "0x742d35cc6634c0532925a3b844bc9e7595f0beb0",
 		},
@@ -284,7 +284,7 @@ func TestValidateAddress(t *testing.T) {
 		},
 		{
 			name:      "address with whitespace",
-			address:   "  0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0  ",
+			address:   "  0x742D35CC6634c0532925A3b844BC9E7595F0BEb0  ",
 			wantValid: true,
 			wantAddr:  "0x742d35cc6634c0532925a3b844bc9e7595f0beb0",
 		},
@@ -300,12 +300,12 @@ func TestValidateAddress(t *testing.T) {
 		},
 		{
 			name:      "too long",
-			address:   "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb000",
+			address:   "0x742d35cc6634c0532925a3b844bc9e7595f0beb000",
 			wantValid: false,
 		},
 		{
 			name:      "invalid characters",
-			address:   "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEbZ",
+			address:   "0x742d35cc6634c0532925a3b844bc9e7595f0bebz",
 			wantValid: false,
 		},
 		{

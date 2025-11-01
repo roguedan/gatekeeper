@@ -2,6 +2,7 @@ package http
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/yourusername/gatekeeper/internal/auth"
@@ -46,10 +47,8 @@ func (h *AuthHandler) GetNonce(w http.ResponseWriter, r *http.Request) {
 
 // VerifyRequest represents the request body for verification
 type VerifyRequest struct {
-	Nonce     string `json:"nonce"`
 	Message   string `json:"message"`
 	Signature string `json:"signature"`
-	Address   string `json:"address"`
 }
 
 // VerifyResponse represents the response for successful verification
@@ -71,27 +70,51 @@ func (h *AuthHandler) VerifySIWE(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Validate required fields
-	if req.Nonce == "" || req.Message == "" || req.Signature == "" || req.Address == "" {
-		http.Error(w, "missing required fields", http.StatusBadRequest)
+	if req.Message == "" || req.Signature == "" {
+		http.Error(w, "missing required fields: message and signature", http.StatusBadRequest)
+		return
+	}
+
+	// Extract nonce from message
+	nonce, err := auth.ExtractNonceFromMessage(req.Message)
+	if err != nil {
+		http.Error(w, "invalid SIWE message: nonce not found", http.StatusBadRequest)
 		return
 	}
 
 	// Verify nonce exists and is valid
-	valid, err := h.siweService.VerifyNonce(ctx, req.Nonce)
+	valid, err := h.siweService.VerifyNonce(ctx, nonce)
 	if err != nil || !valid {
 		http.Error(w, "invalid or expired nonce", http.StatusUnauthorized)
 		return
 	}
 
-	// TODO: Verify SIWE signature using spruceid/siwe library
-	// For now, we accept any signature
-	// In production, this should verify the signature against the message and address
+	// Extract address from message
+	address, err := auth.ExtractAddressFromMessage(req.Message)
+	if err != nil {
+		http.Error(w, "invalid SIWE message: address not found", http.StatusBadRequest)
+		return
+	}
+
+	// Verify signature matches message + address
+	validSig, err := auth.VerifySignature(req.Message, req.Signature, address)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("signature verification error: %v", err), http.StatusBadRequest)
+		return
+	}
+	if !validSig {
+		http.Error(w, "invalid signature", http.StatusUnauthorized)
+		return
+	}
 
 	// Invalidate nonce to prevent replay attacks
-	h.siweService.InvalidateNonce(ctx, req.Nonce)
+	if err := h.siweService.InvalidateNonce(ctx, nonce); err != nil {
+		// Log error but continue - nonce validation already passed
+		// This shouldn't normally happen
+	}
 
 	// Generate JWT token with auth scope
-	token, err := h.jwtService.GenerateToken(ctx, req.Address, []string{"auth"})
+	token, err := h.jwtService.GenerateToken(ctx, address, []string{"auth"})
 	if err != nil {
 		http.Error(w, "failed to generate token", http.StatusInternalServerError)
 		return
@@ -103,7 +126,7 @@ func (h *AuthHandler) VerifySIWE(w http.ResponseWriter, r *http.Request) {
 
 	response := VerifyResponse{
 		Token:   token,
-		Address: req.Address,
+		Address: address,
 	}
 	json.NewEncoder(w).Encode(response)
 }

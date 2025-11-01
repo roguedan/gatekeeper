@@ -1,6 +1,6 @@
 # Multi-stage Dockerfile for Gatekeeper Backend
 # Stage 1: Build the Go binary
-FROM golang:1.21-alpine AS builder
+FROM golang:1.24-alpine AS builder
 
 # Install build dependencies
 RUN apk add --no-cache git ca-certificates tzdata

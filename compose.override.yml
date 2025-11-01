@@ -6,18 +6,18 @@ version: '3.9'
 
 services:
   backend:
-    # Override build to enable hot reload
+    # Override build for development (use full build, not builder stage)
     build:
       context: .
       dockerfile: Dockerfile
-      target: builder  # Use builder stage for development
 
     # Mount source code for hot reload (requires air or similar tool)
-    volumes:
-      - ./cmd:/app/cmd:ro
-      - ./internal:/app/internal:ro
-      - ./go.mod:/app/go.mod:ro
-      - ./go.sum:/app/go.sum:ro
+    # Commented out for now - would need air installed in the container
+    # volumes:
+    #   - ./cmd:/app/cmd:ro
+    #   - ./internal:/app/internal:ro
+    #   - ./go.mod:/app/go.mod:ro
+    #   - ./go.sum:/app/go.sum:ro
 
     # Override command for development mode
     # Note: This requires installing 'air' for hot reload
@@ -32,7 +32,7 @@ services:
     # Expose additional ports for debugging (e.g., delve debugger)
     ports:
       - "8080:8080"
-      - "2345:2345"  # Delve debugger port
+      # - "2345:2345"  # Delve debugger port
 
   frontend:
     # Override build to use development mode
@@ -70,7 +70,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./deployments/migrations:/docker-entrypoint-initdb.d:ro
-      - ./scripts/dev-init.sql:/docker-entrypoint-initdb.d/99-dev-init.sql:ro
+      # - ./scripts/dev-init.sql:/docker-entrypoint-initdb.d/99-dev-init.sql:ro
 
   redis:
     # Expose Redis port to host

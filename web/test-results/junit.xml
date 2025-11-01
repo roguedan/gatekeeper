@@ -1,0 +1,514 @@
+<testsuites id="" name="" tests="124" failures="0" skipped="124" errors="0" time="0.030413999999999986">
+<testsuite name="tests/01-wallet-connection.spec.ts" timestamp="2025-11-01T06:16:16.432Z" hostname="chromium" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Wallet Connection Flow › should display wallet connection button on homepage" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should show RainbowKit modal when connect button is clicked" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should display wallet provider options in modal" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should close modal when cancel/close button is clicked" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should handle no wallet provider gracefully" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should persist wallet connection state in localStorage" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should display proper loading state during connection" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should show network selection in wallet modal" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should display wallet address in shortened format when connected" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should handle connection rejection by user" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection - Responsive Design › should display wallet connection on mobile viewport" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection - Responsive Design › should open mobile-optimized wallet modal" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/02-siwe-authentication.spec.ts" timestamp="2025-11-01T06:16:16.432Z" hostname="chromium" tests="14" failures="0" skipped="14" time="0" errors="0">
+<testcase name="SIWE Authentication Flow › should retrieve SIWE nonce from backend" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should display SIWE message after wallet connection" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should generate valid SIWE message with correct fields" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should handle successful SIWE signature and receive JWT" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should store JWT token in localStorage after authentication" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should handle signature rejection gracefully" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should display error message on invalid signature" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should persist authentication state across page refreshes" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should handle token expiration" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should include chain ID in SIWE message" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should verify backend validates SIWE signature correctly" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication - Security › should not expose JWT token in URL or query parameters" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication - Security › should clear authentication state on logout" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication - Security › should not allow access to protected routes without JWT" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/03-api-key-management.spec.ts" timestamp="2025-11-01T06:16:16.432Z" hostname="chromium" tests="20" failures="0" skipped="20" time="0" errors="0">
+<testcase name="API Key Management - Dashboard › should display API Keys navigation link when authenticated" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Dashboard › should navigate to API Keys page" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Dashboard › should display empty state when no API keys exist" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should open create API key modal/form" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should require API key name" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should allow setting API key name" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should display scope/permission options" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should allow selecting multiple scopes" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should validate API key name length" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should display generated API key after creation" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should provide copy-to-clipboard for new API key" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Listing &amp; Display › should display existing API keys in a table/list" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Listing &amp; Display › should show API key metadata (name, created date, scopes)" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Listing &amp; Display › should mask API key values in listing" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Listing &amp; Display › should display scopes as badges/tags" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Revocation › should show revoke/delete button for each API key" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Revocation › should show confirmation dialog before revoking key" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Revocation › should allow canceling revocation" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Permissions › should not allow non-authenticated users to access API keys page" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Permissions › should display API key count/usage statistics" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/04-complete-journey.spec.ts" timestamp="2025-11-01T06:16:16.432Z" hostname="chromium" tests="16" failures="0" skipped="16" time="0" errors="0">
+<testcase name="Complete User Journey - New User Flow › should complete full journey: Connect → Sign → Create API Key" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - New User Flow › should persist authentication across multiple page navigations" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - New User Flow › should handle browser refresh while authenticated" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Returning User Flow › should auto-authenticate returning user with valid token" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Returning User Flow › should prompt re-authentication if token is expired" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Logout Flow › should complete logout and clear all auth state" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Logout Flow › should redirect to home after logout from protected page" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Navigation › should navigate between all main sections when authenticated" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Navigation › should show active navigation state for current page" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Error Handling › should handle network errors gracefully" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Error Handling › should handle invalid JWT token gracefully" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Error Handling › should handle missing localStorage gracefully" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Mobile Experience › should complete full journey on mobile viewport" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Mobile Experience › should handle mobile wallet connection" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Performance › should load homepage within acceptable time" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Performance › should handle rapid navigation without errors" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/01-wallet-connection.spec.ts" timestamp="2025-11-01T06:16:16.432Z" hostname="firefox" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Wallet Connection Flow › should display wallet connection button on homepage" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should show RainbowKit modal when connect button is clicked" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should display wallet provider options in modal" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should close modal when cancel/close button is clicked" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should handle no wallet provider gracefully" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should persist wallet connection state in localStorage" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should display proper loading state during connection" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should show network selection in wallet modal" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should display wallet address in shortened format when connected" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection Flow › should handle connection rejection by user" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection - Responsive Design › should display wallet connection on mobile viewport" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wallet Connection - Responsive Design › should open mobile-optimized wallet modal" classname="tests/01-wallet-connection.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/02-siwe-authentication.spec.ts" timestamp="2025-11-01T06:16:16.432Z" hostname="firefox" tests="14" failures="0" skipped="14" time="0" errors="0">
+<testcase name="SIWE Authentication Flow › should retrieve SIWE nonce from backend" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should display SIWE message after wallet connection" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should generate valid SIWE message with correct fields" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should handle successful SIWE signature and receive JWT" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should store JWT token in localStorage after authentication" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should handle signature rejection gracefully" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should display error message on invalid signature" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should persist authentication state across page refreshes" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should handle token expiration" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should include chain ID in SIWE message" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication Flow › should verify backend validates SIWE signature correctly" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication - Security › should not expose JWT token in URL or query parameters" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication - Security › should clear authentication state on logout" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SIWE Authentication - Security › should not allow access to protected routes without JWT" classname="tests/02-siwe-authentication.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/03-api-key-management.spec.ts" timestamp="2025-11-01T06:16:16.432Z" hostname="firefox" tests="20" failures="0" skipped="20" time="0" errors="0">
+<testcase name="API Key Management - Dashboard › should display API Keys navigation link when authenticated" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Dashboard › should navigate to API Keys page" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Dashboard › should display empty state when no API keys exist" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should open create API key modal/form" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should require API key name" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should allow setting API key name" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should display scope/permission options" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should allow selecting multiple scopes" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should validate API key name length" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should display generated API key after creation" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Creation Flow › should provide copy-to-clipboard for new API key" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Listing &amp; Display › should display existing API keys in a table/list" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Listing &amp; Display › should show API key metadata (name, created date, scopes)" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Listing &amp; Display › should mask API key values in listing" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Listing &amp; Display › should display scopes as badges/tags" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Revocation › should show revoke/delete button for each API key" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Revocation › should show confirmation dialog before revoking key" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Revocation › should allow canceling revocation" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Permissions › should not allow non-authenticated users to access API keys page" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="API Key Management - Permissions › should display API key count/usage statistics" classname="tests/03-api-key-management.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/04-complete-journey.spec.ts" timestamp="2025-11-01T06:16:16.432Z" hostname="firefox" tests="16" failures="0" skipped="16" time="0" errors="0">
+<testcase name="Complete User Journey - New User Flow › should complete full journey: Connect → Sign → Create API Key" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - New User Flow › should persist authentication across multiple page navigations" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - New User Flow › should handle browser refresh while authenticated" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Returning User Flow › should auto-authenticate returning user with valid token" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Returning User Flow › should prompt re-authentication if token is expired" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Logout Flow › should complete logout and clear all auth state" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Logout Flow › should redirect to home after logout from protected page" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Navigation › should navigate between all main sections when authenticated" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Navigation › should show active navigation state for current page" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Error Handling › should handle network errors gracefully" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Error Handling › should handle invalid JWT token gracefully" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Error Handling › should handle missing localStorage gracefully" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Mobile Experience › should complete full journey on mobile viewport" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Mobile Experience › should handle mobile wallet connection" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Performance › should load homepage within acceptable time" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - Performance › should handle rapid navigation without errors" classname="tests/04-complete-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

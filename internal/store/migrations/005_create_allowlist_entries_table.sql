@@ -8,6 +8,6 @@ CREATE TABLE IF NOT EXISTS allowlist_entries (
 );
 
 -- Create indexes for efficient queries
-CREATE INDEX idx_allowlist_entries_allowlist_id ON allowlist_entries(allowlist_id);
-CREATE INDEX idx_allowlist_entries_address ON allowlist_entries(address);
-CREATE INDEX idx_allowlist_entries_allowlist_address ON allowlist_entries(allowlist_id, address);
+CREATE INDEX IF NOT EXISTS idx_allowlist_entries_allowlist_id ON allowlist_entries(allowlist_id);
+CREATE INDEX IF NOT EXISTS idx_allowlist_entries_address ON allowlist_entries(address);
+CREATE INDEX IF NOT EXISTS idx_allowlist_entries_allowlist_address ON allowlist_entries(allowlist_id, address);

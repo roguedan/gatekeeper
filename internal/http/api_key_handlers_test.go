@@ -59,8 +59,8 @@ func (m *MockAPIKeyRepository) DeleteAPIKey(ctx context.Context, id int64) error
 	return args.Error(0)
 }
 
-func (m *MockAPIKeyRepository) UpdateLastUsed(ctx context.Context, id int64) error {
-	args := m.Called(ctx, id)
+func (m *MockAPIKeyRepository) UpdateLastUsed(ctx context.Context, keyHash string) error {
+	args := m.Called(ctx, keyHash)
 	return args.Error(0)
 }
 

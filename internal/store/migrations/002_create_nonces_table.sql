@@ -10,6 +10,6 @@ CREATE TABLE IF NOT EXISTS nonces (
 );
 
 -- Create indexes for efficient queries
-CREATE INDEX idx_nonces_nonce ON nonces(nonce);
-CREATE INDEX idx_nonces_address ON nonces(address);
-CREATE INDEX idx_nonces_expires_at ON nonces(expires_at);
+CREATE INDEX IF NOT EXISTS idx_nonces_nonce ON nonces(nonce);
+CREATE INDEX IF NOT EXISTS idx_nonces_address ON nonces(address);
+CREATE INDEX IF NOT EXISTS idx_nonces_expires_at ON nonces(expires_at);

@@ -15,14 +15,14 @@ import (
 
 // APIKeyHandler handles API key management endpoints
 type APIKeyHandler struct {
-	apiKeyRepo  *store.APIKeyRepository
-	userRepo    *store.UserRepository
+	apiKeyRepo  store.APIKeyRepositoryInterface
+	userRepo    store.UserRepositoryInterface
 	logger      *log.Logger
 	auditLogger audit.AuditLogger
 }
 
 // NewAPIKeyHandler creates a new API key handler
-func NewAPIKeyHandler(apiKeyRepo *store.APIKeyRepository, userRepo *store.UserRepository, logger *log.Logger, auditLogger audit.AuditLogger) *APIKeyHandler {
+func NewAPIKeyHandler(apiKeyRepo store.APIKeyRepositoryInterface, userRepo store.UserRepositoryInterface, logger *log.Logger, auditLogger audit.AuditLogger) *APIKeyHandler {
 	return &APIKeyHandler{
 		apiKeyRepo:  apiKeyRepo,
 		userRepo:    userRepo,

@@ -53,6 +53,9 @@ func NewAPIKeyRepository(db *DB) *APIKeyRepository {
 	return &APIKeyRepository{db: db}
 }
 
+// Ensure APIKeyRepository implements APIKeyRepositoryInterface
+var _ APIKeyRepositoryInterface = (*APIKeyRepository)(nil)
+
 // GenerateAPIKey generates a new cryptographically secure API key
 // Returns the raw key (hex-encoded, 64 characters)
 func GenerateAPIKey() (string, error) {

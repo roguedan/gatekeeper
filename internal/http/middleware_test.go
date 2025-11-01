@@ -26,7 +26,7 @@ func TestJWTMiddleware_WithValidToken(t *testing.T) {
 	// Create test handler that captures context
 	var capturedClaims *auth.Claims
 	testHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		claims := r.Context().Value(claimsContextKey).(*auth.Claims)
+		claims := r.Context().Value(ClaimsContextKey).(*auth.Claims)
 		capturedClaims = claims
 		w.WriteHeader(http.StatusOK)
 	})
@@ -152,7 +152,7 @@ func TestJWTMiddleware_PreservesContext(t *testing.T) {
 	middleware := JWTMiddleware(jwtService)
 
 	testHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		claims := r.Context().Value(claimsContextKey).(*auth.Claims)
+		claims := r.Context().Value(ClaimsContextKey).(*auth.Claims)
 		assert.Equal(t, address, claims.Address)
 		assert.Equal(t, scopes, claims.Scopes)
 		w.WriteHeader(http.StatusOK)

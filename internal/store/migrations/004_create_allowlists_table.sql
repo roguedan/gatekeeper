@@ -8,4 +8,4 @@ CREATE TABLE IF NOT EXISTS allowlists (
 );
 
 -- Create index on name for fast lookups
-CREATE INDEX idx_allowlists_name ON allowlists(name);
+CREATE INDEX IF NOT EXISTS idx_allowlists_name ON allowlists(name);
