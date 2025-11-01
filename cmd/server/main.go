@@ -92,6 +92,12 @@ func main() {
 	// Initialize audit logger
 	auditLogger := audit.NewAuditLogger(logger.Logger)
 
+	// Initialize metrics collector
+	metricsCollector := httpserver.NewMetricsCollector(db)
+
+	// Initialize health handler
+	healthHandler := handlers.NewHealthHandler(db, provider, logger.Logger, cfg.Version)
+
 	// Initialize API Key handlers
 	apiKeyHandler := httpserver.NewAPIKeyHandler(apiKeyRepo, userRepo, logger, auditLogger)
 
@@ -100,6 +106,10 @@ func main() {
 
 	// Initialize documentation handler
 	docsHandler := handlers.NewDocsHandler()
+
+	// Initialize middleware
+	metricsMiddleware := httpserver.NewMetricsMiddleware(metricsCollector, logger.Logger)
+	loggingMiddleware := httpserver.NewLoggingMiddleware(logger.Logger)
 
 	// Initialize rate limiters
 	apiKeyCreationLimiter := httpserver.NewInMemoryRateLimiter(
@@ -123,6 +133,20 @@ func main() {
 
 	// Create HTTP router
 	router := mux.NewRouter()
+
+	// Apply global middleware (order matters: logging -> metrics)
+	router.Use(mux.MiddlewareFunc(loggingMiddleware.Middleware()))
+	router.Use(mux.MiddlewareFunc(metricsMiddleware.Middleware()))
+
+	// Health check endpoints (no authentication required)
+	router.HandleFunc("/health", healthHandler.Health).Methods("GET")
+	router.HandleFunc("/health/live", healthHandler.Live).Methods("GET")
+	router.HandleFunc("/health/ready", healthHandler.Ready).Methods("GET")
+
+	// Metrics endpoint (no authentication required)
+	router.HandleFunc("/metrics", metricsCollector.ServeHTTP).Methods("GET")
+
+	logger.Info("Health and monitoring endpoints registered: /health, /health/live, /health/ready, /metrics")
 
 	// GET /auth/siwe/nonce - Get a nonce for signing
 	router.HandleFunc("/auth/siwe/nonce", func(w http.ResponseWriter, r *http.Request) {
@@ -177,23 +201,6 @@ func main() {
 			token, expiresInSeconds, address)
 	}).Methods("POST")
 
-	// Health check endpoint (no authentication required)
-	router.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
-		status := "ok"
-		statusCode := http.StatusOK
-
-		// Check RPC health if configured
-		if provider != nil {
-			if !provider.HealthCheck(r.Context()) {
-				status = "degraded"
-				statusCode = http.StatusServiceUnavailable
-			}
-		}
-
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(statusCode)
-		fmt.Fprintf(w, `{"status":"%s","port":"%s"}`, status, cfg.Port)
-	}).Methods("GET")
 
 	// Documentation endpoints (no authentication required)
 	// GET /openapi.yaml - Serve OpenAPI specification

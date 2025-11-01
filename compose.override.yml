@@ -2,8 +2,6 @@
 # This file is automatically merged with docker-compose.yml when running docker-compose
 # Use this for development-specific configurations like volume mounts and debug settings
 
-version: '3.9'
-
 services:
   backend:
     # Override build for development (use full build, not builder stage)
@@ -71,11 +69,3 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./deployments/migrations:/docker-entrypoint-initdb.d:ro
       # - ./scripts/dev-init.sql:/docker-entrypoint-initdb.d/99-dev-init.sql:ro
-
-  redis:
-    # Expose Redis port to host
-    ports:
-      - "6379:6379"
-
-    # Enable Redis logging
-    command: redis-server --appendonly yes --loglevel debug

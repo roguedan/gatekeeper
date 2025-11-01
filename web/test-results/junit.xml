@@ -1,24 +1,24 @@
-<testsuites id="" name="" tests="62" failures="10" skipped="6" errors="0" time="47.754832">
-<testsuite name="tests/01-wallet-connection.spec.ts" timestamp="2025-11-01T10:37:16.484Z" hostname="chromium" tests="12" failures="0" skipped="2" time="14.728" errors="0">
-<testcase name="Wallet Connection Flow › should display wallet connection button on homepage" classname="tests/01-wallet-connection.spec.ts" time="1.378">
+<testsuites id="" name="" tests="62" failures="11" skipped="6" errors="0" time="49.704663000000004">
+<testsuite name="tests/01-wallet-connection.spec.ts" timestamp="2025-11-01T11:19:39.308Z" hostname="chromium" tests="12" failures="0" skipped="2" time="18.778" errors="0">
+<testcase name="Wallet Connection Flow › should display wallet connection button on homepage" classname="tests/01-wallet-connection.spec.ts" time="1.446">
 </testcase>
-<testcase name="Wallet Connection Flow › should show RainbowKit modal when connect button is clicked" classname="tests/01-wallet-connection.spec.ts" time="1.475">
+<testcase name="Wallet Connection Flow › should show RainbowKit modal when connect button is clicked" classname="tests/01-wallet-connection.spec.ts" time="1.657">
 </testcase>
-<testcase name="Wallet Connection Flow › should display wallet provider options in modal" classname="tests/01-wallet-connection.spec.ts" time="1.389">
+<testcase name="Wallet Connection Flow › should display wallet provider options in modal" classname="tests/01-wallet-connection.spec.ts" time="1.648">
 </testcase>
-<testcase name="Wallet Connection Flow › should close modal when cancel/close button is clicked" classname="tests/01-wallet-connection.spec.ts" time="2.351">
+<testcase name="Wallet Connection Flow › should close modal when cancel/close button is clicked" classname="tests/01-wallet-connection.spec.ts" time="2.467">
 </testcase>
-<testcase name="Wallet Connection Flow › should handle no wallet provider gracefully" classname="tests/01-wallet-connection.spec.ts" time="0.98">
+<testcase name="Wallet Connection Flow › should handle no wallet provider gracefully" classname="tests/01-wallet-connection.spec.ts" time="1.29">
 </testcase>
-<testcase name="Wallet Connection Flow › should persist wallet connection state in localStorage" classname="tests/01-wallet-connection.spec.ts" time="1.874">
+<testcase name="Wallet Connection Flow › should persist wallet connection state in localStorage" classname="tests/01-wallet-connection.spec.ts" time="2.741">
 </testcase>
-<testcase name="Wallet Connection Flow › should display proper loading state during connection" classname="tests/01-wallet-connection.spec.ts" time="0.89">
+<testcase name="Wallet Connection Flow › should display proper loading state during connection" classname="tests/01-wallet-connection.spec.ts" time="1.369">
 </testcase>
-<testcase name="Wallet Connection Flow › should show network selection in wallet modal" classname="tests/01-wallet-connection.spec.ts" time="0.869">
+<testcase name="Wallet Connection Flow › should show network selection in wallet modal" classname="tests/01-wallet-connection.spec.ts" time="1.591">
 </testcase>
-<testcase name="Wallet Connection Flow › should display wallet address in shortened format when connected" classname="tests/01-wallet-connection.spec.ts" time="2.001">
+<testcase name="Wallet Connection Flow › should display wallet address in shortened format when connected" classname="tests/01-wallet-connection.spec.ts" time="2.659">
 </testcase>
-<testcase name="Wallet Connection Flow › should handle connection rejection by user" classname="tests/01-wallet-connection.spec.ts" time="1.521">
+<testcase name="Wallet Connection Flow › should handle connection rejection by user" classname="tests/01-wallet-connection.spec.ts" time="1.91">
 </testcase>
 <testcase name="Wallet Connection - Responsive Design › should display wallet connection on mobile viewport" classname="tests/01-wallet-connection.spec.ts" time="0">
 <properties>
@@ -37,24 +37,57 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="tests/02-siwe-authentication.spec.ts" timestamp="2025-11-01T10:37:16.484Z" hostname="chromium" tests="14" failures="2" skipped="0" time="23.742" errors="0">
-<testcase name="SIWE Authentication Flow › should retrieve SIWE nonce from backend" classname="tests/02-siwe-authentication.spec.ts" time="0.551">
+<testsuite name="tests/02-siwe-authentication.spec.ts" timestamp="2025-11-01T11:19:39.308Z" hostname="chromium" tests="14" failures="3" skipped="0" time="27.276" errors="0">
+<testcase name="SIWE Authentication Flow › should retrieve SIWE nonce from backend" classname="tests/02-siwe-authentication.spec.ts" time="1.015">
+<failure message="02-siwe-authentication.spec.ts:17:3 should retrieve SIWE nonce from backend" type="FAILURE">
+<![CDATA[  [chromium] › tests/02-siwe-authentication.spec.ts:17:3 › SIWE Authentication Flow › should retrieve SIWE nonce from backend 
+
+    Error: apiRequestContext.get: connect ECONNREFUSED ::1:8080
+    Call log:
+      - → GET http://localhost:8080/auth/siwe/nonce
+        - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.37 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+        at apiRequestContext.get: connect ECONNREFUSED ::1:8080
+        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:19:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/video.webm]]
+
+[[ATTACHMENT|tests-02-siwe-authenticati-5cf3a-eve-SIWE-nonce-from-backend-chromium/error-context.md]]
+]]>
+</system-out>
 </testcase>
-<testcase name="SIWE Authentication Flow › should display SIWE message after wallet connection" classname="tests/02-siwe-authentication.spec.ts" time="1.614">
+<testcase name="SIWE Authentication Flow › should display SIWE message after wallet connection" classname="tests/02-siwe-authentication.spec.ts" time="1.761">
 </testcase>
-<testcase name="SIWE Authentication Flow › should generate valid SIWE message with correct fields" classname="tests/02-siwe-authentication.spec.ts" time="1.778">
+<testcase name="SIWE Authentication Flow › should generate valid SIWE message with correct fields" classname="tests/02-siwe-authentication.spec.ts" time="1.911">
 </testcase>
-<testcase name="SIWE Authentication Flow › should handle successful SIWE signature and receive JWT" classname="tests/02-siwe-authentication.spec.ts" time="1.709">
+<testcase name="SIWE Authentication Flow › should handle successful SIWE signature and receive JWT" classname="tests/02-siwe-authentication.spec.ts" time="2.213">
 </testcase>
-<testcase name="SIWE Authentication Flow › should store JWT token in localStorage after authentication" classname="tests/02-siwe-authentication.spec.ts" time="0.696">
+<testcase name="SIWE Authentication Flow › should store JWT token in localStorage after authentication" classname="tests/02-siwe-authentication.spec.ts" time="0.828">
 </testcase>
-<testcase name="SIWE Authentication Flow › should handle signature rejection gracefully" classname="tests/02-siwe-authentication.spec.ts" time="1.582">
+<testcase name="SIWE Authentication Flow › should handle signature rejection gracefully" classname="tests/02-siwe-authentication.spec.ts" time="1.962">
 </testcase>
-<testcase name="SIWE Authentication Flow › should display error message on invalid signature" classname="tests/02-siwe-authentication.spec.ts" time="0.641">
+<testcase name="SIWE Authentication Flow › should display error message on invalid signature" classname="tests/02-siwe-authentication.spec.ts" time="0.785">
 </testcase>
-<testcase name="SIWE Authentication Flow › should persist authentication state across page refreshes" classname="tests/02-siwe-authentication.spec.ts" time="2.751">
+<testcase name="SIWE Authentication Flow › should persist authentication state across page refreshes" classname="tests/02-siwe-authentication.spec.ts" time="3.591">
 </testcase>
-<testcase name="SIWE Authentication Flow › should handle token expiration" classname="tests/02-siwe-authentication.spec.ts" time="7.303">
+<testcase name="SIWE Authentication Flow › should handle token expiration" classname="tests/02-siwe-authentication.spec.ts" time="7.556">
 <failure message="02-siwe-authentication.spec.ts:151:3 should handle token expiration" type="FAILURE">
 <![CDATA[  [chromium] › tests/02-siwe-authentication.spec.ts:151:3 › SIWE Authentication Flow › should handle token expiration 
 
@@ -100,25 +133,23 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="SIWE Authentication Flow › should include chain ID in SIWE message" classname="tests/02-siwe-authentication.spec.ts" time="0.776">
+<testcase name="SIWE Authentication Flow › should include chain ID in SIWE message" classname="tests/02-siwe-authentication.spec.ts" time="0.675">
 </testcase>
-<testcase name="SIWE Authentication Flow › should verify backend validates SIWE signature correctly" classname="tests/02-siwe-authentication.spec.ts" time="0.545">
+<testcase name="SIWE Authentication Flow › should verify backend validates SIWE signature correctly" classname="tests/02-siwe-authentication.spec.ts" time="0.896">
 <failure message="02-siwe-authentication.spec.ts:181:3 should verify backend validates SIWE signature correctly" type="FAILURE">
 <![CDATA[  [chromium] › tests/02-siwe-authentication.spec.ts:181:3 › SIWE Authentication Flow › should verify backend validates SIWE signature correctly 
 
-    Error: expect(received).toContain(expected) // indexOf
+    Error: apiRequestContext.post: connect ECONNREFUSED ::1:8080
+    Call log:
+      - → POST http://localhost:8080/api/v1/auth/verify
+        - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.37 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+        - content-type: application/json
+        - content-length: 101
 
-    Expected value: 404
-    Received array: [200, 400, 401]
-
-      192 |
-      193 |     // Should return 400 for invalid signature
-    > 194 |     expect([200, 400, 401]).toContain(response.status());
-          |                             ^
-      195 |   });
-      196 | });
-      197 |
-        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:194:29
+        at apiRequestContext.post: connect ECONNREFUSED ::1:8080
+        at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:185:36
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ../../test-results/tests-02-siwe-authenticati-c40d8-es-SIWE-signature-correctly-chromium/test-failed-1.png
@@ -141,17 +172,17 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="SIWE Authentication - Security › should not expose JWT token in URL or query parameters" classname="tests/02-siwe-authentication.spec.ts" time="0.468">
+<testcase name="SIWE Authentication - Security › should not expose JWT token in URL or query parameters" classname="tests/02-siwe-authentication.spec.ts" time="0.447">
 </testcase>
-<testcase name="SIWE Authentication - Security › should clear authentication state on logout" classname="tests/02-siwe-authentication.spec.ts" time="1.907">
+<testcase name="SIWE Authentication - Security › should clear authentication state on logout" classname="tests/02-siwe-authentication.spec.ts" time="2.107">
 </testcase>
-<testcase name="SIWE Authentication - Security › should not allow access to protected routes without JWT" classname="tests/02-siwe-authentication.spec.ts" time="1.421">
+<testcase name="SIWE Authentication - Security › should not allow access to protected routes without JWT" classname="tests/02-siwe-authentication.spec.ts" time="1.529">
 </testcase>
 </testsuite>
-<testsuite name="tests/03-api-key-management.spec.ts" timestamp="2025-11-01T10:37:16.484Z" hostname="chromium" tests="20" failures="8" skipped="0" time="103.322" errors="0">
-<testcase name="API Key Management - Dashboard › should display API Keys navigation link when authenticated" classname="tests/03-api-key-management.spec.ts" time="1.377">
+<testsuite name="tests/03-api-key-management.spec.ts" timestamp="2025-11-01T11:19:39.308Z" hostname="chromium" tests="20" failures="8" skipped="0" time="104.329" errors="0">
+<testcase name="API Key Management - Dashboard › should display API Keys navigation link when authenticated" classname="tests/03-api-key-management.spec.ts" time="1.507">
 </testcase>
-<testcase name="API Key Management - Dashboard › should navigate to API Keys page" classname="tests/03-api-key-management.spec.ts" time="10.995">
+<testcase name="API Key Management - Dashboard › should navigate to API Keys page" classname="tests/03-api-key-management.spec.ts" time="11.168">
 <failure message="03-api-key-management.spec.ts:32:3 should navigate to API Keys page" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:32:3 › API Key Management - Dashboard › should navigate to API Keys page 
 
@@ -183,8 +214,6 @@
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
     ../../test-results/tests-03-api-key-managemen-7c019-d-navigate-to-API-Keys-page-chromium/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-03-api-key-managemen-7c019-d-navigate-to-API-Keys-page-chromium/error-context.md
 ]]>
 </failure>
 <system-out>
@@ -192,12 +221,10 @@
 [[ATTACHMENT|tests-03-api-key-managemen-7c019-d-navigate-to-API-Keys-page-chromium/test-failed-1.png]]
 
 [[ATTACHMENT|tests-03-api-key-managemen-7c019-d-navigate-to-API-Keys-page-chromium/video.webm]]
-
-[[ATTACHMENT|tests-03-api-key-managemen-7c019-d-navigate-to-API-Keys-page-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Dashboard › should display empty state when no API keys exist" classname="tests/03-api-key-management.spec.ts" time="11.02">
+<testcase name="API Key Management - Dashboard › should display empty state when no API keys exist" classname="tests/03-api-key-management.spec.ts" time="11.551">
 <failure message="03-api-key-management.spec.ts:48:3 should display empty state when no API keys exist" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:48:3 › API Key Management - Dashboard › should display empty state when no API keys exist 
 
@@ -229,8 +256,6 @@
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
     ../../test-results/tests-03-api-key-managemen-cd828-tate-when-no-API-keys-exist-chromium/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-03-api-key-managemen-cd828-tate-when-no-API-keys-exist-chromium/error-context.md
 ]]>
 </failure>
 <system-out>
@@ -238,12 +263,10 @@
 [[ATTACHMENT|tests-03-api-key-managemen-cd828-tate-when-no-API-keys-exist-chromium/test-failed-1.png]]
 
 [[ATTACHMENT|tests-03-api-key-managemen-cd828-tate-when-no-API-keys-exist-chromium/video.webm]]
-
-[[ATTACHMENT|tests-03-api-key-managemen-cd828-tate-when-no-API-keys-exist-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should open create API key modal/form" classname="tests/03-api-key-management.spec.ts" time="11.251">
+<testcase name="API Key Management - Creation Flow › should open create API key modal/form" classname="tests/03-api-key-management.spec.ts" time="11.184">
 <failure message="03-api-key-management.spec.ts:66:3 should open create API key modal/form" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:66:3 › API Key Management - Creation Flow › should open create API key modal/form 
 
@@ -275,8 +298,6 @@
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
     ../../test-results/tests-03-api-key-managemen-c8809-n-create-API-key-modal-form-chromium/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-03-api-key-managemen-c8809-n-create-API-key-modal-form-chromium/error-context.md
 ]]>
 </failure>
 <system-out>
@@ -284,12 +305,10 @@
 [[ATTACHMENT|tests-03-api-key-managemen-c8809-n-create-API-key-modal-form-chromium/test-failed-1.png]]
 
 [[ATTACHMENT|tests-03-api-key-managemen-c8809-n-create-API-key-modal-form-chromium/video.webm]]
-
-[[ATTACHMENT|tests-03-api-key-managemen-c8809-n-create-API-key-modal-form-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should require API key name" classname="tests/03-api-key-management.spec.ts" time="11.119">
+<testcase name="API Key Management - Creation Flow › should require API key name" classname="tests/03-api-key-management.spec.ts" time="11.171">
 <failure message="03-api-key-management.spec.ts:80:3 should require API key name" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:80:3 › API Key Management - Creation Flow › should require API key name 
 
@@ -321,8 +340,6 @@
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
     ../../test-results/tests-03-api-key-managemen-11ef2-should-require-API-key-name-chromium/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-03-api-key-managemen-11ef2-should-require-API-key-name-chromium/error-context.md
 ]]>
 </failure>
 <system-out>
@@ -330,12 +347,10 @@
 [[ATTACHMENT|tests-03-api-key-managemen-11ef2-should-require-API-key-name-chromium/test-failed-1.png]]
 
 [[ATTACHMENT|tests-03-api-key-managemen-11ef2-should-require-API-key-name-chromium/video.webm]]
-
-[[ATTACHMENT|tests-03-api-key-managemen-11ef2-should-require-API-key-name-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should allow setting API key name" classname="tests/03-api-key-management.spec.ts" time="11.11">
+<testcase name="API Key Management - Creation Flow › should allow setting API key name" classname="tests/03-api-key-management.spec.ts" time="11.311">
 <failure message="03-api-key-management.spec.ts:99:3 should allow setting API key name" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:99:3 › API Key Management - Creation Flow › should allow setting API key name 
 
@@ -367,8 +382,6 @@
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
     ../../test-results/tests-03-api-key-managemen-2dcaa--allow-setting-API-key-name-chromium/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-03-api-key-managemen-2dcaa--allow-setting-API-key-name-chromium/error-context.md
 ]]>
 </failure>
 <system-out>
@@ -376,12 +389,10 @@
 [[ATTACHMENT|tests-03-api-key-managemen-2dcaa--allow-setting-API-key-name-chromium/test-failed-1.png]]
 
 [[ATTACHMENT|tests-03-api-key-managemen-2dcaa--allow-setting-API-key-name-chromium/video.webm]]
-
-[[ATTACHMENT|tests-03-api-key-managemen-2dcaa--allow-setting-API-key-name-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should display scope/permission options" classname="tests/03-api-key-management.spec.ts" time="11.307">
+<testcase name="API Key Management - Creation Flow › should display scope/permission options" classname="tests/03-api-key-management.spec.ts" time="11.2">
 <failure message="03-api-key-management.spec.ts:118:3 should display scope/permission options" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:118:3 › API Key Management - Creation Flow › should display scope/permission options 
 
@@ -413,8 +424,6 @@
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
     ../../test-results/tests-03-api-key-managemen-796b0-ay-scope-permission-options-chromium/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-03-api-key-managemen-796b0-ay-scope-permission-options-chromium/error-context.md
 ]]>
 </failure>
 <system-out>
@@ -422,12 +431,10 @@
 [[ATTACHMENT|tests-03-api-key-managemen-796b0-ay-scope-permission-options-chromium/test-failed-1.png]]
 
 [[ATTACHMENT|tests-03-api-key-managemen-796b0-ay-scope-permission-options-chromium/video.webm]]
-
-[[ATTACHMENT|tests-03-api-key-managemen-796b0-ay-scope-permission-options-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should allow selecting multiple scopes" classname="tests/03-api-key-management.spec.ts" time="11.276">
+<testcase name="API Key Management - Creation Flow › should allow selecting multiple scopes" classname="tests/03-api-key-management.spec.ts" time="11.417">
 <failure message="03-api-key-management.spec.ts:133:3 should allow selecting multiple scopes" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:133:3 › API Key Management - Creation Flow › should allow selecting multiple scopes 
 
@@ -459,8 +466,6 @@
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
     ../../test-results/tests-03-api-key-managemen-c02ec-w-selecting-multiple-scopes-chromium/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-03-api-key-managemen-c02ec-w-selecting-multiple-scopes-chromium/error-context.md
 ]]>
 </failure>
 <system-out>
@@ -468,12 +473,10 @@
 [[ATTACHMENT|tests-03-api-key-managemen-c02ec-w-selecting-multiple-scopes-chromium/test-failed-1.png]]
 
 [[ATTACHMENT|tests-03-api-key-managemen-c02ec-w-selecting-multiple-scopes-chromium/video.webm]]
-
-[[ATTACHMENT|tests-03-api-key-managemen-c02ec-w-selecting-multiple-scopes-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should validate API key name length" classname="tests/03-api-key-management.spec.ts" time="11.109">
+<testcase name="API Key Management - Creation Flow › should validate API key name length" classname="tests/03-api-key-management.spec.ts" time="11.182">
 <failure message="03-api-key-management.spec.ts:152:3 should validate API key name length" type="FAILURE">
 <![CDATA[  [chromium] › tests/03-api-key-management.spec.ts:152:3 › API Key Management - Creation Flow › should validate API key name length 
 
@@ -505,8 +508,6 @@
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
     ../../test-results/tests-03-api-key-managemen-d9b60-alidate-API-key-name-length-chromium/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../../test-results/tests-03-api-key-managemen-d9b60-alidate-API-key-name-length-chromium/error-context.md
 ]]>
 </failure>
 <system-out>
@@ -514,35 +515,33 @@
 [[ATTACHMENT|tests-03-api-key-managemen-d9b60-alidate-API-key-name-length-chromium/test-failed-1.png]]
 
 [[ATTACHMENT|tests-03-api-key-managemen-d9b60-alidate-API-key-name-length-chromium/video.webm]]
-
-[[ATTACHMENT|tests-03-api-key-managemen-d9b60-alidate-API-key-name-length-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API Key Management - Creation Flow › should display generated API key after creation" classname="tests/03-api-key-management.spec.ts" time="0.176">
+<testcase name="API Key Management - Creation Flow › should display generated API key after creation" classname="tests/03-api-key-management.spec.ts" time="0.124">
 </testcase>
-<testcase name="API Key Management - Creation Flow › should provide copy-to-clipboard for new API key" classname="tests/03-api-key-management.spec.ts" time="0.125">
+<testcase name="API Key Management - Creation Flow › should provide copy-to-clipboard for new API key" classname="tests/03-api-key-management.spec.ts" time="0.114">
 </testcase>
-<testcase name="API Key Management - Listing &amp; Display › should display existing API keys in a table/list" classname="tests/03-api-key-management.spec.ts" time="2.172">
+<testcase name="API Key Management - Listing &amp; Display › should display existing API keys in a table/list" classname="tests/03-api-key-management.spec.ts" time="2.169">
 </testcase>
-<testcase name="API Key Management - Listing &amp; Display › should show API key metadata (name, created date, scopes)" classname="tests/03-api-key-management.spec.ts" time="0.111">
+<testcase name="API Key Management - Listing &amp; Display › should show API key metadata (name, created date, scopes)" classname="tests/03-api-key-management.spec.ts" time="0.142">
 </testcase>
-<testcase name="API Key Management - Listing &amp; Display › should mask API key values in listing" classname="tests/03-api-key-management.spec.ts" time="1.156">
+<testcase name="API Key Management - Listing &amp; Display › should mask API key values in listing" classname="tests/03-api-key-management.spec.ts" time="1.117">
 </testcase>
-<testcase name="API Key Management - Listing &amp; Display › should display scopes as badges/tags" classname="tests/03-api-key-management.spec.ts" time="1.126">
+<testcase name="API Key Management - Listing &amp; Display › should display scopes as badges/tags" classname="tests/03-api-key-management.spec.ts" time="1.136">
 </testcase>
-<testcase name="API Key Management - Revocation › should show revoke/delete button for each API key" classname="tests/03-api-key-management.spec.ts" time="2.158">
+<testcase name="API Key Management - Revocation › should show revoke/delete button for each API key" classname="tests/03-api-key-management.spec.ts" time="2.157">
 </testcase>
-<testcase name="API Key Management - Revocation › should show confirmation dialog before revoking key" classname="tests/03-api-key-management.spec.ts" time="1.166">
+<testcase name="API Key Management - Revocation › should show confirmation dialog before revoking key" classname="tests/03-api-key-management.spec.ts" time="1.133">
 </testcase>
-<testcase name="API Key Management - Revocation › should allow canceling revocation" classname="tests/03-api-key-management.spec.ts" time="1.175">
+<testcase name="API Key Management - Revocation › should allow canceling revocation" classname="tests/03-api-key-management.spec.ts" time="1.143">
 </testcase>
-<testcase name="API Key Management - Permissions › should not allow non-authenticated users to access API keys page" classname="tests/03-api-key-management.spec.ts" time="2.182">
+<testcase name="API Key Management - Permissions › should not allow non-authenticated users to access API keys page" classname="tests/03-api-key-management.spec.ts" time="2.252">
 </testcase>
-<testcase name="API Key Management - Permissions › should display API key count/usage statistics" classname="tests/03-api-key-management.spec.ts" time="1.211">
+<testcase name="API Key Management - Permissions › should display API key count/usage statistics" classname="tests/03-api-key-management.spec.ts" time="1.151">
 </testcase>
 </testsuite>
-<testsuite name="tests/04-complete-journey.spec.ts" timestamp="2025-11-01T10:37:16.484Z" hostname="chromium" tests="16" failures="0" skipped="4" time="28.025" errors="0">
+<testsuite name="tests/04-complete-journey.spec.ts" timestamp="2025-11-01T11:19:39.308Z" hostname="chromium" tests="16" failures="0" skipped="4" time="28.809" errors="0">
 <testcase name="Complete User Journey - New User Flow › should complete full journey: Connect → Sign → Create API Key" classname="tests/04-complete-journey.spec.ts" time="0">
 <properties>
 <property name="skip" value="">
@@ -559,7 +558,7 @@
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Complete User Journey - New User Flow › should handle browser refresh while authenticated" classname="tests/04-complete-journey.spec.ts" time="2.722">
+<testcase name="Complete User Journey - New User Flow › should handle browser refresh while authenticated" classname="tests/04-complete-journey.spec.ts" time="2.625">
 </testcase>
 <testcase name="Complete User Journey - Returning User Flow › should auto-authenticate returning user with valid token" classname="tests/04-complete-journey.spec.ts" time="0">
 <properties>
@@ -569,23 +568,23 @@
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Complete User Journey - Returning User Flow › should prompt re-authentication if token is expired" classname="tests/04-complete-journey.spec.ts" time="3.006">
+<testcase name="Complete User Journey - Returning User Flow › should prompt re-authentication if token is expired" classname="tests/04-complete-journey.spec.ts" time="3.11">
 </testcase>
-<testcase name="Complete User Journey - Logout Flow › should complete logout and clear all auth state" classname="tests/04-complete-journey.spec.ts" time="2.574">
+<testcase name="Complete User Journey - Logout Flow › should complete logout and clear all auth state" classname="tests/04-complete-journey.spec.ts" time="2.729">
 </testcase>
-<testcase name="Complete User Journey - Logout Flow › should redirect to home after logout from protected page" classname="tests/04-complete-journey.spec.ts" time="3.082">
+<testcase name="Complete User Journey - Logout Flow › should redirect to home after logout from protected page" classname="tests/04-complete-journey.spec.ts" time="3.078">
 </testcase>
-<testcase name="Complete User Journey - Navigation › should navigate between all main sections when authenticated" classname="tests/04-complete-journey.spec.ts" time="4.629">
+<testcase name="Complete User Journey - Navigation › should navigate between all main sections when authenticated" classname="tests/04-complete-journey.spec.ts" time="4.654">
 </testcase>
-<testcase name="Complete User Journey - Navigation › should show active navigation state for current page" classname="tests/04-complete-journey.spec.ts" time="2.011">
+<testcase name="Complete User Journey - Navigation › should show active navigation state for current page" classname="tests/04-complete-journey.spec.ts" time="2.045">
 </testcase>
-<testcase name="Complete User Journey - Error Handling › should handle network errors gracefully" classname="tests/04-complete-journey.spec.ts" time="1.542">
+<testcase name="Complete User Journey - Error Handling › should handle network errors gracefully" classname="tests/04-complete-journey.spec.ts" time="1.52">
 </testcase>
-<testcase name="Complete User Journey - Error Handling › should handle invalid JWT token gracefully" classname="tests/04-complete-journey.spec.ts" time="1.401">
+<testcase name="Complete User Journey - Error Handling › should handle invalid JWT token gracefully" classname="tests/04-complete-journey.spec.ts" time="1.413">
 </testcase>
-<testcase name="Complete User Journey - Error Handling › should handle missing localStorage gracefully" classname="tests/04-complete-journey.spec.ts" time="1.424">
+<testcase name="Complete User Journey - Error Handling › should handle missing localStorage gracefully" classname="tests/04-complete-journey.spec.ts" time="1.648">
 </testcase>
-<testcase name="Complete User Journey - Mobile Experience › should complete full journey on mobile viewport" classname="tests/04-complete-journey.spec.ts" time="2.466">
+<testcase name="Complete User Journey - Mobile Experience › should complete full journey on mobile viewport" classname="tests/04-complete-journey.spec.ts" time="2.537">
 </testcase>
 <testcase name="Complete User Journey - Mobile Experience › should handle mobile wallet connection" classname="tests/04-complete-journey.spec.ts" time="0">
 <properties>
@@ -595,9 +594,9 @@
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Complete User Journey - Performance › should load homepage within acceptable time" classname="tests/04-complete-journey.spec.ts" time="1.328">
+<testcase name="Complete User Journey - Performance › should load homepage within acceptable time" classname="tests/04-complete-journey.spec.ts" time="1.614">
 </testcase>
-<testcase name="Complete User Journey - Performance › should handle rapid navigation without errors" classname="tests/04-complete-journey.spec.ts" time="1.84">
+<testcase name="Complete User Journey - Performance › should handle rapid navigation without errors" classname="tests/04-complete-journey.spec.ts" time="1.836">
 </testcase>
 </testsuite>
 </testsuites>

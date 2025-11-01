@@ -1,6 +1,6 @@
 # Multi-stage Dockerfile for Gatekeeper Backend
 # Stage 1: Build the Go binary
-FROM golang:1.24-alpine AS builder
+FROM golang:1.21-alpine AS builder
 
 # Install build dependencies
 RUN apk add --no-cache git ca-certificates tzdata
@@ -10,7 +10,7 @@ WORKDIR /build
 
 # Copy go.mod and go.sum first for better layer caching
 COPY go.mod go.sum ./
-RUN go mod download
+RUN go mod download && go mod verify
 
 # Copy source code
 COPY . .
@@ -19,21 +19,17 @@ COPY . .
 # -ldflags="-w -s" strips debug info to reduce binary size
 # CGO_ENABLED=0 for static binary
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
-    -ldflags="-w -s -X main.version=$(git describe --tags --always --dirty 2>/dev/null || echo 'dev')" \
+    -ldflags="-w -s -X main.version=$(git describe --tags --always --dirty 2>/dev/null || echo 'dev') -extldflags '-static'" \
     -a -installsuffix cgo \
+    -trimpath \
     -o gatekeeper \
     ./cmd/server
 
-# Stage 2: Create minimal runtime image
-FROM alpine:3.19
+# Stage 2: Create minimal runtime image with distroless
+FROM gcr.io/distroless/base-debian12:nonroot
 
-# Install runtime dependencies
-RUN apk --no-cache add ca-certificates curl tzdata && \
-    addgroup -g 1000 gatekeeper && \
-    adduser -D -u 1000 -G gatekeeper gatekeeper
-
-# Copy timezone data
-COPY --from=builder /usr/share/zoneinfo /usr/share/zoneinfo
+# Copy ca-certificates from builder
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # Set working directory
 WORKDIR /app
@@ -41,21 +37,17 @@ WORKDIR /app
 # Copy binary from builder
 COPY --from=builder /build/gatekeeper .
 
-# Copy migrations (needed for database initialization)
+# Copy migrations if they exist (needed for database initialization)
 COPY --from=builder /build/deployments/migrations ./migrations
-
-# Set ownership
-RUN chown -R gatekeeper:gatekeeper /app
-
-# Switch to non-root user
-USER gatekeeper
 
 # Expose port
 EXPOSE 8080
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8080/health || exit 1
+# Distroless doesn't support shell-based healthchecks
+# Health checks will be handled by docker-compose/kubernetes
+
+# Use non-root user (distroless base-debian12:nonroot uses UID 65532)
+USER nonroot:nonroot
 
 # Run the application
 ENTRYPOINT ["/app/gatekeeper"]

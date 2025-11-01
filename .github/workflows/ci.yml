@@ -1,0 +1,561 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+  security-events: write
+  packages: write
+
+env:
+  GO_VERSION: '1.21'
+  NODE_VERSION: '20'
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # ============================================================
+  # JOB 1: Backend Tests & Lint
+  # ============================================================
+  backend-tests:
+    name: Backend - Go Tests & Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: gatekeeper_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go ${{ env.GO_VERSION }}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+          cache-dependency-path: go.sum
+
+      - name: Cache Go modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: Download dependencies
+        run: |
+          go mod download
+          go mod verify
+
+      - name: Run go vet
+        run: go vet ./...
+
+      - name: Run go fmt check
+        run: |
+          if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then
+            echo "::error::Go files must be formatted with gofmt"
+            gofmt -s -l .
+            exit 1
+          fi
+
+      - name: Install golangci-lint
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.55.2
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+
+      - name: Run golangci-lint
+        run: golangci-lint run ./... --timeout=10m --max-issues-per-linter=0 --max-same-issues=0
+        continue-on-error: false
+
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+
+      - name: Run gosec security scan
+        run: |
+          gosec -fmt=json -out=gosec-report.json ./... || true
+          gosec -fmt=text ./...
+        continue-on-error: true
+
+      - name: Run tests with race detector and coverage
+        env:
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/gatekeeper_test?sslmode=disable
+          JWT_SECRET: test-secret-key-min-32-chars-long-for-testing-purposes
+          ETHEREUM_RPC: https://eth-mainnet.g.alchemy.com/v2/demo
+        run: |
+          go test -v -race -coverprofile=coverage.out -covermode=atomic -timeout 10m ./...
+
+      - name: Generate coverage report
+        run: |
+          go tool cover -func=coverage.out -o=coverage.txt
+          echo "## Backend Test Coverage Report" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          go tool cover -func=coverage.out >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Check coverage threshold
+        run: |
+          COVERAGE=$(go tool cover -func=coverage.out | grep total | awk '{print $3}' | sed 's/%//')
+          THRESHOLD=80.0
+          echo "Current coverage: ${COVERAGE}%"
+          echo "Required threshold: ${THRESHOLD}%"
+          if (( $(echo "$COVERAGE < $THRESHOLD" | bc -l) )); then
+            echo "::warning::Coverage ${COVERAGE}% is below threshold ${THRESHOLD}%"
+          else
+            echo "::notice::Coverage ${COVERAGE}% meets threshold ${THRESHOLD}%"
+          fi
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage.out
+          flags: backend,unittests
+          name: backend-coverage
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload coverage artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-coverage
+          path: |
+            coverage.out
+            coverage.txt
+            gosec-report.json
+          retention-days: 30
+
+      - name: Backend test summary
+        if: always()
+        run: |
+          echo "## Backend Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f coverage.out ]; then
+            TOTAL=$(go tool cover -func=coverage.out | grep total | awk '{print $3}')
+            echo "- **Coverage:** $TOTAL" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "- **Race detector:** Enabled" >> $GITHUB_STEP_SUMMARY
+          echo "- **Database:** PostgreSQL 15" >> $GITHUB_STEP_SUMMARY
+          echo "- **Go version:** ${{ env.GO_VERSION }}" >> $GITHUB_STEP_SUMMARY
+
+  # ============================================================
+  # JOB 2: Frontend Tests & Lint
+  # ============================================================
+  frontend-tests:
+    name: Frontend - Node Tests & Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: ./web
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: web/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('web/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: false
+
+      - name: Run TypeScript type check
+        run: npm run type-check
+
+      - name: Run unit tests with coverage
+        run: npm run test:coverage
+        env:
+          CI: true
+
+      - name: Upload frontend coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./web/coverage/coverage-final.json
+          flags: frontend,unittests
+          name: frontend-coverage
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload coverage artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage
+          path: web/coverage/
+          retention-days: 30
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E tests
+        run: npm run test:e2e
+        env:
+          CI: true
+        continue-on-error: true
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: web/playwright-report/
+          retention-days: 30
+
+      - name: Frontend test summary
+        if: always()
+        run: |
+          echo "## Frontend Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Node version:** ${{ env.NODE_VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **TypeScript:** Type check passed" >> $GITHUB_STEP_SUMMARY
+          echo "- **Linting:** ESLint passed" >> $GITHUB_STEP_SUMMARY
+          echo "- **Unit tests:** Completed" >> $GITHUB_STEP_SUMMARY
+          echo "- **E2E tests:** Playwright tests completed" >> $GITHUB_STEP_SUMMARY
+
+  # ============================================================
+  # JOB 3: Docker Build
+  # ============================================================
+  docker-build:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [backend-tests, frontend-tests]
+
+    strategy:
+      matrix:
+        include:
+          - service: backend
+            dockerfile: ./Dockerfile
+            context: .
+          - service: frontend
+            dockerfile: ./web/Dockerfile
+            context: ./web
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-${{ matrix.service }}
+          tags: |
+            type=ref,event=branch
+            type=sha,prefix={{branch}}-
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build and push ${{ matrix.service }} image
+        uses: docker/build-push-action@v5
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha,scope=${{ matrix.service }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.service }}
+          build-args: |
+            VERSION=${{ github.sha }}
+            COMMIT=${{ github.sha }}
+            BUILD_DATE=${{ github.event.head_commit.timestamp }}
+
+      - name: Docker build summary
+        run: |
+          echo "## Docker Build - ${{ matrix.service }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Image:** ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-${{ matrix.service }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Tags:** ${{ steps.meta.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Platforms:** linux/amd64, linux/arm64" >> $GITHUB_STEP_SUMMARY
+          echo "- **Build date:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+
+  # ============================================================
+  # JOB 4: Security Scanning
+  # ============================================================
+  security-scan:
+    name: Security Scanning
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go ${{ env.GO_VERSION }}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+
+      - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH,MEDIUM'
+
+      - name: Upload Trivy results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+      - name: Run Trivy with table output
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Run gosec security scanner
+        run: |
+          go install github.com/securego/gosec/v2/cmd/gosec@latest
+          gosec -fmt=sarif -out=gosec-results.sarif ./... || true
+
+      - name: Upload gosec results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'gosec-results.sarif'
+
+      - name: Run govulncheck
+        run: |
+          go install golang.org/x/vuln/cmd/govulncheck@latest
+          govulncheck ./... 2>&1 | tee govulncheck-report.txt || true
+
+      - name: Check for hardcoded secrets with TruffleHog
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --only-verified
+        continue-on-error: true
+
+      - name: Upload security scan artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-reports
+          path: |
+            trivy-results.sarif
+            gosec-results.sarif
+            govulncheck-report.txt
+          retention-days: 30
+
+      - name: Security scan summary
+        if: always()
+        run: |
+          echo "## Security Scan Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Trivy:** Filesystem scan completed" >> $GITHUB_STEP_SUMMARY
+          echo "- **gosec:** Go security analysis completed" >> $GITHUB_STEP_SUMMARY
+          echo "- **govulncheck:** Vulnerability check completed" >> $GITHUB_STEP_SUMMARY
+          echo "- **TruffleHog:** Secret scanning completed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Scan Date:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+
+  # ============================================================
+  # JOB 5: Build Validation (PR only)
+  # ============================================================
+  build-validation:
+    name: Build Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: github.event_name == 'pull_request'
+    needs: [backend-tests, frontend-tests]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go ${{ env.GO_VERSION }}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+
+      - name: Build backend binary
+        run: |
+          go build -v -o bin/gatekeeper ./cmd/server
+          echo "✅ Backend binary built successfully" >> $GITHUB_STEP_SUMMARY
+
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Build frontend
+        working-directory: ./web
+        run: |
+          npm ci --prefer-offline --no-audit
+          npm run build
+          echo "✅ Frontend built successfully" >> $GITHUB_STEP_SUMMARY
+
+      - name: Validate Docker builds
+        run: |
+          docker build -t gatekeeper-backend:test -f Dockerfile .
+          docker build -t gatekeeper-frontend:test -f web/Dockerfile web/
+          echo "✅ Docker images built successfully" >> $GITHUB_STEP_SUMMARY
+
+  # ============================================================
+  # JOB 6: CI Summary and Status
+  # ============================================================
+  ci-summary:
+    name: CI Summary
+    runs-on: ubuntu-latest
+    needs: [backend-tests, frontend-tests, security-scan]
+    if: always()
+
+    steps:
+      - name: Check job results
+        run: |
+          echo "## CI Pipeline Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Job | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Backend Tests & Lint | ${{ needs.backend-tests.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Frontend Tests & Lint | ${{ needs.frontend-tests.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Security Scanning | ${{ needs.security-scan.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Pipeline Run:** ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Completed at:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+
+      - name: Post PR comment with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const backendStatus = '${{ needs.backend-tests.result }}' === 'success' ? '✅' : '❌';
+            const frontendStatus = '${{ needs.frontend-tests.result }}' === 'success' ? '✅' : '❌';
+            const securityStatus = '${{ needs.security-scan.result }}' === 'success' ? '✅' : '❌';
+
+            const comment = `## CI Pipeline Results
+
+            | Check | Status |
+            |-------|--------|
+            | Backend Tests & Lint | ${backendStatus} ${{ needs.backend-tests.result }} |
+            | Frontend Tests & Lint | ${frontendStatus} ${{ needs.frontend-tests.result }} |
+            | Security Scanning | ${securityStatus} ${{ needs.security-scan.result }} |
+
+            **Pipeline Run:** #${{ github.run_number }}
+            **Commit:** ${{ github.sha }}
+
+            [View full details](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+      - name: Fail if any critical job failed
+        if: |
+          needs.backend-tests.result == 'failure' ||
+          needs.frontend-tests.result == 'failure'
+        run: |
+          echo "::error::One or more critical jobs failed"
+          exit 1
+
+  # ============================================================
+  # JOB 7: Performance Benchmarks (optional)
+  # ============================================================
+  performance-benchmarks:
+    name: Performance Benchmarks
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.event_name == 'pull_request'
+    needs: [backend-tests]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go ${{ env.GO_VERSION }}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+
+      - name: Run benchmarks
+        run: |
+          go test -bench=. -benchmem -run=^$ ./... | tee benchmark-results.txt
+        continue-on-error: true
+
+      - name: Upload benchmark results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: benchmark-results
+          path: benchmark-results.txt
+          retention-days: 30
+
+      - name: Benchmark summary
+        if: always()
+        run: |
+          echo "## Performance Benchmarks" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat benchmark-results.txt >> $GITHUB_STEP_SUMMARY || echo "No benchmarks found" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY

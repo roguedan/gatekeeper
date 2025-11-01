@@ -11,7 +11,8 @@ import (
 // All fields are validated during Load() and guaranteed to have valid values.
 type Config struct {
 	// Server configuration
-	Port string
+	Port    string
+	Version string // Service version
 
 	// Database configuration
 	DatabaseURL         string
@@ -52,6 +53,12 @@ func Load() (*Config, error) {
 	// Load required string field
 	if err := loadRequiredString("PORT", &cfg.Port); err != nil {
 		return nil, err
+	}
+
+	// Load version (optional, defaults to "dev")
+	cfg.Version = os.Getenv("VERSION")
+	if cfg.Version == "" {
+		cfg.Version = "dev"
 	}
 
 	if err := loadRequiredString("DATABASE_URL", &cfg.DatabaseURL); err != nil {
