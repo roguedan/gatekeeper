@@ -50,11 +50,29 @@ test.describe('Wallet Connection Flow', () => {
     // Wait for modal
     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
 
-    // Close modal by pressing Escape key (standard way to close RainbowKit modal)
-    await page.keyboard.press('Escape');
+    // RainbowKit modal has a close button - look for button with proper aria attributes or role
+    // Try clicking outside the modal (on the overlay) to close it
+    const overlay = page.locator('[data-rk]').first();
+    const modalBox = overlay.locator('xpath=.//*[@role="dialog"]');
+
+    // Get the bounding box of the modal dialog
+    const box = await modalBox.boundingBox();
+
+    // Click outside the modal on the overlay to close
+    if (box) {
+      const outsideX = 10; // Left edge of viewport
+      const outsideY = 10; // Top edge of viewport
+      await page.click('body', { force: true, position: { x: outsideX, y: outsideY } });
+    } else {
+      // Fallback: try keyboard escape
+      await page.keyboard.press('Escape');
+    }
+
+    // Wait for modal to close (with longer timeout for visual transitions)
+    await page.waitForTimeout(500);
 
     // Verify modal is closed
-    await expect(page.locator('[data-rk]').first()).not.toBeVisible();
+    await expect(page.locator('[data-rk]').first()).not.toBeVisible({ timeout: 3000 });
   });
 
   test('should handle no wallet provider gracefully', async ({ page }) => {
@@ -130,8 +148,19 @@ test.describe('Wallet Connection Flow', () => {
     // Modal should open
     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
 
-    // Close the modal to simulate rejection by pressing Escape
-    await page.keyboard.press('Escape');
+    // Close the modal to simulate rejection by clicking outside
+    const overlay = page.locator('[data-rk]').first();
+    const modalBox = overlay.locator('xpath=.//*[@role="dialog"]');
+    const box = await modalBox.boundingBox();
+
+    // Click outside the modal on the overlay to close
+    if (box) {
+      await page.click('body', { force: true, position: { x: 10, y: 10 } });
+    } else {
+      await page.keyboard.press('Escape');
+    }
+
+    await page.waitForTimeout(500);
 
     // Verify user remains on homepage and connect button is still visible
     await expect(page.getByTestId('rk-connect-button').first()).toBeVisible();
