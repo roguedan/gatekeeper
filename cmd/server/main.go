@@ -16,6 +16,7 @@ import (
 	"github.com/yourusername/gatekeeper/internal/chain"
 	"github.com/yourusername/gatekeeper/internal/config"
 	httpserver "github.com/yourusername/gatekeeper/internal/http"
+	"github.com/yourusername/gatekeeper/internal/http/handlers"
 	"github.com/yourusername/gatekeeper/internal/log"
 	"github.com/yourusername/gatekeeper/internal/policy"
 	"github.com/yourusername/gatekeeper/internal/store"
@@ -96,6 +97,9 @@ func main() {
 
 	// Initialize API Key middleware
 	apiKeyMiddleware := httpserver.NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, auditLogger)
+
+	// Initialize documentation handler
+	docsHandler := handlers.NewDocsHandler()
 
 	// Initialize rate limiters
 	apiKeyCreationLimiter := httpserver.NewInMemoryRateLimiter(
@@ -190,6 +194,15 @@ func main() {
 		w.WriteHeader(statusCode)
 		fmt.Fprintf(w, `{"status":"%s","port":"%s"}`, status, cfg.Port)
 	}).Methods("GET")
+
+	// Documentation endpoints (no authentication required)
+	// GET /openapi.yaml - Serve OpenAPI specification
+	router.HandleFunc("/openapi.yaml", docsHandler.ServeOpenAPISpec).Methods("GET", "OPTIONS")
+
+	// GET /docs - Serve Redoc documentation UI
+	router.HandleFunc("/docs", docsHandler.ServeRedocUI).Methods("GET", "OPTIONS")
+
+	logger.Info("Documentation endpoints registered: /docs and /openapi.yaml")
 
 	// JWT Middleware for protected routes
 	jwtMiddleware := httpserver.JWTMiddleware(jwtService)

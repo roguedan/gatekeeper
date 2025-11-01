@@ -1,0 +1,575 @@
+openapi: 3.0.0
+info:
+  title: Gatekeeper Wallet-Native Authentication API
+  description: |
+    A gateway for wallet-native authentication using Sign-In with Ethereum (SIWE) and blockchain-based access control.
+
+    ## Rate Limiting
+
+    All API endpoints are protected by rate limiting to prevent abuse:
+
+    - **API Key Creation:** 10 requests per hour per user (burst: 3)
+    - **General API Usage:** 1000 requests per minute per user (burst: 100)
+
+    Rate limits are applied per authenticated user (by wallet address). For unauthenticated endpoints, rate limits apply per IP address.
+
+    When you exceed the rate limit, you'll receive a `429 Too Many Requests` response with these headers:
+    - `Retry-After`: Seconds to wait before retrying
+    - `X-RateLimit-Limit`: Rate limit ceiling
+    - `X-RateLimit-Remaining`: Remaining requests in current window
+    - `X-RateLimit-Reset`: Unix timestamp when limit resets
+
+  version: 1.0.0
+  contact:
+    name: Gatekeeper Team
+  license:
+    name: MIT
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+  - url: https://api.example.com
+    description: Production server
+
+paths:
+  /auth/siwe/nonce:
+    get:
+      summary: Get a unique nonce for SIWE signature
+      description: |
+        Returns a cryptographically secure nonce that must be included in the SIWE message.
+        Each nonce is single-use and expires after 10 minutes.
+      operationId: getNonce
+      tags:
+        - Authentication
+      responses:
+        '200':
+          description: Successfully generated nonce
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NonceResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /auth/siwe/verify:
+    post:
+      summary: Verify SIWE signature and issue JWT token
+      description: |
+        Verifies a Sign-In with Ethereum message and its signature.
+        On success, returns a JWT token that can be used for authenticated requests.
+        The nonce in the message must match a recently issued nonce and will be invalidated after verification.
+      operationId: verifySIWE
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifySIWERequest'
+      responses:
+        '200':
+          description: Successfully verified signature and issued token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: Invalid request or verification failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized - nonce not found or expired
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/data:
+    get:
+      summary: Access protected data
+      description: |
+        Example protected endpoint that demonstrates policy evaluation.
+        Requires valid JWT token in Authorization header.
+        Policy requirements depend on configuration.
+
+        **Rate Limit:** 1000 requests per minute per user (burst: 100)
+      operationId: getProtectedData
+      tags:
+        - Protected Resources
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved protected data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: object
+        '401':
+          description: Unauthorized - missing or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden - policy evaluation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/keys:
+    post:
+      summary: Create new API key
+      description: |
+        Generates a new API key for programmatic access.
+        The raw key is only shown once at creation time - save it securely.
+        Requires JWT authentication.
+
+        **Rate Limit:** 10 requests per hour per user (burst: 3)
+      operationId: createAPIKey
+      tags:
+        - API Keys
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - scopes
+              properties:
+                name:
+                  type: string
+                  description: Human-readable name for the API key
+                  maxLength: 255
+                  example: "Production API Key"
+                scopes:
+                  type: array
+                  items:
+                    type: string
+                  minItems: 1
+                  description: Array of scopes granted to this key
+                  example: ["read", "write"]
+                expiresInSeconds:
+                  type: integer
+                  description: Optional expiration time in seconds from now
+                  example: 2592000
+      responses:
+        '201':
+          description: API key created successfully
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              description: Set to "no-store" for security
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - key
+                  - keyHash
+                  - name
+                  - scopes
+                  - createdAt
+                  - message
+                properties:
+                  key:
+                    type: string
+                    description: Raw API key (save securely - won't be shown again)
+                    example: "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
+                  keyHash:
+                    type: string
+                    description: First 8 characters of hash for identification
+                    example: "a1b2c3d4"
+                  name:
+                    type: string
+                    example: "Production API Key"
+                  scopes:
+                    type: array
+                    items:
+                      type: string
+                    example: ["read", "write"]
+                  expiresAt:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  createdAt:
+                    type: string
+                    format: date-time
+                  message:
+                    type: string
+                    example: "Save this key securely - you won't see it again"
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+                example: 60
+              description: Number of seconds to wait before retrying
+            X-RateLimit-Limit:
+              schema:
+                type: string
+                example: "10"
+              description: Rate limit ceiling for this endpoint
+            X-RateLimit-Remaining:
+              schema:
+                type: string
+                example: "0"
+              description: Number of requests remaining in current window
+            X-RateLimit-Reset:
+              schema:
+                type: string
+                example: "1704067200"
+              description: Unix timestamp when the rate limit resets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Rate limit exceeded"
+                  message:
+                    type: string
+                    example: "Too many requests. Please try again later."
+                  retryAfter:
+                    type: integer
+                    example: 60
+                    description: Seconds until retry is allowed
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    get:
+      summary: List user's API keys
+      description: |
+        Returns all API keys for the authenticated user.
+        Does not include raw keys, only metadata.
+
+        **Rate Limit:** 1000 requests per minute per user (burst: 100)
+      operationId: listAPIKeys
+      tags:
+        - API Keys
+      security:
+        - bearerAuth: []
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of API keys
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  keys:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/APIKeyMetadata'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/keys/{id}:
+    delete:
+      summary: Revoke API key
+      description: |
+        Revokes (deletes) an API key.
+        Only the owner can revoke their own keys.
+
+        **Rate Limit:** 1000 requests per minute per user (burst: 100)
+      operationId: revokeAPIKey
+      tags:
+        - API Keys
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: API key ID
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: API key revoked successfully
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden - key belongs to another user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: API key not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    NonceResponse:
+      type: object
+      required:
+        - nonce
+      properties:
+        nonce:
+          type: string
+          example: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+          description: Cryptographically secure nonce (128-bit entropy)
+        expiresIn:
+          type: integer
+          example: 600
+          description: Time in seconds until nonce expires (typically 10 minutes)
+
+    VerifySIWERequest:
+      type: object
+      required:
+        - message
+        - signature
+      properties:
+        message:
+          type: string
+          description: |
+            The Sign-In with Ethereum message signed by the user.
+            Must be in valid EIP-4361 format and include the nonce from /auth/siwe/nonce.
+            Example format:
+            ```
+            example.com wants you to sign in with your Ethereum account:
+            0x1234567890abcdef1234567890abcdef12345678
+
+            I accept the Terms of Service: https://example.com/tos
+
+            URI: https://example.com
+            Version: 1
+            Chain ID: 1
+            Nonce: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+            Issued At: 2024-01-01T00:00:00Z
+            Expiration Time: 2024-01-01T01:00:00Z
+            ```
+        signature:
+          type: string
+          example: "0x1234567890abcdef...abcdef"
+          description: |
+            EIP-191 signature of the message.
+            Signed by the user's Ethereum private key corresponding to the address in the message.
+
+    TokenResponse:
+      type: object
+      required:
+        - token
+        - expiresIn
+      properties:
+        token:
+          type: string
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          description: |
+            JWT token signed with HS256.
+            Contains user address and scopes.
+            Use in Authorization header: "Bearer {token}"
+        expiresIn:
+          type: integer
+          example: 3600
+          description: Token expiration time in seconds (typically 1 hour)
+        address:
+          type: string
+          example: "0x1234567890abcdef1234567890abcdef12345678"
+          description: Wallet address of authenticated user
+
+    APIKeyMetadata:
+      type: object
+      required:
+        - id
+        - keyHash
+        - name
+        - scopes
+        - createdAt
+        - isExpired
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Unique identifier for the API key
+          example: 123
+        keyHash:
+          type: string
+          description: First 8 characters of key hash for identification
+          example: "a1b2c3d4"
+        name:
+          type: string
+          description: Human-readable name for the API key
+          example: "Production API Key"
+        scopes:
+          type: array
+          items:
+            type: string
+          description: Array of scopes granted to this key
+          example: ["read", "write"]
+        expiresAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: When the key expires (null if no expiration)
+        lastUsedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: When the key was last used
+        createdAt:
+          type: string
+          format: date-time
+          description: When the key was created
+        isExpired:
+          type: boolean
+          description: Whether the key is currently expired
+
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: "Invalid nonce"
+          description: Human-readable error message
+        code:
+          type: string
+          example: "INVALID_NONCE"
+          description: Machine-readable error code
+        details:
+          type: object
+          description: Additional error details
+          additionalProperties: true
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        JWT token obtained from /auth/siwe/verify.
+        Include in request header: Authorization: Bearer {token}
+
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: |
+        API key for programmatic access.
+        Can be provided in X-API-Key header or Authorization: Bearer {key} format.
+        API keys are 64-character hex-encoded strings.
+
+tags:
+  - name: Authentication
+    description: Wallet-native authentication endpoints using Sign-In with Ethereum
+  - name: API Keys
+    description: API key management for programmatic access
+  - name: Protected Resources
+    description: Example endpoints protected by access control policies
+
+x-examples:
+  GetNonceExample:
+    description: Get a nonce for signing in
+    value:
+      path: /auth/siwe/nonce
+      method: GET
+      response:
+        nonce: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+        expiresIn: 600
+
+  VerifySIWEExample:
+    description: Verify SIWE signature and get JWT token
+    value:
+      path: /auth/siwe/verify
+      method: POST
+      request:
+        message: "example.com wants you to sign in with your Ethereum account:..."
+        signature: "0x1234567890abcdef..."
+      response:
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        expiresIn: 3600
+        address: "0x1234567890abcdef1234567890abcdef12345678"
+
+  ProtectedResourceExample:
+    description: Access protected resource with JWT token
+    value:
+      path: /api/data
+      method: GET
+      headers:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+      response:
+        message: "Access granted"
+        data:
+          userId: "0x1234567890abcdef1234567890abcdef12345678"

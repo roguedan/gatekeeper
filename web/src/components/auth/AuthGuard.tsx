@@ -14,7 +14,7 @@ export const AuthGuard = ({ children, redirectTo = '/' }: AuthGuardProps) => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <LoadingSpinner size="lg" />
+        <LoadingSpinner size="lg" text="Checking authentication..." />
       </div>
     )
   }
