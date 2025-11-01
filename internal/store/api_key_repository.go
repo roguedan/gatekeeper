@@ -301,7 +301,10 @@ func (r *APIKeyRepository) GetAPIKeyByID(ctx context.Context, id int64) (*APIKey
 	)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return nil, fmt.Errorf("API key not found")
+			return nil, &NotFoundError{
+				Resource: "api_key",
+				ID:       id,
+			}
 		}
 		return nil, fmt.Errorf("failed to query API key: %w", err)
 	}

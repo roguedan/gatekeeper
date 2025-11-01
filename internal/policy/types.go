@@ -91,10 +91,10 @@ func (r *InAllowlistRule) Type() RuleType {
 // Evaluate checks if address is in the allowlist (case-insensitive)
 func (r *InAllowlistRule) Evaluate(ctx context.Context, address string, claims *auth.Claims) (bool, error) {
 	// Normalize address to lowercase for comparison
-	normalizedAddress := normalizeAddress(address)
+	normalizedAddress := strings.ToLower(address)
 
 	for _, allowed := range r.Addresses {
-		if normalizeAddress(allowed) == normalizedAddress {
+		if strings.ToLower(allowed) == normalizedAddress {
 			return true, nil
 		}
 	}
@@ -116,17 +116,6 @@ type CacheProvider interface {
 	Get(key string) (interface{}, bool)
 	Set(key string, value interface{})
 	GetOrSet(key string, fn func() interface{}) interface{}
-}
-
-// normalizeAddress converts address to lowercase for comparison
-// TODO: In production, use Ethereum address checksum validation
-func normalizeAddress(address string) string {
-	// Simple lowercase normalization for case-insensitive comparison
-	// In production, should validate Ethereum checksum
-	lowerAddr := strings.ToLower(address)
-	// Remove 0x prefix if present for consistent comparison
-	lowerAddr = strings.TrimPrefix(lowerAddr, "0x")
-	return lowerAddr
 }
 
 // Evaluate evaluates the policy for the given address and claims

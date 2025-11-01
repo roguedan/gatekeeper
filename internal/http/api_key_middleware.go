@@ -4,10 +4,13 @@ import (
 	"context"
 	"encoding/hex"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 	"strings"
+	"time"
 
+	"github.com/yourusername/gatekeeper/internal/audit"
 	"github.com/yourusername/gatekeeper/internal/auth"
 	"github.com/yourusername/gatekeeper/internal/log"
 	"github.com/yourusername/gatekeeper/internal/store"
@@ -15,17 +18,19 @@ import (
 
 // APIKeyMiddleware creates a middleware that validates API keys
 type APIKeyMiddleware struct {
-	apiKeyRepo *store.APIKeyRepository
-	userRepo   *store.UserRepository
-	logger     *log.Logger
+	apiKeyRepo  *store.APIKeyRepository
+	userRepo    *store.UserRepository
+	logger      *log.Logger
+	auditLogger audit.AuditLogger
 }
 
 // NewAPIKeyMiddleware creates a new API key middleware
-func NewAPIKeyMiddleware(apiKeyRepo *store.APIKeyRepository, userRepo *store.UserRepository, logger *log.Logger) *APIKeyMiddleware {
+func NewAPIKeyMiddleware(apiKeyRepo *store.APIKeyRepository, userRepo *store.UserRepository, logger *log.Logger, auditLogger audit.AuditLogger) *APIKeyMiddleware {
 	return &APIKeyMiddleware{
-		apiKeyRepo: apiKeyRepo,
-		userRepo:   userRepo,
-		logger:     logger,
+		apiKeyRepo:  apiKeyRepo,
+		userRepo:    userRepo,
+		logger:      logger,
+		auditLogger: auditLogger,
 	}
 }
 
@@ -55,6 +60,18 @@ func (m *APIKeyMiddleware) Middleware() func(http.Handler) http.Handler {
 			// Validate API key format (hex-encoded, 64 characters)
 			if !m.isValidAPIKeyFormat(apiKey) {
 				m.logger.Warn(fmt.Sprintf("Invalid API key format from %s", r.RemoteAddr))
+
+				// Audit log: Invalid API key format
+				if m.auditLogger != nil {
+					m.auditLogger.LogAuthAttempt(ctx, audit.AuditEvent{
+						Result:   audit.ResultFailure,
+						Method:   r.Method,
+						Endpoint: r.URL.Path,
+						IPAddr:   r.RemoteAddr,
+						Error:    "invalid_api_key_format",
+					})
+				}
+
 				m.writeUnauthorized(w, "invalid_api_key", "API key format is invalid")
 				return
 			}
@@ -63,6 +80,28 @@ func (m *APIKeyMiddleware) Middleware() func(http.Handler) http.Handler {
 			apiKeyData, err := m.apiKeyRepo.ValidateAPIKey(ctx, apiKey)
 			if err != nil {
 				m.logger.Warn(fmt.Sprintf("API key validation failed: %v", err))
+
+				// Audit log: API key validation failed
+				if m.auditLogger != nil {
+					var expiredErr *store.ExpiredError
+					var notFoundErr *store.NotFoundError
+					errorType := "validation_failed"
+					if errors.As(err, &expiredErr) {
+						errorType = "key_expired"
+					} else if errors.As(err, &notFoundErr) {
+						errorType = "key_not_found"
+					}
+
+					m.auditLogger.LogAuthAttempt(ctx, audit.AuditEvent{
+						Result:      audit.ResultFailure,
+						Method:      r.Method,
+						Endpoint:    r.URL.Path,
+						IPAddr:      r.RemoteAddr,
+						Error:       errorType,
+						ErrorDetail: err.Error(),
+					})
+				}
+
 				m.writeUnauthorized(w, "invalid_api_key", "API key not found or expired")
 				return
 			}
@@ -71,6 +110,21 @@ func (m *APIKeyMiddleware) Middleware() func(http.Handler) http.Handler {
 			user, err := m.userRepo.GetUserByID(ctx, apiKeyData.UserID)
 			if err != nil {
 				m.logger.Error(fmt.Sprintf("Failed to get user %d for API key %d: %v", apiKeyData.UserID, apiKeyData.ID, err))
+
+				// Audit log: User lookup failed
+				if m.auditLogger != nil {
+					m.auditLogger.LogAuthAttempt(ctx, audit.AuditEvent{
+						Result:      audit.ResultFailure,
+						KeyID:       apiKeyData.ID,
+						KeyName:     apiKeyData.Name,
+						Method:      r.Method,
+						Endpoint:    r.URL.Path,
+						IPAddr:      r.RemoteAddr,
+						Error:       "user_not_found",
+						ErrorDetail: err.Error(),
+					})
+				}
+
 				m.writeUnauthorized(w, "invalid_api_key", "User not found")
 				return
 			}
@@ -85,12 +139,47 @@ func (m *APIKeyMiddleware) Middleware() func(http.Handler) http.Handler {
 			ctx = context.WithValue(ctx, ClaimsContextKey, claims)
 			r = r.WithContext(ctx)
 
+			// Audit log: Successful authentication
+			if m.auditLogger != nil {
+				m.auditLogger.LogAuthAttempt(ctx, audit.AuditEvent{
+					Result:     audit.ResultSuccess,
+					UserAddr:   user.Address,
+					KeyID:      apiKeyData.ID,
+					KeyName:    apiKeyData.Name,
+					KeyScopes:  apiKeyData.Scopes,
+					Method:     r.Method,
+					Endpoint:   r.URL.Path,
+					IPAddr:     r.RemoteAddr,
+					ResourceID: fmt.Sprintf("key:%d", apiKeyData.ID),
+				})
+			}
+
 			// Update last_used_at in background (non-blocking)
 			go func() {
-				// Create a new context for the background operation
-				bgCtx := context.Background()
-				if err := m.apiKeyRepo.UpdateLastUsed(bgCtx, apiKeyData.KeyHash); err != nil {
-					m.logger.Error(fmt.Sprintf("Failed to update last_used_at for API key %d: %v", apiKeyData.ID, err))
+				// Create a new context for the background operation with timeout
+				ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+				defer cancel()
+
+				if err := m.apiKeyRepo.UpdateLastUsed(ctx, apiKeyData.KeyHash); err != nil {
+					// Only log non-context errors to avoid noise from timeout/cancellation
+					if !errors.Is(err, context.Canceled) && !errors.Is(err, context.DeadlineExceeded) {
+						m.logger.Error(fmt.Sprintf("Failed to update last_used_at for API key %d: %v", apiKeyData.ID, err))
+					}
+				}
+
+				// Audit log: API key usage (async)
+				if m.auditLogger != nil {
+					m.auditLogger.LogAsync(audit.AuditEvent{
+						Action:     audit.ActionAPIKeyUsed,
+						Result:     audit.ResultSuccess,
+						UserAddr:   user.Address,
+						KeyID:      apiKeyData.ID,
+						KeyName:    apiKeyData.Name,
+						Method:     r.Method,
+						Endpoint:   r.URL.Path,
+						IPAddr:     r.RemoteAddr,
+						ResourceID: fmt.Sprintf("key:%d", apiKeyData.ID),
+					})
 				}
 			}()
 

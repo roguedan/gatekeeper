@@ -4,10 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/big"
-	"regexp"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common"
+	ethcommon "github.com/yourusername/gatekeeper/internal/common"
 )
 
 // JSONRPCResponse represents a JSON-RPC 2.0 response
@@ -128,28 +127,16 @@ func normalizeCacheKey(dataType, chainID string, contract, identifier string) st
 	return fmt.Sprintf("%s:%s:%s:%s", dataType, chainID, strings.ToLower(contract), strings.ToLower(identifier))
 }
 
-// addressRegex matches Ethereum address format: 0x followed by 40 hex characters
-var addressRegex = regexp.MustCompile(`^0x[0-9a-fA-F]{40}$`)
-
 // isValidAddress checks if an address is a valid Ethereum address format
-// Validates format: 0x[0-9a-fA-F]{40}
+// This is a wrapper around the canonical common.IsValidAddress function
 func isValidAddress(addr string) bool {
-	if addr == "" {
-		return false
-	}
-	return addressRegex.MatchString(addr)
+	return ethcommon.IsValidAddress(addr)
 }
 
 // checksumAddress returns the checksummed version of an Ethereum address
-// Uses EIP-55 checksum validation from go-ethereum
+// This is a wrapper around the canonical common.ChecksumAddress function
 func checksumAddress(addr string) (string, error) {
-	if !isValidAddress(addr) {
-		return "", fmt.Errorf("invalid address format: %s", addr)
-	}
-
-	// Use go-ethereum common package for checksumming
-	address := common.HexToAddress(addr)
-	return address.Hex(), nil
+	return ethcommon.ChecksumAddress(addr)
 }
 
 // cacheKeyWithFormat generates a cache key with consistent formatting

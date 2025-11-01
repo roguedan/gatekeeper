@@ -12,6 +12,14 @@ import (
 	"github.com/yourusername/gatekeeper/internal/chain"
 )
 
+// Test addresses - valid Ethereum addresses for testing
+const (
+	testTokenAddr   = "0x1234567890123456789012345678901234567890" // Mock token contract
+	testNFTAddr     = "0x2234567890123456789012345678901234567890" // Mock NFT contract
+	testUserAddr    = "0x3234567890123456789012345678901234567890" // Mock user address
+	testUserAddr2   = "0x4234567890123456789012345678901234567890" // Second mock user address
+)
+
 // MockCache is a simple cache implementation for testing
 type MockCache struct {
 	data map[string]interface{}
@@ -147,27 +155,27 @@ func (m *MockBlockchainProvider) SetOwner(tokenID string, owner string) {
 func TestERC20Rule_Evaluate_WithSufficientBalance(t *testing.T) {
 	// Create rule requiring 1000 tokens (1e18 wei)
 	minBalance := new(big.Int).Exp(big.NewInt(10), big.NewInt(18), nil) // 1e18
-	rule := NewERC20MinBalanceRule("0xToken", minBalance, 1)
+	rule := NewERC20MinBalanceRule(testTokenAddr, minBalance, 1)
 
 	// Note: This test shows the structure. Full blockchain integration
 	// requires mocking the RPC provider, which is done separately.
 	// For now, we verify the rule structure is correct.
 	assert.NotNil(t, rule)
-	assert.Equal(t, "0xToken", rule.ContractAddress)
+	assert.Equal(t, testTokenAddr, rule.ContractAddress)
 	assert.Equal(t, minBalance, rule.MinimumBalance)
 	assert.Equal(t, uint64(1), rule.ChainID)
 }
 
 // TestERC20Rule_Type returns correct rule type
 func TestERC20Rule_Type(t *testing.T) {
-	rule := NewERC20MinBalanceRule("0xToken", big.NewInt(1000), 1)
+	rule := NewERC20MinBalanceRule(testTokenAddr, big.NewInt(1000), 1)
 
 	assert.Equal(t, ERC20MinBalanceRuleType, rule.Type())
 }
 
 // TestERC721Rule_Type returns correct rule type
 func TestERC721Rule_Type(t *testing.T) {
-	rule := NewERC721OwnerRule("0xNFT", big.NewInt(42), 1)
+	rule := NewERC721OwnerRule(testNFTAddr, big.NewInt(42), 1)
 
 	assert.Equal(t, ERC721OwnerRuleType, rule.Type())
 }
@@ -186,38 +194,38 @@ func TestERC20Rule_Creation(t *testing.T) {
 // TestERC721Rule_Creation creates rule with correct parameters
 func TestERC721Rule_Creation(t *testing.T) {
 	tokenID := big.NewInt(42)
-	rule := NewERC721OwnerRule("0xNFT", tokenID, 1)
+	rule := NewERC721OwnerRule(testNFTAddr, tokenID, 1)
 
 	require.NotNil(t, rule)
-	assert.Equal(t, "0xNFT", rule.ContractAddress)
+	assert.Equal(t, testNFTAddr, rule.ContractAddress)
 	assert.Equal(t, tokenID, rule.TokenID)
 	assert.Equal(t, uint64(1), rule.ChainID)
 }
 
 // TestCacheKey_ERC20 generates correct cache key format for ERC20
 func TestCacheKey_ERC20(t *testing.T) {
-	key := chain.CacheKey("erc20_balance", "1", "0xToken", "0xUser1")
+	key := chain.CacheKey("erc20_balance", "1", testTokenAddr, "0xUser1")
 
 	assert.Contains(t, key, "erc20_balance")
 	assert.Contains(t, key, "1")
-	assert.Contains(t, key, "0xToken")
+	assert.Contains(t, key, testTokenAddr)
 	assert.Contains(t, key, "0xUser1")
 }
 
 // TestCacheKey_ERC721 generates correct cache key format for ERC721
 func TestCacheKey_ERC721(t *testing.T) {
-	key := chain.CacheKey("erc721_owner", "1", "0xNFT", "42")
+	key := chain.CacheKey("erc721_owner", "1", testNFTAddr, "42")
 
 	assert.Contains(t, key, "erc721_owner")
 	assert.Contains(t, key, "1")
-	assert.Contains(t, key, "0xNFT")
+	assert.Contains(t, key, testNFTAddr)
 	assert.Contains(t, key, "42")
 }
 
 // TestERC20Rule_WithDifferentChains supports multi-chain
 func TestERC20Rule_WithDifferentChains(t *testing.T) {
-	rule1 := NewERC20MinBalanceRule("0xToken", big.NewInt(1000), 1) // Mainnet
-	rule2 := NewERC20MinBalanceRule("0xToken", big.NewInt(1000), 137) // Polygon
+	rule1 := NewERC20MinBalanceRule(testTokenAddr, big.NewInt(1000), 1) // Mainnet
+	rule2 := NewERC20MinBalanceRule(testTokenAddr, big.NewInt(1000), 137) // Polygon
 
 	assert.Equal(t, uint64(1), rule1.ChainID)
 	assert.Equal(t, uint64(137), rule2.ChainID)
@@ -226,8 +234,8 @@ func TestERC20Rule_WithDifferentChains(t *testing.T) {
 
 // TestERC721Rule_WithDifferentChains supports multi-chain
 func TestERC721Rule_WithDifferentChains(t *testing.T) {
-	rule1 := NewERC721OwnerRule("0xNFT", big.NewInt(42), 1)    // Mainnet
-	rule2 := NewERC721OwnerRule("0xNFT", big.NewInt(42), 43114) // Avalanche
+	rule1 := NewERC721OwnerRule(testNFTAddr, big.NewInt(42), 1)    // Mainnet
+	rule2 := NewERC721OwnerRule(testNFTAddr, big.NewInt(42), 43114) // Avalanche
 
 	assert.Equal(t, uint64(1), rule1.ChainID)
 	assert.Equal(t, uint64(43114), rule2.ChainID)
@@ -243,8 +251,8 @@ func TestERC20Rule_WithDifferentContracts(t *testing.T) {
 
 // TestERC20Rule_WithDifferentMinimums enforces different balances
 func TestERC20Rule_WithDifferentMinimums(t *testing.T) {
-	rule1 := NewERC20MinBalanceRule("0xToken", big.NewInt(1000), 1)
-	rule2 := NewERC20MinBalanceRule("0xToken", big.NewInt(10000), 1)
+	rule1 := NewERC20MinBalanceRule(testTokenAddr, big.NewInt(1000), 1)
+	rule2 := NewERC20MinBalanceRule(testTokenAddr, big.NewInt(10000), 1)
 
 	assert.NotEqual(t, rule1.MinimumBalance, rule2.MinimumBalance)
 	assert.True(t, rule1.MinimumBalance.Cmp(rule2.MinimumBalance) < 0)
@@ -252,8 +260,8 @@ func TestERC20Rule_WithDifferentMinimums(t *testing.T) {
 
 // TestERC721Rule_WithDifferentTokenIDs differentiates NFTs
 func TestERC721Rule_WithDifferentTokenIDs(t *testing.T) {
-	rule1 := NewERC721OwnerRule("0xNFT", big.NewInt(42), 1)
-	rule2 := NewERC721OwnerRule("0xNFT", big.NewInt(43), 1)
+	rule1 := NewERC721OwnerRule(testNFTAddr, big.NewInt(42), 1)
+	rule2 := NewERC721OwnerRule(testNFTAddr, big.NewInt(43), 1)
 
 	assert.NotEqual(t, rule1.TokenID, rule2.TokenID)
 }
@@ -262,7 +270,7 @@ func TestERC721Rule_WithDifferentTokenIDs(t *testing.T) {
 func TestERC721Rule_WithLargeTokenID(t *testing.T) {
 	// Large token ID from real NFTs
 	largeID := new(big.Int).Exp(big.NewInt(2), big.NewInt(256), nil)
-	rule := NewERC721OwnerRule("0xNFT", largeID, 1)
+	rule := NewERC721OwnerRule(testNFTAddr, largeID, 1)
 
 	assert.Equal(t, largeID, rule.TokenID)
 }
@@ -271,7 +279,7 @@ func TestERC721Rule_WithLargeTokenID(t *testing.T) {
 func TestERC20Rule_WithLargeBalance(t *testing.T) {
 	// 1 million tokens with 18 decimals = 1e24
 	largeBalance := new(big.Int).Exp(big.NewInt(10), big.NewInt(24), nil)
-	rule := NewERC20MinBalanceRule("0xToken", largeBalance, 1)
+	rule := NewERC20MinBalanceRule(testTokenAddr, largeBalance, 1)
 
 	assert.Equal(t, largeBalance, rule.MinimumBalance)
 }
@@ -279,7 +287,7 @@ func TestERC20Rule_WithLargeBalance(t *testing.T) {
 // TestERC20Rule_Evaluate_SufficientBalance passes when balance meets minimum
 func TestERC20Rule_Evaluate_SufficientBalance(t *testing.T) {
 	minBalance := big.NewInt(1000)
-	rule := NewERC20MinBalanceRule("0xToken", minBalance, 1)
+	rule := NewERC20MinBalanceRule(testTokenAddr, minBalance, 1)
 
 	// Mock provider that returns sufficient balance
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
@@ -300,7 +308,7 @@ func TestERC20Rule_Evaluate_SufficientBalance(t *testing.T) {
 // TestERC20Rule_Evaluate_InsufficientBalance fails when balance below minimum
 func TestERC20Rule_Evaluate_InsufficientBalance(t *testing.T) {
 	minBalance := big.NewInt(1000)
-	rule := NewERC20MinBalanceRule("0xToken", minBalance, 1)
+	rule := NewERC20MinBalanceRule(testTokenAddr, minBalance, 1)
 
 	// Mock provider that returns insufficient balance
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
@@ -320,10 +328,10 @@ func TestERC20Rule_Evaluate_InsufficientBalance(t *testing.T) {
 
 // TestERC20Rule_Evaluate_NoProvider returns false when no provider
 func TestERC20Rule_Evaluate_NoProvider(t *testing.T) {
-	rule := NewERC20MinBalanceRule("0xToken", big.NewInt(1000), 1)
+	rule := NewERC20MinBalanceRule(testTokenAddr, big.NewInt(1000), 1)
 	// Don't set provider
 
-	result, err := rule.Evaluate(context.Background(), "0xUser", nil)
+	result, err := rule.Evaluate(context.Background(), testUserAddr, nil)
 
 	require.NoError(t, err)
 	assert.False(t, result)
@@ -332,7 +340,7 @@ func TestERC20Rule_Evaluate_NoProvider(t *testing.T) {
 // TestERC20Rule_Evaluate_UsesCache returns cached value without RPC call
 func TestERC20Rule_Evaluate_UsesCache(t *testing.T) {
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
-	rule := NewERC20MinBalanceRule("0xToken", big.NewInt(1000), 1)
+	rule := NewERC20MinBalanceRule(testTokenAddr, big.NewInt(1000), 1)
 
 	// Mock provider
 	provider := &MockBlockchainProvider{}
@@ -341,7 +349,7 @@ func TestERC20Rule_Evaluate_UsesCache(t *testing.T) {
 	// Mock cache with pre-cached value
 	cache := &MockCache{}
 	cache.data = make(map[string]interface{})
-	cacheKey := chain.CacheKey("erc20_balance", "1", "0xToken", userAddr)
+	cacheKey := chain.CacheKey("erc20_balance", "1", testTokenAddr, userAddr)
 	cache.data[cacheKey] = true
 	rule.SetCache(cache)
 
@@ -355,7 +363,7 @@ func TestERC20Rule_Evaluate_UsesCache(t *testing.T) {
 // TestERC20Rule_Evaluate_CachesResult stores result in cache
 func TestERC20Rule_Evaluate_CachesResult(t *testing.T) {
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
-	rule := NewERC20MinBalanceRule("0xToken", big.NewInt(1000), 1)
+	rule := NewERC20MinBalanceRule(testTokenAddr, big.NewInt(1000), 1)
 
 	// Mock provider
 	provider := &MockBlockchainProvider{}
@@ -369,7 +377,7 @@ func TestERC20Rule_Evaluate_CachesResult(t *testing.T) {
 	_, err := rule.Evaluate(context.Background(), userAddr, nil)
 
 	require.NoError(t, err)
-	cacheKey := chain.CacheKey("erc20_balance", "1", "0xToken", userAddr)
+	cacheKey := chain.CacheKey("erc20_balance", "1", testTokenAddr, userAddr)
 	assert.True(t, cache.has(cacheKey))
 }
 
@@ -377,7 +385,7 @@ func TestERC20Rule_Evaluate_CachesResult(t *testing.T) {
 func TestERC721Rule_Evaluate_IsOwner(t *testing.T) {
 	tokenID := big.NewInt(42)
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
-	rule := NewERC721OwnerRule("0xNFT", tokenID, 1)
+	rule := NewERC721OwnerRule(testNFTAddr, tokenID, 1)
 
 	// Mock provider that returns user as owner
 	provider := &MockBlockchainProvider{}
@@ -399,7 +407,7 @@ func TestERC721Rule_Evaluate_NotOwner(t *testing.T) {
 	tokenID := big.NewInt(42)
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
 	otherAddr := "0xabcdef1234567890abcdef1234567890abcdef12"
-	rule := NewERC721OwnerRule("0xNFT", tokenID, 1)
+	rule := NewERC721OwnerRule(testNFTAddr, tokenID, 1)
 
 	// Mock provider that returns different owner
 	provider := &MockBlockchainProvider{}
@@ -418,10 +426,10 @@ func TestERC721Rule_Evaluate_NotOwner(t *testing.T) {
 
 // TestERC721Rule_Evaluate_NoProvider returns false when no provider
 func TestERC721Rule_Evaluate_NoProvider(t *testing.T) {
-	rule := NewERC721OwnerRule("0xNFT", big.NewInt(42), 1)
+	rule := NewERC721OwnerRule(testNFTAddr, big.NewInt(42), 1)
 	// Don't set provider
 
-	result, err := rule.Evaluate(context.Background(), "0xUser", nil)
+	result, err := rule.Evaluate(context.Background(), testUserAddr, nil)
 
 	require.NoError(t, err)
 	assert.False(t, result)
@@ -429,20 +437,20 @@ func TestERC721Rule_Evaluate_NoProvider(t *testing.T) {
 
 // TestERC721Rule_Evaluate_UsesCache returns cached value without RPC call
 func TestERC721Rule_Evaluate_UsesCache(t *testing.T) {
-	rule := NewERC721OwnerRule("0xNFT", big.NewInt(42), 1)
+	rule := NewERC721OwnerRule(testNFTAddr, big.NewInt(42), 1)
 
 	// Mock provider
 	provider := &MockBlockchainProvider{}
 	rule.SetProvider(provider)
 
-	// Mock cache with pre-cached value
+	// Mock cache with pre-cached value (ERC721 caches the owner address, not a boolean)
 	cache := &MockCache{}
 	cache.data = make(map[string]interface{})
-	cacheKey := chain.CacheKey("erc721_owner", "1", "0xNFT", "42")
-	cache.data[cacheKey] = true
+	cacheKey := chain.CacheKey("erc721_owner", "1", strings.ToLower(testNFTAddr), "42")
+	cache.data[cacheKey] = strings.ToLower(testUserAddr) // Cache the owner address
 	rule.SetCache(cache)
 
-	result, err := rule.Evaluate(context.Background(), "0xUser", nil)
+	result, err := rule.Evaluate(context.Background(), testUserAddr, nil)
 
 	require.NoError(t, err)
 	assert.True(t, result)
@@ -452,7 +460,7 @@ func TestERC721Rule_Evaluate_UsesCache(t *testing.T) {
 func TestERC721Rule_Evaluate_CachesResult(t *testing.T) {
 	tokenID := big.NewInt(42)
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
-	rule := NewERC721OwnerRule("0xNFT", tokenID, 1)
+	rule := NewERC721OwnerRule(testNFTAddr, tokenID, 1)
 
 	// Mock provider
 	provider := &MockBlockchainProvider{}
@@ -466,6 +474,6 @@ func TestERC721Rule_Evaluate_CachesResult(t *testing.T) {
 	_, err := rule.Evaluate(context.Background(), userAddr, nil)
 
 	require.NoError(t, err)
-	cacheKey := chain.CacheKey("erc721_owner", "1", "0xNFT", "42")
+	cacheKey := chain.CacheKey("erc721_owner", "1", testNFTAddr, "42")
 	assert.True(t, cache.has(cacheKey))
 }

@@ -209,7 +209,7 @@ func (r *AllowlistRepository) DeleteAllowlist(ctx context.Context, id int64) err
 
 // AddAddress adds a single address to an allowlist
 func (r *AllowlistRepository) AddAddress(ctx context.Context, allowlistID int64, address string) error {
-	// Validate and normalize address
+	// Validate and normalize address using canonical function
 	normalizedAddress, err := validateAddress(address)
 	if err != nil {
 		return err

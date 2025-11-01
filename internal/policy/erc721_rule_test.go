@@ -3,6 +3,7 @@ package policy
 import (
 	"context"
 	"math/big"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -154,16 +155,17 @@ func TestERC721OwnerRule_Evaluate_InvalidAddress(t *testing.T) {
 func TestERC721OwnerRule_Evaluate_UsesCache(t *testing.T) {
 	tokenID := big.NewInt(42)
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
-	rule := NewERC721OwnerRule("0xBC4CA0EdA7647A8aB7C2061c2E9cDAFCAc3c7f70", tokenID, 1)
+	nftAddr := "0xBC4CA0EdA7647A8aB7C2061c2E9cDAFCAc3c7f70"
+	rule := NewERC721OwnerRule(nftAddr, tokenID, 1)
 
 	// Mock provider
 	provider := &MockBlockchainProvider{}
 	rule.SetProvider(provider)
 
-	// Mock cache with pre-cached owner
+	// Mock cache with pre-cached owner (use lowercase address for cache key)
 	cache := &MockCache{}
 	cache.data = make(map[string]interface{})
-	cacheKey := chain.CacheKey("erc721_owner", "1", "0xBC4CA0EdA7647A8aB7C2061c2E9cDAFCAc3c7f70", "42")
+	cacheKey := chain.CacheKey("erc721_owner", "1", strings.ToLower(nftAddr), "42")
 	cache.data[cacheKey] = userAddr // Cache the owner address
 	rule.SetCache(cache)
 

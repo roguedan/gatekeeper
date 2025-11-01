@@ -20,7 +20,7 @@ func TestPolicyMiddleware_NoClaims(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	handler := middleware.Middleware()(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
@@ -42,7 +42,7 @@ func TestPolicyMiddleware_NoPolicies(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	handler := middleware.Middleware()(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
@@ -70,7 +70,7 @@ func TestPolicyMiddleware_PassingPolicy(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	// Add policy requiring admin scope
 	adminPolicy := policy.NewPolicy(
@@ -109,7 +109,7 @@ func TestPolicyMiddleware_FailingPolicy(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	// Add policy requiring admin scope
 	adminPolicy := policy.NewPolicy(
@@ -148,7 +148,7 @@ func TestPolicyMiddleware_AllowlistPolicy(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	allowedAddr := "0x1234567890abcdef1234567890abcdef12345678"
 	otherAddr := "0xabcdef1234567890abcdef1234567890abcdef12"
@@ -202,7 +202,7 @@ func TestPolicyMiddleware_MultipleRulesAND(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
 
@@ -269,7 +269,7 @@ func TestPolicyMiddleware_DifferentMethods(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
 
@@ -317,7 +317,7 @@ func TestPolicyMiddleware_URLPath(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	// Policy for exact path
 	dataPolicy := policy.NewPolicy(
@@ -355,7 +355,7 @@ func TestPolicyMiddleware_CaseInsensitiveAddresses(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	// Address in different cases
 	lowerAddr := "0x1234567890abcdef1234567890abcdef12345678"
@@ -396,7 +396,7 @@ func TestPolicyMiddleware_ContextChaining(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
 
@@ -432,7 +432,7 @@ func TestPolicyMiddleware_MultipleRoutes(t *testing.T) {
 	logger, err := log.New("debug")
 	require.NoError(t, err)
 	defer logger.Close()
-	middleware := NewPolicyMiddleware(pm, logger)
+	middleware := NewPolicyMiddleware(pm, logger, nil)
 
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
 

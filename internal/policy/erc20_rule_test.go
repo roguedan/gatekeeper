@@ -3,6 +3,7 @@ package policy
 import (
 	"context"
 	"math/big"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -173,17 +174,18 @@ func TestERC20MinBalanceRule_Evaluate_InvalidAddress(t *testing.T) {
 // TestERC20MinBalanceRule_Evaluate_UsesCache returns cached value without RPC call
 func TestERC20MinBalanceRule_Evaluate_UsesCache(t *testing.T) {
 	userAddr := "0x1234567890abcdef1234567890abcdef12345678"
+	tokenAddr := "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
 	minBalance := big.NewInt(1000)
-	rule := NewERC20MinBalanceRule("0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", minBalance, 1)
+	rule := NewERC20MinBalanceRule(tokenAddr, minBalance, 1)
 
 	// Mock provider
 	provider := &MockBlockchainProvider{}
 	rule.SetProvider(provider)
 
-	// Mock cache with pre-cached value
+	// Mock cache with pre-cached value (use lowercase addresses for cache key)
 	cache := &MockCache{}
 	cache.data = make(map[string]interface{})
-	cacheKey := chain.CacheKey("erc20_balance", "1", "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", userAddr)
+	cacheKey := chain.CacheKey("erc20_balance", "1", strings.ToLower(tokenAddr), strings.ToLower(userAddr))
 	cache.data[cacheKey] = true
 	rule.SetCache(cache)
 

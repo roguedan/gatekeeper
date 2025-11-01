@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math/big"
 	"strconv"
+	"strings"
 
 	"github.com/yourusername/gatekeeper/internal/auth"
 	"github.com/yourusername/gatekeeper/internal/chain"
@@ -86,15 +87,9 @@ func (r *ERC20MinBalanceRule) Evaluate(ctx context.Context, address string, clai
 		return false, nil
 	}
 
-	// Normalize addresses for cache key
-	normalizedToken, err := checksumAddress(r.ContractAddress)
-	if err != nil {
-		normalizedToken = normalizeAddress(r.ContractAddress)
-	}
-	normalizedAddr, err := checksumAddress(address)
-	if err != nil {
-		normalizedAddr = normalizeAddress(address)
-	}
+	// Normalize addresses for cache key (use lowercase for consistency)
+	normalizedToken := strings.ToLower(r.ContractAddress)
+	normalizedAddr := strings.ToLower(address)
 
 	// Generate cache key: "erc20_balance:{chainID}:{token}:{address}"
 	chainIDStr := strconv.FormatUint(r.ChainID, 10)

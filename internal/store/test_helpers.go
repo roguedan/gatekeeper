@@ -25,7 +25,15 @@ func setupTestDB(t *testing.T) *DB {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	db, err := Connect(ctx, dbURL)
+	// Use default pool configuration for tests
+	poolCfg := PoolConfig{
+		MaxOpenConns:    25,
+		MaxIdleConns:    5,
+		ConnMaxLifetime: 5 * time.Minute,
+		ConnMaxIdleTime: 1 * time.Minute,
+	}
+
+	db, err := Connect(ctx, dbURL, poolCfg)
 	if err != nil {
 		t.Fatalf("failed to connect to test database: %v", err)
 	}

@@ -152,3 +152,67 @@ func TestLoad_NonceTTLCustom(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 10*time.Minute, cfg.NonceTTL)
 }
+
+// RED: Test for database pool configuration defaults
+func TestLoad_DBPoolConfigDefaults(t *testing.T) {
+	t.Setenv("PORT", "8080")
+	t.Setenv("DATABASE_URL", "postgres://localhost/gatekeeper")
+	t.Setenv("JWT_SECRET", "test-secret-key-at-least-32-chars")
+	t.Setenv("ETHEREUM_RPC", "https://eth.example.com")
+
+	cfg, err := Load()
+
+	require.NoError(t, err)
+	assert.Equal(t, 25, cfg.DBMaxOpenConns)
+	assert.Equal(t, 5, cfg.DBMaxIdleConns)
+	assert.Equal(t, 5*time.Minute, cfg.DBConnMaxLifetime)
+	assert.Equal(t, 1*time.Minute, cfg.DBConnMaxIdleTime)
+}
+
+// RED: Test for database pool configuration custom values
+func TestLoad_DBPoolConfigCustom(t *testing.T) {
+	t.Setenv("PORT", "8080")
+	t.Setenv("DATABASE_URL", "postgres://localhost/gatekeeper")
+	t.Setenv("JWT_SECRET", "test-secret-key-at-least-32-chars")
+	t.Setenv("ETHEREUM_RPC", "https://eth.example.com")
+	t.Setenv("DB_MAX_OPEN_CONNS", "50")
+	t.Setenv("DB_MAX_IDLE_CONNS", "10")
+	t.Setenv("DB_CONN_MAX_LIFETIME_MINUTES", "10")
+	t.Setenv("DB_CONN_MAX_IDLE_TIME_MINUTES", "2")
+
+	cfg, err := Load()
+
+	require.NoError(t, err)
+	assert.Equal(t, 50, cfg.DBMaxOpenConns)
+	assert.Equal(t, 10, cfg.DBMaxIdleConns)
+	assert.Equal(t, 10*time.Minute, cfg.DBConnMaxLifetime)
+	assert.Equal(t, 2*time.Minute, cfg.DBConnMaxIdleTime)
+}
+
+// RED: Test for invalid DB_MAX_OPEN_CONNS
+func TestLoad_InvalidDBMaxOpenConns(t *testing.T) {
+	t.Setenv("PORT", "8080")
+	t.Setenv("DATABASE_URL", "postgres://localhost/gatekeeper")
+	t.Setenv("JWT_SECRET", "test-secret-key-at-least-32-chars")
+	t.Setenv("ETHEREUM_RPC", "https://eth.example.com")
+	t.Setenv("DB_MAX_OPEN_CONNS", "not-a-number")
+
+	_, err := Load()
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "DB_MAX_OPEN_CONNS")
+}
+
+// RED: Test for invalid DB_CONN_MAX_LIFETIME_MINUTES
+func TestLoad_InvalidDBConnMaxLifetime(t *testing.T) {
+	t.Setenv("PORT", "8080")
+	t.Setenv("DATABASE_URL", "postgres://localhost/gatekeeper")
+	t.Setenv("JWT_SECRET", "test-secret-key-at-least-32-chars")
+	t.Setenv("ETHEREUM_RPC", "https://eth.example.com")
+	t.Setenv("DB_CONN_MAX_LIFETIME_MINUTES", "invalid")
+
+	_, err := Load()
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "DB_CONN_MAX_LIFETIME_MINUTES")
+}

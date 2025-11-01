@@ -19,7 +19,7 @@ func TestAPIKeyMiddleware_ValidAPIKey_XAPIKeyHeader(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, nil)
 
 	// Mock data
 	rawKey := "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
@@ -79,7 +79,7 @@ func TestAPIKeyMiddleware_ValidAPIKey_BearerHeader(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, nil)
 
 	// Mock data
 	rawKey := "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
@@ -132,7 +132,7 @@ func TestAPIKeyMiddleware_InvalidKeyFormat(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, nil)
 
 	// Create test handler
 	nextCalled := false
@@ -162,7 +162,7 @@ func TestAPIKeyMiddleware_InvalidKeyFormat_NotHex(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, nil)
 
 	// Create test handler
 	nextCalled := false
@@ -190,7 +190,7 @@ func TestAPIKeyMiddleware_ExpiredKey(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, nil)
 
 	// Mock data
 	rawKey := "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
@@ -226,7 +226,7 @@ func TestAPIKeyMiddleware_NonExistentKey(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, nil)
 
 	// Mock data
 	rawKey := "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
@@ -262,7 +262,7 @@ func TestAPIKeyMiddleware_NoAPIKey_PassThrough(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, nil)
 
 	// Create test handler
 	nextCalled := false
@@ -296,7 +296,7 @@ func TestAPIKeyMiddleware_ExistingJWTClaims_SkipValidation(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, nil)
 
 	// Create test handler
 	nextCalled := false
@@ -337,7 +337,7 @@ func TestAPIKeyMiddleware_BearerToken_JWT_IgnoredCorrectly(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+	middleware := NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, nil)
 
 	// Create test handler
 	nextCalled := false

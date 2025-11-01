@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"go.uber.org/zap"
+	"github.com/yourusername/gatekeeper/internal/audit"
 	"github.com/yourusername/gatekeeper/internal/auth"
 	"github.com/yourusername/gatekeeper/internal/log"
 	"github.com/yourusername/gatekeeper/internal/policy"
@@ -14,13 +15,15 @@ import (
 type PolicyMiddleware struct {
 	policyManager *policy.PolicyManager
 	logger        *log.Logger
+	auditLogger   audit.AuditLogger
 }
 
 // NewPolicyMiddleware creates a new policy middleware
-func NewPolicyMiddleware(pm *policy.PolicyManager, logger *log.Logger) *PolicyMiddleware {
+func NewPolicyMiddleware(pm *policy.PolicyManager, logger *log.Logger, auditLogger audit.AuditLogger) *PolicyMiddleware {
 	return &PolicyMiddleware{
 		policyManager: pm,
 		logger:        logger,
+		auditLogger:   auditLogger,
 	}
 }
 
@@ -38,6 +41,20 @@ func (pm *PolicyMiddleware) Middleware() func(http.Handler) http.Handler {
 					zap.String("decision", "DENIED"),
 					zap.String("reason", "no_authentication"),
 				).Info("policy decision: access denied")
+
+				// Audit log: Authorization denied - no authentication
+				if pm.auditLogger != nil {
+					pm.auditLogger.LogAuthzDecision(r.Context(), audit.AuditEvent{
+						Result:       audit.ResultDenied,
+						Method:       r.Method,
+						Endpoint:     r.URL.Path,
+						IPAddr:       r.RemoteAddr,
+						Error:        "no_authentication",
+						PolicyPath:   r.URL.Path,
+						PolicyMethod: r.Method,
+					})
+				}
+
 				http.Error(w, "Unauthorized", http.StatusUnauthorized)
 				return
 			}
@@ -90,14 +107,68 @@ func (pm *PolicyMiddleware) Middleware() func(http.Handler) http.Handler {
 
 			if evalErr != nil {
 				pm.logger.WithFields(logFields...).Warn("policy evaluation error")
+
+				// Audit log: Policy evaluation error
+				if pm.auditLogger != nil {
+					pm.auditLogger.LogAuthzDecision(r.Context(), audit.AuditEvent{
+						Result:       audit.ResultDenied,
+						UserAddr:     claims.Address,
+						Method:       r.Method,
+						Endpoint:     r.URL.Path,
+						IPAddr:       r.RemoteAddr,
+						PolicyPath:   r.URL.Path,
+						PolicyMethod: r.Method,
+						Error:        "evaluation_error",
+						ErrorDetail:  evalErr.Error(),
+						Metadata: map[string]interface{}{
+							"policies_count": len(policies),
+						},
+					})
+				}
+
 				http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 				return
 			}
 
 			if !allowed {
 				pm.logger.WithFields(logFields...).Info("policy decision: access denied")
+
+				// Audit log: Access denied by policy
+				if pm.auditLogger != nil {
+					pm.auditLogger.LogAuthzDecision(r.Context(), audit.AuditEvent{
+						Result:       audit.ResultDenied,
+						UserAddr:     claims.Address,
+						Method:       r.Method,
+						Endpoint:     r.URL.Path,
+						IPAddr:       r.RemoteAddr,
+						PolicyPath:   r.URL.Path,
+						PolicyMethod: r.Method,
+						Metadata: map[string]interface{}{
+							"policies_count": len(policies),
+							"scopes":         claims.Scopes,
+						},
+					})
+				}
+
 				http.Error(w, "Forbidden", http.StatusForbidden)
 				return
+			}
+
+			// Audit log: Access granted
+			if pm.auditLogger != nil {
+				pm.auditLogger.LogAuthzDecision(r.Context(), audit.AuditEvent{
+					Result:       audit.ResultGranted,
+					UserAddr:     claims.Address,
+					Method:       r.Method,
+					Endpoint:     r.URL.Path,
+					IPAddr:       r.RemoteAddr,
+					PolicyPath:   r.URL.Path,
+					PolicyMethod: r.Method,
+					Metadata: map[string]interface{}{
+						"policies_count": len(policies),
+						"scopes":         claims.Scopes,
+					},
+				})
 			}
 
 			pm.logger.WithFields(logFields...).Debug("policy decision: access allowed")

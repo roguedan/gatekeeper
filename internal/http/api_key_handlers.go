@@ -8,23 +8,26 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/yourusername/gatekeeper/internal/audit"
 	"github.com/yourusername/gatekeeper/internal/log"
 	"github.com/yourusername/gatekeeper/internal/store"
 )
 
 // APIKeyHandler handles API key management endpoints
 type APIKeyHandler struct {
-	apiKeyRepo *store.APIKeyRepository
-	userRepo   *store.UserRepository
-	logger     *log.Logger
+	apiKeyRepo  *store.APIKeyRepository
+	userRepo    *store.UserRepository
+	logger      *log.Logger
+	auditLogger audit.AuditLogger
 }
 
 // NewAPIKeyHandler creates a new API key handler
-func NewAPIKeyHandler(apiKeyRepo *store.APIKeyRepository, userRepo *store.UserRepository, logger *log.Logger) *APIKeyHandler {
+func NewAPIKeyHandler(apiKeyRepo *store.APIKeyRepository, userRepo *store.UserRepository, logger *log.Logger, auditLogger audit.AuditLogger) *APIKeyHandler {
 	return &APIKeyHandler{
-		apiKeyRepo: apiKeyRepo,
-		userRepo:   userRepo,
-		logger:     logger,
+		apiKeyRepo:  apiKeyRepo,
+		userRepo:    userRepo,
+		logger:      logger,
+		auditLogger: auditLogger,
 	}
 }
 
@@ -132,8 +135,45 @@ func (h *APIKeyHandler) CreateAPIKey(w http.ResponseWriter, r *http.Request) {
 	rawKey, apiKeyResponse, err := h.apiKeyRepo.CreateAPIKey(ctx, repoReq)
 	if err != nil {
 		h.logger.Error(fmt.Sprintf("Failed to create API key for user %d: %v", user.ID, err))
+
+		// Audit log: API key creation failed
+		if h.auditLogger != nil {
+			var expiryStr *string
+			if apiKeyResponse != nil && apiKeyResponse.ExpiresAt != nil {
+				expStr := apiKeyResponse.ExpiresAt.Format(time.RFC3339)
+				expiryStr = &expStr
+			}
+			h.auditLogger.LogAPIKeyCreated(ctx, audit.AuditEvent{
+				Result:    audit.ResultFailure,
+				UserAddr:  claims.Address,
+				KeyName:   req.Name,
+				KeyScopes: req.Scopes,
+				KeyExpiry: expiryStr,
+				Error:     "failed to create API key",
+				ErrorDetail: err.Error(),
+			})
+		}
+
 		h.writeError(w, "Internal server error", "Failed to create API key", http.StatusInternalServerError)
 		return
+	}
+
+	// Audit log: API key creation success
+	if h.auditLogger != nil {
+		var expiryStr *string
+		if apiKeyResponse.ExpiresAt != nil {
+			expStr := apiKeyResponse.ExpiresAt.Format(time.RFC3339)
+			expiryStr = &expStr
+		}
+		h.auditLogger.LogAPIKeyCreated(ctx, audit.AuditEvent{
+			Result:     audit.ResultSuccess,
+			UserAddr:   claims.Address,
+			KeyID:      apiKeyResponse.ID,
+			KeyName:    apiKeyResponse.Name,
+			KeyScopes:  apiKeyResponse.Scopes,
+			KeyExpiry:  expiryStr,
+			ResourceID: fmt.Sprintf("key:%d", apiKeyResponse.ID),
+		})
 	}
 
 	// Log the creation
@@ -181,8 +221,30 @@ func (h *APIKeyHandler) ListAPIKeys(w http.ResponseWriter, r *http.Request) {
 	keys, err := h.apiKeyRepo.ListAPIKeys(ctx, user.ID)
 	if err != nil {
 		h.logger.Error(fmt.Sprintf("Failed to list API keys for user %d: %v", user.ID, err))
+
+		// Audit log: API key listing failed
+		if h.auditLogger != nil {
+			h.auditLogger.LogAPIKeyListed(ctx, audit.AuditEvent{
+				Result:      audit.ResultFailure,
+				UserAddr:    claims.Address,
+				Error:       "failed to list API keys",
+				ErrorDetail: err.Error(),
+			})
+		}
+
 		h.writeError(w, "Internal server error", "Failed to retrieve API keys", http.StatusInternalServerError)
 		return
+	}
+
+	// Audit log: API key listing success
+	if h.auditLogger != nil {
+		h.auditLogger.LogAPIKeyListed(ctx, audit.AuditEvent{
+			Result:   audit.ResultSuccess,
+			UserAddr: claims.Address,
+			Metadata: map[string]interface{}{
+				"count": len(keys),
+			},
+		})
 	}
 
 	// Convert to metadata format
@@ -262,8 +324,36 @@ func (h *APIKeyHandler) RevokeAPIKey(w http.ResponseWriter, r *http.Request) {
 	err = h.apiKeyRepo.DeleteAPIKey(ctx, keyID)
 	if err != nil {
 		h.logger.Error(fmt.Sprintf("Failed to delete API key %d: %v", keyID, err))
+
+		// Audit log: API key revocation failed
+		if h.auditLogger != nil {
+			h.auditLogger.LogAPIKeyRevoked(ctx, audit.AuditEvent{
+				Result:      audit.ResultFailure,
+				UserAddr:    claims.Address,
+				KeyID:       keyID,
+				KeyName:     apiKey.Name,
+				ResourceID:  fmt.Sprintf("key:%d", keyID),
+				Error:       "failed to revoke API key",
+				ErrorDetail: err.Error(),
+			})
+		}
+
 		h.writeError(w, "Internal server error", "Failed to revoke API key", http.StatusInternalServerError)
 		return
+	}
+
+	// Audit log: API key revocation success
+	if h.auditLogger != nil {
+		h.auditLogger.LogAPIKeyRevoked(ctx, audit.AuditEvent{
+			Result:     audit.ResultSuccess,
+			UserAddr:   claims.Address,
+			KeyID:      keyID,
+			KeyName:    apiKey.Name,
+			ResourceID: fmt.Sprintf("key:%d", keyID),
+			Metadata: map[string]interface{}{
+				"reason": "user_requested",
+			},
+		})
 	}
 
 	// Log the revocation

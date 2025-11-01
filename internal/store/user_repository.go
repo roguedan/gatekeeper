@@ -3,17 +3,12 @@ package store
 import (
 	"context"
 	"database/sql"
+	"errors"
 	"fmt"
-	"regexp"
-	"strings"
 	"time"
 
 	"github.com/lib/pq"
-)
-
-var (
-	// ethereumAddressRegex validates Ethereum address format (0x + 40 hex characters)
-	ethereumAddressRegex = regexp.MustCompile(`^0x[0-9a-fA-F]{40}$`)
+	"github.com/yourusername/gatekeeper/internal/common"
 )
 
 // User represents a user in the database
@@ -35,42 +30,44 @@ func NewUserRepository(db *DB) *UserRepository {
 }
 
 // validateAddress validates and normalizes an Ethereum address
+// This is a wrapper around common.NormalizeAddress that converts
+// common.AddressError to InvalidAddressError for backward compatibility
 func validateAddress(address string) (string, error) {
-	if address == "" {
-		return "", &InvalidAddressError{
-			Address: address,
-			Reason:  "address cannot be empty",
+	normalized, err := common.NormalizeAddress(address)
+	if err != nil {
+		// Convert common.AddressError to InvalidAddressError
+		if addrErr, ok := err.(*common.AddressError); ok {
+			return "", &InvalidAddressError{
+				Address: addrErr.Address,
+				Reason:  addrErr.Reason,
+			}
 		}
+		return "", err
 	}
-
-	// Normalize address to lowercase
-	normalized := strings.ToLower(strings.TrimSpace(address))
-
-	// Check format
-	if !ethereumAddressRegex.MatchString(normalized) {
-		return "", &InvalidAddressError{
-			Address: address,
-			Reason:  "must be 0x followed by 40 hexadecimal characters",
-		}
-	}
-
 	return normalized, nil
 }
 
 // GetOrCreateUserByAddress gets a user by address or creates one if it doesn't exist
 func (r *UserRepository) GetOrCreateUserByAddress(ctx context.Context, address string) (*User, error) {
-	// Normalize address to lowercase
-	address = strings.ToLower(address)
+	// Validate and normalize address
+	normalizedAddress, err := validateAddress(address)
+	if err != nil {
+		return nil, err
+	}
 
 	// Try to get existing user
-	user, err := r.GetUserByAddress(ctx, address)
+	user, err := r.GetUserByAddress(ctx, normalizedAddress)
 	if err == nil {
 		return user, nil
 	}
 
 	// If user doesn't exist, create it
-	if err != nil && err.Error() == "user not found" {
-		return r.CreateUser(ctx, address)
+	if err != nil {
+		var notFoundErr *NotFoundError
+		if errors.As(err, &notFoundErr) {
+			return r.CreateUser(ctx, normalizedAddress)
+		}
+		return nil, err
 	}
 
 	return nil, err

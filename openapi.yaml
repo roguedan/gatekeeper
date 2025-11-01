@@ -1,7 +1,24 @@
 openapi: 3.0.0
 info:
   title: Gatekeeper Wallet-Native Authentication API
-  description: A gateway for wallet-native authentication using Sign-In with Ethereum (SIWE) and blockchain-based access control
+  description: |
+    A gateway for wallet-native authentication using Sign-In with Ethereum (SIWE) and blockchain-based access control.
+
+    ## Rate Limiting
+
+    All API endpoints are protected by rate limiting to prevent abuse:
+
+    - **API Key Creation:** 10 requests per hour per user (burst: 3)
+    - **General API Usage:** 1000 requests per minute per user (burst: 100)
+
+    Rate limits are applied per authenticated user (by wallet address). For unauthenticated endpoints, rate limits apply per IP address.
+
+    When you exceed the rate limit, you'll receive a `429 Too Many Requests` response with these headers:
+    - `Retry-After`: Seconds to wait before retrying
+    - `X-RateLimit-Limit`: Rate limit ceiling
+    - `X-RateLimit-Remaining`: Remaining requests in current window
+    - `X-RateLimit-Reset`: Unix timestamp when limit resets
+
   version: 1.0.0
   contact:
     name: Gatekeeper Team
@@ -87,6 +104,8 @@ paths:
         Example protected endpoint that demonstrates policy evaluation.
         Requires valid JWT token in Authorization header.
         Policy requirements depend on configuration.
+
+        **Rate Limit:** 1000 requests per minute per user (burst: 100)
       operationId: getProtectedData
       tags:
         - Protected Resources
@@ -130,6 +149,8 @@ paths:
         Generates a new API key for programmatic access.
         The raw key is only shown once at creation time - save it securely.
         Requires JWT authentication.
+
+        **Rate Limit:** 10 requests per hour per user (burst: 3)
       operationId: createAPIKey
       tags:
         - API Keys
@@ -219,6 +240,44 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+                example: 60
+              description: Number of seconds to wait before retrying
+            X-RateLimit-Limit:
+              schema:
+                type: string
+                example: "10"
+              description: Rate limit ceiling for this endpoint
+            X-RateLimit-Remaining:
+              schema:
+                type: string
+                example: "0"
+              description: Number of requests remaining in current window
+            X-RateLimit-Reset:
+              schema:
+                type: string
+                example: "1704067200"
+              description: Unix timestamp when the rate limit resets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Rate limit exceeded"
+                  message:
+                    type: string
+                    example: "Too many requests. Please try again later."
+                  retryAfter:
+                    type: integer
+                    example: 60
+                    description: Seconds until retry is allowed
         '500':
           description: Internal server error
           content:
@@ -231,6 +290,8 @@ paths:
       description: |
         Returns all API keys for the authenticated user.
         Does not include raw keys, only metadata.
+
+        **Rate Limit:** 1000 requests per minute per user (burst: 100)
       operationId: listAPIKeys
       tags:
         - API Keys
@@ -274,6 +335,8 @@ paths:
       description: |
         Revokes (deletes) an API key.
         Only the owner can revoke their own keys.
+
+        **Rate Limit:** 1000 requests per minute per user (burst: 100)
       operationId: revokeAPIKey
       tags:
         - API Keys

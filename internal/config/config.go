@@ -14,7 +14,11 @@ type Config struct {
 	Port string
 
 	// Database configuration
-	DatabaseURL string
+	DatabaseURL         string
+	DBMaxOpenConns      int           // Maximum number of open connections
+	DBMaxIdleConns      int           // Maximum number of idle connections
+	DBConnMaxLifetime   time.Duration // Maximum lifetime of a connection
+	DBConnMaxIdleTime   time.Duration // Maximum idle time of a connection
 
 	// JWT configuration
 	JWTSecret  []byte
@@ -32,6 +36,12 @@ type Config struct {
 
 	// SIWE configuration
 	NonceTTL time.Duration
+
+	// Rate limiting configuration
+	APIKeyCreationRateLimit int // API key creations per user per hour (default: 10)
+	APIKeyCreationBurstLimit int // Max burst for API key creation (default: 3)
+	APIUsageRateLimit       int // API requests per user per minute (default: 1000)
+	APIUsageBurstLimit      int // Max burst for API usage (default: 100)
 }
 
 // Load loads configuration from environment variables.
@@ -89,6 +99,34 @@ func Load() (*Config, error) {
 
 	// Nonce TTL - default 5 minutes
 	if err := loadDurationFromMinutes("NONCE_TTL_MINUTES", 5, &cfg.NonceTTL); err != nil {
+		return nil, err
+	}
+
+	// Database connection pool settings
+	if err := loadInt("DB_MAX_OPEN_CONNS", 25, &cfg.DBMaxOpenConns); err != nil {
+		return nil, err
+	}
+	if err := loadInt("DB_MAX_IDLE_CONNS", 5, &cfg.DBMaxIdleConns); err != nil {
+		return nil, err
+	}
+	if err := loadDurationFromMinutes("DB_CONN_MAX_LIFETIME_MINUTES", 5, &cfg.DBConnMaxLifetime); err != nil {
+		return nil, err
+	}
+	if err := loadDurationFromMinutes("DB_CONN_MAX_IDLE_TIME_MINUTES", 1, &cfg.DBConnMaxIdleTime); err != nil {
+		return nil, err
+	}
+
+	// Rate limiting settings
+	if err := loadInt("API_KEY_CREATION_RATE_LIMIT", 10, &cfg.APIKeyCreationRateLimit); err != nil {
+		return nil, err
+	}
+	if err := loadInt("API_KEY_CREATION_BURST_LIMIT", 3, &cfg.APIKeyCreationBurstLimit); err != nil {
+		return nil, err
+	}
+	if err := loadInt("API_USAGE_RATE_LIMIT", 1000, &cfg.APIUsageRateLimit); err != nil {
+		return nil, err
+	}
+	if err := loadInt("API_USAGE_BURST_LIMIT", 100, &cfg.APIUsageBurstLimit); err != nil {
 		return nil, err
 	}
 
@@ -163,6 +201,22 @@ func loadUint64(envVar string, defaultValue uint64, dest *uint64) error {
 	value, err := strconv.ParseUint(str, 10, 64)
 	if err != nil {
 		return fmt.Errorf("%s must be a valid uint64: %w", envVar, err)
+	}
+	*dest = value
+	return nil
+}
+
+// loadInt loads an optional int from environment variable.
+func loadInt(envVar string, defaultValue int, dest *int) error {
+	str := os.Getenv(envVar)
+	if str == "" {
+		*dest = defaultValue
+		return nil
+	}
+
+	value, err := strconv.Atoi(str)
+	if err != nil {
+		return fmt.Errorf("%s must be a valid integer: %w", envVar, err)
 	}
 	*dest = value
 	return nil

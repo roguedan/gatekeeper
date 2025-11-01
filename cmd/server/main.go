@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/yourusername/gatekeeper/internal/audit"
 	"github.com/yourusername/gatekeeper/internal/auth"
 	"github.com/yourusername/gatekeeper/internal/chain"
 	"github.com/yourusername/gatekeeper/internal/config"
@@ -37,15 +38,22 @@ func main() {
 
 	logger.Info(fmt.Sprintf("Starting Gatekeeper (port %s)", cfg.Port))
 
-	// Initialize database connection
-	db, err := store.Connect(context.Background(), cfg.DatabaseURL)
+	// Initialize database connection with pool configuration
+	poolCfg := store.PoolConfig{
+		MaxOpenConns:    cfg.DBMaxOpenConns,
+		MaxIdleConns:    cfg.DBMaxIdleConns,
+		ConnMaxLifetime: cfg.DBConnMaxLifetime,
+		ConnMaxIdleTime: cfg.DBConnMaxIdleTime,
+	}
+	db, err := store.Connect(context.Background(), cfg.DatabaseURL, poolCfg)
 	if err != nil {
 		logger.Error(fmt.Sprintf("failed to connect to database: %v", err))
 		os.Exit(1)
 	}
 	defer db.Close()
 
-	logger.Info("Database connected successfully")
+	logger.Info(fmt.Sprintf("Database connected successfully (pool: max_open=%d, max_idle=%d, max_lifetime=%v, max_idle_time=%v)",
+		cfg.DBMaxOpenConns, cfg.DBMaxIdleConns, cfg.DBConnMaxLifetime, cfg.DBConnMaxIdleTime))
 
 	// Initialize repositories
 	apiKeyRepo := store.NewAPIKeyRepository(db)
@@ -76,11 +84,34 @@ func main() {
 	// Initialize policy manager
 	policyManager := policy.NewPolicyManager(provider, cache)
 
+	// Initialize audit logger
+	auditLogger := audit.NewAuditLogger(logger.Logger)
+
 	// Initialize API Key handlers
-	apiKeyHandler := httpserver.NewAPIKeyHandler(apiKeyRepo, userRepo, logger)
+	apiKeyHandler := httpserver.NewAPIKeyHandler(apiKeyRepo, userRepo, logger, auditLogger)
 
 	// Initialize API Key middleware
-	apiKeyMiddleware := httpserver.NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger)
+	apiKeyMiddleware := httpserver.NewAPIKeyMiddleware(apiKeyRepo, userRepo, logger, auditLogger)
+
+	// Initialize rate limiters
+	apiKeyCreationLimiter := httpserver.NewInMemoryRateLimiter(
+		cfg.APIKeyCreationRateLimit,
+		time.Hour,
+		cfg.APIKeyCreationBurstLimit,
+	)
+	apiUsageLimiter := httpserver.NewInMemoryRateLimiter(
+		cfg.APIUsageRateLimit,
+		time.Minute,
+		cfg.APIUsageBurstLimit,
+	)
+
+	// Create rate limit middlewares
+	apiKeyCreationRateLimiter := httpserver.NewUserRateLimitMiddleware(apiKeyCreationLimiter, logger)
+	apiUsageRateLimiter := httpserver.NewUserRateLimitMiddleware(apiUsageLimiter, logger)
+
+	logger.Info(fmt.Sprintf("Rate limiting enabled: API key creation=%d/hour (burst=%d), API usage=%d/min (burst=%d)",
+		cfg.APIKeyCreationRateLimit, cfg.APIKeyCreationBurstLimit,
+		cfg.APIUsageRateLimit, cfg.APIUsageBurstLimit))
 
 	// Create HTTP router
 	router := mux.NewRouter()
@@ -160,7 +191,7 @@ func main() {
 	jwtMiddleware := httpserver.JWTMiddleware(jwtService)
 
 	// Policy Middleware for access control
-	policyMiddleware := httpserver.NewPolicyMiddleware(policyManager, logger)
+	policyMiddleware := httpserver.NewPolicyMiddleware(policyManager, logger, auditLogger)
 	if provider != nil {
 		policyMiddleware.SetProvider(provider)
 		policyMiddleware.SetCache(cache)
@@ -170,14 +201,23 @@ func main() {
 	apiRouter := router.PathPrefix("/api").Subrouter()
 
 	// Apply authentication middleware chain to /api routes
-	// Order: API Key first (optional), then JWT (fallback if no API key)
+	// Order: API Key first (optional), then JWT (fallback if no API key), then general API rate limiting
 	apiRouter.Use(mux.MiddlewareFunc(apiKeyMiddleware.Middleware()))
 	apiRouter.Use(mux.MiddlewareFunc(jwtMiddleware))
+	apiRouter.Use(mux.MiddlewareFunc(apiUsageRateLimiter.Middleware()))
 
-	// API Key management endpoints (require authentication)
-	apiRouter.HandleFunc("/keys", apiKeyHandler.CreateAPIKey).Methods("POST")
-	apiRouter.HandleFunc("/keys", apiKeyHandler.ListAPIKeys).Methods("GET")
-	apiRouter.HandleFunc("/keys/{id}", apiKeyHandler.RevokeAPIKey).Methods("DELETE")
+	// API Key management endpoints (require authentication + specific rate limiting)
+	// Create separate handler for POST /keys with stricter rate limiting
+	keysRouter := apiRouter.PathPrefix("/keys").Subrouter()
+
+	// POST /api/keys - stricter rate limit for key creation (10/hour per user)
+	keysPostRouter := keysRouter.Methods("POST").Subrouter()
+	keysPostRouter.Use(mux.MiddlewareFunc(apiKeyCreationRateLimiter.Middleware()))
+	keysPostRouter.HandleFunc("", apiKeyHandler.CreateAPIKey)
+
+	// GET and DELETE have normal API rate limits
+	keysRouter.HandleFunc("", apiKeyHandler.ListAPIKeys).Methods("GET")
+	keysRouter.HandleFunc("/{id}", apiKeyHandler.RevokeAPIKey).Methods("DELETE")
 
 	// Protected data endpoint with policy enforcement
 	dataHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

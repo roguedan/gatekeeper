@@ -87,11 +87,8 @@ func (r *ERC721OwnerRule) Evaluate(ctx context.Context, address string, claims *
 		return false, nil
 	}
 
-	// Normalize addresses for cache key
-	normalizedToken, err := checksumAddress(r.ContractAddress)
-	if err != nil {
-		normalizedToken = normalizeAddress(r.ContractAddress)
-	}
+	// Normalize addresses for cache key (use lowercase for consistency)
+	normalizedToken := strings.ToLower(r.ContractAddress)
 
 	// Generate cache key: "erc721_owner:{chainID}:{token}:{tokenID}"
 	// Note: Cache by token ID, not user address (owner can be shared)
@@ -104,7 +101,7 @@ func (r *ERC721OwnerRule) Evaluate(ctx context.Context, address string, claims *
 		if cachedOwner, ok := r.cache.Get(cacheKey); ok {
 			if ownerAddr, ok := cachedOwner.(string); ok {
 				// Compare cached owner with requested address (case-insensitive)
-				isOwner := strings.EqualFold(normalizeAddress(ownerAddr), normalizeAddress(address))
+				isOwner := strings.EqualFold(strings.ToLower(ownerAddr), strings.ToLower(address))
 				r.logger.Debug("cache hit for ERC721 owner",
 					zap.String("cacheKey", cacheKey),
 					zap.String("cachedOwner", ownerAddr),
@@ -166,7 +163,7 @@ func (r *ERC721OwnerRule) Evaluate(ctx context.Context, address string, claims *
 	}
 
 	// Compare addresses (case-insensitive)
-	isOwner := strings.EqualFold(normalizeAddress(ownerAddress), normalizeAddress(address))
+	isOwner := strings.EqualFold(strings.ToLower(ownerAddress), strings.ToLower(address))
 
 	r.logger.Info("ERC721 ownership check completed",
 		zap.String("address", address),

@@ -106,7 +106,7 @@ func TestCreateAPIKey_Success(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger)
+	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger, nil)
 
 	// Mock user
 	testUser := &store.User{
@@ -171,7 +171,7 @@ func TestCreateAPIKey_MissingName(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger)
+	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger, nil)
 
 	// Create request with missing name
 	reqBody := CreateAPIKeyRequest{
@@ -204,7 +204,7 @@ func TestCreateAPIKey_MissingScopes(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger)
+	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger, nil)
 
 	// Create request with missing scopes
 	reqBody := CreateAPIKeyRequest{
@@ -237,7 +237,7 @@ func TestCreateAPIKey_Unauthorized(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger)
+	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger, nil)
 
 	// Create request without claims in context
 	reqBody := CreateAPIKeyRequest{
@@ -260,7 +260,7 @@ func TestListAPIKeys_Success(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger)
+	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger, nil)
 
 	// Mock user
 	testUser := &store.User{
@@ -326,7 +326,7 @@ func TestRevokeAPIKey_Success(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger)
+	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger, nil)
 
 	// Mock user
 	testUser := &store.User{
@@ -371,7 +371,7 @@ func TestRevokeAPIKey_Forbidden(t *testing.T) {
 	apiKeyRepo := new(MockAPIKeyRepository)
 	userRepo := new(MockUserRepository)
 	logger, _ := log.New("info")
-	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger)
+	handler := NewAPIKeyHandler(apiKeyRepo, userRepo, logger, nil)
 
 	// Mock user trying to revoke
 	testUser := &store.User{
