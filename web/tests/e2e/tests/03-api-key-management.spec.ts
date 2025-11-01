@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { setupAuthenticatedUser } from '../fixtures/auth';
+import { setupAPIMocks } from '../mocks/api-server';
 
 /**
  * E2E Tests: API Key Management
@@ -12,6 +13,9 @@ import { setupAuthenticatedUser } from '../fixtures/auth';
 test.describe('API Key Management - Dashboard', () => {
 
   test('should display API Keys navigation link when authenticated', async ({ page, context }) => {
+    // Setup API mocks
+    await setupAPIMocks(page);
+
     // Set authenticated state
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
 
@@ -202,6 +206,9 @@ test.describe('API Key Management - Creation Flow', () => {
 
 test.describe('API Key Management - Listing & Display', () => {
   test('should display existing API keys in a table/list', async ({ page, context }) => {
+    // Setup API mocks
+    await setupAPIMocks(page);
+
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
 
     await context.addInitScript(({ token }) => {
@@ -221,6 +228,9 @@ test.describe('API Key Management - Listing & Display', () => {
   });
 
   test('should show API key metadata (name, created date, scopes)', async ({ page, context }) => {
+    // Setup API mocks
+    await setupAPIMocks(page);
+
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
 
     await context.addInitScript(({ token }) => {
@@ -235,6 +245,9 @@ test.describe('API Key Management - Listing & Display', () => {
   });
 
   test('should mask API key values in listing', async ({ page, context }) => {
+    // Setup API mocks
+    await setupAPIMocks(page);
+
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
 
     await context.addInitScript(({ token }) => {
@@ -251,6 +264,9 @@ test.describe('API Key Management - Listing & Display', () => {
   });
 
   test('should display scopes as badges/tags', async ({ page, context }) => {
+    // Setup API mocks
+    await setupAPIMocks(page);
+
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
 
     await context.addInitScript(({ token }) => {
@@ -267,6 +283,9 @@ test.describe('API Key Management - Listing & Display', () => {
 
 test.describe('API Key Management - Revocation', () => {
   test('should show revoke/delete button for each API key', async ({ page, context }) => {
+    // Setup API mocks
+    await setupAPIMocks(page);
+
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
 
     await context.addInitScript(({ token }) => {
@@ -283,6 +302,9 @@ test.describe('API Key Management - Revocation', () => {
   });
 
   test('should show confirmation dialog before revoking key', async ({ page, context }) => {
+    // Setup API mocks
+    await setupAPIMocks(page);
+
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
 
     await context.addInitScript(({ token }) => {
@@ -306,6 +328,9 @@ test.describe('API Key Management - Revocation', () => {
   });
 
   test('should allow canceling revocation', async ({ page, context }) => {
+    // Setup API mocks
+    await setupAPIMocks(page);
+
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
 
     await context.addInitScript(({ token }) => {
@@ -348,6 +373,9 @@ test.describe('API Key Management - Permissions', () => {
   });
 
   test('should display API key count/usage statistics', async ({ page, context }) => {
+    // Setup API mocks
+    await setupAPIMocks(page);
+
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
 
     await context.addInitScript(({ token }) => {

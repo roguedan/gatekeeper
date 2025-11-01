@@ -1,15 +1,19 @@
 import { Page, BrowserContext } from '@playwright/test'
+import { setupAPIMocks } from '../mocks/api-server'
 
 export interface AuthSetupOptions {
   address?: string
   token?: string
   waitForLoad?: boolean
+  setupAPIMocks?: boolean
 }
 
 /**
  * Setup authenticated state by setting JWT token in localStorage
  * CRITICAL: Must be called BEFORE first page.goto() to inject auth into localStorage
  * The init script is applied to ALL subsequent page loads within the same context
+ *
+ * Also optionally sets up API mocks for testing without a running backend server
  */
 export async function setupAuthenticatedUser(
   page: Page,
@@ -20,7 +24,14 @@ export async function setupAuthenticatedUser(
     address = '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb',
     token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature',
     waitForLoad = true,
+    setupAPIMocks: enableAPIMocks = true,
   } = options
+
+  // Setup API mocks BEFORE context script or navigation
+  // This ensures all API routes are intercepted from the start
+  if (enableAPIMocks) {
+    await setupAPIMocks(page, { enableLogging: false })
+  }
 
   // CRITICAL: Setup auth in context BEFORE any page navigation
   // This ensures localStorage is initialized when page loads and app initializes

@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { setupAPIMocks } from './tests/e2e/mocks/api-server';
 
 /**
  * Playwright configuration for Gatekeeper E2E tests
@@ -75,4 +76,8 @@ export default defineConfig({
   /* Global timeout settings */
   timeout: 30 * 1000, // 30 seconds per test
   globalTimeout: 30 * 60 * 1000, // 30 minutes for entire test run
+
+  /* Global setup hook - runs before all tests */
+  globalSetup: undefined,
+  globalTeardown: undefined,
 });

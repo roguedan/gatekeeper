@@ -103,12 +103,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1446,
+                      "duration": 1438,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:39.917Z",
+                      "startTime": "2025-11-01T12:01:51.842Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -137,12 +137,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1657,
+                      "duration": 1452,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:39.880Z",
+                      "startTime": "2025-11-01T12:01:51.810Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -171,12 +171,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1648,
+                      "duration": 1458,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:39.948Z",
+                      "startTime": "2025-11-01T12:01:51.816Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -205,12 +205,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2467,
+                      "duration": 2253,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:39.880Z",
+                      "startTime": "2025-11-01T12:01:51.814Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -239,12 +239,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1290,
+                      "duration": 918,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:41.712Z",
+                      "startTime": "2025-11-01T12:01:53.594Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -273,12 +273,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2741,
+                      "duration": 2090,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:41.923Z",
+                      "startTime": "2025-11-01T12:01:53.605Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -307,12 +307,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1369,
+                      "duration": 932,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:41.942Z",
+                      "startTime": "2025-11-01T12:01:53.611Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -341,12 +341,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1591,
+                      "duration": 776,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:42.750Z",
+                      "startTime": "2025-11-01T12:01:54.425Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -375,12 +375,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2659,
+                      "duration": 1838,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:43.038Z",
+                      "startTime": "2025-11-01T12:01:54.528Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -409,12 +409,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1910,
+                      "duration": 1546,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:43.341Z",
+                      "startTime": "2025-11-01T12:01:54.573Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -465,7 +465,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:44.407Z",
+                      "startTime": "2025-11-01T12:01:55.293Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -508,7 +508,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:44.407Z",
+                      "startTime": "2025-11-01T12:01:55.294Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -554,7 +554,7 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 1015,
+                      "duration": 795,
                       "error": {
                         "message": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8080\nCall log:\n\u001b[2m  - → GET http://localhost:8080/auth/siwe/nonce\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.37 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
                         "stack": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8080\nCall log:\n\u001b[2m  - → GET http://localhost:8080/auth/siwe/nonce\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.37 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.get: connect ECONNREFUSED ::1:8080\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:19:36",
@@ -577,7 +577,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:44.443Z",
+                      "startTime": "2025-11-01T12:01:55.312Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -627,12 +627,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1761,
+                      "duration": 1575,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:44.683Z",
+                      "startTime": "2025-11-01T12:01:55.711Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -661,12 +661,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1911,
+                      "duration": 1694,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:45.280Z",
+                      "startTime": "2025-11-01T12:01:56.136Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -695,12 +695,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2213,
+                      "duration": 1617,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:47.196Z",
+                      "startTime": "2025-11-01T12:01:56.833Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -729,12 +729,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 828,
+                      "duration": 633,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:45.740Z",
+                      "startTime": "2025-11-01T12:01:56.386Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -760,15 +760,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1962,
+                      "duration": 1712,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:46.461Z",
+                      "startTime": "2025-11-01T12:01:57.027Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -794,15 +794,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 785,
+                      "duration": 697,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:46.592Z",
+                      "startTime": "2025-11-01T12:01:57.297Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -831,12 +831,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 3591,
+                      "duration": 2786,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:47.201Z",
+                      "startTime": "2025-11-01T12:01:57.836Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -862,10 +862,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 7556,
+                      "duration": 7190,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /sign.*in.*ethereum/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /sign.*in.*ethereum/i })\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /sign.*in.*ethereum/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /sign.*in.*ethereum/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:164:30",
@@ -889,7 +889,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:47.395Z",
+                      "startTime": "2025-11-01T12:01:58.011Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -936,15 +936,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 4,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 675,
+                      "duration": 600,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:48.433Z",
+                      "startTime": "2025-11-01T12:01:58.557Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -970,10 +970,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 896,
+                      "duration": 719,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8080\nCall log:\n\u001b[2m  - → POST http://localhost:8080/api/v1/auth/verify\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.37 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 101\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8080\nCall log:\n\u001b[2m  - → POST http://localhost:8080/api/v1/auth/verify\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.37 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 101\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8080\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:185:36",
@@ -996,7 +996,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:49.118Z",
+                      "startTime": "2025-11-01T12:01:58.748Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1054,12 +1054,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 447,
+                      "duration": 467,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:49.693Z",
+                      "startTime": "2025-11-01T12:01:59.170Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1086,14 +1086,14 @@
                   "results": [
                     {
                       "workerIndex": 5,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2107,
+                      "duration": 1992,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:51.077Z",
+                      "startTime": "2025-11-01T12:01:59.930Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1122,12 +1122,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1529,
+                      "duration": 1390,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:50.151Z",
+                      "startTime": "2025-11-01T12:01:59.642Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1154,7 +1154,7 @@
         {
           "title": "API Key Management - Dashboard",
           "file": "tests/03-api-key-management.spec.ts",
-          "line": 12,
+          "line": 13,
           "column": 6,
           "specs": [
             {
@@ -1173,12 +1173,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1507,
+                      "duration": 1368,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:50.841Z",
+                      "startTime": "2025-11-01T12:02:00.637Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1188,7 +1188,7 @@
               ],
               "id": "52ef100ed3b06c794b91-015de1529aafbeef8a34",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 14,
+              "line": 15,
               "column": 3
             },
             {
@@ -1207,31 +1207,31 @@
                       "workerIndex": 4,
                       "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 11168,
+                      "duration": 11151,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /^api keys$/i })\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /^api keys$/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /^api keys$/i })\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /^api keys$/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:45:27",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /^api keys$/i })\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /^api keys$/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:49:27",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                           "column": 27,
-                          "line": 45
+                          "line": 49
                         },
-                        "snippet": "  43 |     // Page should have the main heading \"API Keys\"\n  44 |     const heading = page.getByRole('heading', { name: /^api keys$/i });\n> 45 |     await expect(heading).toBeVisible({ timeout: 8000 });\n     |                           ^\n  46 |   });\n  47 |\n  48 |   test('should display empty state when no API keys exist', async ({ page, context }) => {"
+                        "snippet": "  47 |     // Page should have the main heading \"API Keys\"\n  48 |     const heading = page.getByRole('heading', { name: /^api keys$/i });\n> 49 |     await expect(heading).toBeVisible({ timeout: 8000 });\n     |                           ^\n  50 |   });\n  51 |\n  52 |   test('should display empty state when no API keys exist', async ({ page, context }) => {"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                             "column": 27,
-                            "line": 45
+                            "line": 49
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /^api keys$/i })\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /^api keys$/i })\u001b[22m\n\n\n  43 |     // Page should have the main heading \"API Keys\"\n  44 |     const heading = page.getByRole('heading', { name: /^api keys$/i });\n> 45 |     await expect(heading).toBeVisible({ timeout: 8000 });\n     |                           ^\n  46 |   });\n  47 |\n  48 |   test('should display empty state when no API keys exist', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:45:27"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /^api keys$/i })\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /^api keys$/i })\u001b[22m\n\n\n  47 |     // Page should have the main heading \"API Keys\"\n  48 |     const heading = page.getByRole('heading', { name: /^api keys$/i });\n> 49 |     await expect(heading).toBeVisible({ timeout: 8000 });\n     |                           ^\n  50 |   });\n  51 |\n  52 |   test('should display empty state when no API keys exist', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:49:27"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:51.704Z",
+                      "startTime": "2025-11-01T12:02:01.053Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1248,7 +1248,7 @@
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                         "column": 27,
-                        "line": 45
+                        "line": 49
                       }
                     }
                   ],
@@ -1257,7 +1257,7 @@
               ],
               "id": "52ef100ed3b06c794b91-af0204342892e278080c",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 32,
+              "line": 36,
               "column": 3
             },
             {
@@ -1276,31 +1276,31 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "failed",
-                      "duration": 11551,
+                      "duration": 11223,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:61:47",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:65:47",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                           "column": 47,
-                          "line": 61
+                          "line": 65
                         },
-                        "snippet": "  59 |\n  60 |     // Either empty state or create button should be visible\n> 61 |     await expect(emptyState.or(createButton)).toBeVisible({ timeout: 8000 });\n     |                                               ^\n  62 |   });\n  63 | });\n  64 |"
+                        "snippet": "  63 |\n  64 |     // Either empty state or create button should be visible\n> 65 |     await expect(emptyState.or(createButton)).toBeVisible({ timeout: 8000 });\n     |                                               ^\n  66 |   });\n  67 | });\n  68 |"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                             "column": 47,
-                            "line": 61
+                            "line": 65
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\u001b[22m\n\n\n  59 |\n  60 |     // Either empty state or create button should be visible\n> 61 |     await expect(emptyState.or(createButton)).toBeVisible({ timeout: 8000 });\n     |                                               ^\n  62 |   });\n  63 | });\n  64 |\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:61:47"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\u001b[22m\n\n\n  63 |\n  64 |     // Either empty state or create button should be visible\n> 65 |     await expect(emptyState.or(createButton)).toBeVisible({ timeout: 8000 });\n     |                                               ^\n  66 |   });\n  67 | });\n  68 |\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:65:47"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:52.356Z",
+                      "startTime": "2025-11-01T12:02:02.011Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1317,7 +1317,7 @@
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                         "column": 47,
-                        "line": 61
+                        "line": 65
                       }
                     }
                   ],
@@ -1326,7 +1326,7 @@
               ],
               "id": "52ef100ed3b06c794b91-6838fa100e20d75cbb93",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 48,
+              "line": 52,
               "column": 3
             }
           ]
@@ -1334,7 +1334,7 @@
         {
           "title": "API Key Management - Creation Flow",
           "file": "tests/03-api-key-management.spec.ts",
-          "line": 65,
+          "line": 69,
           "column": 6,
           "specs": [
             {
@@ -1351,33 +1351,33 @@
                   "results": [
                     {
                       "workerIndex": 5,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 11184,
+                      "duration": 11241,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:73:32",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:77:32",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                           "column": 32,
-                          "line": 73
+                          "line": 77
                         },
-                        "snippet": "  71 |     // Click create API key button\n  72 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 73 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n     |                                ^\n  74 |     await createButton.click();\n  75 |\n  76 |     // Verify form appears"
+                        "snippet": "  75 |     // Click create API key button\n  76 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 77 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n     |                                ^\n  78 |     await createButton.click();\n  79 |\n  80 |     // Verify form appears"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                             "column": 32,
-                            "line": 73
+                            "line": 77
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  71 |     // Click create API key button\n  72 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 73 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n     |                                ^\n  74 |     await createButton.click();\n  75 |\n  76 |     // Verify form appears\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:73:32"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  75 |     // Click create API key button\n  76 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 77 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n     |                                ^\n  78 |     await createButton.click();\n  79 |\n  80 |     // Verify form appears\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:77:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:53.396Z",
+                      "startTime": "2025-11-01T12:02:02.066Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1394,7 +1394,7 @@
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                         "column": 32,
-                        "line": 73
+                        "line": 77
                       }
                     }
                   ],
@@ -1403,7 +1403,7 @@
               ],
               "id": "52ef100ed3b06c794b91-480a1a2fb7f999e41e23",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 66,
+              "line": 70,
               "column": 3
             },
             {
@@ -1420,33 +1420,33 @@
                   "results": [
                     {
                       "workerIndex": 6,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 11171,
+                      "duration": 11132,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:87:32",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:91:32",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                           "column": 32,
-                          "line": 87
+                          "line": 91
                         },
-                        "snippet": "  85 |     // Click create API key button\n  86 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 87 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n     |                                ^\n  88 |     await createButton.click();\n  89 |\n  90 |     // Form should have name input"
+                        "snippet": "  89 |     // Click create API key button\n  90 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 91 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n     |                                ^\n  92 |     await createButton.click();\n  93 |\n  94 |     // Form should have name input"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                             "column": 32,
-                            "line": 87
+                            "line": 91
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  85 |     // Click create API key button\n  86 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 87 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n     |                                ^\n  88 |     await createButton.click();\n  89 |\n  90 |     // Form should have name input\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:87:32"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  89 |     // Click create API key button\n  90 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 91 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n     |                                ^\n  92 |     await createButton.click();\n  93 |\n  94 |     // Form should have name input\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:91:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:19:55.692Z",
+                      "startTime": "2025-11-01T12:02:05.546Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1463,7 +1463,7 @@
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                         "column": 32,
-                        "line": 87
+                        "line": 91
                       }
                     }
                   ],
@@ -1472,7 +1472,7 @@
               ],
               "id": "52ef100ed3b06c794b91-c4c06d32b59322140970",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 80,
+              "line": 84,
               "column": 3
             },
             {
@@ -1491,31 +1491,31 @@
                       "workerIndex": 7,
                       "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 11311,
+                      "duration": 11221,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:106:32",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:110:32",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                           "column": 32,
-                          "line": 106
+                          "line": 110
                         },
-                        "snippet": "  104 |     // Click create API key button\n  105 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 106 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  107 |     await createButton.click();\n  108 |\n  109 |     // Fill in name"
+                        "snippet": "  108 |     // Click create API key button\n  109 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 110 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  111 |     await createButton.click();\n  112 |\n  113 |     // Fill in name"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                             "column": 32,
-                            "line": 106
+                            "line": 110
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  104 |     // Click create API key button\n  105 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 106 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  107 |     await createButton.click();\n  108 |\n  109 |     // Fill in name\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:106:32"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  108 |     // Click create API key button\n  109 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 110 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  111 |     await createButton.click();\n  112 |\n  113 |     // Fill in name\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:110:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:03.296Z",
+                      "startTime": "2025-11-01T12:02:12.547Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1532,7 +1532,7 @@
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                         "column": 32,
-                        "line": 106
+                        "line": 110
                       }
                     }
                   ],
@@ -1541,7 +1541,7 @@
               ],
               "id": "52ef100ed3b06c794b91-b26dc538cef5e73ae066",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 99,
+              "line": 103,
               "column": 3
             },
             {
@@ -1560,31 +1560,31 @@
                       "workerIndex": 8,
                       "parallelIndex": 2,
                       "status": "failed",
-                      "duration": 11200,
+                      "duration": 11187,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:125:32",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:129:32",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                           "column": 32,
-                          "line": 125
+                          "line": 129
                         },
-                        "snippet": "  123 |     // Click create API key button\n  124 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 125 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  126 |     await createButton.click();\n  127 |\n  128 |     // Scopes input should be visible"
+                        "snippet": "  127 |     // Click create API key button\n  128 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 129 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  130 |     await createButton.click();\n  131 |\n  132 |     // Scopes input should be visible"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                             "column": 32,
-                            "line": 125
+                            "line": 129
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  123 |     // Click create API key button\n  124 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 125 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  126 |     await createButton.click();\n  127 |\n  128 |     // Scopes input should be visible\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:125:32"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  127 |     // Click create API key button\n  128 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 129 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  130 |     await createButton.click();\n  131 |\n  132 |     // Scopes input should be visible\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:129:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:04.410Z",
+                      "startTime": "2025-11-01T12:02:13.600Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1601,7 +1601,7 @@
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                         "column": 32,
-                        "line": 125
+                        "line": 129
                       }
                     }
                   ],
@@ -1610,7 +1610,7 @@
               ],
               "id": "52ef100ed3b06c794b91-8f49ee1b31e6a60f722d",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 118,
+              "line": 122,
               "column": 3
             },
             {
@@ -1627,33 +1627,33 @@
                   "results": [
                     {
                       "workerIndex": 9,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 11417,
+                      "duration": 11213,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:140:32",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:144:32",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                           "column": 32,
-                          "line": 140
+                          "line": 144
                         },
-                        "snippet": "  138 |     // Click create API key button\n  139 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 140 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  141 |     await createButton.click();\n  142 |\n  143 |     // Fill scopes input with multiple scopes"
+                        "snippet": "  142 |     // Click create API key button\n  143 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 144 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  145 |     await createButton.click();\n  146 |\n  147 |     // Fill scopes input with multiple scopes"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                             "column": 32,
-                            "line": 140
+                            "line": 144
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  138 |     // Click create API key button\n  139 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 140 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  141 |     await createButton.click();\n  142 |\n  143 |     // Fill scopes input with multiple scopes\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:140:32"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  142 |     // Click create API key button\n  143 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 144 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  145 |     await createButton.click();\n  146 |\n  147 |     // Fill scopes input with multiple scopes\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:144:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:05.208Z",
+                      "startTime": "2025-11-01T12:02:13.663Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1670,7 +1670,7 @@
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                         "column": 32,
-                        "line": 140
+                        "line": 144
                       }
                     }
                   ],
@@ -1679,7 +1679,7 @@
               ],
               "id": "52ef100ed3b06c794b91-fe67326e841bcc8dbc0e",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 133,
+              "line": 137,
               "column": 3
             },
             {
@@ -1696,33 +1696,33 @@
                   "results": [
                     {
                       "workerIndex": 10,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 11182,
+                      "duration": 11126,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:159:32",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:163:32",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                           "column": 32,
-                          "line": 159
+                          "line": 163
                         },
-                        "snippet": "  157 |     // Click create API key button\n  158 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 159 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  160 |     await createButton.click();\n  161 |\n  162 |     // Try very long name"
+                        "snippet": "  161 |     // Click create API key button\n  162 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 163 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  164 |     await createButton.click();\n  165 |\n  166 |     // Try very long name"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                             "column": 32,
-                            "line": 159
+                            "line": 163
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  157 |     // Click create API key button\n  158 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 159 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  160 |     await createButton.click();\n  161 |\n  162 |     // Try very long name\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:159:32"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  161 |     // Click create API key button\n  162 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 163 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  164 |     await createButton.click();\n  165 |\n  166 |     // Try very long name\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:163:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:07.348Z",
+                      "startTime": "2025-11-01T12:02:17.120Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1739,7 +1739,7 @@
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                         "column": 32,
-                        "line": 159
+                        "line": 163
                       }
                     }
                   ],
@@ -1748,7 +1748,7 @@
               ],
               "id": "52ef100ed3b06c794b91-1050e0738ae48ff43996",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 152,
+              "line": 156,
               "column": 3
             },
             {
@@ -1767,12 +1767,12 @@
                       "workerIndex": 11,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 124,
+                      "duration": 115,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:15.083Z",
+                      "startTime": "2025-11-01T12:02:24.215Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1782,7 +1782,7 @@
               ],
               "id": "52ef100ed3b06c794b91-0755bf952e447fff0d29",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 174,
+              "line": 178,
               "column": 3
             },
             {
@@ -1801,12 +1801,12 @@
                       "workerIndex": 11,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 114,
+                      "duration": 103,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:15.317Z",
+                      "startTime": "2025-11-01T12:02:24.438Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1816,7 +1816,7 @@
               ],
               "id": "52ef100ed3b06c794b91-a6a0b580959edc9574a5",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 188,
+              "line": 192,
               "column": 3
             }
           ]
@@ -1824,7 +1824,7 @@
         {
           "title": "API Key Management - Listing & Display",
           "file": "tests/03-api-key-management.spec.ts",
-          "line": 203,
+          "line": 207,
           "column": 6,
           "specs": [
             {
@@ -1848,7 +1848,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:15.439Z",
+                      "startTime": "2025-11-01T12:02:24.551Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1858,7 +1858,7 @@
               ],
               "id": "52ef100ed3b06c794b91-0c794cf570c7ef68445e",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 204,
+              "line": 208,
               "column": 3
             },
             {
@@ -1877,12 +1877,12 @@
                       "workerIndex": 12,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 142,
+                      "duration": 145,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:16.080Z",
+                      "startTime": "2025-11-01T12:02:25.246Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1892,7 +1892,7 @@
               ],
               "id": "52ef100ed3b06c794b91-56cf44a372cdf6879c0f",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 223,
+              "line": 230,
               "column": 3
             },
             {
@@ -1908,15 +1908,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 12,
-                      "parallelIndex": 2,
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1117,
+                      "duration": 1169,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:16.327Z",
+                      "startTime": "2025-11-01T12:02:25.360Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1926,7 +1926,7 @@
               ],
               "id": "52ef100ed3b06c794b91-3307e8607c52c44909cb",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 237,
+              "line": 247,
               "column": 3
             },
             {
@@ -1942,15 +1942,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 13,
-                      "parallelIndex": 1,
+                      "workerIndex": 12,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1136,
+                      "duration": 1131,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:17.202Z",
+                      "startTime": "2025-11-01T12:02:25.487Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1960,7 +1960,7 @@
               ],
               "id": "52ef100ed3b06c794b91-06b9390617ec3a62b73c",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 253,
+              "line": 266,
               "column": 3
             }
           ]
@@ -1968,7 +1968,7 @@
         {
           "title": "API Key Management - Revocation",
           "file": "tests/03-api-key-management.spec.ts",
-          "line": 268,
+          "line": 284,
           "column": 6,
           "specs": [
             {
@@ -1984,15 +1984,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 12,
-                      "parallelIndex": 2,
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2157,
+                      "duration": 2187,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:17.451Z",
+                      "startTime": "2025-11-01T12:02:26.624Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2002,7 +2002,7 @@
               ],
               "id": "52ef100ed3b06c794b91-8477ea54c219f783a9ad",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 269,
+              "line": 285,
               "column": 3
             },
             {
@@ -2018,15 +2018,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 11,
-                      "parallelIndex": 3,
+                      "workerIndex": 12,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1133,
+                      "duration": 1150,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:17.614Z",
+                      "startTime": "2025-11-01T12:02:26.625Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2036,7 +2036,7 @@
               ],
               "id": "52ef100ed3b06c794b91-d9b926a3478481ed21a1",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 285,
+              "line": 304,
               "column": 3
             },
             {
@@ -2052,15 +2052,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 13,
-                      "parallelIndex": 1,
+                      "workerIndex": 11,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1143,
+                      "duration": 1136,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:18.440Z",
+                      "startTime": "2025-11-01T12:02:26.726Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2070,7 +2070,7 @@
               ],
               "id": "52ef100ed3b06c794b91-6cb5ecb2f5cf800525df",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 308,
+              "line": 330,
               "column": 3
             }
           ]
@@ -2078,7 +2078,7 @@
         {
           "title": "API Key Management - Permissions",
           "file": "tests/03-api-key-management.spec.ts",
-          "line": 338,
+          "line": 363,
           "column": 6,
           "specs": [
             {
@@ -2094,15 +2094,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 0,
+                      "workerIndex": 12,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 2252,
+                      "duration": 2170,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:19.004Z",
+                      "startTime": "2025-11-01T12:02:27.782Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2112,7 +2112,7 @@
               ],
               "id": "52ef100ed3b06c794b91-2dcfcf61418eb477ad8c",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 339,
+              "line": 364,
               "column": 3
             },
             {
@@ -2131,12 +2131,12 @@
                       "workerIndex": 11,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1151,
+                      "duration": 1157,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:18.752Z",
+                      "startTime": "2025-11-01T12:02:27.867Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2146,7 +2146,7 @@
               ],
               "id": "52ef100ed3b06c794b91-b500fc4ae2639e6d4b80",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 350,
+              "line": 375,
               "column": 3
             }
           ]
@@ -2196,7 +2196,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:19.590Z",
+                      "startTime": "2025-11-01T12:02:28.357Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2239,7 +2239,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:19.590Z",
+                      "startTime": "2025-11-01T12:02:28.357Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2265,15 +2265,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 13,
+                      "workerIndex": 14,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2625,
+                      "duration": 2590,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:19.598Z",
+                      "startTime": "2025-11-01T12:02:28.675Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2324,7 +2324,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:19.613Z",
+                      "startTime": "2025-11-01T12:02:28.817Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2350,15 +2350,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 12,
-                      "parallelIndex": 2,
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3110,
+                      "duration": 3112,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:19.619Z",
+                      "startTime": "2025-11-01T12:02:28.825Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2395,12 +2395,12 @@
                       "workerIndex": 11,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2729,
+                      "duration": 2559,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:19.936Z",
+                      "startTime": "2025-11-01T12:02:29.038Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2426,15 +2426,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 0,
+                      "workerIndex": 12,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 3078,
+                      "duration": 2985,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:21.365Z",
+                      "startTime": "2025-11-01T12:02:29.963Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2468,15 +2468,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 13,
+                      "workerIndex": 14,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4654,
+                      "duration": 4491,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:22.230Z",
+                      "startTime": "2025-11-01T12:02:31.360Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2505,12 +2505,12 @@
                       "workerIndex": 11,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2045,
+                      "duration": 1989,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:22.682Z",
+                      "startTime": "2025-11-01T12:02:31.611Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2544,15 +2544,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 12,
-                      "parallelIndex": 2,
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1520,
+                      "duration": 1444,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:22.739Z",
+                      "startTime": "2025-11-01T12:02:31.947Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2581,12 +2581,12 @@
                       "workerIndex": 12,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1413,
+                      "duration": 1382,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:24.271Z",
+                      "startTime": "2025-11-01T12:02:32.954Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2612,15 +2612,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
+                      "workerIndex": 13,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1648,
+                      "duration": 1386,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:24.449Z",
+                      "startTime": "2025-11-01T12:02:33.398Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2657,12 +2657,12 @@
                       "workerIndex": 11,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2537,
+                      "duration": 2430,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:24.744Z",
+                      "startTime": "2025-11-01T12:02:33.611Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2705,7 +2705,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:25.689Z",
+                      "startTime": "2025-11-01T12:02:34.341Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2742,12 +2742,12 @@
                       "workerIndex": 12,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1614,
+                      "duration": 1328,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:25.689Z",
+                      "startTime": "2025-11-01T12:02:34.341Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2773,15 +2773,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
+                      "workerIndex": 13,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1836,
+                      "duration": 1724,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T11:20:26.103Z",
+                      "startTime": "2025-11-01T12:02:34.795Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2801,8 +2801,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-01T11:19:38.290Z",
-    "duration": 49704.663,
+    "startTime": "2025-11-01T12:01:50.360Z",
+    "duration": 46201.939999999995,
     "expected": 45,
     "skipped": 6,
     "unexpected": 11,
