@@ -1,133 +1,99 @@
 # Page snapshot
 
 ```yaml
-- generic [ref=e1]:
-  - generic [ref=e4]:
-    - banner [ref=e5]:
-      - generic [ref=e7]:
-        - link "G Gatekeeper" [ref=e8] [cursor=pointer]:
-          - /url: /
-          - generic [ref=e10]: G
-          - generic [ref=e11]: Gatekeeper
-        - generic [ref=e12]:
-          - button "Toggle dark mode" [ref=e13] [cursor=pointer]:
-            - img [ref=e14]
-          - button "Toggle menu" [ref=e16] [cursor=pointer]:
-            - img [ref=e17]
-    - main [ref=e18]:
-      - generic [ref=e19]:
-        - generic [ref=e20]:
-          - heading "Welcome to Gatekeeper" [level=1] [ref=e21]
-          - paragraph [ref=e22]: Wallet-native authentication gateway using Sign-In with Ethereum (SIWE) and blockchain-based access control
-        - generic [ref=e24]:
-          - generic [ref=e25]:
-            - heading "Sign In with Ethereum" [level=3] [ref=e26]
-            - paragraph [ref=e27]: Connect your wallet and sign a message to authenticate
-          - generic [ref=e29]:
-            - paragraph [ref=e30]: First, connect your wallet to continue
-            - button "Connect Wallet" [ref=e32] [cursor=pointer]
-        - generic [ref=e33]:
-          - generic [ref=e34]:
-            - img [ref=e36]
-            - heading "SIWE Authentication" [level=3] [ref=e38]
-            - paragraph [ref=e39]: Sign in with your Ethereum wallet using the EIP-4361 standard
-          - generic [ref=e40]:
-            - img [ref=e42]
-            - heading "API Key Management" [level=3] [ref=e46]
-            - paragraph [ref=e47]: Create and manage API keys for programmatic access to protected resources
-          - generic [ref=e48]:
-            - img [ref=e50]
-            - heading "Token Gating" [level=3] [ref=e53]
-            - paragraph [ref=e54]: Restrict access based on blockchain token holdings and on-chain data
-          - generic [ref=e55]:
-            - img [ref=e57]
-            - heading "JWT Tokens" [level=3] [ref=e59]
-            - paragraph [ref=e60]: Secure, stateless authentication with industry-standard JSON Web Tokens
-        - generic [ref=e61]:
-          - heading "How It Works" [level=2] [ref=e62]
-          - generic [ref=e63]:
-            - generic [ref=e64]:
-              - generic [ref=e65]: "1"
-              - generic [ref=e66]:
-                - heading "Connect Your Wallet" [level=3] [ref=e67]
-                - paragraph [ref=e68]: Use MetaMask, WalletConnect, or any supported Ethereum wallet to connect
-            - generic [ref=e69]:
-              - generic [ref=e70]: "2"
-              - generic [ref=e71]:
-                - heading "Sign the Message" [level=3] [ref=e72]
-                - paragraph [ref=e73]: Sign a secure SIWE message to prove ownership of your wallet address
-            - generic [ref=e74]:
-              - generic [ref=e75]: "3"
-              - generic [ref=e76]:
-                - heading "Get JWT Token" [level=3] [ref=e77]
-                - paragraph [ref=e78]: Receive a JWT token that authenticates all your API requests
-            - generic [ref=e79]:
-              - generic [ref=e80]: "4"
-              - generic [ref=e81]:
-                - heading "Access Protected Resources" [level=3] [ref=e82]
-                - paragraph [ref=e83]: Use your token to access protected endpoints and create API keys
-    - contentinfo [ref=e84]:
-      - generic [ref=e85]:
-        - generic [ref=e86]:
-          - generic [ref=e87]:
-            - heading "Gatekeeper" [level=3] [ref=e88]
-            - paragraph [ref=e89]: Wallet-native authentication gateway using Sign-In with Ethereum (SIWE) and blockchain-based access control.
-          - generic [ref=e90]:
-            - heading "Resources" [level=3] [ref=e91]
-            - list [ref=e92]:
-              - listitem [ref=e93]:
-                - link "Documentation" [ref=e94] [cursor=pointer]:
-                  - /url: "#"
-              - listitem [ref=e95]:
-                - link "API Reference" [ref=e96] [cursor=pointer]:
-                  - /url: "#"
-              - listitem [ref=e97]:
-                - link "GitHub" [ref=e98] [cursor=pointer]:
-                  - /url: "#"
-          - generic [ref=e99]:
-            - heading "Connect" [level=3] [ref=e100]
-            - generic [ref=e101]:
-              - link [ref=e102] [cursor=pointer]:
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - link "G Gatekeeper" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: G
+        - generic [ref=e11]: Gatekeeper
+      - generic [ref=e12]:
+        - button "Toggle dark mode" [ref=e13] [cursor=pointer]:
+          - img [ref=e14]
+        - button "Toggle menu" [ref=e16] [cursor=pointer]:
+          - img [ref=e17]
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - heading "Welcome to Gatekeeper" [level=1] [ref=e21]
+        - paragraph [ref=e22]: Wallet-native authentication gateway using Sign-In with Ethereum (SIWE) and blockchain-based access control
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - heading "Sign In with Ethereum" [level=3] [ref=e26]
+          - paragraph [ref=e27]: Connect your wallet and sign a message to authenticate
+        - generic [ref=e29]:
+          - paragraph [ref=e30]: First, connect your wallet to continue
+          - button "Connect Wallet" [ref=e32] [cursor=pointer]
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - img [ref=e36]
+          - heading "SIWE Authentication" [level=3] [ref=e38]
+          - paragraph [ref=e39]: Sign in with your Ethereum wallet using the EIP-4361 standard
+        - generic [ref=e40]:
+          - img [ref=e42]
+          - heading "API Key Management" [level=3] [ref=e46]
+          - paragraph [ref=e47]: Create and manage API keys for programmatic access to protected resources
+        - generic [ref=e48]:
+          - img [ref=e50]
+          - heading "Token Gating" [level=3] [ref=e53]
+          - paragraph [ref=e54]: Restrict access based on blockchain token holdings and on-chain data
+        - generic [ref=e55]:
+          - img [ref=e57]
+          - heading "JWT Tokens" [level=3] [ref=e59]
+          - paragraph [ref=e60]: Secure, stateless authentication with industry-standard JSON Web Tokens
+      - generic [ref=e61]:
+        - heading "How It Works" [level=2] [ref=e62]
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - generic [ref=e65]: "1"
+            - generic [ref=e66]:
+              - heading "Connect Your Wallet" [level=3] [ref=e67]
+              - paragraph [ref=e68]: Use MetaMask, WalletConnect, or any supported Ethereum wallet to connect
+          - generic [ref=e69]:
+            - generic [ref=e70]: "2"
+            - generic [ref=e71]:
+              - heading "Sign the Message" [level=3] [ref=e72]
+              - paragraph [ref=e73]: Sign a secure SIWE message to prove ownership of your wallet address
+          - generic [ref=e74]:
+            - generic [ref=e75]: "3"
+            - generic [ref=e76]:
+              - heading "Get JWT Token" [level=3] [ref=e77]
+              - paragraph [ref=e78]: Receive a JWT token that authenticates all your API requests
+          - generic [ref=e79]:
+            - generic [ref=e80]: "4"
+            - generic [ref=e81]:
+              - heading "Access Protected Resources" [level=3] [ref=e82]
+              - paragraph [ref=e83]: Use your token to access protected endpoints and create API keys
+  - contentinfo [ref=e84]:
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - heading "Gatekeeper" [level=3] [ref=e88]
+          - paragraph [ref=e89]: Wallet-native authentication gateway using Sign-In with Ethereum (SIWE) and blockchain-based access control.
+        - generic [ref=e90]:
+          - heading "Resources" [level=3] [ref=e91]
+          - list [ref=e92]:
+            - listitem [ref=e93]:
+              - link "Documentation" [ref=e94] [cursor=pointer]:
                 - /url: "#"
-                - img [ref=e103]
-              - link [ref=e106] [cursor=pointer]:
+            - listitem [ref=e95]:
+              - link "API Reference" [ref=e96] [cursor=pointer]:
                 - /url: "#"
-                - img [ref=e107]
-              - link [ref=e109] [cursor=pointer]:
+            - listitem [ref=e97]:
+              - link "GitHub" [ref=e98] [cursor=pointer]:
                 - /url: "#"
-                - img [ref=e110]
-        - paragraph [ref=e114]: 2025 Gatekeeper. All rights reserved. Built with React, TypeScript, and wagmi.
-  - dialog "Connect a Wallet" [ref=e115]:
-    - document [active] [ref=e116]:
-      - generic [ref=e121]:
-        - generic [ref=e122]:
-          - heading "Connect a Wallet" [level=1] [ref=e125]
-          - button "Close" [ref=e127] [cursor=pointer]:
-            - img [ref=e128]
-        - generic [ref=e130]:
-          - generic [ref=e132]: Popular
-          - generic [ref=e133]:
-            - button "Rainbow" [ref=e135] [cursor=pointer]:
-              - generic [ref=e137]:
-                - img [ref=e138]:
-                  - img [ref=e139]
-                - generic [ref=e142]: Rainbow
-            - button "Base Account" [ref=e144] [cursor=pointer]:
-              - generic [ref=e146]:
-                - img [ref=e147]:
-                  - img [ref=e148]
-                - generic [ref=e151]: Base Account
-            - button "MetaMask" [ref=e153] [cursor=pointer]:
-              - generic [ref=e155]:
-                - img [ref=e156]:
-                  - img [ref=e157]
-                - generic [ref=e160]: MetaMask
-            - button "WalletConnect" [ref=e162] [cursor=pointer]:
-              - generic [ref=e164]:
-                - img [ref=e165]:
-                  - img [ref=e166]
-                - generic [ref=e169]: WalletConnect
-        - generic [ref=e171]:
-          - generic [ref=e173]: New to Ethereum wallets?
-          - generic [ref=e176] [cursor=pointer]: Learn More
+        - generic [ref=e99]:
+          - heading "Connect" [level=3] [ref=e100]
+          - generic [ref=e101]:
+            - link [ref=e102] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e103]
+            - link [ref=e106] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e107]
+            - link [ref=e109] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e110]
+      - paragraph [ref=e114]: 2025 Gatekeeper. All rights reserved. Built with React, TypeScript, and wagmi.
 ```
