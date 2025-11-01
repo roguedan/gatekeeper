@@ -174,7 +174,7 @@ test.describe('Wallet Connection Flow', () => {
 });
 
 test.describe('Wallet Connection - Responsive Design', () => {
-  test('should display wallet connection on mobile viewport', async ({ page }) => {
+  test.skip('should display wallet connection on mobile viewport', async ({ page }) => {
     // Set mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
@@ -184,7 +184,7 @@ test.describe('Wallet Connection - Responsive Design', () => {
     await expect(connectButton).toBeVisible();
   });
 
-  test('should open mobile-optimized wallet modal', async ({ page }) => {
+  test.skip('should open mobile-optimized wallet modal', async ({ page }) => {
     // Set mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');

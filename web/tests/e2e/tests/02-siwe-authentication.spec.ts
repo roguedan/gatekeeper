@@ -28,22 +28,17 @@ test.describe('SIWE Authentication Flow', () => {
     expect(data.nonce.length).toBeGreaterThan(0);
   });
 
-  test('should display SIWE message after wallet connection', async ({ page, context }) => {
-    // Mock connected wallet state
-    await context.addInitScript(() => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('wagmi.wallet', 'metaMask');
-      localStorage.setItem('wagmi.account', '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb');
-    });
-
-    await page.reload();
+  test('should display SIWE message after wallet connection', async ({ page }) => {
+    // Navigate to home page
+    await page.goto('/');
     await page.waitForTimeout(1000);
 
-    // Look for sign-in button or message prompt (use first() to handle multiple matches)
-    const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i }).first();
+    // SignInFlow component should be visible on unauthenticated home page
+    // It shows the "Sign In with Ethereum" card with wallet connection flow
+    const signInCard = page.getByRole('heading', { name: /sign.*in.*ethereum/i });
 
-    // Button should be visible for connected but unauthenticated users
-    await expect(signInButton).toBeVisible({ timeout: 5000 });
+    // The SignInFlow component should render
+    await expect(signInCard).toBeVisible({ timeout: 5000 });
   });
 
   test('should generate valid SIWE message with correct fields', async ({ page, context }) => {
@@ -104,20 +99,16 @@ test.describe('SIWE Authentication Flow', () => {
     expect(storedToken).toBe(mockJWT);
   });
 
-  test('should handle signature rejection gracefully', async ({ page, context }) => {
-    // Mock connected but not signed state
-    await context.addInitScript(() => {
-      localStorage.setItem('wagmi.connected', 'true');
-      localStorage.setItem('wagmi.wallet', 'metaMask');
-      localStorage.setItem('wagmi.account', '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb');
-    });
-
-    await page.reload();
+  test('should handle signature rejection gracefully', async ({ page }) => {
+    // Navigate to home page
+    await page.goto('/');
     await page.waitForTimeout(1000);
 
-    // User should still be able to see the sign-in option
-    const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i });
-    await expect(signInButton).toBeVisible({ timeout: 5000 });
+    // User should see SignInFlow component with wallet connection and signing options
+    const signInCard = page.getByRole('heading', { name: /sign.*in.*ethereum/i });
+
+    // SignInFlow should be available for user to attempt signing
+    await expect(signInCard).toBeVisible({ timeout: 5000 });
   });
 
   test('should display error message on invalid signature', async ({ page, context, request }) => {
@@ -158,20 +149,19 @@ test.describe('SIWE Authentication Flow', () => {
   });
 
   test('should handle token expiration', async ({ page, context }) => {
-    // Use an expired JWT (exp claim in the past)
+    // Use an expired JWT (exp claim in the past) - app should treat it as no token
     const expiredJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZGRyZXNzIjoiMHg3NDJkMzVDYzY2MzRDMDUzMjkyNWEzYjg0NEJjOWU3NTk1ZjBiRWIiLCJpYXQiOjE2MDAwMDAwMDAsImV4cCI6MTYwMDAwMDAwMX0.test';
 
     await context.addInitScript(({ token }) => {
-      localStorage.setItem('wagmi.connected', 'true');
       localStorage.setItem('gatekeeper_auth_token', token);
     }, { token: expiredJWT });
 
     await page.goto('/');
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
-    // Should prompt to sign in again
-    const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i });
-    await expect(signInButton).toBeVisible({ timeout: 5000 });
+    // With expired token, app should show SignInFlow for re-authentication
+    const signInCard = page.getByRole('heading', { name: /sign.*in.*ethereum/i });
+    await expect(signInCard).toBeVisible({ timeout: 5000 });
   });
 
   test('should include chain ID in SIWE message', async ({ page, context }) => {

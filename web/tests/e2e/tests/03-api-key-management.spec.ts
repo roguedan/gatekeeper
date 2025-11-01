@@ -37,14 +37,14 @@ test.describe('API Key Management - Dashboard', () => {
     }, { token: mockJWT });
 
     await page.goto('/api-keys');
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
     // Verify we're on the API Keys page
     expect(page.url()).toContain('/api-keys');
 
-    // Page should have heading
-    const heading = page.getByRole('heading', { name: /api.*keys/i });
-    await expect(heading).toBeVisible({ timeout: 5000 });
+    // Page should have the main heading "API Keys"
+    const heading = page.getByRole('heading', { name: /^api keys$/i });
+    await expect(heading).toBeVisible({ timeout: 8000 });
   });
 
   test('should display empty state when no API keys exist', async ({ page, context }) => {
@@ -56,14 +56,14 @@ test.describe('API Key Management - Dashboard', () => {
     }, { token: mockJWT });
 
     await page.goto('/api-keys');
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
     // Look for empty state message or create first key CTA
     const emptyState = page.getByText(/no.*api.*keys|create.*first.*key|get.*started/i);
-    const createButton = page.getByRole('button', { name: /create.*api.*key|new.*key/i });
+    const createButton = page.getByRole('button', { name: /create.*api.*key|new.*key/i }).first();
 
     // Either empty state or create button should be visible
-    await expect(emptyState.or(createButton)).toBeVisible({ timeout: 5000 });
+    await expect(emptyState.or(createButton)).toBeVisible({ timeout: 8000 });
   });
 });
 
@@ -77,14 +77,15 @@ test.describe('API Key Management - Creation Flow', () => {
     }, { token: mockJWT });
 
     await page.goto('/api-keys');
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
     // Click create API key button
     const createButton = page.getByTestId('toggle-create-form-button');
+    await expect(createButton).toBeVisible({ timeout: 8000 });
     await createButton.click();
 
     // Verify form appears
-    await expect(page.getByTestId('create-api-key-form')).toBeVisible({ timeout: 5000 });
+    await expect(page.getByTestId('create-api-key-form')).toBeVisible({ timeout: 8000 });
   });
 
   test('should require API key name', async ({ page, context }) => {
@@ -96,15 +97,16 @@ test.describe('API Key Management - Creation Flow', () => {
     }, { token: mockJWT });
 
     await page.goto('/api-keys');
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
     // Click create API key button
     const createButton = page.getByTestId('toggle-create-form-button');
+    await expect(createButton).toBeVisible({ timeout: 8000 });
     await createButton.click();
 
     // Form should have name input
     const nameInput = page.getByTestId('api-key-name-input');
-    await expect(nameInput).toBeVisible({ timeout: 3000 });
+    await expect(nameInput).toBeVisible({ timeout: 8000 });
 
     // Create button should be disabled without name
     const submitButton = page.getByTestId('create-api-key-button');
@@ -120,15 +122,16 @@ test.describe('API Key Management - Creation Flow', () => {
     }, { token: mockJWT });
 
     await page.goto('/api-keys');
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
     // Click create API key button
     const createButton = page.getByTestId('toggle-create-form-button');
+    await expect(createButton).toBeVisible({ timeout: 8000 });
     await createButton.click();
 
     // Fill in name
     const nameInput = page.getByTestId('api-key-name-input');
-    await expect(nameInput).toBeVisible({ timeout: 3000 });
+    await expect(nameInput).toBeVisible({ timeout: 8000 });
     await nameInput.fill('Test API Key');
 
     // Verify value is set
@@ -144,15 +147,16 @@ test.describe('API Key Management - Creation Flow', () => {
     }, { token: mockJWT });
 
     await page.goto('/api-keys');
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
     // Click create API key button
     const createButton = page.getByTestId('toggle-create-form-button');
+    await expect(createButton).toBeVisible({ timeout: 8000 });
     await createButton.click();
 
     // Scopes input should be visible
     const scopesInput = page.getByTestId('api-key-scopes-input');
-    await expect(scopesInput).toBeVisible({ timeout: 3000 });
+    await expect(scopesInput).toBeVisible({ timeout: 8000 });
   });
 
   test('should allow selecting multiple scopes', async ({ page, context }) => {
@@ -164,15 +168,16 @@ test.describe('API Key Management - Creation Flow', () => {
     }, { token: mockJWT });
 
     await page.goto('/api-keys');
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
     // Click create API key button
     const createButton = page.getByTestId('toggle-create-form-button');
+    await expect(createButton).toBeVisible({ timeout: 8000 });
     await createButton.click();
 
     // Fill scopes input with multiple scopes
     const scopesInput = page.getByTestId('api-key-scopes-input');
-    await expect(scopesInput).toBeVisible({ timeout: 3000 });
+    await expect(scopesInput).toBeVisible({ timeout: 8000 });
     await scopesInput.fill('read,write,admin');
 
     // Verify value is set
@@ -188,15 +193,16 @@ test.describe('API Key Management - Creation Flow', () => {
     }, { token: mockJWT });
 
     await page.goto('/api-keys');
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
     // Click create API key button
     const createButton = page.getByTestId('toggle-create-form-button');
+    await expect(createButton).toBeVisible({ timeout: 8000 });
     await createButton.click();
 
     // Try very long name
     const nameInput = page.getByTestId('api-key-name-input');
-    await expect(nameInput).toBeVisible({ timeout: 3000 });
+    await expect(nameInput).toBeVisible({ timeout: 8000 });
     if (await nameInput.isVisible({ timeout: 3000 })) {
       const longName = 'A'.repeat(200);
       await nameInput.fill(longName);

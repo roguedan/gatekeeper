@@ -103,12 +103,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1450,
+                      "duration": 1625,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:49:58.731Z",
+                      "startTime": "2025-11-01T08:03:32.982Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -137,12 +137,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1490,
+                      "duration": 1658,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:49:58.766Z",
+                      "startTime": "2025-11-01T08:03:32.971Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -171,12 +171,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1527,
+                      "duration": 1715,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:49:58.748Z",
+                      "startTime": "2025-11-01T08:03:32.981Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -205,12 +205,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2309,
+                      "duration": 2066,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:49:58.743Z",
+                      "startTime": "2025-11-01T08:03:32.983Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -239,12 +239,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 943,
+                      "duration": 931,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:00.590Z",
+                      "startTime": "2025-11-01T08:03:34.986Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -273,12 +273,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2051,
+                      "duration": 2189,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:00.608Z",
+                      "startTime": "2025-11-01T08:03:35.036Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -307,12 +307,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 954,
+                      "duration": 898,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:00.627Z",
+                      "startTime": "2025-11-01T08:03:35.069Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -341,12 +341,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 870,
+                      "duration": 1122,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:01.448Z",
+                      "startTime": "2025-11-01T08:03:35.455Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -375,12 +375,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1821,
+                      "duration": 2080,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:01.543Z",
+                      "startTime": "2025-11-01T08:03:35.964Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -409,12 +409,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1559,
+                      "duration": 1816,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:01.597Z",
+                      "startTime": "2025-11-01T08:03:35.980Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -437,143 +437,89 @@
           "specs": [
             {
               "title": "should display wallet connection on mobile viewport",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
+                        "line": 177,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 5600,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:184:33",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
-                          "column": 33,
-                          "line": 184
-                        },
-                        "snippet": "  182 |     // Verify connect button is visible on mobile\n  183 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 184 |     await expect(connectButton).toBeVisible();\n      |                                 ^\n  185 |   });\n  186 |\n  187 |   test('should open mobile-optimized wallet modal', async ({ page }) => {"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
-                            "column": 33,
-                            "line": 184
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  182 |     // Verify connect button is visible on mobile\n  183 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 184 |     await expect(connectButton).toBeVisible();\n      |                                 ^\n  185 |   });\n  186 |\n  187 |   test('should open mobile-optimized wallet modal', async ({ page }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:184:33"
-                        }
-                      ],
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:02.344Z",
+                      "startTime": "2025-11-01T08:03:36.597Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-01-wallet-connection-b0507-nnection-on-mobile-viewport-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-01-wallet-connection-b0507-nnection-on-mobile-viewport-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-01-wallet-connection-b0507-nnection-on-mobile-viewport-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
-                        "column": 33,
-                        "line": 184
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "skipped"
                 }
               ],
               "id": "26cf986c0ac2c3170dff-4bdc12a0d0012a633d9f",
               "file": "tests/01-wallet-connection.spec.ts",
               "line": 177,
-              "column": 3
+              "column": 8
             },
             {
               "title": "should open mobile-optimized wallet modal",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
+                        "line": 187,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "timedOut",
-                      "duration": 30655,
-                      "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                      },
-                      "errors": [
-                        {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts",
-                            "column": 25,
-                            "line": 194
-                          },
-                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  192 |     // Click connect wallet button\n  193 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 194 |     await connectButton.click();\n      |                         ^\n  195 |\n  196 |     // Verify RainbowKit mobile modal appears\n  197 |     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/01-wallet-connection.spec.ts:194:25"
-                        }
-                      ],
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:02.671Z",
+                      "startTime": "2025-11-01T08:03:36.598Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-01-wallet-connection-34fbc-bile-optimized-wallet-modal-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-01-wallet-connection-34fbc-bile-optimized-wallet-modal-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-01-wallet-connection-34fbc-bile-optimized-wallet-modal-chromium/error-context.md"
-                        }
-                      ]
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "skipped"
                 }
               ],
               "id": "26cf986c0ac2c3170dff-b7d15c20fc89b177068f",
               "file": "tests/01-wallet-connection.spec.ts",
               "line": 187,
-              "column": 3
+              "column": 8
             }
           ]
         }
@@ -605,15 +551,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 469,
+                      "duration": 987,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:03.185Z",
+                      "startTime": "2025-11-01T08:03:36.628Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -628,7 +574,7 @@
             },
             {
               "title": "should display SIWE message after wallet connection",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -639,60 +585,20 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 6780,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i }).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i }).first()\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i }).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i }).first()\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:46:32",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                          "column": 32,
-                          "line": 46
-                        },
-                        "snippet": "  44 |\n  45 |     // Button should be visible for connected but unauthenticated users\n> 46 |     await expect(signInButton).toBeVisible({ timeout: 5000 });\n     |                                ^\n  47 |   });\n  48 |\n  49 |   test('should generate valid SIWE message with correct fields', async ({ page, context }) => {"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                            "column": 32,
-                            "line": 46
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i }).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i }).first()\u001b[22m\n\n\n  44 |\n  45 |     // Button should be visible for connected but unauthenticated users\n> 46 |     await expect(signInButton).toBeVisible({ timeout: 5000 });\n     |                                ^\n  47 |   });\n  48 |\n  49 |   test('should generate valid SIWE message with correct fields', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:46:32"
-                        }
-                      ],
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1903,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:03.390Z",
+                      "startTime": "2025-11-01T08:03:37.251Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-3d28c-age-after-wallet-connection-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-3d28c-age-after-wallet-connection-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-3d28c-age-after-wallet-connection-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                        "column": 32,
-                        "line": 46
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "426dc87aaa71446859aa-dc2fd222533344f6de8f",
@@ -713,15 +619,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1649,
+                      "duration": 1845,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:03.663Z",
+                      "startTime": "2025-11-01T08:03:37.669Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -731,7 +637,7 @@
               ],
               "id": "426dc87aaa71446859aa-103827fb27c2fd2b2dd4",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 49,
+              "line": 44,
               "column": 3
             },
             {
@@ -750,12 +656,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1537,
+                      "duration": 2045,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:05.318Z",
+                      "startTime": "2025-11-01T08:03:37.818Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -765,7 +671,7 @@
               ],
               "id": "426dc87aaa71446859aa-bc96c16e41e94647c239",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 73,
+              "line": 68,
               "column": 3
             },
             {
@@ -781,15 +687,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 532,
+                      "duration": 974,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:06.862Z",
+                      "startTime": "2025-11-01T08:03:38.095Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -799,12 +705,12 @@
               ],
               "id": "426dc87aaa71446859aa-062399ceceb56450ccd9",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 92,
+              "line": 87,
               "column": 3
             },
             {
               "title": "should handle signature rejection gracefully",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -815,65 +721,25 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 6769,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:120:32",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                          "column": 32,
-                          "line": 120
-                        },
-                        "snippet": "  118 |     // User should still be able to see the sign-in option\n  119 |     const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i });\n> 120 |     await expect(signInButton).toBeVisible({ timeout: 5000 });\n      |                                ^\n  121 |   });\n  122 |\n  123 |   test('should display error message on invalid signature', async ({ page, context, request }) => {"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                            "column": 32,
-                            "line": 120
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n\n\n  118 |     // User should still be able to see the sign-in option\n  119 |     const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i });\n> 120 |     await expect(signInButton).toBeVisible({ timeout: 5000 });\n      |                                ^\n  121 |   });\n  122 |\n  123 |   test('should display error message on invalid signature', async ({ page, context, request }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:120:32"
-                        }
-                      ],
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1734,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:07.400Z",
+                      "startTime": "2025-11-01T08:03:39.083Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-3c2e2-nature-rejection-gracefully-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-3c2e2-nature-rejection-gracefully-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-02-siwe-authenticati-3c2e2-nature-rejection-gracefully-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                        "column": 32,
-                        "line": 120
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "426dc87aaa71446859aa-c8c8815a65d29365aee8",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 107,
+              "line": 102,
               "column": 3
             },
             {
@@ -889,15 +755,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 3,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 559,
+                      "duration": 717,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:08.537Z",
+                      "startTime": "2025-11-01T08:03:39.165Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -907,7 +773,7 @@
               ],
               "id": "426dc87aaa71446859aa-5d2f2c841bff1be24b00",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 123,
+              "line": 114,
               "column": 3
             },
             {
@@ -923,15 +789,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2689,
+                      "duration": 3139,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:09.202Z",
+                      "startTime": "2025-11-01T08:03:39.522Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -941,7 +807,7 @@
               ],
               "id": "426dc87aaa71446859aa-1bf391aea4b21bb86b73",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 134,
+              "line": 125,
               "column": 3
             },
             {
@@ -957,34 +823,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 6766,
+                      "duration": 7380,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:174:32",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /sign.*in.*ethereum/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /sign.*in.*ethereum/i })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /sign.*in.*ethereum/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /sign.*in.*ethereum/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:164:30",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                          "column": 32,
-                          "line": 174
+                          "column": 30,
+                          "line": 164
                         },
-                        "snippet": "  172 |     // Should prompt to sign in again\n  173 |     const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i });\n> 174 |     await expect(signInButton).toBeVisible({ timeout: 5000 });\n      |                                ^\n  175 |   });\n  176 |\n  177 |   test('should include chain ID in SIWE message', async ({ page, context }) => {"
+                        "snippet": "  162 |     // With expired token, app should show SignInFlow for re-authentication\n  163 |     const signInCard = page.getByRole('heading', { name: /sign.*in.*ethereum/i });\n> 164 |     await expect(signInCard).toBeVisible({ timeout: 5000 });\n      |                              ^\n  165 |   });\n  166 |\n  167 |   test('should include chain ID in SIWE message', async ({ page, context }) => {"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                            "column": 32,
-                            "line": 174
+                            "column": 30,
+                            "line": 164
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /sign.*message|sign.*in/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /sign.*message|sign.*in/i })\u001b[22m\n\n\n  172 |     // Should prompt to sign in again\n  173 |     const signInButton = page.getByRole('button', { name: /sign.*message|sign.*in/i });\n> 174 |     await expect(signInButton).toBeVisible({ timeout: 5000 });\n      |                                ^\n  175 |   });\n  176 |\n  177 |   test('should include chain ID in SIWE message', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:174:32"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /sign.*in.*ethereum/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /sign.*in.*ethereum/i })\u001b[22m\n\n\n  162 |     // With expired token, app should show SignInFlow for re-authentication\n  163 |     const signInCard = page.getByRole('heading', { name: /sign.*in.*ethereum/i });\n> 164 |     await expect(signInCard).toBeVisible({ timeout: 5000 });\n      |                              ^\n  165 |   });\n  166 |\n  167 |   test('should include chain ID in SIWE message', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:164:30"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:10.579Z",
+                      "startTime": "2025-11-01T08:03:39.893Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1005,8 +871,8 @@
                       ],
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
-                        "column": 32,
-                        "line": 174
+                        "column": 30,
+                        "line": 164
                       }
                     }
                   ],
@@ -1015,7 +881,7 @@
               ],
               "id": "426dc87aaa71446859aa-1181f86a6b708866e74d",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 160,
+              "line": 151,
               "column": 3
             },
             {
@@ -1031,15 +897,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 3,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 542,
+                      "duration": 1032,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:11.900Z",
+                      "startTime": "2025-11-01T08:03:39.901Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1049,7 +915,7 @@
               ],
               "id": "426dc87aaa71446859aa-2acaba5d23a63a50dc81",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 177,
+              "line": 167,
               "column": 3
             },
             {
@@ -1065,34 +931,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 3,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 475,
+                      "duration": 662,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m404\u001b[39m\nReceived array: \u001b[31m[200, 400, 401]\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m404\u001b[39m\nReceived array: \u001b[31m[200, 400, 401]\u001b[39m\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:204:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m404\u001b[39m\nReceived array: \u001b[31m[200, 400, 401]\u001b[39m\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:194:29",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
                           "column": 29,
-                          "line": 204
+                          "line": 194
                         },
-                        "snippet": "  202 |\n  203 |     // Should return 400 for invalid signature\n> 204 |     expect([200, 400, 401]).toContain(response.status());\n      |                             ^\n  205 |   });\n  206 | });\n  207 |"
+                        "snippet": "  192 |\n  193 |     // Should return 400 for invalid signature\n> 194 |     expect([200, 400, 401]).toContain(response.status());\n      |                             ^\n  195 |   });\n  196 | });\n  197 |"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
                             "column": 29,
-                            "line": 204
+                            "line": 194
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m404\u001b[39m\nReceived array: \u001b[31m[200, 400, 401]\u001b[39m\n\n  202 |\n  203 |     // Should return 400 for invalid signature\n> 204 |     expect([200, 400, 401]).toContain(response.status());\n      |                             ^\n  205 |   });\n  206 | });\n  207 |\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:204:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m404\u001b[39m\nReceived array: \u001b[31m[200, 400, 401]\u001b[39m\n\n  192 |\n  193 |     // Should return 400 for invalid signature\n> 194 |     expect([200, 400, 401]).toContain(response.status());\n      |                             ^\n  195 |   });\n  196 | });\n  197 |\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts:194:29"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:12.449Z",
+                      "startTime": "2025-11-01T08:03:40.827Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1114,7 +980,7 @@
                       "errorLocation": {
                         "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/02-siwe-authentication.spec.ts",
                         "column": 29,
-                        "line": 204
+                        "line": 194
                       }
                     }
                   ],
@@ -1123,7 +989,7 @@
               ],
               "id": "426dc87aaa71446859aa-112cc8e564fe2570e4f3",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 191,
+              "line": 181,
               "column": 3
             }
           ]
@@ -1131,7 +997,7 @@
         {
           "title": "SIWE Authentication - Security",
           "file": "tests/02-siwe-authentication.spec.ts",
-          "line": 208,
+          "line": 198,
           "column": 6,
           "specs": [
             {
@@ -1147,15 +1013,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
-                      "parallelIndex": 3,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 389,
+                      "duration": 563,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:13.279Z",
+                      "startTime": "2025-11-01T08:03:40.952Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1165,7 +1031,7 @@
               ],
               "id": "426dc87aaa71446859aa-5988a9c9021b11ed39e1",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 209,
+              "line": 199,
               "column": 3
             },
             {
@@ -1181,15 +1047,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
-                      "parallelIndex": 3,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1978,
+                      "duration": 1977,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:13.764Z",
+                      "startTime": "2025-11-01T08:03:41.531Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1199,7 +1065,7 @@
               ],
               "id": "426dc87aaa71446859aa-f20ca4f66575ee41d771",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 225,
+              "line": 215,
               "column": 3
             },
             {
@@ -1215,15 +1081,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
-                      "parallelIndex": 2,
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1405,
+                      "duration": 1406,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:14.565Z",
+                      "startTime": "2025-11-01T08:03:42.088Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1233,7 +1099,7 @@
               ],
               "id": "426dc87aaa71446859aa-df80051335871e4977ab",
               "file": "tests/02-siwe-authentication.spec.ts",
-              "line": 250,
+              "line": 240,
               "column": 3
             }
           ]
@@ -1266,15 +1132,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1374,
+                      "duration": 1381,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:15.754Z",
+                      "startTime": "2025-11-01T08:03:42.674Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1300,19 +1166,19 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "failed",
-                      "duration": 6283,
+                      "duration": 9900,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /api.*keys/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /api.*keys/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /api.*keys/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /api.*keys/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:47:27",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /^api keys$/i })\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /^api keys$/i })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /^api keys$/i })\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /^api keys$/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:47:27",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                           "column": 27,
                           "line": 47
                         },
-                        "snippet": "  45 |     // Page should have heading\n  46 |     const heading = page.getByRole('heading', { name: /api.*keys/i });\n> 47 |     await expect(heading).toBeVisible({ timeout: 5000 });\n     |                           ^\n  48 |   });\n  49 |\n  50 |   test('should display empty state when no API keys exist', async ({ page, context }) => {"
+                        "snippet": "  45 |     // Page should have the main heading \"API Keys\"\n  46 |     const heading = page.getByRole('heading', { name: /^api keys$/i });\n> 47 |     await expect(heading).toBeVisible({ timeout: 8000 });\n     |                           ^\n  48 |   });\n  49 |\n  50 |   test('should display empty state when no API keys exist', async ({ page, context }) => {"
                       },
                       "errors": [
                         {
@@ -1321,13 +1187,13 @@
                             "column": 27,
                             "line": 47
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /api.*keys/i })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /api.*keys/i })\u001b[22m\n\n\n  45 |     // Page should have heading\n  46 |     const heading = page.getByRole('heading', { name: /api.*keys/i });\n> 47 |     await expect(heading).toBeVisible({ timeout: 5000 });\n     |                           ^\n  48 |   });\n  49 |\n  50 |   test('should display empty state when no API keys exist', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:47:27"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /^api keys$/i })\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /^api keys$/i })\u001b[22m\n\n\n  45 |     // Page should have the main heading \"API Keys\"\n  46 |     const heading = page.getByRole('heading', { name: /^api keys$/i });\n> 47 |     await expect(heading).toBeVisible({ timeout: 8000 });\n     |                           ^\n  48 |   });\n  49 |\n  50 |   test('should display empty state when no API keys exist', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:47:27"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:16.071Z",
+                      "startTime": "2025-11-01T08:03:43.525Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1374,19 +1240,19 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
-                      "parallelIndex": 3,
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 6262,
+                      "duration": 9875,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }))\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }))\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }))\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }))\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:66:47",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:66:47",
                         "location": {
                           "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
                           "column": 47,
                           "line": 66
                         },
-                        "snippet": "  64 |\n  65 |     // Either empty state or create button should be visible\n> 66 |     await expect(emptyState.or(createButton)).toBeVisible({ timeout: 5000 });\n     |                                               ^\n  67 |   });\n  68 | });\n  69 |"
+                        "snippet": "  64 |\n  65 |     // Either empty state or create button should be visible\n> 66 |     await expect(emptyState.or(createButton)).toBeVisible({ timeout: 8000 });\n     |                                               ^\n  67 |   });\n  68 | });\n  69 |"
                       },
                       "errors": [
                         {
@@ -1395,13 +1261,13 @@
                             "column": 47,
                             "line": 66
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }))\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }))\u001b[22m\n\n\n  64 |\n  65 |     // Either empty state or create button should be visible\n> 66 |     await expect(emptyState.or(createButton)).toBeVisible({ timeout: 5000 });\n     |                                               ^\n  67 |   });\n  68 | });\n  69 |\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:66:47"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/no.*api.*keys|create.*first.*key|get.*started/i).or(getByRole('button', { name: /create.*api.*key|new.*key/i }).first())\u001b[22m\n\n\n  64 |\n  65 |     // Either empty state or create button should be visible\n> 66 |     await expect(emptyState.or(createButton)).toBeVisible({ timeout: 8000 });\n     |                                               ^\n  67 |   });\n  68 | });\n  69 |\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:66:47"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:17.133Z",
+                      "startTime": "2025-11-01T08:03:43.603Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1456,31 +1322,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 8,
-                      "parallelIndex": 0,
-                      "status": "timedOut",
-                      "duration": 30638,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 9875,
                       "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:84:32",
+                        "location": {
+                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                          "column": 32,
+                          "line": 84
+                        },
+                        "snippet": "  82 |     // Click create API key button\n  83 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 84 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n     |                                ^\n  85 |     await createButton.click();\n  86 |\n  87 |     // Verify form appears"
                       },
                       "errors": [
                         {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
-                            "column": 24,
+                            "column": 32,
                             "line": 84
                           },
-                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  82 |     // Click create API key button\n  83 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 84 |     await createButton.click();\n     |                        ^\n  85 |\n  86 |     // Verify form appears\n  87 |     await expect(page.getByTestId('create-api-key-form')).toBeVisible({ timeout: 5000 });\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:84:24"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  82 |     // Click create API key button\n  83 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 84 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n     |                                ^\n  85 |     await createButton.click();\n  86 |\n  87 |     // Verify form appears\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:84:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:17.854Z",
+                      "startTime": "2025-11-01T08:03:44.061Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1498,7 +1367,12 @@
                           "contentType": "text/markdown",
                           "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-03-api-key-managemen-c8809-n-create-API-key-modal-form-chromium/error-context.md"
                         }
-                      ]
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                        "column": 32,
+                        "line": 84
+                      }
                     }
                   ],
                   "status": "unexpected"
@@ -1522,31 +1396,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 9,
-                      "parallelIndex": 2,
-                      "status": "timedOut",
-                      "duration": 31126,
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 9844,
                       "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:104:32",
+                        "location": {
+                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                          "column": 32,
+                          "line": 104
+                        },
+                        "snippet": "  102 |     // Click create API key button\n  103 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 104 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  105 |     await createButton.click();\n  106 |\n  107 |     // Form should have name input"
                       },
                       "errors": [
                         {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
-                            "column": 24,
-                            "line": 103
+                            "column": 32,
+                            "line": 104
                           },
-                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  101 |     // Click create API key button\n  102 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 103 |     await createButton.click();\n      |                        ^\n  104 |\n  105 |     // Form should have name input\n  106 |     const nameInput = page.getByTestId('api-key-name-input');\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:103:24"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  102 |     // Click create API key button\n  103 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 104 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  105 |     await createButton.click();\n  106 |\n  107 |     // Form should have name input\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:104:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:22.821Z",
+                      "startTime": "2025-11-01T08:03:47.633Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1564,7 +1441,12 @@
                           "contentType": "text/markdown",
                           "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-03-api-key-managemen-11ef2-should-require-API-key-name-chromium/error-context.md"
                         }
-                      ]
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                        "column": 32,
+                        "line": 104
+                      }
                     }
                   ],
                   "status": "unexpected"
@@ -1572,7 +1454,7 @@
               ],
               "id": "52ef100ed3b06c794b91-c4c06d32b59322140970",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 90,
+              "line": 91,
               "column": 3
             },
             {
@@ -1588,31 +1470,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 10,
-                      "parallelIndex": 3,
-                      "status": "timedOut",
-                      "duration": 30794,
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 10006,
                       "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:129:32",
+                        "location": {
+                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                          "column": 32,
+                          "line": 129
+                        },
+                        "snippet": "  127 |     // Click create API key button\n  128 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 129 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  130 |     await createButton.click();\n  131 |\n  132 |     // Fill in name"
                       },
                       "errors": [
                         {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
-                            "column": 24,
-                            "line": 127
+                            "column": 32,
+                            "line": 129
                           },
-                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  125 |     // Click create API key button\n  126 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 127 |     await createButton.click();\n      |                        ^\n  128 |\n  129 |     // Fill in name\n  130 |     const nameInput = page.getByTestId('api-key-name-input');\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:127:24"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  127 |     // Click create API key button\n  128 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 129 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  130 |     await createButton.click();\n  131 |\n  132 |     // Fill in name\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:129:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:23.764Z",
+                      "startTime": "2025-11-01T08:03:53.852Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1630,7 +1515,12 @@
                           "contentType": "text/markdown",
                           "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-03-api-key-managemen-2dcaa--allow-setting-API-key-name-chromium/error-context.md"
                         }
-                      ]
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                        "column": 32,
+                        "line": 129
+                      }
                     }
                   ],
                   "status": "unexpected"
@@ -1638,7 +1528,7 @@
               ],
               "id": "52ef100ed3b06c794b91-b26dc538cef5e73ae066",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 114,
+              "line": 116,
               "column": 3
             },
             {
@@ -1654,31 +1544,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 11,
-                      "parallelIndex": 1,
-                      "status": "timedOut",
-                      "duration": 30650,
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10005,
                       "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:154:32",
+                        "location": {
+                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                          "column": 32,
+                          "line": 154
+                        },
+                        "snippet": "  152 |     // Click create API key button\n  153 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 154 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  155 |     await createButton.click();\n  156 |\n  157 |     // Scopes input should be visible"
                       },
                       "errors": [
                         {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
-                            "column": 24,
-                            "line": 151
+                            "column": 32,
+                            "line": 154
                           },
-                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  149 |     // Click create API key button\n  150 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 151 |     await createButton.click();\n      |                        ^\n  152 |\n  153 |     // Scopes input should be visible\n  154 |     const scopesInput = page.getByTestId('api-key-scopes-input');\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:151:24"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  152 |     // Click create API key button\n  153 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 154 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  155 |     await createButton.click();\n  156 |\n  157 |     // Scopes input should be visible\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:154:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:33.681Z",
+                      "startTime": "2025-11-01T08:03:53.887Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1696,7 +1589,12 @@
                           "contentType": "text/markdown",
                           "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-03-api-key-managemen-796b0-ay-scope-permission-options-chromium/error-context.md"
                         }
-                      ]
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                        "column": 32,
+                        "line": 154
+                      }
                     }
                   ],
                   "status": "unexpected"
@@ -1704,7 +1602,7 @@
               ],
               "id": "52ef100ed3b06c794b91-8f49ee1b31e6a60f722d",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 138,
+              "line": 141,
               "column": 3
             },
             {
@@ -1720,31 +1618,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 12,
-                      "parallelIndex": 0,
-                      "status": "timedOut",
-                      "duration": 30662,
+                      "workerIndex": 8,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 9833,
                       "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:175:32",
+                        "location": {
+                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                          "column": 32,
+                          "line": 175
+                        },
+                        "snippet": "  173 |     // Click create API key button\n  174 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 175 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  176 |     await createButton.click();\n  177 |\n  178 |     // Fill scopes input with multiple scopes"
                       },
                       "errors": [
                         {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
-                            "column": 24,
-                            "line": 171
+                            "column": 32,
+                            "line": 175
                           },
-                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  169 |     // Click create API key button\n  170 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 171 |     await createButton.click();\n      |                        ^\n  172 |\n  173 |     // Fill scopes input with multiple scopes\n  174 |     const scopesInput = page.getByTestId('api-key-scopes-input');\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:171:24"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  173 |     // Click create API key button\n  174 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 175 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  176 |     await createButton.click();\n  177 |\n  178 |     // Fill scopes input with multiple scopes\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:175:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:49.045Z",
+                      "startTime": "2025-11-01T08:03:54.448Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1762,7 +1663,12 @@
                           "contentType": "text/markdown",
                           "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-03-api-key-managemen-c02ec-w-selecting-multiple-scopes-chromium/error-context.md"
                         }
-                      ]
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                        "column": 32,
+                        "line": 175
+                      }
                     }
                   ],
                   "status": "unexpected"
@@ -1770,7 +1676,7 @@
               ],
               "id": "52ef100ed3b06c794b91-fe67326e841bcc8dbc0e",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 158,
+              "line": 162,
               "column": 3
             },
             {
@@ -1786,31 +1692,34 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 13,
-                      "parallelIndex": 2,
-                      "status": "timedOut",
-                      "duration": 30723,
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 9840,
                       "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:200:32",
+                        "location": {
+                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                          "column": 32,
+                          "line": 200
+                        },
+                        "snippet": "  198 |     // Click create API key button\n  199 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 200 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  201 |     await createButton.click();\n  202 |\n  203 |     // Try very long name"
                       },
                       "errors": [
                         {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
                           "location": {
                             "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
-                            "column": 24,
-                            "line": 195
+                            "column": 32,
+                            "line": 200
                           },
-                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  193 |     // Click create API key button\n  194 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 195 |     await createButton.click();\n      |                        ^\n  196 |\n  197 |     // Try very long name\n  198 |     const nameInput = page.getByTestId('api-key-name-input');\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:195:24"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('toggle-create-form-button')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('toggle-create-form-button')\u001b[22m\n\n\n  198 |     // Click create API key button\n  199 |     const createButton = page.getByTestId('toggle-create-form-button');\n> 200 |     await expect(createButton).toBeVisible({ timeout: 8000 });\n      |                                ^\n  201 |     await createButton.click();\n  202 |\n  203 |     // Try very long name\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts:200:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:54.447Z",
+                      "startTime": "2025-11-01T08:03:57.950Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1828,7 +1737,12 @@
                           "contentType": "text/markdown",
                           "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-03-api-key-managemen-d9b60-alidate-API-key-name-length-chromium/error-context.md"
                         }
-                      ]
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/03-api-key-management.spec.ts",
+                        "column": 32,
+                        "line": 200
+                      }
                     }
                   ],
                   "status": "unexpected"
@@ -1836,7 +1750,7 @@
               ],
               "id": "52ef100ed3b06c794b91-1050e0738ae48ff43996",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 182,
+              "line": 187,
               "column": 3
             },
             {
@@ -1852,15 +1766,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 3,
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 231,
+                      "duration": 205,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:55.017Z",
+                      "startTime": "2025-11-01T08:04:04.437Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1870,7 +1784,7 @@
               ],
               "id": "52ef100ed3b06c794b91-0755bf952e447fff0d29",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 209,
+              "line": 215,
               "column": 3
             },
             {
@@ -1886,15 +1800,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 3,
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 127,
+                      "duration": 210,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:55.401Z",
+                      "startTime": "2025-11-01T08:04:04.436Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1904,7 +1818,7 @@
               ],
               "id": "52ef100ed3b06c794b91-a6a0b580959edc9574a5",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 223,
+              "line": 229,
               "column": 3
             }
           ]
@@ -1912,7 +1826,7 @@
         {
           "title": "API Key Management - Listing & Display",
           "file": "tests/03-api-key-management.spec.ts",
-          "line": 238,
+          "line": 244,
           "column": 6,
           "specs": [
             {
@@ -1928,15 +1842,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
+                      "workerIndex": 12,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2220,
+                      "duration": 2193,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:55.537Z",
+                      "startTime": "2025-11-01T08:04:04.974Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1946,7 +1860,7 @@
               ],
               "id": "52ef100ed3b06c794b91-0c794cf570c7ef68445e",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 239,
+              "line": 245,
               "column": 3
             },
             {
@@ -1962,15 +1876,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 3,
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 109,
+                      "duration": 143,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:57.772Z",
+                      "startTime": "2025-11-01T08:04:04.788Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1980,7 +1894,7 @@
               ],
               "id": "52ef100ed3b06c794b91-56cf44a372cdf6879c0f",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 258,
+              "line": 264,
               "column": 3
             },
             {
@@ -1996,15 +1910,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 3,
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1140,
+                      "duration": 1166,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:57.890Z",
+                      "startTime": "2025-11-01T08:04:04.788Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2014,7 +1928,7 @@
               ],
               "id": "52ef100ed3b06c794b91-3307e8607c52c44909cb",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 272,
+              "line": 278,
               "column": 3
             },
             {
@@ -2030,15 +1944,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 3,
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1141,
+                      "duration": 1159,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:50:59.038Z",
+                      "startTime": "2025-11-01T08:04:04.961Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2048,7 +1962,7 @@
               ],
               "id": "52ef100ed3b06c794b91-06b9390617ec3a62b73c",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 288,
+              "line": 294,
               "column": 3
             }
           ]
@@ -2056,7 +1970,7 @@
         {
           "title": "API Key Management - Revocation",
           "file": "tests/03-api-key-management.spec.ts",
-          "line": 303,
+          "line": 309,
           "column": 6,
           "specs": [
             {
@@ -2072,15 +1986,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 3,
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 2169,
+                      "duration": 2156,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:00.185Z",
+                      "startTime": "2025-11-01T08:04:05.964Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2090,7 +2004,7 @@
               ],
               "id": "52ef100ed3b06c794b91-8477ea54c219f783a9ad",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 304,
+              "line": 310,
               "column": 3
             },
             {
@@ -2106,15 +2020,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 3,
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1285,
+                      "duration": 1187,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:02.359Z",
+                      "startTime": "2025-11-01T08:04:06.132Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2124,7 +2038,7 @@
               ],
               "id": "52ef100ed3b06c794b91-d9b926a3478481ed21a1",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 320,
+              "line": 326,
               "column": 3
             },
             {
@@ -2140,15 +2054,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
+                      "workerIndex": 12,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1144,
+                      "duration": 1209,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:03.650Z",
+                      "startTime": "2025-11-01T08:04:07.318Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2158,7 +2072,7 @@
               ],
               "id": "52ef100ed3b06c794b91-6cb5ecb2f5cf800525df",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 343,
+              "line": 349,
               "column": 3
             }
           ]
@@ -2166,7 +2080,7 @@
         {
           "title": "API Key Management - Permissions",
           "file": "tests/03-api-key-management.spec.ts",
-          "line": 373,
+          "line": 379,
           "column": 6,
           "specs": [
             {
@@ -2182,15 +2096,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 15,
-                      "parallelIndex": 1,
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2207,
+                      "duration": 2230,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:04.884Z",
+                      "startTime": "2025-11-01T08:04:07.334Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2200,7 +2114,7 @@
               ],
               "id": "52ef100ed3b06c794b91-2dcfcf61418eb477ad8c",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 374,
+              "line": 380,
               "column": 3
             },
             {
@@ -2216,15 +2130,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 3,
+                      "workerIndex": 13,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1142,
+                      "duration": 1215,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:04.800Z",
+                      "startTime": "2025-11-01T08:04:08.315Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2234,7 +2148,7 @@
               ],
               "id": "52ef100ed3b06c794b91-b500fc4ae2639e6d4b80",
               "file": "tests/03-api-key-management.spec.ts",
-              "line": 385,
+              "line": 391,
               "column": 3
             }
           ]
@@ -2256,151 +2170,89 @@
           "specs": [
             {
               "title": "should complete full journey: Connect → Sign → Create API Key",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 1511,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /gatekeeper/i })\nExpected: visible\nError: strict mode violation: getByRole('heading', { name: /gatekeeper/i }) resolved to 2 elements:\n    1) <h1 class=\"text-4xl md:text-6xl font-bold text-gray-900 dark:text-white\">…</h1> aka getByRole('heading', { name: 'Welcome to Gatekeeper' })\n    2) <h3 class=\"text-sm font-semibold text-gray-900 dark:text-white mb-3\">Gatekeeper</h3> aka getByRole('heading', { name: 'Gatekeeper', exact: true })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /gatekeeper/i })\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /gatekeeper/i })\nExpected: visible\nError: strict mode violation: getByRole('heading', { name: /gatekeeper/i }) resolved to 2 elements:\n    1) <h1 class=\"text-4xl md:text-6xl font-bold text-gray-900 dark:text-white\">…</h1> aka getByRole('heading', { name: 'Welcome to Gatekeeper' })\n    2) <h3 class=\"text-sm font-semibold text-gray-900 dark:text-white mb-3\">Gatekeeper</h3> aka getByRole('heading', { name: 'Gatekeeper', exact: true })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /gatekeeper/i })\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:18:70",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                          "column": 70,
-                          "line": 18
-                        },
-                        "snippet": "  16 |\n  17 |     // Verify homepage loads\n> 18 |     await expect(page.getByRole('heading', { name: /gatekeeper/i })).toBeVisible({ timeout: 5000 });\n     |                                                                      ^\n  19 |\n  20 |     // Step 2: Verify connect wallet button is visible\n  21 |     const connectButton = page.getByTestId('rk-connect-button').first();"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                            "column": 70,
-                            "line": 18
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /gatekeeper/i })\nExpected: visible\nError: strict mode violation: getByRole('heading', { name: /gatekeeper/i }) resolved to 2 elements:\n    1) <h1 class=\"text-4xl md:text-6xl font-bold text-gray-900 dark:text-white\">…</h1> aka getByRole('heading', { name: 'Welcome to Gatekeeper' })\n    2) <h3 class=\"text-sm font-semibold text-gray-900 dark:text-white mb-3\">Gatekeeper</h3> aka getByRole('heading', { name: 'Gatekeeper', exact: true })\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /gatekeeper/i })\u001b[22m\n\n\n  16 |\n  17 |     // Verify homepage loads\n> 18 |     await expect(page.getByRole('heading', { name: /gatekeeper/i })).toBeVisible({ timeout: 5000 });\n     |                                                                      ^\n  19 |\n  20 |     // Step 2: Verify connect wallet button is visible\n  21 |     const connectButton = page.getByTestId('rk-connect-button').first();\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:18:70"
-                        }
-                      ],
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:05.954Z",
+                      "startTime": "2025-11-01T08:04:08.126Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--60895-ect-→-Sign-→-Create-API-Key-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--60895-ect-→-Sign-→-Create-API-Key-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--60895-ect-→-Sign-→-Create-API-Key-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                        "column": 70,
-                        "line": 18
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "skipped"
                 }
               ],
               "id": "766844f0dd71fd1c9e39-543944324b0ec86ee48a",
               "file": "tests/04-complete-journey.spec.ts",
               "line": 12,
-              "column": 3
+              "column": 8
             },
             {
               "title": "should persist authentication across multiple page navigations",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
+                        "line": 77,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 15,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 3511,
-                      "error": {
-                        "message": "Error: locator.isVisible: Error: strict mode violation: getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i })) resolved to 2 elements:\n    1) <a href=\"/\" class=\"flex items-center space-x-2\">…</a> aka getByRole('link', { name: 'G Gatekeeper' })\n    2) <a href=\"/\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Home</a> aka getByRole('link', { name: 'Home' })\n\nCall log:\n\u001b[2m    - checking visibility of getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i }))\u001b[22m\n",
-                        "stack": "Error: locator.isVisible: Error: strict mode violation: getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i })) resolved to 2 elements:\n    1) <a href=\"/\" class=\"flex items-center space-x-2\">…</a> aka getByRole('link', { name: 'G Gatekeeper' })\n    2) <a href=\"/\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Home</a> aka getByRole('link', { name: 'Home' })\n\nCall log:\n\u001b[2m    - checking visibility of getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i }))\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:112:24",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                          "column": 24,
-                          "line": 112
-                        },
-                        "snippet": "  110 |     const homeLink = page.getByRole('link', { name: /^home$/i }).or(page.getByRole('link', { name: /gatekeeper/i }));\n  111 |\n> 112 |     if (await homeLink.isVisible({ timeout: 3000 })) {\n      |                        ^\n  113 |       await homeLink.click();\n  114 |       await page.waitForTimeout(1000);\n  115 |"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                            "column": 24,
-                            "line": 112
-                          },
-                          "message": "Error: locator.isVisible: Error: strict mode violation: getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i })) resolved to 2 elements:\n    1) <a href=\"/\" class=\"flex items-center space-x-2\">…</a> aka getByRole('link', { name: 'G Gatekeeper' })\n    2) <a href=\"/\" class=\"text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400\">Home</a> aka getByRole('link', { name: 'Home' })\n\nCall log:\n\u001b[2m    - checking visibility of getByRole('link', { name: /^home$/i }).or(getByRole('link', { name: /gatekeeper/i }))\u001b[22m\n\n\n  110 |     const homeLink = page.getByRole('link', { name: /^home$/i }).or(page.getByRole('link', { name: /gatekeeper/i }));\n  111 |\n> 112 |     if (await homeLink.isVisible({ timeout: 3000 })) {\n      |                        ^\n  113 |       await homeLink.click();\n  114 |       await page.waitForTimeout(1000);\n  115 |\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:112:24"
-                        }
-                      ],
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:07.244Z",
+                      "startTime": "2025-11-01T08:04:08.126Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--8d6f3-s-multiple-page-navigations-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--8d6f3-s-multiple-page-navigations-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--8d6f3-s-multiple-page-navigations-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                        "column": 24,
-                        "line": 112
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "skipped"
                 }
               ],
               "id": "766844f0dd71fd1c9e39-da9a2d9b9664ec15b2c7",
               "file": "tests/04-complete-journey.spec.ts",
               "line": 77,
-              "column": 3
+              "column": 8
             },
             {
               "title": "should handle browser refresh while authenticated",
@@ -2415,15 +2267,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 16,
-                      "parallelIndex": 3,
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 2538,
+                      "duration": 2575,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:07.892Z",
+                      "startTime": "2025-11-01T08:04:08.134Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2446,77 +2298,46 @@
           "specs": [
             {
               "title": "should auto-authenticate returning user with valid token",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
+                        "line": 148,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 16,
-                      "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 6604,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"visible\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"visible\"\u001b[22m\n\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:167:37",
-                        "location": {
-                          "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                          "column": 37,
-                          "line": 167
-                        },
-                        "snippet": "  165 |     // Should NOT see connect wallet button\n  166 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 167 |     await expect(connectButton).not.toBeVisible();\n      |                                     ^\n  168 |   });\n  169 |\n  170 |   test('should prompt re-authentication if token is expired', async ({ page, context }) => {"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                            "column": 37,
-                            "line": 167
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rk-connect-button').first()\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m      - unexpected value \"visible\"\u001b[22m\n\n\n  165 |     // Should NOT see connect wallet button\n  166 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 167 |     await expect(connectButton).not.toBeVisible();\n      |                                     ^\n  168 |   });\n  169 |\n  170 |   test('should prompt re-authentication if token is expired', async ({ page, context }) => {\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:167:37"
-                        }
-                      ],
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:10.531Z",
+                      "startTime": "2025-11-01T08:04:08.540Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--ab233-rning-user-with-valid-token-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--ab233-rning-user-with-valid-token-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--ab233-rning-user-with-valid-token-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                        "column": 37,
-                        "line": 167
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "skipped"
                 }
               ],
               "id": "766844f0dd71fd1c9e39-b833120651bea42c05ab",
               "file": "tests/04-complete-journey.spec.ts",
               "line": 148,
-              "column": 3
+              "column": 8
             },
             {
               "title": "should prompt re-authentication if token is expired",
@@ -2531,15 +2352,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 17,
-                      "parallelIndex": 1,
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 3073,
+                      "duration": 2954,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:11.180Z",
+                      "startTime": "2025-11-01T08:04:08.561Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2573,15 +2394,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 17,
-                      "parallelIndex": 1,
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2566,
+                      "duration": 2545,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:14.361Z",
+                      "startTime": "2025-11-01T08:04:09.580Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2607,15 +2428,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 17,
+                      "workerIndex": 13,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3036,
+                      "duration": 3062,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:16.950Z",
+                      "startTime": "2025-11-01T08:04:09.660Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2649,15 +2470,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 18,
-                      "parallelIndex": 3,
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 4649,
+                      "duration": 4602,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:17.615Z",
+                      "startTime": "2025-11-01T08:04:10.715Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2683,15 +2504,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 0,
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1942,
+                      "duration": 1856,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:20.295Z",
+                      "startTime": "2025-11-01T08:04:11.525Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2725,15 +2546,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 17,
-                      "parallelIndex": 1,
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1424,
+                      "duration": 1443,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:19.992Z",
+                      "startTime": "2025-11-01T08:04:12.135Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2759,15 +2580,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 17,
+                      "workerIndex": 13,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1548,
+                      "duration": 1434,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:21.422Z",
+                      "startTime": "2025-11-01T08:04:12.732Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2793,15 +2614,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 18,
+                      "workerIndex": 12,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1469,
+                      "duration": 1443,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:22.369Z",
+                      "startTime": "2025-11-01T08:04:13.390Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2835,15 +2656,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
+                      "workerIndex": 11,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2524,
+                      "duration": 2471,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:22.370Z",
+                      "startTime": "2025-11-01T08:04:13.584Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2858,69 +2679,46 @@
             },
             {
               "title": "should handle mobile wallet connection",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
+                        "line": 376,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 17,
-                      "parallelIndex": 1,
-                      "status": "timedOut",
-                      "duration": 30637,
-                      "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                      },
-                      "errors": [
-                        {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
-                          "location": {
-                            "file": "/Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts",
-                            "column": 25,
-                            "line": 385
-                          },
-                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('rk-connect-button').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-testid=\"rk-connect-button\" class=\"iekbcc0 iekbcc9 ju367v78 ju367v7t ju367v9i ju367vn ju367vei ju367vf3 ju367v16 ju367v1h ju367v2g ju367v8u _12cbo8i3 ju367v8r _12cbo8i4 _12cbo8i6\">Connect Wallet</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  383 |     // Click connect wallet\n  384 |     const connectButton = page.getByTestId('rk-connect-button').first();\n> 385 |     await connectButton.click();\n      |                         ^\n  386 |\n  387 |     // Mobile modal should appear\n  388 |     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });\n    at /Users/danwilliams/Documents/web3/gatekeeper/web/tests/e2e/tests/04-complete-journey.spec.ts:385:25"
-                        }
-                      ],
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:22.976Z",
+                      "startTime": "2025-11-01T08:04:14.175Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--72444-le-mobile-wallet-connection-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--72444-le-mobile-wallet-connection-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danwilliams/Documents/web3/gatekeeper/web/test-results/tests-04-complete-journey--72444-le-mobile-wallet-connection-chromium/error-context.md"
-                        }
-                      ]
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "skipped"
                 }
               ],
               "id": "766844f0dd71fd1c9e39-ed654b41142c454723a6",
               "file": "tests/04-complete-journey.spec.ts",
               "line": 376,
-              "column": 3
+              "column": 8
             }
           ]
         },
@@ -2943,15 +2741,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 18,
-                      "parallelIndex": 3,
+                      "workerIndex": 13,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1323,
+                      "duration": 1341,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:23.844Z",
+                      "startTime": "2025-11-01T08:04:14.176Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2977,15 +2775,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 0,
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1754,
+                      "duration": 1745,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-01T07:51:24.901Z",
+                      "startTime": "2025-11-01T08:04:14.840Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3005,11 +2803,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-01T07:49:58.048Z",
-    "duration": 115618.92700000001,
-    "expected": 44,
-    "skipped": 0,
-    "unexpected": 18,
+    "startTime": "2025-11-01T08:03:32.306Z",
+    "duration": 44316.977,
+    "expected": 46,
+    "skipped": 6,
+    "unexpected": 10,
     "flaky": 0
   }
 }

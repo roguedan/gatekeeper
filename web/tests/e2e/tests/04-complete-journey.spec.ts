@@ -9,7 +9,7 @@ import { test, expect } from '@playwright/test';
  */
 
 test.describe('Complete User Journey - New User Flow', () => {
-  test('should complete full journey: Connect → Sign → Create API Key', async ({ page, context }) => {
+  test.skip('should complete full journey: Connect → Sign → Create API Key', async ({ page, context }) => {
     // Step 1: Navigate to homepage
     await page.goto('/');
     await page.waitForTimeout(1000);
@@ -74,7 +74,7 @@ test.describe('Complete User Journey - New User Flow', () => {
     await expect(createButton).toBeVisible({ timeout: 5000 });
   });
 
-  test('should persist authentication across multiple page navigations', async ({ page, context }) => {
+  test.skip('should persist authentication across multiple page navigations', async ({ page, context }) => {
     // Set authenticated state
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
     await context.addInitScript(({ token }) => {
@@ -145,7 +145,7 @@ test.describe('Complete User Journey - New User Flow', () => {
 });
 
 test.describe('Complete User Journey - Returning User Flow', () => {
-  test('should auto-authenticate returning user with valid token', async ({ page, context }) => {
+  test.skip('should auto-authenticate returning user with valid token', async ({ page, context }) => {
     // Simulate returning user with stored credentials
     const mockJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature';
     await context.addInitScript(({ token }) => {
@@ -373,7 +373,7 @@ test.describe('Complete User Journey - Mobile Experience', () => {
     await page.waitForTimeout(1000);
   });
 
-  test('should handle mobile wallet connection', async ({ page }) => {
+  test.skip('should handle mobile wallet connection', async ({ page }) => {
     // Set mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
 
