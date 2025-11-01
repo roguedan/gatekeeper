@@ -80,11 +80,11 @@ test.describe('API Key Management - Creation Flow', () => {
     await page.waitForTimeout(1000);
 
     // Click create API key button
-    const createButton = page.getByRole('button', { name: /create.*api.*key|new.*key/i });
+    const createButton = page.getByTestId('toggle-create-form-button');
     await createButton.click();
 
-    // Verify modal or form appears
-    await expect(page.getByRole('dialog').or(page.getByRole('form'))).toBeVisible({ timeout: 5000 });
+    // Verify form appears
+    await expect(page.getByTestId('create-api-key-form')).toBeVisible({ timeout: 5000 });
   });
 
   test('should require API key name', async ({ page, context }) => {
@@ -99,17 +99,16 @@ test.describe('API Key Management - Creation Flow', () => {
     await page.waitForTimeout(1000);
 
     // Click create API key button
-    const createButton = page.getByRole('button', { name: /create.*api.*key|new.*key/i });
+    const createButton = page.getByTestId('toggle-create-form-button');
     await createButton.click();
 
-    // Try to submit without name
-    const submitButton = page.getByRole('button', { name: /create|save|generate/i });
+    // Form should have name input
+    const nameInput = page.getByTestId('api-key-name-input');
+    await expect(nameInput).toBeVisible({ timeout: 3000 });
 
-    if (await submitButton.isVisible()) {
-      // Form should have name input
-      const nameInput = page.getByLabel(/name|key.*name/i).or(page.getByPlaceholder(/name/i));
-      await expect(nameInput).toBeVisible({ timeout: 3000 });
-    }
+    // Create button should be disabled without name
+    const submitButton = page.getByTestId('create-api-key-button');
+    await expect(submitButton).toBeDisabled();
   });
 
   test('should allow setting API key name', async ({ page, context }) => {
@@ -124,18 +123,16 @@ test.describe('API Key Management - Creation Flow', () => {
     await page.waitForTimeout(1000);
 
     // Click create API key button
-    const createButton = page.getByRole('button', { name: /create.*api.*key|new.*key/i });
+    const createButton = page.getByTestId('toggle-create-form-button');
     await createButton.click();
 
     // Fill in name
-    const nameInput = page.getByLabel(/name|key.*name/i).or(page.getByPlaceholder(/name/i));
+    const nameInput = page.getByTestId('api-key-name-input');
+    await expect(nameInput).toBeVisible({ timeout: 3000 });
+    await nameInput.fill('Test API Key');
 
-    if (await nameInput.isVisible({ timeout: 3000 })) {
-      await nameInput.fill('Test API Key');
-
-      // Verify value is set
-      await expect(nameInput).toHaveValue('Test API Key');
-    }
+    // Verify value is set
+    await expect(nameInput).toHaveValue('Test API Key');
   });
 
   test('should display scope/permission options', async ({ page, context }) => {
@@ -150,14 +147,12 @@ test.describe('API Key Management - Creation Flow', () => {
     await page.waitForTimeout(1000);
 
     // Click create API key button
-    const createButton = page.getByRole('button', { name: /create.*api.*key|new.*key/i });
+    const createButton = page.getByTestId('toggle-create-form-button');
     await createButton.click();
 
-    // Look for scope/permission checkboxes or select
-    const scopeOptions = page.getByText(/read|write|admin|scope|permission/i);
-
-    // Scopes should be visible in the form
-    await page.waitForTimeout(1000);
+    // Scopes input should be visible
+    const scopesInput = page.getByTestId('api-key-scopes-input');
+    await expect(scopesInput).toBeVisible({ timeout: 3000 });
   });
 
   test('should allow selecting multiple scopes', async ({ page, context }) => {
@@ -172,23 +167,16 @@ test.describe('API Key Management - Creation Flow', () => {
     await page.waitForTimeout(1000);
 
     // Click create API key button
-    const createButton = page.getByRole('button', { name: /create.*api.*key|new.*key/i });
+    const createButton = page.getByTestId('toggle-create-form-button');
     await createButton.click();
 
-    // Look for checkboxes
-    const checkboxes = page.getByRole('checkbox');
-    const count = await checkboxes.count();
+    // Fill scopes input with multiple scopes
+    const scopesInput = page.getByTestId('api-key-scopes-input');
+    await expect(scopesInput).toBeVisible({ timeout: 3000 });
+    await scopesInput.fill('read,write,admin');
 
-    if (count > 0) {
-      // Click first two checkboxes
-      await checkboxes.first().check();
-      if (count > 1) {
-        await checkboxes.nth(1).check();
-      }
-
-      // Verify they are checked
-      expect(await checkboxes.first().isChecked()).toBeTruthy();
-    }
+    // Verify value is set
+    await expect(scopesInput).toHaveValue('read,write,admin');
   });
 
   test('should validate API key name length', async ({ page, context }) => {
@@ -203,12 +191,12 @@ test.describe('API Key Management - Creation Flow', () => {
     await page.waitForTimeout(1000);
 
     // Click create API key button
-    const createButton = page.getByRole('button', { name: /create.*api.*key|new.*key/i });
+    const createButton = page.getByTestId('toggle-create-form-button');
     await createButton.click();
 
     // Try very long name
-    const nameInput = page.getByLabel(/name|key.*name/i).or(page.getByPlaceholder(/name/i));
-
+    const nameInput = page.getByTestId('api-key-name-input');
+    await expect(nameInput).toBeVisible({ timeout: 3000 });
     if (await nameInput.isVisible({ timeout: 3000 })) {
       const longName = 'A'.repeat(200);
       await nameInput.fill(longName);

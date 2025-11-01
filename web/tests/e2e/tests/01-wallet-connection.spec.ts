@@ -50,9 +50,8 @@ test.describe('Wallet Connection Flow', () => {
     // Wait for modal
     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
 
-    // Find and click close button (RainbowKit uses a close button)
-    const closeButton = page.locator('[data-rk] button').first();
-    await closeButton.click();
+    // Close modal by pressing Escape key (standard way to close RainbowKit modal)
+    await page.keyboard.press('Escape');
 
     // Verify modal is closed
     await expect(page.locator('[data-rk]').first()).not.toBeVisible();
@@ -131,9 +130,8 @@ test.describe('Wallet Connection Flow', () => {
     // Modal should open
     await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
 
-    // Close the modal to simulate rejection
-    const closeButton = page.locator('[data-rk] button').first();
-    await closeButton.click();
+    // Close the modal to simulate rejection by pressing Escape
+    await page.keyboard.press('Escape');
 
     // Verify user remains on homepage and connect button is still visible
     await expect(page.getByTestId('rk-connect-button').first()).toBeVisible();

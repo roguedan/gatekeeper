@@ -56,7 +56,7 @@ export const APIKeys = () => {
             Manage your API keys for programmatic access to protected resources
           </p>
         </div>
-        <Button onClick={() => setShowCreateForm(!showCreateForm)}>
+        <Button onClick={() => setShowCreateForm(!showCreateForm)} data-testid="toggle-create-form-button">
           <Plus className="h-5 w-5 mr-2" />
           Create API Key
         </Button>
@@ -85,13 +85,14 @@ export const APIKeys = () => {
         <Card title="Create New API Key">
           {createError && <Alert variant="error" className="mb-4">{createError}</Alert>}
 
-          <div className="space-y-4">
+          <form className="space-y-4" data-testid="create-api-key-form">
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Key Name
               </label>
               <input
                 type="text"
+                data-testid="api-key-name-input"
                 value={newKeyData.name}
                 onChange={(e) => setNewKeyData({ ...newKeyData, name: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
@@ -105,6 +106,7 @@ export const APIKeys = () => {
               </label>
               <input
                 type="text"
+                data-testid="api-key-scopes-input"
                 value={newKeyData.scopes}
                 onChange={(e) => setNewKeyData({ ...newKeyData, scopes: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
@@ -118,6 +120,7 @@ export const APIKeys = () => {
               </label>
               <input
                 type="number"
+                data-testid="api-key-expiry-input"
                 value={newKeyData.expiresInDays}
                 onChange={(e) => setNewKeyData({ ...newKeyData, expiresInDays: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
@@ -126,14 +129,14 @@ export const APIKeys = () => {
             </div>
 
             <div className="flex gap-3">
-              <Button onClick={handleCreateKey} isLoading={isCreating} disabled={!newKeyData.name || !newKeyData.scopes}>
+              <Button onClick={handleCreateKey} isLoading={isCreating} disabled={!newKeyData.name || !newKeyData.scopes} data-testid="create-api-key-button">
                 Create Key
               </Button>
-              <Button variant="outline" onClick={() => setShowCreateForm(false)}>
+              <Button variant="outline" onClick={() => setShowCreateForm(false)} data-testid="cancel-create-api-key-button">
                 Cancel
               </Button>
             </div>
-          </div>
+          </form>
         </Card>
       )}
 
