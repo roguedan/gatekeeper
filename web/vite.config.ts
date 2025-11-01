@@ -10,8 +10,29 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'wagmi',
+      'viem',
+      '@wagmi/core',
+      '@wagmi/connectors',
+      '@rainbow-me/rainbowkit',
+      '@tanstack/react-query',
+      'siwe',
+    ],
+    esbuildOptions: {
+      // Use target that matches container capabilities
+      target: 'es2020',
+    },
+  },
   server: {
     port: 3000,
+    watch: {
+      usePolling: true,
+    },
     proxy: {
       '/api': {
         target: 'http://localhost:8080',

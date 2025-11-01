@@ -14,48 +14,48 @@ test.describe('Wallet Connection Flow', () => {
   });
 
   test('should display wallet connection button on homepage', async ({ page }) => {
-    // Verify the connect wallet button is visible
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    // Verify the connect wallet button is visible (using first() to handle multiple buttons)
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await expect(connectButton).toBeVisible();
   });
 
   test('should show RainbowKit modal when connect button is clicked', async ({ page }) => {
     // Click connect wallet button
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await connectButton.click();
 
     // Verify RainbowKit modal appears
-    await expect(page.locator('[data-rk]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
   });
 
   test('should display wallet provider options in modal', async ({ page }) => {
     // Open wallet connect modal
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await connectButton.click();
 
     // Wait for modal to be visible
-    await expect(page.locator('[data-rk]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
 
     // Verify wallet options are displayed
     // RainbowKit shows wallet options like MetaMask, WalletConnect, etc.
-    const modalContent = page.locator('[data-rk]');
+    const modalContent = page.locator('[data-rk]').first();
     await expect(modalContent).toContainText(/MetaMask|WalletConnect|Coinbase/i);
   });
 
   test('should close modal when cancel/close button is clicked', async ({ page }) => {
     // Open wallet connect modal
-    const connectButton = page.getByRole('button', { name: /connect wallet/i });
+    const connectButton = page.getByTestId('rk-connect-button').first();
     await connectButton.click();
 
     // Wait for modal
-    await expect(page.locator('[data-rk]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-rk]').first()).toBeVisible({ timeout: 5000 });
 
     // Find and click close button (RainbowKit uses a close button)
     const closeButton = page.locator('[data-rk] button').first();
     await closeButton.click();
 
     // Verify modal is closed
-    await expect(page.locator('[data-rk]')).not.toBeVisible();
+    await expect(page.locator('[data-rk]').first()).not.toBeVisible();
   });
 
   test('should handle no wallet provider gracefully', async ({ page }) => {

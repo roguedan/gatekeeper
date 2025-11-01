@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
 	"github.com/yourusername/gatekeeper/internal/audit"
 	"github.com/yourusername/gatekeeper/internal/auth"
 	"github.com/yourusername/gatekeeper/internal/chain"
@@ -21,6 +22,9 @@ import (
 )
 
 func main() {
+	// Load .env file for development (ignore error if file doesn't exist)
+	_ = godotenv.Load()
+
 	// Load configuration
 	cfg, err := config.Load()
 	if err != nil {

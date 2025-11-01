@@ -143,21 +143,71 @@ gatekeeper/
 
 ## Configuration
 
-### Required Environment Variables
+### Environment Variables
+
+Gatekeeper uses environment variables for configuration. For local development, create a `.env` file in the project root.
+
+#### Required Variables
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `DATABASE_URL` | PostgreSQL connection string | `postgres://user:pass@localhost/gatekeeper?sslmode=disable` |
+| `JWT_SECRET` | Secret key for signing JWTs (min 32 chars) | `your-secret-key-here` |
+| `ETHEREUM_RPC` | Primary Ethereum RPC provider URL | `https://eth-mainnet.g.alchemy.com/v2/YOUR_KEY` |
+| `PORT` | HTTP server port | `8080` |
+
+#### Optional Variables
+
+| Variable | Type | Default | Description |
+|----------|------|---------|-------------|
+| `ENVIRONMENT` | string | `development` | Environment: development, staging, production |
+| `LOG_LEVEL` | string | `info` | Log level: debug, info, warn, error |
+| `ETHEREUM_RPC_FALLBACK` | string | - | Fallback RPC endpoint (optional) |
+| `CHAIN_ID` | uint64 | `1` | Chain ID (1=mainnet, 5=goerli, 11155111=sepolia) |
+| `CACHE_TTL` | int | `300` | Cache TTL in seconds (default: 5 minutes) |
+| `RPC_TIMEOUT` | int | `5` | RPC call timeout in seconds |
+| `JWT_EXPIRY_HOURS` | int | `24` | JWT token expiration in hours |
+| `NONCE_TTL_MINUTES` | int | `5` | Nonce expiration in minutes |
+| `DB_MAX_OPEN_CONNS` | int | `25` | Maximum open database connections |
+| `DB_MAX_IDLE_CONNS` | int | `5` | Maximum idle database connections |
+| `DB_CONN_MAX_LIFETIME_MINUTES` | int | `5` | Connection max lifetime in minutes |
+| `DB_CONN_MAX_IDLE_TIME_MINUTES` | int | `1` | Connection max idle time in minutes |
+| `API_KEY_CREATION_RATE_LIMIT` | int | `10` | API key creations per user per hour |
+| `API_KEY_CREATION_BURST_LIMIT` | int | `3` | Max burst for API key creation |
+| `API_USAGE_RATE_LIMIT` | int | `1000` | API requests per user per minute |
+| `API_USAGE_BURST_LIMIT` | int | `100` | Max burst for API usage |
+
+### Example .env File
+
+Create a `.env` file in the project root for local development:
 
 ```bash
-PORT                    # HTTP server port (default: 8080)
-DATABASE_URL           # PostgreSQL connection string
-JWT_SECRET             # Secret for signing JWT tokens (min 32 chars)
-ETHEREUM_RPC           # Ethereum RPC endpoint URL
-```
+# Required
+DATABASE_URL=postgres://gatekeeper:gatekeeper@localhost:5432/gatekeeper?sslmode=disable
+JWT_SECRET=your-randomly-generated-secret-key-here-minimum-32-characters
+ETHEREUM_RPC=https://eth-sepolia.g.alchemy.com/v2/demo
+PORT=8080
 
-### Optional Environment Variables
+# Optional
+ENVIRONMENT=development
+LOG_LEVEL=debug
+CHAIN_ID=11155111
+CACHE_TTL=300
+RPC_TIMEOUT=5
+JWT_EXPIRY_HOURS=24
+NONCE_TTL_MINUTES=5
 
-```bash
-LOG_LEVEL              # Log level: debug, info, warn, error (default: info)
-NONCE_TTL_MINUTES      # Nonce expiration time in minutes (default: 5)
-JWT_EXPIRY_HOURS       # JWT token expiration time in hours (default: 24)
+# Database Pool (optional)
+DB_MAX_OPEN_CONNS=25
+DB_MAX_IDLE_CONNS=5
+DB_CONN_MAX_LIFETIME_MINUTES=5
+DB_CONN_MAX_IDLE_TIME_MINUTES=1
+
+# Rate Limiting (optional)
+API_KEY_CREATION_RATE_LIMIT=10
+API_KEY_CREATION_BURST_LIMIT=3
+API_USAGE_RATE_LIMIT=1000
+API_USAGE_BURST_LIMIT=100
 ```
 
 ### Generate Secure JWT_SECRET

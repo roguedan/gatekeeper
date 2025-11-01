@@ -1,13 +1,13 @@
 # Development Dockerfile for Gatekeeper Frontend
 # This Dockerfile is used for hot-reload development with docker-compose.override.yml
 
-FROM node:20-alpine
+FROM node:18
 
 # Set working directory
 WORKDIR /app
 
 # Install build dependencies (including Python for node-gyp)
-RUN apk add --no-cache python3 make g++
+RUN apt-get update && apt-get install -y python3 build-essential && rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
 COPY package*.json ./
@@ -26,5 +26,9 @@ EXPOSE 24678
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
 
-# Start Vite dev server
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"]
+# Set environment variables to fix esbuild EPIPE errors
+ENV ESBUILD_BINARY_PATH=/app/node_modules/esbuild/bin/esbuild
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
+# Start Vite dev server with forced optimization
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000", "--force"]

@@ -2,6 +2,7 @@ package store
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
 	"time"
 
@@ -70,4 +71,26 @@ type PoolStats struct {
 // RunMigrations runs all database migrations
 func (d *DB) RunMigrations() error {
 	return Migrate(context.Background(), d.DB)
+}
+
+// CheckDatabaseHealth verifies database connectivity with a simple query.
+// Returns an error if the database connection fails or times out after 5 seconds.
+func CheckDatabaseHealth(ctx context.Context, db *sql.DB) error {
+	// Create a timeout context of 5 seconds
+	timeoutCtx, cancel := context.WithTimeout(ctx, 5*time.Second)
+	defer cancel()
+
+	// Execute a simple query to verify database is responding
+	var result int
+	err := db.QueryRowContext(timeoutCtx, "SELECT 1").Scan(&result)
+	if err != nil {
+		return fmt.Errorf("database health check failed: %w", err)
+	}
+
+	// Verify the result is correct
+	if result != 1 {
+		return fmt.Errorf("database health check returned unexpected value: %d", result)
+	}
+
+	return nil
 }
