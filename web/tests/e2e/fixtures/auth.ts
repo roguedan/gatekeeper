@@ -8,8 +8,8 @@ export interface AuthSetupOptions {
 
 /**
  * Setup authenticated state by setting JWT token in localStorage
- * IMPORTANT: Must be called with context.addInitScript BEFORE first page navigation
- * This function MUST be called BEFORE any page.goto() calls
+ * CRITICAL: Must be called BEFORE first page.goto() to inject auth into localStorage
+ * The init script is applied to ALL subsequent page loads within the same context
  */
 export async function setupAuthenticatedUser(
   page: Page,
@@ -22,8 +22,9 @@ export async function setupAuthenticatedUser(
     waitForLoad = true,
   } = options
 
-  // CRITICAL: Setup auth in context BEFORE any navigation
+  // CRITICAL: Setup auth in context BEFORE any page navigation
   // This ensures localStorage is initialized when page loads and app initializes
+  // The init script runs on EVERY page load in this context
   await context.addInitScript(
     ({ token, address }) => {
       // Set auth token (checked by authService.isAuthenticated())
@@ -37,8 +38,20 @@ export async function setupAuthenticatedUser(
     { token, address }
   )
 
-  // Return without navigating - let the test handle navigation
-  // This way the init script is applied to ALL subsequent page loads
+  // Navigate to home first to initialize auth context
+  // The init script above will have already set localStorage for this navigation
+  await page.goto('/')
+
+  // Wait for auth to initialize
+  if (waitForLoad) {
+    try {
+      await page.waitForLoadState('networkidle')
+    } catch {
+      // Some routes may not complete networkidle, just wait
+      await page.waitForTimeout(1000)
+    }
+  }
+
   return { address, token }
 }
 
